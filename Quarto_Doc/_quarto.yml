@@ -4,8 +4,8 @@ project:
   resources:
   - games/**
 book:
-  title: JavaScript Game Programming for Kids
-  subtitle: From browser games to dynamic 2D and 3D worlds
+  title: "Web Game Coding for Kids"
+  subtitle: "Learn JavaScript by Building 2D and 3D Games"
   search: true
   sidebar:
     style: docked

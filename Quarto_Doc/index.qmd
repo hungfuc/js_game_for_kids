@@ -4,9 +4,11 @@
 
 [LEARN BY MAKING]{.eyebrow}
 
-[JavaScript Game Programming for Kids]{.hero-title}
+[Web Game Coding for Kids]{.hero-title}
 
-Build a game. Understand the code. Make it your own. Explore 2D and 3D.
+*Learn JavaScript by Building 2D and 3D Games*
+
+Build a game. Understand the code. Make it your own.
 
 [18 chapters]{.hero-chip} [Visual explanations]{.hero-chip} [Advanced Study]{.hero-chip}
 
