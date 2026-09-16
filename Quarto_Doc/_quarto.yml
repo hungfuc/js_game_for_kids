@@ -1,0 +1,74 @@
+project:
+  type: book
+  output-dir: _book
+  resources:
+  - games/**
+book:
+  title: JavaScript Game Programming for Kids
+  subtitle: From browser games to dynamic 2D and 3D worlds
+  search: true
+  sidebar:
+    style: docked
+    background: light
+    collapse-level: 2
+  chapters:
+  - index.qmd
+  - part: Make the browser react
+    chapters:
+    - chapters/01-click-the-monster.qmd
+    - chapters/02-treasure-clicker.qmd
+    - chapters/03-secret-number.qmd
+    - chapters/04-rock-paper-scissors.qmd
+    - chapters/05-catch-the-star.qmd
+  - part: Build a moving game world
+    chapters:
+    - chapters/06-bouncing-ball.qmd
+    - chapters/07-pong.qmd
+    - chapters/08-breakout.qmd
+    - chapters/09-snake.qmd
+  - part: Create your own game
+    chapters:
+    - chapters/10-game-studio.qmd
+  - part: Build a complete 2D adventure
+    chapters:
+    - chapters/11-real-time-2d.qmd
+    - chapters/12-collision-and-platforms.qmd
+    - chapters/13-custom-2d-assets.qmd
+    - chapters/14-robot-orchard.qmd
+  - part: Explore 3D with Three.js and Rapier
+    chapters:
+    - chapters/15-first-threejs-world.qmd
+    - chapters/16-custom-3d-assets.qmd
+    - chapters/17-rapier-physics.qmd
+    - chapters/18-marble-quest.qmd
+  - references.qmd
+  appendices:
+  - appendices/a-cheat-sheet.qmd
+  - appendices/b-debugging.qmd
+  - appendices/c-phaser.qmd
+  - appendices/d-self-check.qmd
+  - appendices/e-game-lab.qmd
+lang: en
+number-sections: true
+number-depth: 2
+toc-depth: 2
+format:
+  html:
+    theme:
+    - cosmo
+    - styles/textbook.scss
+    css: styles/textbook.css
+    toc: true
+    toc-title: In this chapter
+    code-copy: true
+    code-overflow: wrap
+    highlight-style: pygments
+    anchor-sections: true
+    link-external-newwindow: true
+    link-external-icon: false
+    smooth-scroll: true
+    fig-cap-location: bottom
+    callout-appearance: default
+    callout-icon: false
+execute:
+  eval: false

@@ -1,0 +1,16 @@
+# JavaScript Game Maker Cheat Sheet {#sec-cheat-sheet}
+
+Keep these patterns nearby while you build. Examples with `...` are sketches, not finished code.
+
+| Tool | `Example` | Use it when... |
+| --- | --- | --- |
+| Variable | `let score = 0;` | Stores a value that can change. |
+| Constant | `const speed = 4;` | Names a value whose binding you do not plan to reassign. |
+| Decision | `if (score >= 10) { ... }` | Runs code only when a condition is true. |
+| Function | `function jump() { ... }` | Names a reusable action. |
+| Random | `Math.floor(Math.random() * 10)` | Makes an integer from 0 to 9. |
+| Array | `const enemies = [];` | Stores a collection. |
+| Loop | `for (const enemy of enemies) { ... }` | Processes items one at a time. |
+| Timer | `setInterval(move, 1000);` | Repeats on a time interval. |
+| Animation | `requestAnimationFrame(loop);` | Runs the next animation frame. |
+| Canvas | `ctx.fillRect(x, y, w, h);` | Draws a rectangle. |

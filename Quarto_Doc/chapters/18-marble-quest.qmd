@@ -1,0 +1,173 @@
+# Create a 3D Physics Game: Marble Quest {#sec-ch18}
+
+::: {.chapter-banner}
+[GAME LAB 18 | Marble Quest]{.game-title}
+[Three.js + Rapier]{.skill-chip} [Sensors]{.skill-chip} [Collision events]{.skill-chip} [Custom assets]{.skill-chip}
+:::
+
+::: {.callout-tip .mission title="Your mission" icon="false"}
+Control a physical marble, push crates, collect custom crystal models, unlock a gate, and restart a complete game without duplicating the simulation.
+:::
+
+::: {.callout-note .big-idea title="The big idea" icon="false"}
+Physics tells you what touched. Game rules decide what that contact means: stop, bounce, collect, lose a life, or win.
+:::
+
+## Play the complete reference game
+
+Open **Marble Quest** in the Game Lab and choose Start. Use WASD or the arrow keys to roll the marble. Collect five crystals and enter the far gate. Walls block you; crates can be pushed; the ramp changes your motion. Rolling off the board costs a life.
+
+The game uses the original crystal and crate GLBs, a custom marble texture, Three.js rendering, and Rapier physics. The source is fully supplied in `games/marble-quest/`, with shared helpers in `games/shared/`. Snippets in this chapter explain selected parts of that implementation; they are not meant to be pasted together as an unrelated second loop.
+
+## Build two representations of solid objects
+
+For a crate, the visible object is a clone of `crate.glb`. The simulation uses a dynamic body with a cuboid collider. Both share a center-origin convention and a one-unit full size.
+
+```javascript
+const body = world.createRigidBody(
+  RAPIER.RigidBodyDesc.dynamic().setTranslation(x, 0.6, z)
+);
+world.createCollider(
+  RAPIER.ColliderDesc.cuboid(0.5, 0.5, 0.5), body
+);
+const mesh = crateFile.scene.clone(true);
+links.push({ body, mesh });
+```
+
+The complete code also adds the visual to the scene group and applies material and friction settings. `links` remembers which visual follows which body. Each draw copies body transforms into these visible objects.
+
+Walls and the ramp instead use fixed bodies. The ramp's visual and collider receive the same quaternion. Rotating only the visible ramp would create a convincing picture of a slope with the physics of a flat box.
+
+## Control the marble without teleporting
+
+The marble is a dynamic sphere. A movement key applies a small horizontal impulse during each fixed step. The impulse is proportional to body mass and step duration, giving a chosen acceleration-like input.
+
+```javascript
+const impulse = playerBody.mass() * 18 * dt;
+playerBody.applyImpulse({
+  x: direction.x * impulse,
+  y: 0,
+  z: direction.y * impulse
+}, true);
+```
+
+The second direction component is mapped to world `z`. Normalization prevents diagonal input from being stronger than straight input. Linear damping helps the marble slow down, and a horizontal speed cap keeps this small course controllable. The cap preserves vertical velocity so it does not cancel gravity.
+
+This is an arcade controller, not a claim to model every force acting on a real marble. The purpose is predictable, playful motion using Rapier's contacts and collisions.
+
+## Make collectibles sensors, not walls
+
+A crystal should report an overlap without pushing the marble away. Use a **sensor collider**. Its visible GLB and its collision shape do not need identical facets; this game uses a forgiving spherical sensor.
+
+```javascript
+const descriptor = RAPIER.ColliderDesc.ball(0.65)
+  .setSensor(true)
+  .setActiveEvents(RAPIER.ActiveEvents.COLLISION_EVENTS);
+const sensor = world.createCollider(descriptor, gemBody);
+```
+
+The crystal's body is fixed because the collectible stays in place. Its visual can rotate for decoration without rotating a spherical sensor. Rapier distinguishes nonblocking sensors from contact-generating colliders in its [collider guide](https://rapier.rs/docs/user_guides/javascript/colliders/).
+
+![Solid contacts affect motion while sensor events feed one-time scoring and victory rules.](../figures/chapter_18/sensor-rules.svg){#fig-ch18 fig-alt="Solid collisions push bodies apart. Sensor overlaps produce an event, which is checked once before score and win conditions are updated." width="100%"}
+
+**Read the picture:** The physics response to a solid object and the game response to a collectible take different paths. The sensor itself does not know how many points a crystal is worth.
+
+## Read collision events after stepping
+
+Create an event queue, pass it into the physics step, and drain the generated events. Each collision event identifies two collider handles and whether the overlap or collision started or stopped.
+
+```javascript
+const events = new RAPIER.EventQueue(true);
+
+// Inside each physics update:
+world.step(events);
+events.drainCollisionEvents((a, b, started) => {
+  if (!started) return;
+  const other = a === playerCollider.handle ? b :
+                b === playerCollider.handle ? a : null;
+  if (other !== null && gems.has(other)) picked.add(other);
+});
+```
+
+`gems` is a `Map` from sensor handles to collectible records. `picked` is a `Set` for this step. Checking which collider belongs to the player prevents a crate from accidentally collecting a crystal on the player's behalf. See Rapier's [event-queue API](https://rapier.rs/javascript3d/classes/EventQueue.html) and [advanced collision-detection guide](https://rapier.rs/docs/user_guides/javascript/advanced_collision_detection/).
+
+## Award the reward once
+
+After draining the queue, process the collected handles. Mark the item as collected, increase the score, hide its visual, and remove its physics body. The one-time flag protects the rule from duplicate requests.
+
+```javascript
+if (!item.collected && state.mode === "playing") {
+  item.collected = true;
+  state.score++;
+  item.mesh.visible = false;
+  world.removeRigidBody(item.body);
+}
+```
+
+The supplied code puts the one-time rule in `rules.js` so it can be tested without Three.js or Rapier. Object removal happens after the event loop has finished, rather than while it is iterating through engine events.
+
+## Check the gate using current state
+
+The gate is another sensor. Winning requires every crystal and a current overlap with the gate:
+
+```javascript
+if (
+  state.mode === "playing" &&
+  state.score === gemPositions.length &&
+  world.intersectionPair(playerCollider, goalCollider)
+) {
+  state.mode = "won";
+}
+```
+
+Why check overlap every step rather than only on the gate's entry event? You might enter the gate while collecting the final nearby crystal. Depending only on event order could make you leave and reenter before winning. Checking current state after processing pickups avoids that unnecessary surprise.
+
+## Handle a fall deliberately
+
+When the marble falls below the board, reduce lives. If lives remain, teleport it to a safe spawn position and reset both linear and angular velocity. Otherwise, enter `lost`. This teleport is a deliberate respawn, not the ordinary movement method.
+
+A respawn should not put the sphere inside a wall, crate, or floor. Changing position but keeping a large old velocity can launch the player away immediately; resetting motion is part of the respawn rule.
+
+::: {.callout-note .advanced-study title="Advanced Study | Collision handles are identities, not array positions" icon="false" collapse="false"}
+A handle identifies an engine object. It is not the same as "crystal number 2" or an array index. Store the relationship explicitly in a `Map`, and rebuild that mapping when creating a new physics world.
+
+Keep the collected flag even when a visual has been hidden. Visibility is a rendering choice; it should not be the only source of truth for a game rule. Similarly, removing a Three.js mesh does not remove a Rapier body. Both representations have their own lifetimes.
+:::
+
+## Restart one world, not several
+
+Restart frees the old Rapier world and event queue, clears its visual group, and creates fresh bodies, sensors, mappings, lives, and score. The single animation loop and its input listeners remain in place.
+
+```javascript
+if (world) world.free();
+if (events) events.free();
+group.clear();
+links = [];
+gems = new Map();
+```
+
+The project reuses shared visual geometry, materials, and loaded GLB templates. Shared resources should not be disposed of while new clones still use them. Debug wireframe buffers, which are replaced as the display changes, are disposed when replaced.
+
+::: {.callout-note .advanced-study title="Advanced Study | A game loop is also a lifetime plan" icon="false" collapse="false"}
+There are three kinds of lifetime to think about: page lifetime for loaded libraries and reusable assets, round lifetime for physics bodies and score, and frame lifetime for temporary input or event sets.
+
+Putting an object in the wrong lifetime can produce bugs. A new listener per frame accumulates callbacks. A new physics world per frame wastes resources and resets motion. A collectible flag reused across rounds makes a fresh game begin with missing crystals.
+
+The same design applies to a future walking character, vehicle, or multiplayer game, even though their controls and simulation details will be different.
+:::
+
+## Design your own 3D physics challenge
+
+Start with a small change that has a clear test: move one wall, reposition a crystal, change a crate's density, or change the marble's damping. Then try a visual remix by replacing a model while keeping its physical dimensions.
+
+A more ambitious extension is a capsule-controlled character with a matching visual model. That requires grounded movement, jump handling, and a character-controller policy; changing the sphere mesh into a robot is not enough. Return to the character-controller discussion in Chapter 17 before attempting it.
+
+::: {.callout-tip .challenge title="Level up" icon="false"}
+Make a delivery game: push a crate into a target sensor to unlock the exit. Decide which collider may trigger the target, whether the crate must remain inside, and what happens after a restart. Draw the event-to-rule flow before changing the code.
+:::
+
+::: {.callout-important .checkpoint title="Explain your complete 3D game" icon="false"}
+Why should a collectible use a sensor? Why does the event handler check the player's collider handle? Explain why removing the picture of a crate is different from removing its physics body. Name one rule that belongs to your game rather than to the physics engine.
+:::
+
+**Complete companion source:** [Marble Quest](../games/marble-quest/index.html), [main.js](../games/marble-quest/main.js), [testable rules](../games/marble-quest/rules.js), and [shared debug display](../games/shared/physics-debug.js).

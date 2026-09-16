@@ -1,0 +1,134 @@
+# Make the Page React {#sec-ch01}
+
+::: {.chapter-banner}
+
+[GAME 01 | Click the Monster]{.game-title}
+
+[Events]{.skill-chip} [Functions]{.skill-chip} [HTML]{.skill-chip}
+
+:::
+
+::: {.callout-tip .mission title="Your mission" icon="false"}
+
+By the end of this chapter, you can:
+
+- connect JavaScript to a button
+- write and call a function
+- respond to a click event
+
+:::
+
+::: {.callout-note .big-idea title="The big idea" icon="false"}
+
+A game begins when the player does something and the program reacts. In the browser, those actions are called events.
+
+:::
+
+## Your first game screen
+
+We will start with one HTML file. The button is our monster. When the player clicks it, JavaScript runs a function.
+
+![Event flow: a player action becomes a JavaScript response.](../figures/chapter_01/event-flow.png){#fig-ch01 fig-alt="A player clicks the monster button, the browser detects a click event, and JavaScript calls hitMonster." width="100%"}
+
+**Read the picture:** Follow the arrows from left to right. The player creates the event; the browser notices it; the registered function supplies the response. Registering a listener does not run the function immediately.
+
+```html
+<!doctype html>
+<html>
+<body>
+  <h1>Click the Monster!</h1>
+  <button id="monster">👾 Monster</button>
+  <script>
+    // JavaScript goes here
+  </script>
+</body>
+</html>
+```
+
+## A function is an action you can name
+
+A function groups instructions. The function below has a name: `hitMonster`. Nothing inside it runs until the function is called.
+
+```javascript
+function hitMonster() {
+  alert("You hit the monster!");
+}
+```
+
+## Connect the click to the function
+
+The browser can listen for events. `addEventListener` tells an element what kind of event to watch for and which function should run.
+
+```javascript
+const monster = document.getElementById("monster");
+monster.addEventListener("click", hitMonster);
+```
+
+## Build the complete game
+
+Put the pieces together. Type the code yourself if you can; typing helps your brain notice punctuation, spelling, and structure.
+
+[COMPLETE EXAMPLE]{.code-label}
+
+```html
+<!doctype html>
+<html>
+<body>
+  <h1>Click the Monster!</h1>
+  <button id="monster">👾 Monster</button>
+  <p id="message">Can you catch it?</p>
+
+  <script>
+    const monster = document.getElementById("monster");
+    const message = document.getElementById("message");
+
+    function hitMonster() {
+      message.textContent = "Great hit!";
+    }
+
+    monster.addEventListener("click", hitMonster);
+  </script>
+</body>
+</html>
+```
+
+::: {.callout-note .advanced-study title="Advanced Study | HTML elements and the DOM" icon="false" collapse="false"}
+
+[OPTIONAL DEEPER DIVE]{.study-badge}
+
+HTML gives the browser a structure. JavaScript does not usually change the HTML file itself while the game is running; it changes the browser’s in-memory representation called the DOM. `getElementById()` returns one DOM element, and `addEventListener()` attaches behavior without mixing JavaScript directly into the HTML tag.
+
+```javascript
+const monster = document.getElementById('monster');
+monster.addEventListener('click', hitMonster);
+```
+
+**HTML and JavaScript have different jobs.** In `<button id="monster">Monster</button>`, `button` identifies the kind of element, `id` gives it a unique name on this page, and the text between the tags becomes its label. The JavaScript lookup must match that ID exactly.
+
+**Why is the script at the bottom?** The browser reaches the button before the script tries to find it. Keep that order. If the lookup finds nothing, it returns `null`.
+
+**Function name or function call?** Pass `hitMonster` to the listener so the browser can call it later. Writing `hitMonster()` calls it immediately.
+
+:::
+
+## Level-up challenges
+
+::: {.callout-tip .challenge title="Challenge 1" icon="false"}
+
+Change the monster button into a dragon or robot.
+
+:::
+
+::: {.callout-tip .challenge title="Challenge 2" icon="false"}
+
+Add a second button with a different function and message.
+
+:::
+
+## Checkpoint
+
+::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
+
+What new JavaScript idea made the Click the Monster game possible? Point to one line of code and explain what would change if you removed it.
+
+:::

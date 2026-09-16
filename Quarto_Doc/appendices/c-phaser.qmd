@@ -1,0 +1,28 @@
+# Optional Next Step: Phaser {#sec-phaser}
+
+Once you understand variables, functions, state, animation, and collision in plain JavaScript, you can explore a game framework such as Phaser. A framework provides tools for game tasks so you can spend less time on low-level drawing code.
+
+Keep the ideas you already know: loading resources, creating the world, and updating the game. The sketch below names those responsibilities. It is not a complete Phaser project and does not load or configure the library.
+
+```javascript
+// Conceptual Phaser-style structure
+function preload() {
+  // Load images and sounds
+}
+
+function create() {
+  // Create the game world
+}
+
+function update() {
+  // Run once per frame
+}
+```
+
+::: {.callout-important .checkpoint title="Before you move on" icon="false"}
+
+Explain the difference between game state and its picture on the screen. Then describe what happens during one update. A framework is most useful when you can still explain the game underneath it.
+
+:::
+
+Explore the [official Phaser website](https://phaser.io/) for its documentation and examples.

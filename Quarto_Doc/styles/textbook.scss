@@ -1,0 +1,32 @@
+/*-- scss:defaults --*/
+$primary: #2458c7;
+$body-bg: #ffffff;
+$body-color: #24334b;
+$link-color: #2458c7;
+$font-family-sans-serif: "Segoe UI", -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+$font-family-monospace: "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+$font-size-root: 18px;
+$headings-color: #183253;
+$headings-font-weight: 750;
+$h1-font-size: 2.4rem;
+$h2-font-size: 1.65rem;
+$h3-font-size: 1.25rem;
+$code-color: #713799;
+$code-bg: #f3eefb;
+$code-block-bg: #f5f8fc;
+$code-block-border-left: #3c78d8;
+$code-block-border-left-size: 4px;
+$code-block-bg-padding: 1rem;
+$sidebar-bg: #f3f6fc;
+$sidebar-fg: #24334b;
+$sidebar-hl: #2458c7;
+$toc-color: #365574;
+$callout-color-note: #2965cb;
+$callout-color-tip: #14744b;
+$callout-color-warning: #a45c0b;
+$callout-color-important: #ae315a;
+$callout-color-caution: #a45c0b;
+
+/*-- scss:rules --*/
+/* Detailed shared styling lives in textbook.css so it is also reusable
+   in a static preview and can be edited without learning Sass. */

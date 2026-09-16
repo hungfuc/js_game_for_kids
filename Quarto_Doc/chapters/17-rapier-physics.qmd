@@ -1,0 +1,139 @@
+# Add Gravity and Solid Objects with Rapier {#sec-ch17}
+
+::: {.chapter-banner}
+[GAME LAB 17 | Rapier Drop Lab]{.game-title}
+[Rapier.js]{.skill-chip} [Rigid bodies]{.skill-chip} [Colliders]{.skill-chip} [Physics steps]{.skill-chip}
+:::
+
+::: {.callout-tip .mission title="Your mission" icon="false"}
+Create a physics world, give objects colliders, compare bounces, and synchronize Rapier's invisible simulation with Three.js's visible scene.
+:::
+
+::: {.callout-note .big-idea title="The big idea" icon="false"}
+Three.js draws the ball. Rapier calculates how it falls and collides. Your code connects the two, then supplies the rules that turn a simulation into a game.
+:::
+
+## See a physics engine at work
+
+Open **Rapier Drop Lab**. Three balls begin at the same height and fall onto the same floor. Their bounce settings differ. Choose Drop again, then show the colliders. Watch the shapes that the simulation actually uses.
+
+This book uses **Rapier**, often called Rapier.js for its JavaScript bindings, with Three.js. The compatibility package includes WebAssembly data in the JavaScript package and still needs asynchronous initialization. See [Rapier's JavaScript getting-started guide](https://rapier.rs/docs/user_guides/javascript/getting_started_js/).
+
+## Initialize before creating a world
+
+```javascript
+import RAPIER from "@dimforge/rapier3d-compat";
+
+await RAPIER.init();
+const world = new RAPIER.World({ x: 0, y: -9.81, z: 0 });
+world.timestep = 1 / 60;
+```
+
+The HTML import map supplies the pinned compatibility-module URL. `await RAPIER.init()` must finish before constructing the world. In our convention, `y` is up and gravity points down. We use meter-like world units consistently; do not mix pixel distances from the 2D game with the 3D world's dimensions.
+
+## Separate a rigid body from its collider
+
+A **rigid body** remembers motion information such as position, velocity, and how it responds to forces. A **collider** supplies the shape used for contact tests. A body without a collider has no contact shape, even when you draw a visible mesh at its position.
+
+```javascript
+const ballBody = world.createRigidBody(
+  RAPIER.RigidBodyDesc.dynamic().setTranslation(0, 5, 0)
+);
+const ballCollider = world.createCollider(
+  RAPIER.ColliderDesc.ball(0.5),
+  ballBody
+);
+```
+
+The visible sphere should use the same radius unless you deliberately choose a more forgiving collision shape. Rapier's [rigid-body guide](https://rapier.rs/docs/user_guides/javascript/rigid_bodies/) and [collider guide](https://rapier.rs/docs/user_guides/javascript/colliders/) explain the two responsibilities.
+
+## Choose the body's job
+
+| Body type | Who controls its motion? | Useful example |
+| --- | --- | --- |
+| Fixed | It stays in place | Ground, a permanent wall |
+| Dynamic | Physics reacts to gravity, impulses, and contacts | Marble, falling crate |
+| Kinematic | Your program prescribes motion | Moving platform, controlled character |
+
+A kinematic body is not a magic wall-avoiding character. If you command it to pass through a wall, contact forces do not automatically correct its path. Character controllers or scene queries are needed when you want controlled motion to respect obstacles.
+
+## Build a floor with half-extents
+
+Three.js box geometry is usually described with full width, height, and depth. Rapier's `cuboid` constructor takes **half-extents**. For a floor 14 units wide, 1 high, and 10 deep, use `(7, 0.5, 5)`.
+
+```javascript
+const floorBody = world.createRigidBody(
+  RAPIER.RigidBodyDesc.fixed().setTranslation(0, -0.5, 0)
+);
+world.createCollider(
+  RAPIER.ColliderDesc.cuboid(7, 0.5, 5),
+  floorBody
+);
+```
+
+Placing the floor's center at `y = -0.5` puts its top surface at `y = 0`. A collider twice as large as its visible model is often a full-size-versus-half-size mistake.
+
+![Rapier advances bodies and colliders, then Three.js copies their transforms and renders the scene.](../figures/chapter_17/physics-render.svg){#fig-ch17 fig-alt="The Rapier physics representation and Three.js visual representation are connected by a one-way transform copy after each fixed physics step." width="100%"}
+
+**Read the picture:** The body owns movement. The mesh follows it. Do not also add homemade gravity to the mesh after Rapier has already moved the body.
+
+## Synchronize position and rotation
+
+After stepping the world, copy each body's translation and quaternion into its corresponding visible object:
+
+```javascript
+world.step();
+mesh.position.copy(body.translation());
+mesh.quaternion.copy(body.rotation());
+renderer.render(scene, camera);
+```
+
+Rapier's rotation is a quaternion, so copy it into `mesh.quaternion`, not into Euler-angle fields such as `mesh.rotation.x`. The example assumes the visual root is directly under an untransformed scene group. A translated or scaled parent requires coordinate conversion or a different hierarchy.
+
+In the complete lab, the shared fixed-step loop advances the world at `1/60` second and renders separately. The world's `timestep` matches that update interval. The [World API](https://rapier.rs/javascript3d/classes/World.html) documents the timestep and simulation step.
+
+## Compare bounce and friction
+
+**Restitution** controls bounce at contact. **Friction** affects sliding contact. Both colliding shapes can have settings, so the engine uses a combination rule.
+
+Drop Lab chooses restitution values `0`, `0.45`, and `0.85`. It explicitly selects the **Max** combination rule on each ball and sets the floor's restitution to zero. This makes the experiment compare the chosen ball coefficients instead of silently averaging each one with the floor.
+
+```javascript
+RAPIER.ColliderDesc.ball(0.5)
+  .setRestitution(0.85)
+  .setRestitutionCombineRule(RAPIER.CoefficientCombineRule.Max);
+```
+
+Keep the starting height and other conditions the same while comparing the bounces. A higher bounce setting is not automatically more fun; it depends on the control and game goal you want.
+
+::: {.callout-note .advanced-study title="Advanced Study | Forces, impulses, and teleporting" icon="false" collapse="false"}
+An impulse is a brief change to momentum; a force acts over time. Marble Quest uses small impulses each fixed step while a movement key is held. Scaling those impulses by the step duration turns them into a controlled, force-like input.
+
+Changing a dynamic body's position directly is a teleport. It is useful for a deliberate respawn but usually wrong for ordinary movement because it bypasses the path between positions. Move a dynamic body with appropriate impulses, forces, or velocity changes instead.
+
+Rapier's accumulated forces persist until cleared; do not repeatedly add a supposed one-frame force without understanding its lifetime. The companion marble controller uses impulses to keep its input behavior explicit.
+:::
+
+## Inspect the collider, not just the art
+
+The debug display draws Rapier's actual shapes over the scene. Use it when a ball seems to float, a crate stops the player too early, or a custom model appears to fall through a floor. Check whether the collider exists, whether it has the correct size, and whether its body is where the visual appears to be.
+
+::: {.callout-note .advanced-study title="Advanced Study | Fast objects and character controllers" icon="false" collapse="false"}
+Rapier supports continuous collision detection, or CCD, for dynamic bodies that might cross an obstacle between steps. The marble enables it with `setCcdEnabled(true)`. It costs additional work and is not a promise that every thin sensor will report every high-speed crossing; test the particular interaction you need.
+
+For a walking humanoid, a capsule and a kinematic character controller can be more suitable than a free-rolling sphere. Rapier's controller computes a corrected movement against obstacles; your game still supplies input, gravity or jump policy, and the visual animation. See the [character-controller guide](https://rapier.rs/docs/user_guides/javascript/character_controller/).
+
+Our next game deliberately uses a marble so you can focus on dynamic bodies, contacts, and game rules before adding a walking controller.
+:::
+
+## Make it your own
+
+::: {.callout-tip .challenge title="Level up" icon="false"}
+Change one ball's bounce coefficient and predict the result. Next, deliberately mismatch a sphere's visible radius and collider radius, turn on the debug display, and explain the strange contact. Restore matching sizes before building a game.
+:::
+
+::: {.callout-important .checkpoint title="Explain the simulation" icon="false"}
+Why can a visible object fall through the floor when it has a rigid body but no collider? What half-extents match a crate whose full size is 2 by 1 by 3? Why must the game not apply gravity both to the body and separately to the mesh?
+:::
+
+**Complete companion source:** [Rapier Drop Lab](../games/physics-lab/index.html), [main.js](../games/physics-lab/main.js), and [physics debug display](../games/shared/physics-debug.js).

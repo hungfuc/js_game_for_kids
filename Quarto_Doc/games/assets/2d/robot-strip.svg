@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="64" viewBox="0 0 256 64" role="img"><title>robot strip</title><g transform="translate(0,0)">
+    <ellipse cx="32" cy="60" rx="19" ry="3" fill="#253753" opacity=".18"/>
+    <g transform="translate(0,0)">
+    <path d="M24 44v12h-8v-12m24-1v12h8v-12" fill="#2d426c"/>
+    <rect x="18" y="29" width="28" height="20" rx="6" fill="#20b7a5" stroke="#176277" stroke-width="2"/>
+    <rect x="13" y="9" width="38" height="27" rx="9" fill="#65dfce" stroke="#176277" stroke-width="2"/>
+    <rect x="18" y="16" width="28" height="12" rx="5" fill="#183253"/>
+    <circle cx="25" cy="21" r="3" fill="#fff4b8"/><circle cx="39" cy="21" r="3" fill="#fff4b8"/>
+    <path d="M32 9V4" stroke="#176277" stroke-width="2"/><circle cx="32" cy="4" r="3" fill="#ffb44e"/>
+    <rect x="7" y="32" width="9" height="15" rx="4" fill="#f6b955"/><rect x="48" y="32" width="9" height="15" rx="4" fill="#f6b955"/>
+    <circle cx="32" cy="39" r="4" fill="#fff0b3"/>
+    </g></g><g transform="translate(64,0)">
+    <ellipse cx="32" cy="60" rx="19" ry="3" fill="#253753" opacity=".18"/>
+    <g transform="translate(0,-2)">
+    <path d="M24 44v15h-8v-12m24-1v9h8v-12" fill="#2d426c"/>
+    <rect x="18" y="29" width="28" height="20" rx="6" fill="#20b7a5" stroke="#176277" stroke-width="2"/>
+    <rect x="13" y="9" width="38" height="27" rx="9" fill="#65dfce" stroke="#176277" stroke-width="2"/>
+    <rect x="18" y="16" width="28" height="12" rx="5" fill="#183253"/>
+    <circle cx="25" cy="21" r="3" fill="#fff4b8"/><circle cx="39" cy="21" r="3" fill="#fff4b8"/>
+    <path d="M32 9V4" stroke="#176277" stroke-width="2"/><circle cx="32" cy="4" r="3" fill="#ffb44e"/>
+    <rect x="7" y="32" width="9" height="15" rx="4" fill="#f6b955"/><rect x="48" y="32" width="9" height="15" rx="4" fill="#f6b955"/>
+    <circle cx="32" cy="39" r="4" fill="#fff0b3"/>
+    </g></g><g transform="translate(128,0)">
+    <ellipse cx="32" cy="60" rx="19" ry="3" fill="#253753" opacity=".18"/>
+    <g transform="translate(0,0)">
+    <path d="M24 44v12h-8v-12m24-1v12h8v-12" fill="#2d426c"/>
+    <rect x="18" y="29" width="28" height="20" rx="6" fill="#20b7a5" stroke="#176277" stroke-width="2"/>
+    <rect x="13" y="9" width="38" height="27" rx="9" fill="#65dfce" stroke="#176277" stroke-width="2"/>
+    <rect x="18" y="16" width="28" height="12" rx="5" fill="#183253"/>
+    <circle cx="25" cy="21" r="3" fill="#fff4b8"/><circle cx="39" cy="21" r="3" fill="#fff4b8"/>
+    <path d="M32 9V4" stroke="#176277" stroke-width="2"/><circle cx="32" cy="4" r="3" fill="#ffb44e"/>
+    <rect x="7" y="32" width="9" height="15" rx="4" fill="#f6b955"/><rect x="48" y="32" width="9" height="15" rx="4" fill="#f6b955"/>
+    <circle cx="32" cy="39" r="4" fill="#fff0b3"/>
+    </g></g><g transform="translate(192,0)">
+    <ellipse cx="32" cy="60" rx="19" ry="3" fill="#253753" opacity=".18"/>
+    <g transform="translate(0,-2)">
+    <path d="M24 44v9h-8v-12m24-1v15h8v-12" fill="#2d426c"/>
+    <rect x="18" y="29" width="28" height="20" rx="6" fill="#20b7a5" stroke="#176277" stroke-width="2"/>
+    <rect x="13" y="9" width="38" height="27" rx="9" fill="#65dfce" stroke="#176277" stroke-width="2"/>
+    <rect x="18" y="16" width="28" height="12" rx="5" fill="#183253"/>
+    <circle cx="25" cy="21" r="3" fill="#fff4b8"/><circle cx="39" cy="21" r="3" fill="#fff4b8"/>
+    <path d="M32 9V4" stroke="#176277" stroke-width="2"/><circle cx="32" cy="4" r="3" fill="#ffb44e"/>
+    <rect x="7" y="32" width="9" height="15" rx="4" fill="#f6b955"/><rect x="48" y="32" width="9" height="15" rx="4" fill="#f6b955"/>
+    <circle cx="32" cy="39" r="4" fill="#fff0b3"/>
+    </g></g></svg>

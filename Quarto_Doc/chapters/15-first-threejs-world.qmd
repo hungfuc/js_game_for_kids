@@ -1,0 +1,142 @@
+# Step into a 3D World with Three.js {#sec-ch15}
+
+::: {.chapter-banner}
+[GAME LAB 15 | Robot Island Explorer]{.game-title}
+[Three.js]{.skill-chip} [Scene]{.skill-chip} [Camera]{.skill-chip} [3D coordinates]{.skill-chip}
+:::
+
+::: {.callout-tip .mission title="Your mission" icon="false"}
+Create a 3D scene, position a camera, light a mesh, and move a character across a floor. Keep the familiar input-update-draw structure while adding a third coordinate.
+:::
+
+::: {.callout-note .big-idea title="The big idea" icon="false"}
+Three.js helps you draw a 3D world. It does not automatically decide your game rules or make every object physically solid. A camera sees the scene; a renderer turns that view into pixels.
+:::
+
+## Start with the familiar ideas
+
+You already know that a game needs state, input, rules, and drawing. Those ideas still work. The major change is that a position now has three coordinates: `x`, `y`, and `z`.
+
+Open **Robot Island Explorer** in the Game Lab. Move with WASD or the arrow keys and collect four crystals. Drag to orbit the camera and scroll to zoom. The decorative crates are intentionally not solid in this pre-physics project. We will give objects real physical behavior with Rapier later.
+
+::: {.callout-tip .setup title="Set up the 3D projects" icon="false"}
+Use the same local server from Chapter 11. The supplied 3D pages load **Three.js 0.180.0** and, where needed, **Rapier 0.17.3** from a CDN. These are pinned lesson dependencies, not a claim that they are the newest releases.
+
+Internet access is required for those library downloads unless you run the optional vendoring script described in the Game Lab appendix. Your local images and GLB files are included. A WebGL 2-capable browser and graphics setup are required by this Three.js renderer; see the [renderer documentation](https://threejs.org/docs/pages/WebGLRenderer.html).
+:::
+
+## Learn the four scene jobs
+
+A **scene** holds objects. A **camera** decides the viewpoint. A **mesh** combines geometry and a material. A **renderer** draws the scene from the camera's viewpoint.
+
+Geometry describes shape: a cube, sphere, or a more detailed model. A material describes surface appearance. A light helps a lit material show its shape. A mesh with a dark material in an unlit scene may be present but difficult to see.
+
+```javascript
+import * as THREE from "three";
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(50, 960 / 540, 0.1, 100);
+camera.position.set(4, 3, 6);
+camera.lookAt(0, 0.5, 0);
+
+const robot = new THREE.Mesh(
+  new THREE.BoxGeometry(1, 1, 1),
+  new THREE.MeshStandardMaterial({ color: "#20b7a5" })
+);
+robot.position.y = 0.5;
+scene.add(robot);
+scene.add(new THREE.HemisphereLight(0xffffff, 0x456b55, 2));
+```
+
+This fragment creates the scene objects. `games/shared/three-scene.js` completes the browser setup by creating `WebGLRenderer`, attaching its canvas, sizing it, and adding lights. The complete Explorer project connects that helper to controls, models, and the loop.
+
+## Tell the browser where imports live
+
+A browser needs to know what the bare name `"three"` means. The supplied HTML uses an **import map**, followed by a module script. JSON requires double quotes and does not allow comments.
+
+```html
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module" src="main.js"></script>
+```
+
+Put the map before the module that uses it. Keep Three.js core and its addons on the same version. The companion pages also catch startup errors so a failed dependency load produces a message instead of an unexplained blank canvas. For the browser's mapping rules, see [MDN's import-map reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script/type/importmap).
+
+## Choose your coordinate convention
+
+In this book's 3D worlds, `y` points upward. The floor lies in the `x-z` plane. Positive `x` moves right along the world axis; positive `z` moves toward the near side in the starting camera view. These are world directions, not permanent screen directions.
+
+![A comparison between the downward y-axis of Canvas and the upward y-axis of our 3D world.](../figures/chapter_15/axes.svg){#fig-ch15 fig-alt="Canvas uses x right and y down. The 3D world uses x, y up, and z depth, with floor movement in x and z." width="100%"}
+
+**Read the picture:** Do not carry the 2D gravity sign into the 3D game unchanged. Downward motion increased `y` on the canvas. In this 3D convention, downward motion decreases `y`.
+
+## Move across the floor
+
+The Explorer uses world-relative controls: right changes `x`, and forward changes `z`. Normalize the two input components before applying speed.
+
+```javascript
+const direction = normalize2(horizontalInput, forwardInput);
+robot.position.x += direction.x * speed * dt;
+robot.position.z += direction.y * speed * dt;
+```
+
+Our two-dimensional helper calls its second component `y`, but here that component is used for the world's `z` coordinate. A helper's field name does not automatically change the coordinate system of your game.
+
+The Explorer also clamps the robot to the island boundary. This is a simple rule, not a general 3D collision solver. Distance checks on the floor collect crystals; decorative crates still do not block motion.
+
+## Move the camera without moving the robot
+
+`OrbitControls` changes the camera viewpoint around a target. It is imported as a Three.js addon:
+
+```javascript
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.target.set(0, 0.5, 0);
+controls.enableDamping = true;
+```
+
+Call `controls.update()` during drawing when damping is enabled. Orbit controls are for viewing the scene, not for solving player movement. See the [official OrbitControls reference](https://threejs.org/docs/pages/OrbitControls.html).
+
+::: {.callout-note .advanced-study title="Advanced Study | World-relative and camera-relative controls" icon="false" collapse="false"}
+After orbiting the camera, world `+x` may no longer look like screen-right. The Explorer deliberately keeps world-relative movement so you can learn the axes.
+
+A camera-relative controller instead builds movement from the camera's right and forward directions. For a floor-walking character, project forward onto the `x-z` plane, normalize it, and combine it with right. Otherwise, pointing the camera upward could make a supposed walking controller fly.
+
+Either design can be valid. The important step is to choose one and describe it clearly to the player rather than mixing them accidentally.
+:::
+
+## Keep the view the right shape
+
+When the browser window changes size, resize the renderer and update the camera's aspect ratio. Changing only the canvas size can stretch the picture.
+
+```javascript
+renderer.setSize(width, height, false);
+camera.aspect = width / height;
+camera.updateProjectionMatrix();
+```
+
+The shared setup watches the display area with `ResizeObserver` and limits the device pixel ratio to two. The limit trades some sharpness on dense displays for less rendering work. The [PerspectiveCamera reference](https://threejs.org/docs/pages/PerspectiveCamera.html) explains its projection properties.
+
+::: {.callout-note .advanced-study title="Advanced Study | A camera angle is not an object position" icon="false" collapse="false"}
+The camera's field of view is measured in degrees in the `PerspectiveCamera` constructor. Object rotation values such as `robot.rotation.y` use radians. Mixing those units can produce surprising rotations.
+
+The camera's near and far distances bound what it can see. A model outside that range may disappear even though its data is loaded correctly. Also check the camera direction, model scale, lighting, and whether the model is behind the camera before concluding that the loader failed.
+:::
+
+## Make it your own
+
+::: {.callout-tip .challenge title="Level up" icon="false"}
+Move the starting camera higher, change the island material, and place one extra crystal. Then orbit the camera halfway around and explain why the movement keys now look different. Keep the world controls unchanged while you investigate.
+:::
+
+::: {.callout-important .checkpoint title="Explain the 3D scene" icon="false"}
+Which object decides the viewpoint, and which object draws the image? Why does adding a crate mesh not automatically make the crate solid? What changes when you add `z` to the player's position?
+:::
+
+**Complete companion source:** [Robot Island Explorer](../games/three-explorer/index.html), [main.js](../games/three-explorer/main.js), and [shared Three.js setup](../games/shared/three-scene.js).

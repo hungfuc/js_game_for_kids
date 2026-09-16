@@ -1,0 +1,32 @@
+# References and Further Learning {.unnumbered #references}
+
+Use these resources when you want another explanation or a new project idea. Follow the main chapters first; some external material assumes more programming experience.
+
+| Resource | Explore it for... |
+| --- | --- |
+| [MDN: Game development tutorials](https://developer.mozilla.org/en-US/docs/Games/Tutorials) | More browser-game projects and explanations. |
+| [MDN: 2D Breakout with pure JavaScript](https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript) | A step-by-step Breakout implementation. |
+| [MDN: Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) | Drawing shapes and working with a canvas. |
+| [MDN: Number inputs](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/number) | Input constraints and validation. |
+| [MDN: requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame) | Animation callbacks and time-based movement. |
+| [MDN: JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) | Organizing JavaScript across files. |
+| [Eloquent JavaScript, by Marijn Haverbeke](https://eloquentjavascript.net/) | Deeper JavaScript study after you have experience. |
+| [Phaser](https://phaser.io/) | A possible next step in browser-game development. |
+
+
+## Dynamic 2D and 3D game development {.unnumbered}
+
+The new projects are original examples. The following official documentation explains the browser and engine APIs used in Chapters 11-18. Read the short examples in the book first, then consult an API page when you need to check a specific behavior.
+
+- [MDN: 2D collision detection](https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection) - geometric overlap tests and the difference between simple bounding shapes and visible artwork.
+- [MDN: requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame) - browser animation callbacks and timestamp-based motion.
+- [MDN: Canvas drawImage](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage) - cropping sprite sheets and drawing images.
+- [MDN: import maps](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap) - how module names map to URLs.
+- [Three.js: WebGLRenderer](https://threejs.org/docs/pages/WebGLRenderer.html) - rendering a scene with WebGL2.
+- [Three.js: GLTFLoader](https://threejs.org/docs/pages/GLTFLoader.html) and [GLTFExporter](https://threejs.org/docs/pages/GLTFExporter.html) - loading and exporting the supplied custom 3D assets.
+- [Three.js: OrbitControls](https://threejs.org/docs/pages/OrbitControls.html) - inspecting a scene by orbiting the camera.
+- [Rapier: JavaScript getting started](https://rapier.rs/docs/user_guides/javascript/getting_started_js/) - initialization and package choices.
+- [Rapier: rigid bodies](https://rapier.rs/docs/user_guides/javascript/rigid_bodies/), [colliders](https://rapier.rs/docs/user_guides/javascript/colliders/), and [advanced collision detection](https://rapier.rs/docs/user_guides/javascript/advanced_collision_detection/) - motion, contact shapes, sensors, and events.
+- [Rapier: character controller](https://rapier.rs/docs/user_guides/javascript/character_controller/) - an optional next step beyond a rolling marble.
+
+The companion project intentionally pins Three.js `0.180.0` and `@dimforge/rapier3d-compat` `0.17.3`; these are selected versions, not a claim about the latest release. Online documentation can evolve independently. Update dependencies deliberately and retest all projects together.

@@ -1,0 +1,17 @@
+# Check Your Game-Making Skills {#sec-self-check}
+
+A working game is only part of what you have learned. Use this checklist to collect evidence that you understand your program and can improve it.
+
+| Skill | I can show that... | My evidence |
+| --- | --- | --- |
+| Playable game | My controls and core rules work. | A short playthrough. |
+| Code understanding | I can explain important variables, decisions, functions, and state. | Three annotated code examples. |
+| Debugging | I can describe a bug and how I investigated it. | A before-and-after debugging note. |
+| Modification | I can make a small change without replacing the whole program. | One change and its test result. |
+| Game design | Another player can understand the goal and feedback. | A playtest observation and improvement. |
+
+::: {.callout-important .checkpoint title="Your game-maker reflection" icon="false"}
+
+Choose one skill that feels strong and one you are still building. Explain each choice using something that happened while you worked on a game.
+
+:::

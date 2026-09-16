@@ -1,0 +1,94 @@
+# Your Game Lab {#sec-game-lab}
+
+## Start a local server
+
+Keep this textbook's folder structure intact. In a terminal opened at the project root, run:
+
+```bash
+node scripts/serve.mjs
+```
+
+Open `http://127.0.0.1:8000/games/` to choose a project. Open `http://127.0.0.1:8000/preview.html` to read the included HTML edition. Stop the server with Ctrl+C. The server listens only on your computer's loopback interface; it is a development tool, not a public hosting service.
+
+Node.js must already be installed. No `npm install` is needed. Another local static server also works. Double-clicking an HTML file is not enough for the module-based projects because model and JSON loading use browser requests.
+
+## Choose a project
+
+| Project | Chapter | Controls and purpose |
+| --- | --- | --- |
+| Collision Playground | 11-12 | Move with arrows/WASD or drag the player. Switch shape and turn wall blocking on or off. |
+| Robot Orchard | 12-14 | Start; move with A/D or left/right; jump with Space/up/W; P pauses, R restarts, H shows hitboxes. Collect every gem and enter the portal. |
+| Robot Island Explorer | 15-16 | Move with arrows/WASD; drag to orbit the camera; scroll to zoom. Collect four gems. Crates are decorative in this non-physics project. |
+| Rapier Drop Lab | 17 | Drop again; orbit the camera; show colliders. Compare three bounce coefficients. |
+| Marble Quest | 18 | Start; arrows/WASD move the marble; P pauses, R restarts, H shows colliders. Collect five gems and enter the gate. Falling costs a life. |
+| 3D Asset Workshop | 16 | Change the robot body's color, orbit the view, and export your own GLB file. |
+
+Click the game canvas before using keys. Movement controls are intentionally world-relative in the 3D games: W/up moves toward negative Z even if you rotate the exploration camera. The lab also supplies large onscreen controls where movement is needed. These are useful alternatives, not a claim that every canvas interaction is fully accessible to every player.
+
+## Find the source you need
+
+```text
+chapters/               The textbook's Quarto chapters
+figures/                Original diagrams with editable SVGs for Chapters 11-18
+games/
+  index.html            Game Lab menu
+  collision-lab/        Shape detection and wall-response experiment
+  robot-orchard/        Complete 2D game and editable level.json
+  three-explorer/       Three.js exploration without physics
+  physics-lab/          Rapier bounce experiment
+  marble-quest/         Complete 3D physics game
+  asset-workshop/       GLB model customization and export
+  shared/               Input, loops, collision helpers, styles, 3D setup
+  assets/               Original SVG, PNG, GLB, JSON, and WAV files
+scripts/                Local server, dependency download, book builders
+tests/                  Automated checks for reusable game logic
+```
+
+The complete project folders are the source of truth for runnable code. Snippets in the chapter explain selected pieces; some are deliberately simplified to focus on one idea. Do not append every snippet to `main.js` as though they were all additional instructions.
+
+## Use the custom asset pack
+
+The supplied robot sprite has four 64 by 64 frames. Edit the SVG source while keeping the 256 by 64 sheet size, or replace it with a PNG sprite sheet and update the image path. An image's transparent space is not a collider. Keep the player's physics dimensions separate from the drawing dimensions.
+
+The 3D pack contains `robot.glb`, `crate.glb`, and `gem.glb`. `model-specifications.json` records their origins and dimensions. They are rigid models without a skeleton or animation clips. Move and rotate their roots in the game; use a different animated GLB only after adding animation handling.
+
+The artwork and short collection sound were created for this project. The asset permission statement in `games/assets/ASSET_LICENSE.md` allows reuse and modification. It does not grant rights to unrelated images, commercial characters, or library code. When adding downloaded assets, record their source and license.
+
+## Make the 3D projects available offline
+
+By default, import maps load Three.js `0.180.0` and Rapier's compatibility package `0.17.3` from jsDelivr. These fixed versions keep the four 3D projects on the same dependency set. On a computer with internet access, Python 3 can download the two packages and switch the import maps to local copies:
+
+```bash
+python3 scripts/vendor-dependencies.py
+```
+
+On Windows, `py scripts/vendor-dependencies.py` may be the appropriate command. Keep `games/vendor/` with the project when copying it to another computer. Test every 3D page once while offline. Continue using the local server even after downloading the dependencies.
+
+The script retains the packages' licenses. To switch the pages back to their original CDN imports, use `python3 scripts/vendor-dependencies.py --cdn`. Downloading packages and changing browser caches can be subject to your computer or network's restrictions.
+
+## Debug in layers
+
+::: {.callout-warning title="A blank page is not automatically a game-logic bug" icon="false"}
+Check the page's visible error message and then the browser console. First check that the local server is running. Next check file paths and dependency requests. For a 3D page, check WebGL2 support and hardware acceleration. Only after the scene loads should you investigate collisions and score rules.
+:::
+
+| Symptom | Check first |
+| --- | --- |
+| A model or JSON file is not found | Keep the folder tree together; check spelling, capitalization, and the Network panel. |
+| A 3D page reports a module error | Check internet/CDN access or run the optional dependency-download script. |
+| The ball passes through the ground | Check that both relevant shapes have colliders, dimensions match, and the physics world is stepped. |
+| The player stops far from a wall | Show hitboxes/colliders; compare the collision shape with the visible asset. |
+| A score increases repeatedly | Collect only once and ignore end-of-overlap events. |
+| Movement continues after changing tabs | Clear input state on blur and pause the game appropriately. |
+| Restart makes the game faster | Look for a second animation loop or duplicated event listeners. |
+| Sound is silent | Enable the sound option after starting; browser audio rules may require a user action. |
+
+## Test before changing several things
+
+From the project root, run:
+
+```bash
+node --test tests/*.test.mjs
+```
+
+These tests check reusable collision and game-rule functions. They do not replace playtesting, visual review, or running Rapier's actual simulation. After editing a rule, test its edge cases and then play the game. Make one change at a time so the result teaches you something.

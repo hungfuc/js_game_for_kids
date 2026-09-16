@@ -1,0 +1,21 @@
+project:
+  type: default
+  output-dir: _output
+lang: en
+number-sections: true
+number-depth: 2
+format:
+  html:
+    theme:
+      - cosmo
+      - ../styles/textbook.scss
+    css: ../styles/textbook.css
+    toc: true
+    toc-depth: 2
+    code-copy: true
+    code-overflow: wrap
+    highlight-style: pygments
+    embed-resources: true
+    callout-icon: false
+execute:
+  eval: false

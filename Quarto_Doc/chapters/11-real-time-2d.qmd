@@ -1,0 +1,128 @@
+# Build a Real-Time 2D Game {#sec-ch11}
+
+::: {.chapter-banner}
+[GAME LAB 11 | Collision Playground]{.game-title}
+[Time]{.skill-chip} [Velocity]{.skill-chip} [Input state]{.skill-chip} [Game loop]{.skill-chip}
+:::
+
+::: {.callout-tip .mission title="Your mission" icon="false"}
+Move a character smoothly, measure movement in seconds, and separate input, simulation, and drawing. You will use these same ideas in both 2D and 3D games.
+:::
+
+::: {.callout-note .big-idea title="The big idea" icon="false"}
+A dynamic game keeps changing while you play. The keyboard tells it what you want; the simulation decides what happens; the drawing code shows the result.
+:::
+
+## From a moving picture to a moving world
+
+In Bouncing Ball, a few changing numbers created animation. Now imagine a robot that can move, jump, collect a gem, and bump into a wall. Several rules must work together without fighting each other. A useful solution is to keep three jobs separate: **read input**, **update the world**, and **draw the world**.
+
+Start with the Collision Playground. Move the blue shape with the arrow keys, switch between a rectangle and a circle, and turn rectangle blocking off. With blocking off, a shape can overlap a wall even though the program correctly notices the collision. Detecting a collision and responding to it are different jobs.
+
+::: {.callout-tip .setup title="Open the companion project" icon="false"}
+From the extracted textbook folder, run `node scripts/serve.mjs`. Open `http://127.0.0.1:8000/games/`, then choose **Collision Playground**. No `npm install` is needed. An alternative is `python3 -m http.server 8000 --bind 127.0.0.1` from the textbook folder.
+
+Keep the complete `games/` folder together: the projects share code and artwork. These new projects use JavaScript modules and must be opened through a local server, not by double-clicking an HTML file.
+:::
+
+## Give the player state, not just a picture
+
+The player is an object that remembers its position, size, and velocity. Here `vx` means horizontal velocity: how quickly `x` changes. A positive value moves right; a negative value moves left.
+
+```javascript
+const player = {
+  x: 100, y: 250,
+  w: 48, h: 48,
+  vx: 0, vy: 0
+};
+```
+
+The picture is drawn from those values. Do not use the picture itself as the only place where the game remembers its position. That would make collision tests and restarting much harder.
+
+## Measure speed in seconds
+
+The instruction `player.x += 4` means "move four pixels each time this code runs." That can produce different speeds on computers that draw different numbers of frames. Instead, give speed a unit: **pixels per second**.
+
+```javascript
+const speed = 240;  // pixels per second
+const dt = 1 / 120; // seconds in one simulation step
+player.x += speed * dt;
+```
+
+In this example, one step moves the player two pixels. After 120 equal steps, the player has moved 240 pixels, assuming no wall stopped it. The formula is ordinary multiplication: distance equals speed multiplied by time.
+
+The browser supplies the animation callback timestamp in milliseconds. Divide elapsed milliseconds by 1000 to get seconds. Its callbacks follow display repaint opportunities, so you should not assume a particular display refresh rate. See [MDN's animation-frame reference](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame).
+
+## Read held keys during each update
+
+A `keydown` event means a key was pressed. It does not promise that another event will arrive at exactly the time your game needs to move. Remember the held keys, then read that memory during each simulation step.
+
+```javascript
+const direction =
+  Number(input.isDown("ArrowRight", "KeyD")) -
+  Number(input.isDown("ArrowLeft", "KeyA"));
+
+player.vx = direction * 240;
+```
+
+`Number(true)` is `1`, and `Number(false)` is `0`. Right alone gives `1`, left alone gives `-1`, and neither or both gives `0`. The companion helper is defined in `games/shared/input.js`; `isDown` is our helper, not a built-in browser method.
+
+For movement in two directions, normalize the direction vector. Otherwise, holding two keys can make diagonal movement faster than straight movement. The helper `normalize2(x, y)` returns a direction with length one, or `(0, 0)` when no key is held.
+
+![Input is remembered, the world advances in small steps, and drawing displays the result.](../figures/chapter_11/fixed-step.svg){#fig-ch11 fig-alt="Input feeds a fixed simulation step, which feeds drawing. A row shows eight equally spaced simulation steps." width="100%"}
+
+**Read the picture:** The numbered steps are simulation updates, not necessarily separate screen images. One browser frame may require zero, one, or several updates. The arrows show responsibilities, not three separate programs.
+
+## Keep one loop in charge
+
+The projects share `games/shared/loop.js`. It gathers elapsed time in an **accumulator**. Whenever enough time has accumulated for a small step, it updates the world. It then draws the latest state.
+
+```javascript
+import { fixedLoop } from "../shared/loop.js";
+
+fixedLoop(
+  dt => update(dt),
+  () => draw(),
+  1 / 120
+);
+```
+
+This is a connection fragment: `update` and `draw` are your game's functions. Open `games/collision-lab/main.js` to see them connected to the canvas, input, and collision helpers. Start the loop once. A Restart button should reset game data, not start another loop on top of the first one.
+
+::: {.callout-note .advanced-study title="Advanced Study | Fixed steps and elapsed time" icon="false" collapse="false"}
+A fixed step keeps the simulation interval constant while drawing can happen at a different rate. The shared loop caps a single elapsed interval at `0.1` second and limits catch-up work. This deliberately discards a long delay instead of simulating every missed moment when you return to a hidden tab. It is a playability choice, not a claim that no time was lost.
+
+The loop also resets its clock after a visibility change. A more demanding simulation might preserve all elapsed time, use interpolation between states, or choose another catch-up policy. Interpolation makes drawing smoother; it does not replace collision detection.
+
+A step of `1/120` is a design choice for our small 2D world. The Rapier projects later use `1/60`. Do not change either number without checking movement, collision behavior, and processor cost.
+:::
+
+## Inspect the numbers while you play
+
+Try moving into the wall with blocking enabled. Then disable blocking and repeat. The overlap message changes because the second version allows the player to enter the wall. Dragging the player is different again: it directly changes position. The lab allows this so you can inspect overlaps; dragging is not a collision-safe movement controller.
+
+::: {.callout-note .advanced-study title="Advanced Study | Canvas size is not CSS size" icon="false" collapse="false"}
+`<canvas width="960" height="540">` sets the drawing coordinate space. CSS can display that canvas at a smaller size without changing those logical coordinates.
+
+To turn a pointer position into a canvas position, first subtract the canvas's page position, then multiply by the scale ratio:
+
+```javascript
+const bounds = canvas.getBoundingClientRect();
+const x = (event.clientX - bounds.left) *
+          canvas.width / bounds.width;
+```
+
+The lab uses this conversion when you drag a shape. Without it, the shape would jump to the wrong place when the page is resized. Pointer coordinates, world coordinates, and drawing coordinates should not be mixed casually.
+:::
+
+## Make it your own
+
+::: {.callout-tip .challenge title="Level up" icon="false"}
+Change the speed from 240 to 120 and predict the distance traveled in one second. Next, make a diagonal move and compare it with a straight move. Finally, add a second wall by putting another rectangle in an array and checking each wall.
+:::
+
+::: {.callout-important .checkpoint title="Explain the system" icon="false"}
+Why should a Restart button not call `fixedLoop` again? Explain why "the collision test worked" does not necessarily mean "the player stopped at the wall."
+:::
+
+**Complete companion source:** [Collision Playground](../games/collision-lab/index.html), [main.js](../games/collision-lab/main.js), [fixed-step loop](../games/shared/loop.js), and [input helper](../games/shared/input.js).

@@ -1,0 +1,136 @@
+TAP version 13
+# Subtest: AABB needs overlap on both axes
+ok 1 - AABB needs overlap on both axes
+  ---
+  duration_ms: 0.858442
+  type: 'test'
+  ...
+# Subtest: Touching rectangles are not penetrating
+ok 2 - Touching rectangles are not penetrating
+  ---
+  duration_ms: 0.104267
+  type: 'test'
+  ...
+# Subtest: Circle-circle includes touching
+ok 3 - Circle-circle includes touching
+  ---
+  duration_ms: 0.222114
+  type: 'test'
+  ...
+# Subtest: Circle-rectangle excludes false positive at a corner
+ok 4 - Circle-rectangle excludes false positive at a corner
+  ---
+  duration_ms: 0.136695
+  type: 'test'
+  ...
+# Subtest: Normalize diagonal and zero vectors
+ok 5 - Normalize diagonal and zero vectors
+  ---
+  duration_ms: 0.701005
+  type: 'test'
+  ...
+# Subtest: Falling player lands on platform
+ok 6 - Falling player lands on platform
+  ---
+  duration_ms: 0.258929
+  type: 'test'
+  ...
+# Subtest: Ceiling contact stops upward motion without grounding
+ok 7 - Ceiling contact stops upward motion without grounding
+  ---
+  duration_ms: 0.114462
+  type: 'test'
+  ...
+# Subtest: Rightward collision snaps to left face of wall
+ok 8 - Rightward collision snaps to left face of wall
+  ---
+  duration_ms: 0.108123
+  type: 'test'
+  ...
+# Subtest: World starts in ready state
+ok 9 - World starts in ready state
+  ---
+  duration_ms: 0.310307
+  type: 'test'
+  ...
+# Subtest: Reset creates fresh collectible state
+ok 10 - Reset creates fresh collectible state
+  ---
+  duration_ms: 0.355415
+  type: 'test'
+  ...
+# Subtest: Player settles onto starting floor
+ok 11 - Player settles onto starting floor
+  ---
+  duration_ms: 2.124948
+  type: 'test'
+  ...
+# Subtest: Grounded jump starts upward motion
+ok 12 - Grounded jump starts upward motion
+  ---
+  duration_ms: 0.214503
+  type: 'test'
+  ...
+# Subtest: Repeated jump command cannot grant a second midair jump
+ok 13 - Repeated jump command cannot grant a second midair jump
+  ---
+  duration_ms: 0.105699
+  type: 'test'
+  ...
+# Subtest: A 2D gem is scored once
+ok 14 - A 2D gem is scored once
+  ---
+  duration_ms: 0.125649
+  type: 'test'
+  ...
+# Subtest: Pause stops simulation
+ok 15 - Pause stops simulation
+  ---
+  duration_ms: 0.110967
+  type: 'test'
+  ...
+# Subtest: A fall costs one life and respawns
+ok 16 - A fall costs one life and respawns
+  ---
+  duration_ms: 0.118809
+  type: 'test'
+  ...
+# Subtest: Goal requires every gem
+ok 17 - Goal requires every gem
+  ---
+  duration_ms: 0.102925
+  type: 'test'
+  ...
+# Subtest: A 3D pickup is idempotent
+ok 18 - A 3D pickup is idempotent
+  ---
+  duration_ms: 0.118589
+  type: 'test'
+  ...
+# Subtest: Goal predicate works while already overlapping
+ok 19 - Goal predicate works while already overlapping
+  ---
+  duration_ms: 0.083285
+  type: 'test'
+  ...
+# Subtest: Included levels do not spawn inside a solid
+ok 20 - Included levels do not spawn inside a solid
+  ---
+  duration_ms: 0.129775
+  type: 'test'
+  ...
+# Subtest: A complete 2D route collects every gem and wins with three lives
+ok 21 - A complete 2D route collects every gem and wins with three lives
+  ---
+  duration_ms: 5.602992
+  type: 'test'
+  ...
+1..21
+# tests 21
+# suites 0
+# pass 21
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 78.419679

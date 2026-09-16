@@ -1,0 +1,15 @@
+# Debugging Checklist {#sec-debugging}
+
+- [ ] Open the browser developer console and read the first error.
+- [ ] Check spelling and capitalization. JavaScript is case-sensitive.
+- [ ] Check matching pairs: ( ), { }, [ ], and quote marks.
+- [ ] Check whether the element ID in JavaScript exactly matches the HTML id.
+- [ ] Use `console.log(...)` to inspect a value.
+- [ ] Change one thing at a time, then test again.
+- [ ] If you copied code, type the suspicious line yourself and explain each part.
+
+::: {.callout-important .checkpoint title="A useful debugging sentence" icon="false"}
+
+"I expected ______ to happen, but instead ______ happened. The last value I know is correct is ______."
+
+:::

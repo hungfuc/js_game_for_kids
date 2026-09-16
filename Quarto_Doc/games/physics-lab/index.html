@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Rapier Drop Lab | Game Lab</title><link rel="icon" href="../assets/2d/gem.svg" type="image/svg+xml"><link rel="stylesheet" href="../shared/lab.css"><script type="importmap">{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/",
+    "@dimforge/rapier3d-compat": "https://cdn.jsdelivr.net/npm/@dimforge/rapier3d-compat@0.17.3/rapier.es.js"
+  }
+}</script></head>
+<body><main><a href="../index.html">Back to Game Lab</a><p class="eyebrow">JAVASCRIPT GAME PROGRAMMING | CHAPTERS 17</p><h1>Rapier Drop Lab</h1><p>Compare bounce, gravity, and the shape of a collider.</p><section class="panel"><div class="bar"><button id="restart" class="primary">Drop again</button><button id="debug">Show colliders</button></div><p id="status" role="status">Loading Three.js and assets; an internet connection is needed for the libraries.</p><div id="stage"></div><p class="hint">Drag to orbit and scroll to zoom.</p></section><div id="error" hidden></div><p class="hint">Editable source: <code>physics-lab/main.js</code>. Assets: <code>games/assets/</code>.</p></main>
+<script type="module">
+import('./main.js').catch(error => {
+  console.error(error);
+  const box = document.getElementById('error'); box.hidden = false; box.className = 'error';
+  box.textContent = 'The game could not start. Open this folder through a local web server, not file://. '+
+    'For 3D, check internet access to cdn.jsdelivr.net and WebGL 2 support. Details: '+error.message;
+  document.getElementById('status').textContent = 'Startup stopped. See the message below.';
+});
+</script></body></html>

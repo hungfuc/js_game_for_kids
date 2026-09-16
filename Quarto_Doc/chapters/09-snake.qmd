@@ -1,0 +1,132 @@
+# Build a World on a Grid {#sec-ch09}
+
+::: {.chapter-banner}
+
+[GAME 09 | Snake]{.game-title}
+
+[Grid cells]{.skill-chip} [Arrays]{.skill-chip} [Game state]{.skill-chip}
+
+:::
+
+::: {.callout-note .code-guide title="How to use the code pieces" icon="false"}
+
+This chapter develops parts of a larger game. These short examples are **code fragments**, not a complete HTML file. Read the surrounding explanations and combine the pieces with the screen, setup, and game-loop ideas from earlier chapters.
+
+:::
+
+::: {.callout-tip .mission title="Your mission" icon="false"}
+
+By the end of this chapter, you can:
+
+- represent positions as grid cells
+- store the snake as an array
+- update the world one step at a time
+- detect self and wall collisions
+
+:::
+
+::: {.callout-note .big-idea title="The big idea" icon="false"}
+
+Snake becomes easier when the world is a grid. Instead of moving by tiny pixels, the snake moves one cell at a time.
+
+:::
+
+## A snake is a list of body cells
+
+The first item can be the head. Each cell stores x and y coordinates.
+
+![A grid game stores positions as x/y cells.](../figures/chapter_09/snake-grid.png){#fig-ch09 fig-alt="A snake occupies three adjacent cells in a grid. A food cell is above and to the right of the head." width="100%"}
+
+**Read the picture:** Each square is one cell, not one screen pixel. The head is the first item in the body array. The arrow points toward food; it does not allow a diagonal move. Move one horizontal or vertical cell per step.
+
+```javascript
+let snake = [
+  { x: 5, y: 5 },
+  { x: 4, y: 5 },
+  { x: 3, y: 5 }
+];
+```
+
+## Move by creating a new head
+
+We calculate a new head from the old head and the current direction. Then `unshift` adds it to the front. `pop` removes the last tail cell.
+
+```javascript
+const head = snake[0];
+const newHead = { x: head.x + dx, y: head.y + dy };
+snake.unshift(newHead);
+snake.pop();
+```
+
+## Grow when food is eaten
+
+If the head lands on food, do not remove the tail that step. The snake becomes one cell longer.
+
+```javascript
+if (newHead.x === food.x && newHead.y === food.y) {
+  score++;
+  placeFood();
+} else {
+  snake.pop();
+}
+```
+
+## Prevent instant reverse direction
+
+If the snake is moving right, switching directly to left would make the head collide with the body. Check the old direction before accepting the new one.
+
+```javascript
+if (e.key === "ArrowLeft" && dx !== 1) {
+  dx = -1;
+  dy = 0;
+}
+```
+
+::: {.callout-note .advanced-study title="Advanced Study | Game state as data" icon="false" collapse="false"}
+
+[OPTIONAL DEEPER DIVE]{.study-badge}
+
+Snake works well because the entire game can be described as data: an array of body cells, a direction, food coordinates, and score. Separating state from drawing makes the program easier to reason about. The screen becomes a picture of the current state rather than the place where the state is stored.
+
+```javascript
+const snake = [
+  {x: 3, y: 2},
+  {x: 2, y: 2}
+];
+```
+
+**Grid coordinates are data, not pixels.** At 20 pixels per cell, `{ x: 3, y: 2 }` is drawn with its top-left corner at pixel `(60, 40)`. Multiplication happens during drawing; positions stay stored as cells.
+
+**Choose one tail rule.** Section 9.2 shows constant-length movement. When adding Section 9.3, replace the unconditional `snake.pop()` with the conditional version. Keeping both removes the tail twice on an ordinary step.
+
+**Accept one turn per step.** For a more robust game, allow at most one queued turn between updates, so two fast key presses cannot cause an accidental reversal. Food placement should avoid occupied cells.
+
+:::
+
+## Level-up challenges
+
+::: {.callout-tip .challenge title="Challenge 1" icon="false"}
+
+Add obstacles to some grid cells.
+
+:::
+
+::: {.callout-tip .challenge title="Challenge 2" icon="false"}
+
+Increase the update speed every five pieces of food.
+
+:::
+
+::: {.callout-tip .challenge title="Challenge 3" icon="false"}
+
+Add a start screen and a restart key.
+
+:::
+
+## Checkpoint
+
+::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
+
+What new JavaScript idea made the Snake game possible? Point to one line of code and explain what would change if you removed it.
+
+:::

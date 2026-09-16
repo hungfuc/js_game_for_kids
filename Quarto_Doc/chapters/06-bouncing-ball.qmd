@@ -1,0 +1,161 @@
+# Draw Your Own Game World {#sec-ch06}
+
+::: {.chapter-banner}
+
+[GAME 06 | Bouncing Ball]{.game-title}
+
+[Canvas]{.skill-chip} [Animation]{.skill-chip} [Velocity]{.skill-chip}
+
+:::
+
+::: {.callout-tip .mission title="Your mission" icon="false"}
+
+By the end of this chapter, you can:
+
+- create a canvas
+- draw shapes with a 2D context
+- animate with `requestAnimationFrame`
+
+:::
+
+::: {.callout-note .big-idea title="The big idea" icon="false"}
+
+Canvas is different from ordinary HTML. Instead of moving page elements, your code redraws the game world frame after frame.
+
+:::
+
+## Meet canvas
+
+The canvas element is a rectangular drawing surface. JavaScript asks it for a 2D drawing context.
+
+![The animation/game loop repeats update and draw work.](../figures/chapter_06/animation-loop.png){#fig-ch06 fig-alt="A cycle connects read input, update state, draw, and next frame." width="100%"}
+
+**Read the picture:** Each frame is one trip around the cycle. Bouncing Ball has no keyboard input yet, so it begins by updating position. The next chapter adds player input before movement.
+
+```javascript
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+```
+
+## Draw a ball
+
+A circle is an arc that goes all the way around.
+
+```javascript
+ctx.beginPath();
+ctx.arc(x, y, 15, 0, Math.PI * 2);
+ctx.fill();
+```
+
+## Animation is update + draw + repeat
+
+Each frame changes the position, clears the old picture, draws the new picture, and asks the browser for another frame.
+
+```javascript
+function loop() {
+  x = x + dx;
+  y = y + dy;
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawBall();
+
+  requestAnimationFrame(loop);
+}
+```
+
+## Bounce at the edges
+
+Reverse a velocity when the ball reaches a wall.
+
+```javascript
+if (x < radius || x > canvas.width - radius) {
+  dx = -dx;
+}
+if (y < radius || y > canvas.height - radius) {
+  dy = -dy;
+}
+```
+
+## Build the complete game
+
+Put the pieces together. Type the code yourself if you can; typing helps your brain notice punctuation, spelling, and structure.
+
+[COMPLETE EXAMPLE]{.code-label}
+
+```html
+<canvas id="game" width="500" height="300"></canvas>
+<script>
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+let x = 100, y = 80;
+let dx = 3, dy = 2;
+const radius = 15;
+
+function drawBall() {
+  ctx.beginPath();
+  ctx.arc(x, y, radius, 0, Math.PI * 2);
+  ctx.fill();
+}
+
+function loop() {
+  x += dx;
+  y += dy;
+  if (x < radius || x > canvas.width - radius) dx = -dx;
+  if (y < radius || y > canvas.height - radius) dy = -dy;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawBall();
+  requestAnimationFrame(loop);
+}
+loop();
+</script>
+```
+
+::: {.callout-note .advanced-study title="Advanced Study | requestAnimationFrame and frame time" icon="false" collapse="false"}
+
+[OPTIONAL DEEPER DIVE]{.study-badge}
+
+`requestAnimationFrame` asks the browser to run your animation code before the next repaint. Real games should not assume every computer draws the same number of frames per second. Advanced games use the timestamp passed to the callback to calculate delta time so motion depends on elapsed time, not frame count.
+
+```javascript
+let previousTime;
+function loop(time) {
+  const dt = previousTime === undefined
+    ? 0
+    : (time - previousTime) / 1000;
+  previousTime = time;
+  update(dt); // Speeds are in pixels per second.
+  draw();
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+```
+
+**The timestamp is not the time since the last frame.** Subtract the previous timestamp and divide milliseconds by 1000 to get seconds. A speed of 180 pixels per second moves about 3 pixels in a 1/60-second frame.
+
+This is a timing pattern, not a second loop to add beside the existing one. Supply your own `update(dt)` and `draw()` functions. Start the pattern with `requestAnimationFrame(loop)`. A more robust game should also handle a long pause, for example by resetting its previous timestamp when resuming.
+
+Further reading: [MDN: requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame).
+
+:::
+
+## Level-up challenges
+
+::: {.callout-tip .challenge title="Challenge 1" icon="false"}
+
+Change the ball speed. What values feel playable?
+
+:::
+
+::: {.callout-tip .challenge title="Challenge 2" icon="false"}
+
+Add a second ball with its own position and velocity.
+
+:::
+
+## Checkpoint
+
+::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
+
+What new JavaScript idea made the Bouncing Ball game possible? Point to one line of code and explain what would change if you removed it.
+
+:::

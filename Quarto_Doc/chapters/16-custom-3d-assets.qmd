@@ -1,0 +1,141 @@
+# Build and Import Your Own 3D Assets {#sec-ch16}
+
+::: {.chapter-banner}
+[GAME LAB 16 | Your own robot, crate, and crystal]{.game-title}
+[GLB]{.skill-chip} [Models]{.skill-chip} [Materials]{.skill-chip} [Scale and origin]{.skill-chip}
+:::
+
+::: {.callout-tip .mission title="Your mission" icon="false"}
+Load a custom model, understand its size and origin, make your own visual variation, and export a GLB that another Three.js project can load.
+:::
+
+::: {.callout-note .big-idea title="The big idea" icon="false"}
+A model needs more than an attractive shape. It needs a predictable size, orientation, origin, and loading path so the rest of the game can use it correctly.
+:::
+
+## Meet the included models
+
+The original asset pack contains `robot.glb`, `crate.glb`, and `gem.glb` in `games/assets/3d/`. The robot is built from simple rigid parts. The crate is one unit wide, high, and deep, with its origin at the center. The crystal is a faceted shape suitable for a collectible.
+
+These models have no skeletal rig or animation clips. The robot can move and turn as a whole, and the crystal can spin by changing its rotation. A walking animation with bending joints would require additional authored animation or a skeleton-based approach.
+
+Open **3D Asset Workshop** in the Game Lab. Change the robot's body color, inspect it from several angles, and choose **Export robot.glb**. The workshop produces `my-robot.glb`; it does not overwrite your original asset automatically.
+
+## Load a GLB with GLTFLoader
+
+GLB is a binary container for glTF content. Three.js provides `GLTFLoader` as an addon. It returns a loaded object containing the scene and, when present, animations.
+
+```javascript
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+
+const loader = new GLTFLoader();
+const gltf = await loader.loadAsync("../assets/3d/robot.glb");
+const robot = gltf.scene;
+scene.add(robot);
+```
+
+This is the model-loading part of the complete Explorer. The surrounding program has already created `scene`, `camera`, and `renderer`. Loading is asynchronous, so keep the loading message visible until required assets finish. See the [official GLTFLoader reference](https://threejs.org/docs/pages/GLTFLoader.html).
+
+A `.gltf` file may refer to separate buffers or textures. A `.glb` can package them together, but the extension alone does not guarantee that every possible external resource has been embedded. Keep all required files together. The included GLBs use locally embedded geometry and materials with no external texture dependencies.
+
+## Give the model a useful origin
+
+An origin is the point used as the model's local `(0, 0, 0)`. A character often benefits from an origin at its feet: placing it at world `y = 0` then puts it on the floor. A physical crate often benefits from a center origin: its visual center can match its rigid-body position.
+
+![A three-stage asset pipeline and a comparison between a foot-centered robot and a center-origin crate.](../figures/chapter_16/asset-origins.svg){#fig-ch16 fig-alt="Author a model, load its GLB, then place it. A robot's origin is at the feet, while a unit crate uses a center origin and half-unit collider extents." width="100%"}
+
+**Read the picture:** The two origins are both sensible because the objects have different jobs. Problems happen when your code assumes one origin but the asset was authored with another.
+
+## Separate the gameplay root from the artwork
+
+A useful pattern puts the visible model under a parent `Group`. Move the parent for gameplay. Adjust the child model to repair its visual orientation or offset.
+
+```javascript
+const playerRoot = new THREE.Group();
+const visual = gltf.scene;
+playerRoot.add(visual);
+scene.add(playerRoot);
+
+playerRoot.position.set(2, 0, -3); // gameplay position
+visual.rotation.y = Math.PI;     // only if this asset faces the wrong way
+```
+
+Do not copy the rotation adjustment blindly: the included robot already faces local `+z`. The example shows where an asset-specific correction belongs. If a physics body uses a center origin while your character art uses a foot origin, an intentional child offset can align them without changing the body's coordinates.
+
+Three.js positions and rotations are local to an object's parent. A parent transform affects its children. The [Object3D reference](https://threejs.org/docs/pages/Object3D.html) describes this hierarchy.
+
+## Check scale before adding physics
+
+A model that is a thousand times too large may fill the screen or surround the camera. A model that is too small may look missing. Check the model bounds and compare them with your intended game units.
+
+```javascript
+const bounds = new THREE.Box3().setFromObject(visual);
+const size = bounds.getSize(new THREE.Vector3());
+console.log("Model width, height, depth:", size.x, size.y, size.z);
+```
+
+Measure before adding unrelated parent scaling. For an intentional height adjustment, a uniform scale factor is `targetHeight / size.y`, provided `size.y` is positive. After changing scale, recheck the origin and collider dimensions. Scaling a visible mesh does not automatically resize a separately created Rapier collider.
+
+## Customize materials without changing every copy
+
+Cloning a model can reuse its geometry and materials. Sharing saves memory, but it also means changing a shared material can recolor several objects. Clone a material before customizing only one copy.
+
+```javascript
+robot.traverse(object => {
+  if (object.isMesh && object.name === "body") {
+    object.material = object.material.clone();
+    object.material.color.set("#e77791");
+  }
+});
+```
+
+This example is written for the included robot's single-material body mesh. Other models may have arrays of materials or different part names. Inspect the model hierarchy instead of assuming every model has a mesh called `body`.
+
+::: {.callout-note .advanced-study title="Advanced Study | Images, textures, and color" icon="false" collapse="false"}
+A texture is image data used by a material. Marble Quest loads the original `marble-pattern.png` with `TextureLoader`, marks it as an sRGB color texture, and assigns it to a material's `map`.
+
+```javascript
+const texture = await new THREE.TextureLoader().loadAsync(
+  "../assets/2d/marble-pattern.png"
+);
+texture.colorSpace = THREE.SRGBColorSpace;
+const material = new THREE.MeshStandardMaterial({ map: texture });
+```
+
+A picture used for surface color is not the same kind of data as a normal or roughness map. Do not mark every texture as a color image automatically. The included GLBs use simple materials so you can learn scale and placement before dealing with a complicated texture pipeline.
+:::
+
+## Export a custom version
+
+The workshop uses `GLTFExporter`. It exports a scene containing the robot, not the camera, grid, or the entire game. The binary option creates a GLB file.
+
+```javascript
+import { GLTFExporter } from "three/addons/exporters/GLTFExporter.js";
+
+const exportScene = new THREE.Scene();
+exportScene.add(robot.clone(true));
+const bytes = await new GLTFExporter().parseAsync(
+  exportScene,
+  { binary: true }
+);
+```
+
+The companion program turns `bytes` into a Blob and offers a file save. See the [GLTFExporter reference](https://threejs.org/docs/pages/GLTFExporter.html). To use the result, keep your original as a backup, copy the new file into the asset folder, and change the loader filename. A GLB export is artwork; it does not automatically contain your JavaScript game rules or Rapier bodies.
+
+::: {.callout-note .advanced-study title="Advanced Study | Imported animation is a separate system" icon="false" collapse="false"}
+Some GLB files include animation clips. Three.js can play those clips with `AnimationMixer`, but the included models have no clips. Do not write `gltf.animations[0]` and assume it exists.
+
+A visual walk cycle changes the pose; a movement controller changes the player's position. A physics collider may remain a capsule even while arms and legs move. Keep those responsibilities separate. Also, ordinary model cloning is not always enough for a skinned character; shared skeletons need appropriate cloning and animation handling.
+:::
+
+## Make it your own
+
+::: {.callout-tip .challenge title="Level up" icon="false"}
+Export a different-colored robot and load it into the Explorer. Next, change the gem's displayed scale and inspect whether the collection distance still feels fair. Finally, write a tiny asset specification with the model's size, forward direction, origin, and intended collider.
+:::
+
+::: {.callout-important .checkpoint title="Explain your model" icon="false"}
+Your crate looks twice as wide, but the player passes through its outer half. What probably stayed unchanged? Why might recoloring one cloned robot recolor all of them?
+:::
+
+**Companion workshop:** [3D Asset Workshop](../games/asset-workshop/index.html), [workshop source](../games/asset-workshop/main.js), and [model specifications](../games/assets/3d/model-specifications.json). **Included models:** [robot.glb](../games/assets/3d/robot.glb), [crate.glb](../games/assets/3d/crate.glb), and [gem.glb](../games/assets/3d/gem.glb).

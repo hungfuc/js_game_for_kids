@@ -1,0 +1,112 @@
+# Welcome, game maker! {.unnumbered #welcome}
+
+::: {.book-hero}
+
+[LEARN BY MAKING]{.eyebrow}
+
+[JavaScript Game Programming for Kids]{.hero-title}
+
+Build a game. Understand the code. Make it your own. Explore 2D and 3D.
+
+[18 chapters]{.hero-chip} [Visual explanations]{.hero-chip} [Advanced Study]{.hero-chip}
+
+:::
+
+This book teaches JavaScript in the order a young game designer needs it. Instead of memorizing programming rules first, you will meet a problem inside a game and learn the programming idea that solves it.
+
+::: {.callout-tip .big-idea title="The rule of this book" icon="false"}
+
+Make something move. Make something react. Make something fun. Then study the code that made it happen.
+
+:::
+
+## Choose your reading path {.unnumbered}
+
+Follow the main explanations and code examples first. Use the diagrams to trace what the program is doing. Then try a challenge and explain your result in your own words.
+
+Chapters 1-10 establish the foundations. Chapters 11-14 build a complete 2D adventure. Chapters 15-18 introduce Three.js, custom 3D models, and Rapier physics. The later projects take more time and combine earlier ideas; work through them in small experiments.
+
+Purple **Advanced Study** blocks are optional deeper dives into HTML, CSS, JavaScript, and game systems. They start open; you can collapse them while following the main path and return later.
+
+:::: {.legend-grid}
+
+::: {.legend-item .legend-blue}
+**Understand**
+
+Blue blocks introduce the big idea.
+:::
+
+::: {.legend-item .legend-green}
+**Build**
+
+Green blocks hold your mission and challenges.
+:::
+
+::: {.legend-item .legend-purple}
+**Go deeper**
+
+Purple blocks explain what happens underneath.
+:::
+
+::: {.legend-item .legend-rose}
+**Explain**
+
+Rose blocks help you check your understanding.
+:::
+
+::::
+
+## What you need {.unnumbered}
+
+- A modern web browser such as Chrome, Edge, Firefox, or Safari.
+- A plain-text code editor available on your computer.
+- A folder for each game containing an HTML file. Early examples keep HTML and JavaScript together so you can focus on the programming ideas.
+
+::: {.callout-tip .setup title="Start with one file" icon="false"}
+
+Create a folder named `my-first-game`. Save your complete HTML example as `index.html`, not `index.html.txt`. Open it in your browser. After editing, save the file and refresh the browser. Later, module-based projects need a local development server.
+
+:::
+
+## Read examples carefully {.unnumbered}
+
+A **complete example** includes the setup for that small project. A **code fragment** illustrates one part of a game and relies on the variables or functions discussed nearby. Do not paste every fragment into one file without checking where it belongs: some examples replace earlier versions.
+
+Chapters 7-9 use Pong, Breakout, and Snake to explain larger game-building patterns. Their snippets are building blocks rather than full finished games. Chapters 11-18 add complete companion projects in the Game Lab. Their chapter snippets explain selected parts; the linked project folders contain the complete runnable source.
+
+## A safe learning habit {.unnumbered}
+
+When a program does not work, do not immediately replace it with someone else's code. Read the browser console, compare one small section at a time, and explain what you expected to happen. Debugging is part of programming, not evidence that you failed.
+
+## Your game-making journey {.unnumbered}
+
+| Chapter | Game | Coding ideas | Your new ability |
+| --- | --- | --- | --- |
+| 1 | [Click the Monster](chapters/01-click-the-monster.qmd) | Events, functions | Make code react to a click |
+| 2 | [Treasure Clicker](chapters/02-treasure-clicker.qmd) | Variables, text updates | Make the game remember |
+| 3 | [Secret Number](chapters/03-secret-number.qmd) | Input, if/else | Make the game choose |
+| 4 | [Rock Paper Scissors](chapters/04-rock-paper-scissors.qmd) | Functions, random numbers | Package behavior into reusable actions |
+| 5 | [Catch the Star](chapters/05-catch-the-star.qmd) | Timers, coordinates, DOM | Change the page over time |
+| 6 | [Bouncing Ball](chapters/06-bouncing-ball.qmd) | Canvas, animation | Draw every frame yourself |
+| 7 | [Pong](chapters/07-pong.qmd) | Keyboard, game loop | Read keys while the game keeps running |
+| 8 | [Breakout](chapters/08-breakout.qmd) | Arrays, collision | Manage many objects |
+| 9 | [Snake](chapters/09-snake.qmd) | Grid logic, state | Update a world one step at a time |
+| 10 | [Game Studio](chapters/10-game-studio.qmd) | Planning, polish, final project | Design your own rules |
+| 11 | [Collision Playground](chapters/11-real-time-2d.qmd) | Input, velocity, fixed steps | Build a predictable real-time loop |
+| 12 | [Platforms and jumping](chapters/12-collision-and-platforms.qmd) | Hitboxes, collision response, gravity | Stop at walls and land on platforms |
+| 13 | [Your own 2D artwork](chapters/13-custom-2d-assets.qmd) | Sprite sheets, loading, JSON levels | Make the game look like your design |
+| 14 | [Robot Orchard](chapters/14-robot-orchard.qmd) | Scrolling, enemies, goals, restart | Finish a complete 2D adventure |
+| 15 | [Robot Island Explorer](chapters/15-first-threejs-world.qmd) | Scene, camera, renderer, 3D movement | Build and explore a 3D world |
+| 16 | [3D Asset Workshop](chapters/16-custom-3d-assets.qmd) | GLB models, origins, materials | Customize and import 3D artwork |
+| 17 | [Rapier Drop Lab](chapters/17-rapier-physics.qmd) | Bodies, colliders, bounce, fixed steps | Connect physics to the picture |
+| 18 | [Marble Quest](chapters/18-marble-quest.qmd) | Forces, sensors, scoring, respawn | Finish a 3D physics game |
+
+## Open the Game Lab {.unnumbered}
+
+The companion Game Lab contains six complete projects, including two experimental labs, two collectible adventures, a 3D exploration game, and a model-customization workshop. Keep the project folders together so their shared code and assets can be found.
+
+::: {.callout-tip .setup title="Run the later projects" icon="false"}
+From the extracted textbook folder, run `node scripts/serve.mjs`. Open `http://127.0.0.1:8000/games/` in your browser. This local server needs Node.js but no package installation. Use the [Game Lab guide](appendices/e-game-lab.qmd) for controls, file locations, and troubleshooting.
+
+The 2D projects use local files only. The 3D projects initially download pinned Three.js and Rapier modules from a CDN, so they need an internet connection and a browser with WebGL2. An optional dependency-download script supports later offline use.
+:::
