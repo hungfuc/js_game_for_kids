@@ -137,11 +137,3 @@ Make the star move faster after the player reaches 5 points.
 Add a 20-second countdown and stop the game when time reaches zero.
 
 :::
-
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-What new JavaScript idea made the Catch the Star game possible? Point to one line of code and explain what would change if you removed it.
-
-:::

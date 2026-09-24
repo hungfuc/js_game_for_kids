@@ -19,10 +19,5 @@ function update() {
 }
 ```
 
-::: {.callout-important .checkpoint title="Before you move on" icon="false"}
-
-Explain the difference between game state and its picture on the screen. Then describe what happens during one update. A framework is most useful when you can still explain the game underneath it.
-
-:::
 
 Explore the [official Phaser website](https://phaser.io/) for its documentation and examples.

@@ -7,7 +7,9 @@ An 18-chapter, student-facing textbook with diagrams, playable companion project
 
 The included `preview.html` is a self-contained HTML reading edition generated from the Quarto manuscript with Pandoc. It includes the diagrams and styling; it is **not a native Quarto build**. The project links inside it work when the complete folder is served locally.
 
-With Node.js installed, run from this folder:
+For students, the easiest option is to double-click `start-game-lab.command` on macOS or `start-game-lab.bat` on Windows. The launchers check for Node.js, start the server, and open the Game Lab.
+
+For a terminal, with Node.js installed, run from this folder:
 
 ```bash
 node scripts/serve.mjs

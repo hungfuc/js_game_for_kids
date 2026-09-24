@@ -166,8 +166,5 @@ A more ambitious extension is a capsule-controlled character with a matching vis
 Make a delivery game: push a crate into a target sensor to unlock the exit. Decide which collider may trigger the target, whether the crate must remain inside, and what happens after a restart. Draw the event-to-rule flow before changing the code.
 :::
 
-::: {.callout-important .checkpoint title="Explain your complete 3D game" icon="false"}
-Why should a collectible use a sensor? Why does the event handler check the player's collider handle? Explain why removing the picture of a crate is different from removing its physics body. Name one rule that belongs to your game rather than to the physics engine.
-:::
 
 **Complete companion source:** [Marble Quest](../games/marble-quest/index.html), [main.js](../games/marble-quest/main.js), [testable rules](../games/marble-quest/rules.js), and [shared debug display](../games/shared/physics-debug.js).

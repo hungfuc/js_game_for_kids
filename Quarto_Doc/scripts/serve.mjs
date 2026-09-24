@@ -3,6 +3,7 @@ import { createServer } from 'node:http';
 import { createReadStream } from 'node:fs';
 import { stat } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
+import { execFile } from 'node:child_process';
 import path from 'node:path';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const port = Number(process.env.PORT || 8000);
@@ -41,4 +42,14 @@ const server = createServer(async (req, res) => {
     }
 });
 server.on('error', error => { console.error(error.message); process.exitCode = 1; });
-server.listen(port, '127.0.0.1', () => console.log(`Game Lab: http://127.0.0.1:${port}/games/\nBook preview: http://127.0.0.1:${port}/preview.html\nPress Ctrl+C to stop.`));
+function openGameLab(url) {
+    const command = process.platform === 'darwin' ? ['open', [url]]
+        : process.platform === 'win32' ? ['cmd', ['/c', 'start', '', url]]
+        : ['xdg-open', [url]];
+    execFile(command[0], command[1], () => {});
+}
+server.listen(port, '127.0.0.1', () => {
+    const gameLab = `http://127.0.0.1:${port}/games/`;
+    console.log(`Game Lab: ${gameLab}\nBook preview: http://127.0.0.1:${port}/preview.html\nPress Ctrl+C to stop.`);
+    if (process.env.OPEN_GAME_LAB === '1') openGameLab(gameLab);
+});

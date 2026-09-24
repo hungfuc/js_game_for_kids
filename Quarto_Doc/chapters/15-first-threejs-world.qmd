@@ -135,8 +135,5 @@ The camera's near and far distances bound what it can see. A model outside that 
 Move the starting camera higher, change the island material, and place one extra crystal. Then orbit the camera halfway around and explain why the movement keys now look different. Keep the world controls unchanged while you investigate.
 :::
 
-::: {.callout-important .checkpoint title="Explain the 3D scene" icon="false"}
-Which object decides the viewpoint, and which object draws the image? Why does adding a crate mesh not automatically make the crate solid? What changes when you add `z` to the player's position?
-:::
 
 **Complete companion source:** [Robot Island Explorer](../games/three-explorer/index.html), [main.js](../games/three-explorer/main.js), and [shared Three.js setup](../games/shared/three-scene.js).

@@ -132,8 +132,5 @@ Our next game deliberately uses a marble so you can focus on dynamic bodies, con
 Change one ball's bounce coefficient and predict the result. Next, deliberately mismatch a sphere's visible radius and collider radius, turn on the debug display, and explain the strange contact. Restore matching sizes before building a game.
 :::
 
-::: {.callout-important .checkpoint title="Explain the simulation" icon="false"}
-Why can a visible object fall through the floor when it has a rigid body but no collider? What half-extents match a crate whose full size is 2 by 1 by 3? Why must the game not apply gravity both to the body and separately to the mesh?
-:::
 
 **Complete companion source:** [Rapier Drop Lab](../games/physics-lab/index.html), [main.js](../games/physics-lab/main.js), and [physics debug display](../games/shared/physics-debug.js).

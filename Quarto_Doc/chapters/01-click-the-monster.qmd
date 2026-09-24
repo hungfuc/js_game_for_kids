@@ -45,9 +45,25 @@ We will start with one HTML file. The button is our monster. When the player cli
 </html>
 ```
 
+## Give HTML and JavaScript their jobs
+
+Look at the example as two teammates sharing one file. **HTML** tells the browser what belongs on the page. **Client-side JavaScript** is the code inside `<script>`; the browser runs it on the player's device.
+
+```html
+<h1>Click the Monster!</h1>       <!-- a page heading -->
+<button id="monster">👾 Monster</button> <!-- a clickable button -->
+<script>
+  // JavaScript instructions go here.
+</script>
+```
+
+The `<h1>` and `<button>` tags create things the player can see. The `id="monster"` gives the button a unique nickname that JavaScript can use later. The `<script>` tags tell the browser, “the words inside are JavaScript.”
+
+When the player clicks, the browser runs this JavaScript right in that browser. That is why it is called **client-side**: the player's device is the client. Nothing in this tiny game needs to be sent to a website. Your score or message lasts while the page is open; reloading the page starts its memory over.
+
 ## A function is an action you can name
 
-A function groups instructions. The function below has a name: `hitMonster`. Nothing inside it runs until the function is called.
+A function groups instructions. Think of a function as a named card in a game's rule box: when someone uses its name, the instructions on the card happen. The function below is named `hitMonster`. Nothing inside it runs yet; we are only making the card and giving it a name.
 
 ```javascript
 function hitMonster() {
@@ -57,12 +73,49 @@ function hitMonster() {
 
 ## Connect the click to the function
 
-The browser can listen for events. `addEventListener` tells an element what kind of event to watch for and which function should run.
+Now JavaScript needs to find the button and tell it what to do. Long code names can look scary, so we will translate them one piece at a time.
 
 ```javascript
 const monster = document.getElementById("monster");
 monster.addEventListener("click", hitMonster);
 ```
+
+![JavaScript asks the current page for the button named monster, tells it to listen for a click, and runs hitMonster when the player clicks.](../figures/chapter_01/find-listen-react.svg){#fig-ch01-find-listen fig-alt="A diagram shows a browser page with a Monster button whose ID is monster. JavaScript asks document.getElementById for monster, stores the returned button in monster, adds a click listener, and runs hitMonster when the player clicks." width="100%"}
+
+**Read the picture:** The two uses of `monster` are connected, but they are not quite the same thing. In HTML, `id="monster"` is the button's nickname. In JavaScript, `const monster` is a box that holds the button after JavaScript finds it.
+
+### First line: find the button {.unnumbered}
+
+```javascript
+const monster = document.getElementById("monster");
+```
+
+Read this as: **“Ask this page for the element whose ID is `monster`, then keep it in a box named `monster`.”**
+
+- `document` does **not** mean a school report or a file in your folder. In browser JavaScript, it means the web page that is open right now.
+- `get` means “find and give me.”
+- An **element** is one piece of a web page, such as a button, a heading, or a paragraph.
+- `ById` means “use its unique ID nickname.” We gave the button that nickname in HTML: `<button id="monster">`.
+- The quoted `"monster"` is the information we give to `getElementById()`. Quotes mean it is text. JavaScript checks the page for an ID spelled exactly `monster`—same letters, same lowercase `m`.
+- `const monster =` makes a named box called `monster` and saves the found button in it. This JavaScript name could be `monsterButton` instead, but using the same nickname makes the first example easier to follow.
+
+The dots are like saying “go to the next helper.” `document.getElementById` means “use the page's helper named `getElementById`.” The parentheses hold the information we give that helper.
+
+### Second line: listen for a click {.unnumbered}
+
+```javascript
+monster.addEventListener("click", hitMonster);
+```
+
+An **event** is something that happens, such as a click, a key press, or moving a mouse. A **listener** is a helper that waits and notices one kind of event. So `addEventListener` means: **“attach a listener that waits for an event.”**
+
+This line says: **“Tell the button in the `monster` box to wait for a click. When a click happens, use the action named `hitMonster`.”**
+
+- `"click"` tells the listener which event to watch for. It is text, so it needs quotes.
+- The comma separates two pieces of information: first the event to watch for, then the action to use.
+- `hitMonster` has no parentheses here because we are handing the browser the action card for later. Writing `hitMonster()` would run the action immediately, before the player clicks.
+
+The listener keeps waiting while the game is open. It does not make the button click by itself.
 
 ## Build the complete game
 
@@ -92,11 +145,46 @@ Put the pieces together. Type the code yourself if you can; typing helps your br
 </html>
 ```
 
+::: {.callout-note .advanced-study title="Second example | Click a picture" icon="false" collapse="false"}
+
+[OPTIONAL IMAGE UPGRADE]{.study-badge}
+
+Buttons are useful, but a game can also react when the player clicks a picture. Copy [gem.svg](../games/assets/2d/gem.svg) from this textbook into your `my-first-game` folder. Keep the name `gem.svg`. The image and your `index.html` file must be in the same folder.
+
+~~~html
+<!doctype html>
+<html>
+<body>
+  <h1>Click the Gem!</h1>
+  <img id="gem" src="gem.svg"
+       alt="A purple gem. Click it to collect it." width="96">
+  <p id="message">The gem is waiting.</p>
+
+  <script>
+    const gem = document.getElementById("gem");
+    const message = document.getElementById("message");
+
+    function collectGem() {
+      message.textContent = "You collected the gem!";
+    }
+
+    gem.addEventListener("click", collectGem);
+  </script>
+</body>
+</html>
+~~~
+
+The `<img>` tag puts a picture on the page. Its `src="gem.svg"` tells the browser which picture file to load. Its `alt` text describes the picture for players who cannot see it. We use `id="gem"` and `getElementById("gem")` for the same reason we used `monster` before: JavaScript needs a unique nickname for the picture it should listen to.
+
+This is still a one-file game plus one local picture file. You can open `index.html` directly from your drive; you do not need a local server yet.
+
+:::
+
 ::: {.callout-note .advanced-study title="Advanced Study | HTML elements and the DOM" icon="false" collapse="false"}
 
 [OPTIONAL DEEPER DIVE]{.study-badge}
 
-HTML gives the browser a structure. JavaScript does not usually change the HTML file itself while the game is running; it changes the browser’s in-memory representation called the DOM. `getElementById()` returns one DOM element, and `addEventListener()` attaches behavior without mixing JavaScript directly into the HTML tag.
+HTML gives the browser a structure. JavaScript does not usually change the HTML file itself while the game is running; it changes the browser’s in-memory page map called the **DOM**. `getElementById()` returns one item from that map, and `addEventListener()` attaches behavior without mixing JavaScript directly into the HTML tag.
 
 ```javascript
 const monster = document.getElementById('monster');
@@ -122,13 +210,5 @@ Change the monster button into a dragon or robot.
 ::: {.callout-tip .challenge title="Challenge 2" icon="false"}
 
 Add a second button with a different function and message.
-
-:::
-
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-What new JavaScript idea made the Click the Monster game possible? Point to one line of code and explain what would change if you removed it.
 
 :::

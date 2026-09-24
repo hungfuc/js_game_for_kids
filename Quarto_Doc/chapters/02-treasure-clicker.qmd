@@ -88,6 +88,41 @@ Put the pieces together. Type the code yourself if you can; typing helps your br
 </html>
 ```
 
+::: {.callout-note .advanced-study title="Second example | Collect a picture" icon="false" collapse="false"}
+
+[OPTIONAL IMAGE UPGRADE]{.study-badge}
+
+Turn the treasure button into a picture. First, copy [gem.svg](../games/assets/2d/gem.svg) into the same folder as your `index.html` file. The JavaScript works almost the same way: an image is also a page element, so it can listen for clicks.
+
+~~~html
+<!doctype html>
+<html>
+<body>
+  <h1>Gem Collector</h1>
+  <img id="treasure" src="gem.svg"
+       alt="A purple gem. Click it to collect it." width="96">
+  <p id="score">Score: 0</p>
+
+  <script>
+    let score = 0;
+    const treasure = document.getElementById("treasure");
+    const scoreText = document.getElementById("score");
+
+    function collectTreasure() {
+      score = score + 1;
+      scoreText.textContent = "Score: " + score;
+    }
+
+    treasure.addEventListener("click", collectTreasure);
+  </script>
+</body>
+</html>
+~~~
+
+The name `treasure` is only a helpful label. In this example, it refers to a gem picture instead of a button. Try clicking the gem several times. Each click is an event, so the same `collectTreasure` function can add another point.
+
+:::
+
 ::: {.callout-note .advanced-study title="Advanced Study | let, const, scope, and types" icon="false" collapse="false"}
 
 [OPTIONAL DEEPER DIVE]{.study-badge}
@@ -119,13 +154,5 @@ Make each treasure worth 5 points.
 ::: {.callout-tip .challenge title="Challenge 2" icon="false"}
 
 Add a “spend 10 points” button. Only worry about subtracting for now; Chapter 3 will teach you how to prevent negative scores.
-
-:::
-
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-What new JavaScript idea made the Treasure Clicker game possible? Point to one line of code and explain what would change if you removed it.
 
 :::

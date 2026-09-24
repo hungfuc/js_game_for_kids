@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">How JavaScript finds the monster button and reacts to a click</title>
+  <desc id="desc">The browser page contains a button whose ID is monster. JavaScript asks the document for the element with that ID, stores it in a variable named monster, tells it to listen for a click, and then runs hitMonster when the player clicks.</desc>
+  <defs>
+    <style>
+      .heading { font: 700 28px Arial, sans-serif; fill: #183253; }
+      .label { font: 700 23px Arial, sans-serif; fill: #183253; }
+      .text { font: 20px Arial, sans-serif; fill: #24334b; }
+      .code { font: 19px Menlo, Consolas, monospace; fill: #372953; }
+      .small { font: 17px Arial, sans-serif; fill: #52647a; }
+      .arrow { stroke: #3c78d8; stroke-width: 5; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#3c78d8"/></marker>
+  </defs>
+  <rect width="1200" height="700" rx="28" fill="#f7fbff"/>
+  <text x="600" y="52" class="heading" text-anchor="middle">Find → listen → react</text>
+  <rect x="55" y="105" width="300" height="230" rx="20" fill="#e8f1ff" stroke="#7fa8e6" stroke-width="3"/>
+  <text x="205" y="145" class="label" text-anchor="middle">The browser page</text>
+  <text x="205" y="178" class="small" text-anchor="middle">JavaScript calls this</text>
+  <text x="205" y="202" class="label" text-anchor="middle">the document</text>
+  <rect x="100" y="235" width="210" height="65" rx="12" fill="#ffffff" stroke="#523b79" stroke-width="3"/>
+  <text x="205" y="263" class="text" text-anchor="middle">Monster button</text>
+  <text x="205" y="287" class="code" text-anchor="middle">id="monster"</text>
+  <rect x="440" y="105" width="700" height="106" rx="18" fill="#f3edff" stroke="#9d7dd0" stroke-width="3"/>
+  <text x="475" y="145" class="label">1. Ask the page to find the button</text>
+  <text x="475" y="181" class="code">document.getElementById("monster")</text>
+  <path d="M355 220 C390 220 395 174 425 174" class="arrow"/>
+  <text x="365" y="197" class="small">ask</text>
+  <rect x="440" y="255" width="700" height="106" rx="18" fill="#e9f8ef" stroke="#6eb68b" stroke-width="3"/>
+  <text x="475" y="295" class="label">2. Keep that button in a named box</text>
+  <text x="475" y="331" class="code">const monster = ...</text>
+  <path d="M790 211 L790 245" class="arrow"/>
+  <text x="808" y="237" class="small">returns the button</text>
+  <rect x="440" y="405" width="700" height="106" rx="18" fill="#fff5e2" stroke="#d6a34b" stroke-width="3"/>
+  <text x="475" y="445" class="label">3. Tell it what to listen for</text>
+  <text x="475" y="481" class="code">monster.addEventListener("click", hitMonster)</text>
+  <path d="M790 361 L790 395" class="arrow"/>
+  <rect x="55" y="440" width="300" height="160" rx="20" fill="#fff0f4" stroke="#d77d9c" stroke-width="3"/>
+  <text x="205" y="480" class="label" text-anchor="middle">Player clicks</text>
+  <text x="205" y="515" class="text" text-anchor="middle">The browser notices</text>
+  <text x="205" y="545" class="text" text-anchor="middle">the click event</text>
+  <path d="M355 520 C390 520 395 460 425 460" class="arrow"/>
+  <rect x="440" y="555" width="700" height="90" rx="18" fill="#eaf1fc" stroke="#7fa8e6" stroke-width="3"/>
+  <text x="475" y="593" class="label">4. Run the named action</text>
+  <text x="475" y="623" class="code">hitMonster()</text>
+  <path d="M790 511 L790 545" class="arrow"/>
+</svg>

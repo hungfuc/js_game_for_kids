@@ -2,15 +2,56 @@
 
 ## Start a local server
 
-Keep this textbook's folder structure intact. In a terminal opened at the project root, run:
+The first one-file games can open directly from your drive. The Game Lab projects are different: their HTML pages load JavaScript modules, shared code, artwork, level data, or 3D models. A local web server gives the browser a safe way to ask for those files.
+
+| How you open a page | Address you may see | Best for |
+| --- | --- | --- |
+| Double-click an HTML file | `file:///...` | A simple, complete one-file game. |
+| Start a local server, then open its address | `http://127.0.0.1:8000/...` | This book's multi-file Game Lab projects. |
+
+A server is not automatically a giant computer far away. Here it is a small program running on **your** computer. `127.0.0.1` is a special address that means “this computer.” It does not publish your work on the internet.
+
+### One-time setup: install Node.js
+
+The Game Lab's server is included in this textbook. It uses **Node.js**, a free program that can run JavaScript outside the browser. You do **not** need to install `npm` packages or find another web-server app.
+
+Because installing software can require a password or school permission, do this step with a parent, teacher, or other adult:
+
+1. Visit [the official Node.js download page](https://nodejs.org/en/download).
+2. Choose the **LTS** installer for your computer. LTS means “long-term support,” a version chosen to stay dependable for longer.
+3. Open the downloaded installer and follow its instructions. Keep the normal choices unless your school gives different instructions.
+4. Close and reopen any Terminal, PowerShell, or Command Prompt windows. Type `node --version` and press Enter. A version number means Node.js is ready.
+
+### Easiest way: double-click the Game Lab launcher
+
+Keep this textbook's folder structure intact. Open the extracted `Quarto_Doc` folder.
+
+- On **macOS**, double-click `start-game-lab.command`.
+- On **Windows**, double-click `start-game-lab.bat`.
+
+The launcher starts the local server and opens the Game Lab in your usual browser. Leave its window open while you play. To stop the server, close that window or press Ctrl+C in it.
+
+If your computer asks for permission to run the launcher, do not ignore the warning. Ask an adult or teacher to check that the file came from this textbook folder. If school rules block launcher files, use the terminal method below.
+
+### Terminal method
+
+Open a terminal in the extracted `Quarto_Doc` folder. On macOS, use **Terminal**; on Windows, use **PowerShell** or **Command Prompt**. If your terminal is somewhere else, use `cd` to move into that folder first:
+
+```bash
+cd "/path/to/your/Quarto_Doc"
+```
+
+Replace `/path/to/your/Quarto_Doc` with the real location on your computer. Then run:
 
 ```bash
 node scripts/serve.mjs
 ```
 
-Open `http://127.0.0.1:8000/games/` to choose a project. Open `http://127.0.0.1:8000/preview.html` to read the included HTML edition. Stop the server with Ctrl+C. The server listens only on your computer's loopback interface; it is a development tool, not a public hosting service.
+Leave that terminal window open while you play. Open `http://127.0.0.1:8000/games/` to choose a project. Open `http://127.0.0.1:8000/preview.html` to read the included HTML edition. Stop the server with Ctrl+C. The server listens only on your computer's loopback interface; it is a development tool, not a public hosting service.
 
-Node.js must already be installed. No `npm install` is needed. Another local static server also works. Double-clicking an HTML file is not enough for the module-based projects because model and JSON loading use browser requests.
+No `npm install` is needed. If the terminal says that `node` is not recognized or not found, repeat the Node.js setup with an adult or teacher.
+
+The browser's trip is simple: browser asks for `main.js` or an image, the local server finds that file in the textbook folder, and the browser receives it. Double-clicking an HTML file is not enough for these module-based projects because module, model, and JSON loading use browser requests. Another local static server also works, but keep the whole folder tree together.
 
 ## Choose a project
 
@@ -41,6 +82,8 @@ games/
   shared/               Input, loops, collision helpers, styles, 3D setup
   assets/               Original SVG, PNG, GLB, JSON, and WAV files
 scripts/                Local server, dependency download, book builders
+start-game-lab.command  macOS double-click launcher
+start-game-lab.bat      Windows double-click launcher
 tests/                  Automated checks for reusable game logic
 ```
 

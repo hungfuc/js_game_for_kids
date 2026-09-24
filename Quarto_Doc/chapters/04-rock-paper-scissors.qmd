@@ -117,11 +117,3 @@ Track player wins and computer wins.
 Invent a fourth move and decide what it beats. Notice how the rule logic becomes more complicated.
 
 :::
-
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-What new JavaScript idea made the Rock Paper Scissors game possible? Point to one line of code and explain what would change if you removed it.
-
-:::

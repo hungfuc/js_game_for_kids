@@ -124,11 +124,3 @@ Build a playable version using only rectangles and circles before adding art.
 Ask two players to test it and record one change you made because of their feedback.
 
 :::
-
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-Which programming ideas did you combine in your own game? Point to one important line, explain what it does, and predict what would change if you removed it.
-
-:::

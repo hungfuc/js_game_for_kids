@@ -9,9 +9,11 @@ subtitle: "From browser games to dynamic 2D and 3D worlds"
 
 [LEARN BY MAKING]{.eyebrow}
 
-[JavaScript Game Programming for Kids]{.hero-title}
+[Web Game Coding for Kids]{.hero-title}
 
-Build a game. Understand the code. Make it your own. Explore 2D and 3D.
+*Learn JavaScript by Building 2D and 3D Games*
+
+Build a game. Understand the code. Make it your own.
 
 [18 chapters]{.hero-chip} [Visual explanations]{.hero-chip} [Advanced Study]{.hero-chip}
 
@@ -24,6 +26,36 @@ This book teaches JavaScript in the order a young game designer needs it. Instea
 Make something move. Make something react. Make something fun. Then study the code that made it happen.
 
 :::
+
+## Your computer toolkit {.unnumbered}
+
+Before you make a game, meet the tools you will use. A **computer** runs programs: sets of instructions that tell it what to do. A web browser is one program. A text editor is another. You are about to write instructions that a browser can follow.
+
+### Files and folders {.unnumbered}
+
+A **file** is one named piece of information saved on a computer. A game picture, a sound, and a page of code can each be files. A **folder** is a container that helps you keep related files together. Think of a folder as a game box and the files inside as its cards, pieces, and rule sheet.
+
+Give each game its own folder. For example, your `my-first-game` folder can hold its HTML page now and later hold pictures, sounds, and more JavaScript files. Keep those files together when you copy or move your game.
+
+### A text editor is for code {.unnumbered}
+
+You write code in a **plain-text editor**. It saves exactly the letters, numbers, spaces, and punctuation that you type. Many editors color code and point out mistakes; that can be helpful, but the colors are not part of the code.
+
+A word processor is great for essays, but it may add special quotation marks, hidden formatting, or page layouts. Those extras can confuse code. Use a plain-text editor for your game files. Ask your teacher which editor is available on your computer.
+
+### File names and extensions {.unnumbered}
+
+The end of a file name after the final dot is its **file extension**. It helps people and programs recognize the file's job.
+
+| File name | Extension | What it usually contains |
+| --- | --- | --- |
+| `index.html` | `.html` | The page structure a browser opens. |
+| `main.js` | `.js` | JavaScript instructions for the browser. |
+| `style.css` | `.css` | Colors, sizes, and other visual choices. |
+| `level.json` | `.json` | Organized game data, such as a level layout. |
+| `robot.svg` | `.svg` | A picture made from shapes and lines. |
+
+The extension is important. `index.html` and `index.html.txt` are different files: the first is a web page, while the second is usually treated as ordinary text. Some computers hide extensions, so check the full name when you save a file. Do not rename a file just to give it a new extension; save it in the right kind of file from the start.
 
 ## Choose your reading path {.unnumbered}
 
@@ -72,6 +104,43 @@ Rose blocks help you check your understanding.
 Create a folder named `my-first-game`. Save your complete HTML example as `index.html`, not `index.html.txt`. Open it in your browser. After editing, save the file and refresh the browser. Later, module-based projects need a local development server.
 
 :::
+
+## Meet the browser team {.unnumbered}
+
+Your web browser is the program that turns your game files into a page you can play. Three kinds of code often work together:
+
+| Part | Its job | A game example |
+| --- | --- | --- |
+| **HTML** | Builds the page and names its parts. | A heading, a button, and a canvas. |
+| **CSS** | Chooses how those parts look. | A purple button or a large play area. |
+| **JavaScript** | Makes the page react and change. | Add a point when the player clicks. |
+
+Think of HTML as the game room, CSS as the paint and decorations, and JavaScript as the rules that make things happen. This book begins with HTML and JavaScript in one file so you can see their connection clearly. CSS will appear when a game needs it.
+
+### What “client-side JavaScript” means {.unnumbered}
+
+The **client** is the player's browser. Client-side JavaScript runs on the same computer, tablet, or Chromebook that displays the game. When a player presses a key, the browser can run your JavaScript right there and update the picture right away.
+
+That is different from code on a **server**—another computer that can store shared scores, accounts, or messages. Our first games do not need a server on the internet. Their rules and scores stay in the browser while the page is open.
+
+## Run a one-file game from your drive {.unnumbered}
+
+For the complete examples in the first chapters, you can run your game directly from your computer's drive.
+
+1. Make a folder called `my-first-game` somewhere you can find again, such as Documents.
+2. In a plain-text code editor, save the complete example as `index.html` inside that folder. Check that the name ends in `.html`, not `.html.txt`.
+3. Open the folder and double-click `index.html`. Your browser should open it. You may see an address beginning with `file:///`; that means the browser opened a file from your own drive.
+4. Return to the editor, make one small change, save, and refresh the browser page. On many computers, refresh is `Ctrl+R` or `Command+R`.
+
+If double-clicking opens an editor instead of a browser, right-click the file and choose **Open with**, then choose your browser. If you cannot see the `.html` ending, ask an adult or teacher to turn on file-name extensions. A file named `index.html.txt` is a text document, not a web page.
+
+## When a local web server helps {.unnumbered}
+
+Some later games use several JavaScript files, images, level-data files, or 3D models. A **web server** is a small program that hands files to a browser when the browser asks for them. It is like a careful librarian: the browser asks for a particular file, and the server gives back that file.
+
+For a one-file beginner game, `file:///` is enough. For a project that uses JavaScript `import`, JSON data, or files loaded by the game, start a **local web server** instead. A local server runs only on your own computer and gives the page an address such as `http://127.0.0.1:8000/`. Modern browsers use extra safety rules for those multi-file requests, so opening the HTML by double-clicking may not work.
+
+`127.0.0.1` means “this same computer.” Starting this book's local server does not put your game on the internet or let classmates visit it. The Game Lab instructions in [Appendix E](#sec-game-lab) show exactly how to start it.
 
 ## Read examples carefully {.unnumbered}
 
@@ -163,9 +232,25 @@ We will start with one HTML file. The button is our monster. When the player cli
 </html>
 ```
 
+## Give HTML and JavaScript their jobs
+
+Look at the example as two teammates sharing one file. **HTML** tells the browser what belongs on the page. **Client-side JavaScript** is the code inside `<script>`; the browser runs it on the player's device.
+
+```html
+<h1>Click the Monster!</h1>       <!-- a page heading -->
+<button id="monster">👾 Monster</button> <!-- a clickable button -->
+<script>
+  // JavaScript instructions go here.
+</script>
+```
+
+The `<h1>` and `<button>` tags create things the player can see. The `id="monster"` gives the button a unique nickname that JavaScript can use later. The `<script>` tags tell the browser, “the words inside are JavaScript.”
+
+When the player clicks, the browser runs this JavaScript right in that browser. That is why it is called **client-side**: the player's device is the client. Nothing in this tiny game needs to be sent to a website. Your score or message lasts while the page is open; reloading the page starts its memory over.
+
 ## A function is an action you can name
 
-A function groups instructions. The function below has a name: `hitMonster`. Nothing inside it runs until the function is called.
+A function groups instructions. Think of a function as a named card in a game's rule box: when someone uses its name, the instructions on the card happen. The function below is named `hitMonster`. Nothing inside it runs yet; we are only making the card and giving it a name.
 
 ```javascript
 function hitMonster() {
@@ -175,12 +260,49 @@ function hitMonster() {
 
 ## Connect the click to the function
 
-The browser can listen for events. `addEventListener` tells an element what kind of event to watch for and which function should run.
+Now JavaScript needs to find the button and tell it what to do. Long code names can look scary, so we will translate them one piece at a time.
 
 ```javascript
 const monster = document.getElementById("monster");
 monster.addEventListener("click", hitMonster);
 ```
+
+![JavaScript asks the current page for the button named monster, tells it to listen for a click, and runs hitMonster when the player clicks.](../figures/chapter_01/find-listen-react.svg){#fig-ch01-find-listen fig-alt="A diagram shows a browser page with a Monster button whose ID is monster. JavaScript asks document.getElementById for monster, stores the returned button in monster, adds a click listener, and runs hitMonster when the player clicks." width="100%"}
+
+**Read the picture:** The two uses of `monster` are connected, but they are not quite the same thing. In HTML, `id="monster"` is the button's nickname. In JavaScript, `const monster` is a box that holds the button after JavaScript finds it.
+
+### First line: find the button {.unnumbered}
+
+```javascript
+const monster = document.getElementById("monster");
+```
+
+Read this as: **“Ask this page for the element whose ID is `monster`, then keep it in a box named `monster`.”**
+
+- `document` does **not** mean a school report or a file in your folder. In browser JavaScript, it means the web page that is open right now.
+- `get` means “find and give me.”
+- An **element** is one piece of a web page, such as a button, a heading, or a paragraph.
+- `ById` means “use its unique ID nickname.” We gave the button that nickname in HTML: `<button id="monster">`.
+- The quoted `"monster"` is the information we give to `getElementById()`. Quotes mean it is text. JavaScript checks the page for an ID spelled exactly `monster`—same letters, same lowercase `m`.
+- `const monster =` makes a named box called `monster` and saves the found button in it. This JavaScript name could be `monsterButton` instead, but using the same nickname makes the first example easier to follow.
+
+The dots are like saying “go to the next helper.” `document.getElementById` means “use the page's helper named `getElementById`.” The parentheses hold the information we give that helper.
+
+### Second line: listen for a click {.unnumbered}
+
+```javascript
+monster.addEventListener("click", hitMonster);
+```
+
+An **event** is something that happens, such as a click, a key press, or moving a mouse. A **listener** is a helper that waits and notices one kind of event. So `addEventListener` means: **“attach a listener that waits for an event.”**
+
+This line says: **“Tell the button in the `monster` box to wait for a click. When a click happens, use the action named `hitMonster`.”**
+
+- `"click"` tells the listener which event to watch for. It is text, so it needs quotes.
+- The comma separates two pieces of information: first the event to watch for, then the action to use.
+- `hitMonster` has no parentheses here because we are handing the browser the action card for later. Writing `hitMonster()` would run the action immediately, before the player clicks.
+
+The listener keeps waiting while the game is open. It does not make the button click by itself.
 
 ## Build the complete game
 
@@ -210,11 +332,46 @@ Put the pieces together. Type the code yourself if you can; typing helps your br
 </html>
 ```
 
+::: {.callout-note .advanced-study title="Second example | Click a picture" icon="false" collapse="false"}
+
+[OPTIONAL IMAGE UPGRADE]{.study-badge}
+
+Buttons are useful, but a game can also react when the player clicks a picture. Copy [gem.svg](../games/assets/2d/gem.svg) from this textbook into your `my-first-game` folder. Keep the name `gem.svg`. The image and your `index.html` file must be in the same folder.
+
+~~~html
+<!doctype html>
+<html>
+<body>
+  <h1>Click the Gem!</h1>
+  <img id="gem" src="gem.svg"
+       alt="A purple gem. Click it to collect it." width="96">
+  <p id="message">The gem is waiting.</p>
+
+  <script>
+    const gem = document.getElementById("gem");
+    const message = document.getElementById("message");
+
+    function collectGem() {
+      message.textContent = "You collected the gem!";
+    }
+
+    gem.addEventListener("click", collectGem);
+  </script>
+</body>
+</html>
+~~~
+
+The `<img>` tag puts a picture on the page. Its `src="gem.svg"` tells the browser which picture file to load. Its `alt` text describes the picture for players who cannot see it. We use `id="gem"` and `getElementById("gem")` for the same reason we used `monster` before: JavaScript needs a unique nickname for the picture it should listen to.
+
+This is still a one-file game plus one local picture file. You can open `index.html` directly from your drive; you do not need a local server yet.
+
+:::
+
 ::: {.callout-note .advanced-study title="Advanced Study | HTML elements and the DOM" icon="false" collapse="false"}
 
 [OPTIONAL DEEPER DIVE]{.study-badge}
 
-HTML gives the browser a structure. JavaScript does not usually change the HTML file itself while the game is running; it changes the browser’s in-memory representation called the DOM. `getElementById()` returns one DOM element, and `addEventListener()` attaches behavior without mixing JavaScript directly into the HTML tag.
+HTML gives the browser a structure. JavaScript does not usually change the HTML file itself while the game is running; it changes the browser’s in-memory page map called the **DOM**. `getElementById()` returns one item from that map, and `addEventListener()` attaches behavior without mixing JavaScript directly into the HTML tag.
 
 ```javascript
 const monster = document.getElementById('monster');
@@ -240,14 +397,6 @@ Change the monster button into a dragon or robot.
 ::: {.callout-tip .challenge title="Challenge 2" icon="false"}
 
 Add a second button with a different function and message.
-
-:::
-
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-What new JavaScript idea made the Click the Monster game possible? Point to one line of code and explain what would change if you removed it.
 
 :::
 
@@ -341,6 +490,41 @@ Put the pieces together. Type the code yourself if you can; typing helps your br
 </html>
 ```
 
+::: {.callout-note .advanced-study title="Second example | Collect a picture" icon="false" collapse="false"}
+
+[OPTIONAL IMAGE UPGRADE]{.study-badge}
+
+Turn the treasure button into a picture. First, copy [gem.svg](../games/assets/2d/gem.svg) into the same folder as your `index.html` file. The JavaScript works almost the same way: an image is also a page element, so it can listen for clicks.
+
+~~~html
+<!doctype html>
+<html>
+<body>
+  <h1>Gem Collector</h1>
+  <img id="treasure" src="gem.svg"
+       alt="A purple gem. Click it to collect it." width="96">
+  <p id="score">Score: 0</p>
+
+  <script>
+    let score = 0;
+    const treasure = document.getElementById("treasure");
+    const scoreText = document.getElementById("score");
+
+    function collectTreasure() {
+      score = score + 1;
+      scoreText.textContent = "Score: " + score;
+    }
+
+    treasure.addEventListener("click", collectTreasure);
+  </script>
+</body>
+</html>
+~~~
+
+The name `treasure` is only a helpful label. In this example, it refers to a gem picture instead of a button. Try clicking the gem several times. Each click is an event, so the same `collectTreasure` function can add another point.
+
+:::
+
 ::: {.callout-note .advanced-study title="Advanced Study | let, const, scope, and types" icon="false" collapse="false"}
 
 [OPTIONAL DEEPER DIVE]{.study-badge}
@@ -372,14 +556,6 @@ Make each treasure worth 5 points.
 ::: {.callout-tip .challenge title="Challenge 2" icon="false"}
 
 Add a “spend 10 points” button. Only worry about subtracting for now; Chapter 3 will teach you how to prevent negative scores.
-
-:::
-
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-What new JavaScript idea made the Treasure Clicker game possible? Point to one line of code and explain what would change if you removed it.
 
 :::
 
@@ -481,6 +657,55 @@ Put the pieces together. Type the code yourself if you can; typing helps your br
 </html>
 ```
 
+::: {.callout-note .advanced-study title="Second example | Let a picture give feedback" icon="false" collapse="false"}
+
+[OPTIONAL IMAGE UPGRADE]{.study-badge}
+
+Games can use pictures as clues, not only words. Copy [gem.svg](../games/assets/2d/gem.svg) and [bug.svg](../games/assets/2d/bug.svg) into the same folder as `index.html`. In this version, a bug picture means “keep guessing,” and a gem picture appears when the player finds the secret number.
+
+~~~html
+<!doctype html>
+<html>
+<body>
+  <h1>Secret Number</h1>
+  <input id="guess" type="number" min="1" max="10">
+  <button id="check">Check</button>
+  <p id="message">Guess a number from 1 to 10.</p>
+  <img id="feedback" src="bug.svg"
+       alt="A bug means you have not found the secret yet." width="96">
+
+  <script>
+    const secret = Math.floor(Math.random() * 10) + 1;
+    const guessBox = document.getElementById("guess");
+    const message = document.getElementById("message");
+    const feedback = document.getElementById("feedback");
+
+    document.getElementById("check").addEventListener("click", function () {
+      const guess = Number(guessBox.value);
+
+      if (guess === secret) {
+        message.textContent = "Correct!";
+        feedback.src = "gem.svg";
+        feedback.alt = "A gem means you found the secret number.";
+      } else if (guess < secret) {
+        message.textContent = "Too low!";
+        feedback.src = "bug.svg";
+        feedback.alt = "A bug means you should keep guessing.";
+      } else {
+        message.textContent = "Too high!";
+        feedback.src = "bug.svg";
+        feedback.alt = "A bug means you should keep guessing.";
+      }
+    });
+  </script>
+</body>
+</html>
+~~~
+
+`feedback.src` means “which picture should the feedback image show?” The code changes that file name when the answer is correct. It also changes `feedback.alt`, so the spoken description matches the new picture. The player still uses words and numbers to understand the clue; the picture adds a quick visual reward.
+
+:::
+
 ::: {.callout-note .advanced-study title="Advanced Study | How comparisons really work" icon="false" collapse="false"}
 
 [OPTIONAL DEEPER DIVE]{.study-badge}
@@ -524,14 +749,6 @@ Count how many guesses the player uses.
 ::: {.callout-tip .challenge title="Challenge 2" icon="false"}
 
 Add a rule: after 5 guesses, show the secret number.
-
-:::
-
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-What new JavaScript idea made the Secret Number game possible? Point to one line of code and explain what would change if you removed it.
 
 :::
 
@@ -652,14 +869,6 @@ Track player wins and computer wins.
 ::: {.callout-tip .challenge title="Challenge 3" icon="false"}
 
 Invent a fourth move and decide what it beats. Notice how the rule logic becomes more complicated.
-
-:::
-
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-What new JavaScript idea made the Rock Paper Scissors game possible? Point to one line of code and explain what would change if you removed it.
 
 :::
 
@@ -800,14 +1009,6 @@ Make the star move faster after the player reaches 5 points.
 ::: {.callout-tip .challenge title="Challenge 2" icon="false"}
 
 Add a 20-second countdown and stop the game when time reaches zero.
-
-:::
-
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-What new JavaScript idea made the Catch the Star game possible? Point to one line of code and explain what would change if you removed it.
 
 :::
 
@@ -965,14 +1166,6 @@ Add a second ball with its own position and velocity.
 
 :::
 
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-What new JavaScript idea made the Bouncing Ball game possible? Point to one line of code and explain what would change if you removed it.
-
-:::
-
 # Control a Real-Time Game {#sec-ch07}
 
 ::: {.chapter-banner}
@@ -1098,14 +1291,6 @@ Add a score when the ball passes a paddle.
 ::: {.callout-tip .challenge title="Challenge 3" icon="false"}
 
 Make the ball slightly faster after each paddle hit.
-
-:::
-
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-What new JavaScript idea made the Pong game possible? Point to one line of code and explain what would change if you removed it.
 
 :::
 
@@ -1236,14 +1421,6 @@ Add a win condition when every brick is gone.
 
 :::
 
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-What new JavaScript idea made the Breakout game possible? Point to one line of code and explain what would change if you removed it.
-
-:::
-
 # Build a World on a Grid {#sec-ch09}
 
 ::: {.chapter-banner}
@@ -1366,14 +1543,6 @@ Increase the update speed every five pieces of food.
 ::: {.callout-tip .challenge title="Challenge 3" icon="false"}
 
 Add a start screen and a restart key.
-
-:::
-
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-What new JavaScript idea made the Snake game possible? Point to one line of code and explain what would change if you removed it.
 
 :::
 
@@ -1504,14 +1673,6 @@ Ask two players to test it and record one change you made because of their feedb
 
 :::
 
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-Which programming ideas did you combine in your own game? Point to one important line, explain what it does, and predict what would change if you removed it.
-
-:::
-
 # Build a Real-Time 2D Game {#sec-ch11}
 
 ::: {.chapter-banner}
@@ -1534,7 +1695,7 @@ In Bouncing Ball, a few changing numbers created animation. Now imagine a robot 
 Start with the Collision Playground. Move the blue shape with the arrow keys, switch between a rectangle and a circle, and turn rectangle blocking off. With blocking off, a shape can overlap a wall even though the program correctly notices the collision. Detecting a collision and responding to it are different jobs.
 
 ::: {.callout-tip .setup title="Open the companion project" icon="false"}
-From the extracted textbook folder, run `node scripts/serve.mjs`. Open `http://127.0.0.1:8000/games/`, then choose **Collision Playground**. No `npm install` is needed. An alternative is `python3 -m http.server 8000 --bind 127.0.0.1` from the textbook folder.
+From the extracted `Quarto_Doc` folder, double-click `start-game-lab.command` on macOS or `start-game-lab.bat` on Windows. The Game Lab opens in your browser; choose **Collision Playground**. The one-time Node.js setup and a terminal backup method are in the [Game Lab guide](../appendices/e-game-lab.qmd). No `npm install` is needed.
 
 Keep the complete `games/` folder together: the projects share code and artwork. These new projects use JavaScript modules and must be opened through a local server, not by double-clicking an HTML file.
 :::
@@ -1635,9 +1796,6 @@ The lab uses this conversion when you drag a shape. Without it, the shape would 
 Change the speed from 240 to 120 and predict the distance traveled in one second. Next, make a diagonal move and compare it with a straight move. Finally, add a second wall by putting another rectangle in an array and checking each wall.
 :::
 
-::: {.callout-important .checkpoint title="Explain the system" icon="false"}
-Why should a Restart button not call `fixedLoop` again? Explain why "the collision test worked" does not necessarily mean "the player stopped at the wall."
-:::
 
 **Complete companion source:** [Collision Playground](../games/collision-lab/index.html), [main.js](../games/collision-lab/main.js), [fixed-step loop](../games/shared/loop.js), and [input helper](../games/shared/input.js).
 
@@ -1766,9 +1924,6 @@ The package includes `tests/game-logic.test.mjs`. Run `node --test tests/*.test.
 Create a platform that the robot can just reach. Predict how a stronger jump or stronger gravity changes that result, then test it. Add a new gem beside a platform corner and check whether collecting it feels fair with the hitbox display on.
 :::
 
-::: {.callout-important .checkpoint title="Explain the collision" icon="false"}
-A robot stops falling but remains halfway inside the floor. Which part of collision response is missing? Why must hitting a ceiling not set `grounded = true`?
-:::
 
 **Complete companion source:** [Robot Orchard](../games/robot-orchard/index.html), [simulation rules](../games/robot-orchard/world.js), [collision helpers](../games/shared/math.js), and [level data](../games/robot-orchard/level.json).
 
@@ -1901,9 +2056,6 @@ Repeatedly creating `new Image()` inside `draw()` is not an asset-loading strate
 Make a space-station version of Robot Orchard. Change the robot color, turn gems into energy crystals, and redraw the ground as metal panels. Keep the movement and colliders unchanged first. Then design one new platform route in `level.json` and test it separately.
 :::
 
-::: {.callout-important .checkpoint title="Explain the asset pipeline" icon="false"}
-Why should the game wait for an image before drawing it? Your sprite sheet now has six frames instead of four. Which frame-selection number must change, and what source dimensions must you check?
-:::
 
 **Editable assets:** [robot sheet](../games/assets/2d/robot-strip.svg), [gem](../games/assets/2d/gem.svg), [background](../games/assets/2d/background.svg), and [asset permissions](../games/assets/ASSET_LICENSE.md). **Complete renderer:** [Robot Orchard main.js](../games/robot-orchard/main.js).
 
@@ -2053,9 +2205,6 @@ Test a normal win, a loss, a pause during a jump, a restart after losing, and a 
 Add a checkpoint after the first gap, create an optional high route with extra rewards, or make an alternate level with the same code. Change one system first, write what you expect to happen, and test that expectation before adding the next feature.
 :::
 
-::: {.callout-important .checkpoint title="Explain your finished game" icon="false"}
-Why does moving the camera not change whether the player hits a bug? Name three pieces of state that must reset for a new game. Explain why a gem flag is safer than awarding points whenever two shapes overlap.
-:::
 
 **Complete project:** [Play Robot Orchard](../games/robot-orchard/index.html). Source: [main.js](../games/robot-orchard/main.js), [world.js](../games/robot-orchard/world.js), and [level.json](../games/robot-orchard/level.json).
 
@@ -2196,9 +2345,6 @@ The camera's near and far distances bound what it can see. A model outside that 
 Move the starting camera higher, change the island material, and place one extra crystal. Then orbit the camera halfway around and explain why the movement keys now look different. Keep the world controls unchanged while you investigate.
 :::
 
-::: {.callout-important .checkpoint title="Explain the 3D scene" icon="false"}
-Which object decides the viewpoint, and which object draws the image? Why does adding a crate mesh not automatically make the crate solid? What changes when you add `z` to the player's position?
-:::
 
 **Complete companion source:** [Robot Island Explorer](../games/three-explorer/index.html), [main.js](../games/three-explorer/main.js), and [shared Three.js setup](../games/shared/three-scene.js).
 
@@ -2338,9 +2484,6 @@ A visual walk cycle changes the pose; a movement controller changes the player's
 Export a different-colored robot and load it into the Explorer. Next, change the gem's displayed scale and inspect whether the collection distance still feels fair. Finally, write a tiny asset specification with the model's size, forward direction, origin, and intended collider.
 :::
 
-::: {.callout-important .checkpoint title="Explain your model" icon="false"}
-Your crate looks twice as wide, but the player passes through its outer half. What probably stayed unchanged? Why might recoloring one cloned robot recolor all of them?
-:::
 
 **Companion workshop:** [3D Asset Workshop](../games/asset-workshop/index.html), [workshop source](../games/asset-workshop/main.js), and [model specifications](../games/assets/3d/model-specifications.json). **Included models:** [robot.glb](../games/assets/3d/robot.glb), [crate.glb](../games/assets/3d/crate.glb), and [gem.glb](../games/assets/3d/gem.glb).
 
@@ -2478,9 +2621,6 @@ Our next game deliberately uses a marble so you can focus on dynamic bodies, con
 Change one ball's bounce coefficient and predict the result. Next, deliberately mismatch a sphere's visible radius and collider radius, turn on the debug display, and explain the strange contact. Restore matching sizes before building a game.
 :::
 
-::: {.callout-important .checkpoint title="Explain the simulation" icon="false"}
-Why can a visible object fall through the floor when it has a rigid body but no collider? What half-extents match a crate whose full size is 2 by 1 by 3? Why must the game not apply gravity both to the body and separately to the mesh?
-:::
 
 **Complete companion source:** [Rapier Drop Lab](../games/physics-lab/index.html), [main.js](../games/physics-lab/main.js), and [physics debug display](../games/shared/physics-debug.js).
 
@@ -2652,9 +2792,6 @@ A more ambitious extension is a capsule-controlled character with a matching vis
 Make a delivery game: push a crate into a target sensor to unlock the exit. Decide which collider may trigger the target, whether the crate must remain inside, and what happens after a restart. Draw the event-to-rule flow before changing the code.
 :::
 
-::: {.callout-important .checkpoint title="Explain your complete 3D game" icon="false"}
-Why should a collectible use a sensor? Why does the event handler check the player's collider handle? Explain why removing the picture of a crate is different from removing its physics body. Name one rule that belongs to your game rather than to the physics engine.
-:::
 
 **Complete companion source:** [Marble Quest](../games/marble-quest/index.html), [main.js](../games/marble-quest/main.js), [testable rules](../games/marble-quest/rules.js), and [shared debug display](../games/shared/physics-debug.js).
 
@@ -2685,12 +2822,6 @@ Keep these patterns nearby while you build. Examples with `...` are sketches, no
 - [ ] Change one thing at a time, then test again.
 - [ ] If you copied code, type the suspicious line yourself and explain each part.
 
-::: {.callout-important .checkpoint title="A useful debugging sentence" icon="false"}
-
-"I expected ______ to happen, but instead ______ happened. The last value I know is correct is ______."
-
-:::
-
 # Appendix C | Optional Next Step: Phaser {.unnumbered #sec-phaser}
 
 Once you understand variables, functions, state, animation, and collision in plain JavaScript, you can explore a game framework such as Phaser. A framework provides tools for game tasks so you can spend less time on low-level drawing code.
@@ -2712,11 +2843,6 @@ function update() {
 }
 ```
 
-::: {.callout-important .checkpoint title="Before you move on" icon="false"}
-
-Explain the difference between game state and its picture on the screen. Then describe what happens during one update. A framework is most useful when you can still explain the game underneath it.
-
-:::
 
 Explore the [official Phaser website](https://phaser.io/) for its documentation and examples.
 
@@ -2732,25 +2858,60 @@ A working game is only part of what you have learned. Use this checklist to coll
 | Modification | I can make a small change without replacing the whole program. | One change and its test result. |
 | Game design | Another player can understand the goal and feedback. | A playtest observation and improvement. |
 
-::: {.callout-important .checkpoint title="Your game-maker reflection" icon="false"}
-
-Choose one skill that feels strong and one you are still building. Explain each choice using something that happened while you worked on a game.
-
-:::
-
 # Appendix E | Your Game Lab {.unnumbered #sec-game-lab}
 
 ## Start a local server
 
-Keep this textbook's folder structure intact. In a terminal opened at the project root, run:
+The first one-file games can open directly from your drive. The Game Lab projects are different: their HTML pages load JavaScript modules, shared code, artwork, level data, or 3D models. A local web server gives the browser a safe way to ask for those files.
+
+| How you open a page | Address you may see | Best for |
+| --- | --- | --- |
+| Double-click an HTML file | `file:///...` | A simple, complete one-file game. |
+| Start a local server, then open its address | `http://127.0.0.1:8000/...` | This book's multi-file Game Lab projects. |
+
+A server is not automatically a giant computer far away. Here it is a small program running on **your** computer. `127.0.0.1` is a special address that means “this computer.” It does not publish your work on the internet.
+
+### One-time setup: install Node.js
+
+The Game Lab's server is included in this textbook. It uses **Node.js**, a free program that can run JavaScript outside the browser. You do **not** need to install `npm` packages or find another web-server app.
+
+Because installing software can require a password or school permission, do this step with a parent, teacher, or other adult:
+
+1. Visit [the official Node.js download page](https://nodejs.org/en/download).
+2. Choose the **LTS** installer for your computer. LTS means “long-term support,” a version chosen to stay dependable for longer.
+3. Open the downloaded installer and follow its instructions. Keep the normal choices unless your school gives different instructions.
+4. Close and reopen any Terminal, PowerShell, or Command Prompt windows. Type `node --version` and press Enter. A version number means Node.js is ready.
+
+### Easiest way: double-click the Game Lab launcher
+
+Keep this textbook's folder structure intact. Open the extracted `Quarto_Doc` folder.
+
+- On **macOS**, double-click `start-game-lab.command`.
+- On **Windows**, double-click `start-game-lab.bat`.
+
+The launcher starts the local server and opens the Game Lab in your usual browser. Leave its window open while you play. To stop the server, close that window or press Ctrl+C in it.
+
+If your computer asks for permission to run the launcher, do not ignore the warning. Ask an adult or teacher to check that the file came from this textbook folder. If school rules block launcher files, use the terminal method below.
+
+### Terminal method
+
+Open a terminal in the extracted `Quarto_Doc` folder. On macOS, use **Terminal**; on Windows, use **PowerShell** or **Command Prompt**. If your terminal is somewhere else, use `cd` to move into that folder first:
+
+```bash
+cd "/path/to/your/Quarto_Doc"
+```
+
+Replace `/path/to/your/Quarto_Doc` with the real location on your computer. Then run:
 
 ```bash
 node scripts/serve.mjs
 ```
 
-Open `http://127.0.0.1:8000/games/` to choose a project. Open `http://127.0.0.1:8000/preview.html` to read the included HTML edition. Stop the server with Ctrl+C. The server listens only on your computer's loopback interface; it is a development tool, not a public hosting service.
+Leave that terminal window open while you play. Open `http://127.0.0.1:8000/games/` to choose a project. Open `http://127.0.0.1:8000/preview.html` to read the included HTML edition. Stop the server with Ctrl+C. The server listens only on your computer's loopback interface; it is a development tool, not a public hosting service.
 
-Node.js must already be installed. No `npm install` is needed. Another local static server also works. Double-clicking an HTML file is not enough for the module-based projects because model and JSON loading use browser requests.
+No `npm install` is needed. If the terminal says that `node` is not recognized or not found, repeat the Node.js setup with an adult or teacher.
+
+The browser's trip is simple: browser asks for `main.js` or an image, the local server finds that file in the textbook folder, and the browser receives it. Double-clicking an HTML file is not enough for these module-based projects because module, model, and JSON loading use browser requests. Another local static server also works, but keep the whole folder tree together.
 
 ## Choose a project
 
@@ -2781,6 +2942,8 @@ games/
   shared/               Input, loops, collision helpers, styles, 3D setup
   assets/               Original SVG, PNG, GLB, JSON, and WAV files
 scripts/                Local server, dependency download, book builders
+start-game-lab.command  macOS double-click launcher
+start-game-lab.bat      Windows double-click launcher
 tests/                  Automated checks for reusable game logic
 ```
 

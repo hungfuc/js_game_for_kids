@@ -125,11 +125,3 @@ Add a score when the ball passes a paddle.
 Make the ball slightly faster after each paddle hit.
 
 :::
-
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-What new JavaScript idea made the Pong game possible? Point to one line of code and explain what would change if you removed it.
-
-:::

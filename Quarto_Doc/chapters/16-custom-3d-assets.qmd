@@ -134,8 +134,5 @@ A visual walk cycle changes the pose; a movement controller changes the player's
 Export a different-colored robot and load it into the Explorer. Next, change the gem's displayed scale and inspect whether the collection distance still feels fair. Finally, write a tiny asset specification with the model's size, forward direction, origin, and intended collider.
 :::
 
-::: {.callout-important .checkpoint title="Explain your model" icon="false"}
-Your crate looks twice as wide, but the player passes through its outer half. What probably stayed unchanged? Why might recoloring one cloned robot recolor all of them?
-:::
 
 **Companion workshop:** [3D Asset Workshop](../games/asset-workshop/index.html), [workshop source](../games/asset-workshop/main.js), and [model specifications](../games/assets/3d/model-specifications.json). **Included models:** [robot.glb](../games/assets/3d/robot.glb), [crate.glb](../games/assets/3d/crate.glb), and [gem.glb](../games/assets/3d/gem.glb).

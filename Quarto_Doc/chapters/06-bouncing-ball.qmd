@@ -151,11 +151,3 @@ Change the ball speed. What values feel playable?
 Add a second ball with its own position and velocity.
 
 :::
-
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-What new JavaScript idea made the Bouncing Ball game possible? Point to one line of code and explain what would change if you removed it.
-
-:::

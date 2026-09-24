@@ -4,3 +4,6 @@ Icon?
 _book/
 .DS_Store
 single-file/_output/
+
+/.quarto/
+**/*.quarto_ipynb

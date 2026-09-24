@@ -144,8 +144,5 @@ Test a normal win, a loss, a pause during a jump, a restart after losing, and a 
 Add a checkpoint after the first gap, create an optional high route with extra rewards, or make an alternate level with the same code. Change one system first, write what you expect to happen, and test that expectation before adding the next feature.
 :::
 
-::: {.callout-important .checkpoint title="Explain your finished game" icon="false"}
-Why does moving the camera not change whether the player hits a bug? Name three pieces of state that must reset for a new game. Explain why a gem flag is safer than awarding points whenever two shapes overlap.
-:::
 
 **Complete project:** [Play Robot Orchard](../games/robot-orchard/index.html). Source: [main.js](../games/robot-orchard/main.js), [world.js](../games/robot-orchard/world.js), and [level.json](../games/robot-orchard/level.json).

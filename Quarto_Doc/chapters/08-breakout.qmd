@@ -124,11 +124,3 @@ Give some bricks two hit points.
 Add a win condition when every brick is gone.
 
 :::
-
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-What new JavaScript idea made the Breakout game possible? Point to one line of code and explain what would change if you removed it.
-
-:::

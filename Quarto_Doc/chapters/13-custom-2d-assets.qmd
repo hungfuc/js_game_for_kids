@@ -127,8 +127,5 @@ Repeatedly creating `new Image()` inside `draw()` is not an asset-loading strate
 Make a space-station version of Robot Orchard. Change the robot color, turn gems into energy crystals, and redraw the ground as metal panels. Keep the movement and colliders unchanged first. Then design one new platform route in `level.json` and test it separately.
 :::
 
-::: {.callout-important .checkpoint title="Explain the asset pipeline" icon="false"}
-Why should the game wait for an image before drawing it? Your sprite sheet now has six frames instead of four. Which frame-selection number must change, and what source dimensions must you check?
-:::
 
 **Editable assets:** [robot sheet](../games/assets/2d/robot-strip.svg), [gem](../games/assets/2d/gem.svg), [background](../games/assets/2d/background.svg), and [asset permissions](../games/assets/ASSET_LICENSE.md). **Complete renderer:** [Robot Orchard main.js](../games/robot-orchard/main.js).

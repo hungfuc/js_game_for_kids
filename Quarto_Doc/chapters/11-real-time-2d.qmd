@@ -20,7 +20,7 @@ In Bouncing Ball, a few changing numbers created animation. Now imagine a robot 
 Start with the Collision Playground. Move the blue shape with the arrow keys, switch between a rectangle and a circle, and turn rectangle blocking off. With blocking off, a shape can overlap a wall even though the program correctly notices the collision. Detecting a collision and responding to it are different jobs.
 
 ::: {.callout-tip .setup title="Open the companion project" icon="false"}
-From the extracted textbook folder, run `node scripts/serve.mjs`. Open `http://127.0.0.1:8000/games/`, then choose **Collision Playground**. No `npm install` is needed. An alternative is `python3 -m http.server 8000 --bind 127.0.0.1` from the textbook folder.
+From the extracted `Quarto_Doc` folder, double-click `start-game-lab.command` on macOS or `start-game-lab.bat` on Windows. The Game Lab opens in your browser; choose **Collision Playground**. The one-time Node.js setup and a terminal backup method are in the [Game Lab guide](../appendices/e-game-lab.qmd). No `npm install` is needed.
 
 Keep the complete `games/` folder together: the projects share code and artwork. These new projects use JavaScript modules and must be opened through a local server, not by double-clicking an HTML file.
 :::
@@ -121,8 +121,5 @@ The lab uses this conversion when you drag a shape. Without it, the shape would 
 Change the speed from 240 to 120 and predict the distance traveled in one second. Next, make a diagonal move and compare it with a straight move. Finally, add a second wall by putting another rectangle in an array and checking each wall.
 :::
 
-::: {.callout-important .checkpoint title="Explain the system" icon="false"}
-Why should a Restart button not call `fixedLoop` again? Explain why "the collision test worked" does not necessarily mean "the player stopped at the wall."
-:::
 
 **Complete companion source:** [Collision Playground](../games/collision-lab/index.html), [main.js](../games/collision-lab/main.js), [fixed-step loop](../games/shared/loop.js), and [input helper](../games/shared/input.js).
