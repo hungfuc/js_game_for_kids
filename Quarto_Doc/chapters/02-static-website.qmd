@@ -14,7 +14,9 @@ By the end of this chapter, you can:
 
 - make an HTML page and connect a CSS file to it
 - use headings, sections, lists, and classes to give a page structure
-- style a small site with CSS selectors and properties
+- use basic CSS rules, selectors, and declarations
+- change font family, size, weight, and style to give a site its voice
+- style a local image with size, borders, rounded corners, and a shadow
 - add labeled text, menu, checkbox, and button input elements
 
 :::
@@ -33,9 +35,10 @@ Create the folder from Chapter 1 and open it in your text editor:
 my-game-site/
   index.html
   styles.css
+  gem.svg
 ```
 
-Keep both files in the same folder. The HTML file will use a `<link>` element to tell the browser where to find the CSS file.
+Keep the files in the same folder. The HTML file will use a `<link>` element to tell the browser where to find the CSS file. Copy [gem.svg](../games/assets/2d/gem.svg) from this textbook into your new folder so the page can show a local image.
 
 ## Build the page with HTML
 
@@ -57,6 +60,15 @@ Save this complete example as `index.html`. HTML tags use angle brackets. Most t
     <p class="eyebrow">MY STATIC WEBSITE</p>
     <h1>Game Maker HQ</h1>
     <p class="intro">Plan the next game you want to build.</p>
+
+    <section class="game-preview">
+      <img class="game-art" src="gem.svg"
+           alt="A shiny purple gem for a game treasure.">
+      <div>
+        <h2>Gem Quest</h2>
+        <p>Collect three gems, then open the portal.</p>
+      </div>
+    </section>
 
     <section>
       <h2>Today's missions</h2>
@@ -105,8 +117,36 @@ Open `index.html` in a browser. If you edit it, save the file and refresh the br
 - `<main>` groups the main content. Its `class="card"` gives CSS a useful name for this group.
 - `<h1>` and `<h2>` are headings. `<p>` is a paragraph. `<ul>` and `<li>` make a list.
 - `<section>` groups a related part of the page.
+- `<img>` puts the local `gem.svg` picture on the page. Its `alt` text describes the picture for people who cannot see it.
 
-## Style the page with CSS
+## CSS basics: rules change how HTML looks
+
+CSS is a list of rules. A rule starts with a **selector**—the HTML element or class that you want to style. Inside the braces, each **declaration** has a property, a colon, a value, and a semicolon.
+
+```css
+selector {
+  property: value;
+}
+```
+
+Read this rule aloud as: “For every element with the class `game-art`, make the border rounded.”
+
+```css
+.game-art {
+  border-radius: 24px;
+}
+```
+
+The dot is important. `.game-art` means “find `class="game-art"` in the HTML.” An element selector has no dot: `h1` styles every level-one heading and `img` styles every image. You can write more than one declaration inside the same braces.
+
+| Selector | What it selects | Example use |
+| --- | --- | --- |
+| `body` | the whole visible page | choose a default font and text color |
+| `h1` | every main heading | make the title large and bold |
+| `.intro` | elements with `class="intro"` | make the introduction italic |
+| `.game-art` | the gem image with that class | set the image's frame and size |
+
+## Style fonts and images with CSS
 
 Save this in a second file named `styles.css`.
 
@@ -131,7 +171,9 @@ body {
   place-items: center;
   background: linear-gradient(135deg, #c9efff, var(--paper));
   color: var(--ink);
-  font-family: system-ui, sans-serif;
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .card {
@@ -147,18 +189,60 @@ body {
 .eyebrow {
   margin: 0;
   color: var(--purple);
-  font-weight: 800;
+  font-family: Verdana, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
   letter-spacing: 0.08em;
 }
 
 h1 {
   margin: 8px 0;
-  font-size: clamp(2rem, 7vw, 3.5rem);
+  color: var(--purple);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.2rem, 7vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
 }
 
-.intro,
+.intro {
+  color: #4c3f74;
+  font-size: 1.15rem;
+  font-style: italic;
+}
+
 .hint {
-  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+.game-preview {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 28px;
+  padding: 18px;
+  border: 2px solid #b7aee5;
+  border-radius: 20px;
+  background: #f2edff;
+}
+
+.game-preview h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.game-preview p {
+  margin: 4px 0 0;
+}
+
+.game-art {
+  width: 140px;
+  height: 140px;
+  padding: 14px;
+  border: 4px solid var(--purple);
+  border-radius: 24px;
+  background: white;
+  box-shadow: 7px 7px 0 var(--yellow);
+  object-fit: contain;
 }
 
 section {
@@ -210,18 +294,58 @@ button:focus-visible {
   outline: 4px solid var(--yellow);
   outline-offset: 2px;
 }
-```
 
-Each CSS rule has a **selector**, followed by braces. The selector tells CSS which page elements to style. Inside the braces, each `property: value;` pair tells the browser what to change.
-
-```css
-button {
-  background: var(--purple);
-  color: white;
+@media (max-width: 520px) {
+  .game-preview {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
 ```
 
-Here, `button` is the selector. `background` and `color` are properties. The rule gives every button a purple background and white text. A selector beginning with a dot, such as `.card`, matches an HTML `class` with the same name.
+### Give the site a readable voice {.unnumbered}
+
+```css
+body {
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+}
+
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.2rem, 7vw, 3.5rem);
+  font-weight: 800;
+}
+
+.intro {
+  font-style: italic;
+}
+```
+
+`font-family` chooses the lettering style. The comma-separated names are a **font stack**: the browser tries the first font and then tries the next one if needed. The last name, such as `sans-serif` or `serif`, is a broad backup family, so the page still has a sensible look on another computer.
+
+`font-size` changes how large the letters appear. `font-weight` changes how thick they look: `400` is similar to normal text, while `700` is similar to bold. `font-style: italic` adds a slant for emphasis. Use the right HTML tag first—an `<h1>` should still be the main heading even if you later change its size with CSS.
+
+### Frame an image with CSS {.unnumbered}
+
+```css
+.game-art {
+  width: 140px;
+  padding: 14px;
+  border: 4px solid var(--purple);
+  border-radius: 24px;
+  box-shadow: 7px 7px 0 var(--yellow);
+}
+```
+
+`width` keeps the image at a friendly size. `padding` adds breathing room inside its frame. `border` draws the edge, `border-radius` rounds the corners, and `box-shadow` makes the gem look as if it is resting above the card. Try changing `border-radius` to `50%`; the square frame becomes a circle.
+
+::: {.callout-note .advanced-study title="Practice CSS one property at a time" icon="false" collapse="false"}
+
+[OPTIONAL DEEPER DIVE]{.study-badge}
+
+Change one value, save the CSS file, and refresh the browser. That small experiment tells you exactly which property made the difference. Helpful next references are the [W3Schools CSS tutorial](https://www.w3schools.com/css/), [CSS Fonts](https://www.w3schools.com/css/css_font.asp), and [CSS Styling Images](https://www.w3schools.com/css/css3_images.asp).
+
+:::
 
 ## Prepare the inputs for JavaScript
 
@@ -252,13 +376,13 @@ The browser may remember what you typed for a moment, but this example has no co
 
 ::: {.callout-tip .challenge title="Challenge 1" icon="false"}
 
-Add a second section for your game's hero. Give it a heading, one paragraph, and a list of three powers.
+Make the `Gem Quest` title look different from the body text. Try a different `font-family`, a new `font-weight`, or `font-style: italic`.
 
 :::
 
 ::: {.callout-tip .challenge title="Challenge 2" icon="false"}
 
-Make a color theme of your own. Change the four values in `:root`, then refresh the page. Which CSS rules change because they use those color names?
+Turn the gem's rounded-square frame into a circle, then make a color theme of your own. Which `game-art` property changes the shape, and which properties change the colors?
 
 :::
 
@@ -266,6 +390,6 @@ Make a color theme of your own. Change the four values in `:root`, then refresh 
 
 ::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
 
-Why can a button look purple and still not react to a click? Point to the file that controls the button's appearance and name the language that will add its behavior in Chapter 3.
+Which selector styles the purple gem frame? Name two font properties that change the appearance of the title. Why can the purple button still not react to a click?
 
 :::
