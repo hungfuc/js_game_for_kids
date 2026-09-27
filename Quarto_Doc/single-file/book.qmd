@@ -261,6 +261,16 @@ Think of the jobs this way:
 
 HTML and CSS can make a useful, polished **static website**. “Static” means that the page does not yet run its own rules or change itself. A button can look like a game button before it has JavaScript to react to a click.
 
+## Try two local browser examples
+
+This book project now includes two tiny example pages in `workspace/chapter1/`. Open `index.html` from that folder, then choose an example. They use only files saved on the computer, so you do not need an internet connection or a server.
+
+The first page shows how many HTML elements can work together. It has a page title, navigation links, headings, paragraphs, a picture, an ordered list, and a table. CSS gives the elements their colors, spacing, and card-like layout.
+
+![A Chrome rendering of a local HTML example page. The page has a Pixel Planet header, navigation links, a large heading, a paragraph, a rocket image, an ordered mission list, and a table that names the jobs of several HTML elements.](../figures/chapter_01/html-elements-browser.png){#fig-ch01-html-elements fig-alt="A local browser page titled Welcome, space explorer. It shows a header with links, a rocket image, an ordered list, and a table that explains heading, paragraph, and link elements." width="100%"}
+
+**Read the picture:** Every visible piece started as an HTML element. HTML explains what each piece is; the separate CSS file decides how the pieces are arranged and styled.
+
 ## Local files and web addresses
 
 You can open a saved file directly from your computer. Its address often begins with `file:///`. For example, it might look similar to this:
@@ -294,6 +304,12 @@ For now, opening `index.html` directly is enough. Learn the page's structure and
 ## Get ready for input and JavaScript
 
 Web pages have **input elements** such as text boxes, checkboxes, menus, and buttons. In the next chapter, you will place them on a static site and label them clearly. They will be real browser controls, but they will not yet make a game remember a choice or react to a click.
+
+Here is the second local browser example. It puts several input elements on one player-card page: text, email, number, and date fields; a menu; a color picker; a slider; radio buttons; a checkbox; a text area; and a button.
+
+![A Chrome rendering of a local player-card form. It contains fields for nickname, email, number, date, a menu, color picker, range slider, radio buttons, checkbox, text area, and a button that says JavaScript comes next.](../figures/chapter_01/input-elements-browser.png){#fig-ch01-input-elements fig-alt="A browser page titled Design your player card with labeled text, email, number, date, select, color, range, radio, checkbox, text area, and button controls." width="100%"}
+
+**Read the picture:** The controls are already real browser elements. A person can type and choose, but the page has no JavaScript yet to save the answers, calculate with them, or react to the button.
 
 That is intentional. First learn what HTML puts on a page and what CSS changes about its appearance. Then, in Chapter 3, JavaScript will find those elements and give them behavior.
 

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Input Elements | Chapter 1</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">PIXEL PLANET</a>
+    <nav aria-label="Example navigation">
+      <a href="elements.html">Elements</a>
+      <a href="#player-card">Player card</a>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+
+  <main class="example-page">
+    <p class="eyebrow">EXAMPLE B · INPUT ELEMENTS</p>
+    <h1>Design your player card</h1>
+    <p class="lede">Input elements let a person type, choose, check, and adjust something on a page. This is still a static page: JavaScript will teach the browser what to do with these choices later.</p>
+
+    <form class="player-form" id="player-card">
+      <section class="form-section">
+        <h2>Player details</h2>
+        <div class="field-grid">
+          <label for="nickname">Nickname
+            <input id="nickname" name="nickname" type="text" value="Nova" autocomplete="nickname">
+          </label>
+          <label for="email">Team email
+            <input id="email" name="email" type="email" placeholder="you@example.com">
+          </label>
+          <label for="level">Starting level
+            <input id="level" name="level" type="number" min="1" max="10" value="3">
+          </label>
+          <label for="birthday">Launch day
+            <input id="birthday" name="birthday" type="date">
+          </label>
+        </div>
+      </section>
+
+      <section class="form-section">
+        <h2>Game choices</h2>
+        <div class="field-grid">
+          <label for="world">Choose a world
+            <select id="world" name="world">
+              <option>Moon maze</option>
+              <option>Jungle temple</option>
+              <option>Underwater city</option>
+            </select>
+          </label>
+          <label for="color">Hero color
+            <input id="color" name="color" type="color" value="#6d3df5">
+          </label>
+          <label for="speed">Hero speed: 7
+            <input id="speed" name="speed" type="range" min="1" max="10" value="7">
+          </label>
+        </div>
+
+        <fieldset>
+          <legend>Pick a special power</legend>
+          <label><input type="radio" name="power" checked> Super jump</label>
+          <label><input type="radio" name="power"> Invisible cloak</label>
+          <label><input type="radio" name="power"> Magnet hands</label>
+        </fieldset>
+
+        <label class="check-row"><input type="checkbox" checked> Add gentle sound effects.</label>
+      </section>
+
+      <label for="idea">One game idea
+        <textarea id="idea" name="idea" rows="3">Find three stars and open the portal.</textarea>
+      </label>
+      <button type="button">Save button—JavaScript comes next!</button>
+    </form>
+
+    <aside class="browser-tip"><strong>Notice:</strong> you can use every control, but this page does not save or react to the choices yet. HTML made the controls; a later JavaScript program will read them and respond.</aside>
+  </main>
+
+  <footer>Open this file from your computer · <a href="elements.html">See HTML elements</a></footer>
+</body>
+</html>

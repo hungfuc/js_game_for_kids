@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTML Elements | Chapter 1</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">PIXEL PLANET</a>
+    <nav aria-label="Example navigation">
+      <a href="#story">Story</a>
+      <a href="#missions">Missions</a>
+      <a href="input-elements.html">Inputs →</a>
+    </nav>
+  </header>
+
+  <main class="example-page">
+    <p class="eyebrow">EXAMPLE A · HTML ELEMENTS</p>
+    <h1>Welcome, space explorer!</h1>
+    <p class="lede">HTML gives each part of a web page a useful job. This page combines headings, paragraphs, a picture, a list, a link, and a table.</p>
+
+    <section class="feature" id="story" aria-labelledby="story-heading">
+      <img src="assets/rocket.svg" alt="A purple rocket flying past a yellow star.">
+      <div>
+        <h2 id="story-heading">Your mission starts here</h2>
+        <p>Build a tiny website for your game idea. Give it a title, describe the challenge, and organize the information so another player can understand it.</p>
+        <a class="text-link" href="#missions">Jump to the mission list ↓</a>
+      </div>
+    </section>
+
+    <div class="content-grid">
+      <section class="content-card" id="missions" aria-labelledby="missions-heading">
+        <p class="element-tag">&lt;ol&gt; and &lt;li&gt;</p>
+        <h2 id="missions-heading">Three first missions</h2>
+        <ol>
+          <li>Choose a name for your game.</li>
+          <li>Draw one character or treasure.</li>
+          <li>Explain how a player can win.</li>
+        </ol>
+      </section>
+
+      <section class="content-card" aria-labelledby="table-heading">
+        <p class="element-tag">&lt;table&gt;</p>
+        <h2 id="table-heading">Element jobs</h2>
+        <table>
+          <thead>
+            <tr><th>Element</th><th>Job</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>&lt;h1&gt;</td><td>Main heading</td></tr>
+            <tr><td>&lt;p&gt;</td><td>Paragraph</td></tr>
+            <tr><td>&lt;a&gt;</td><td>Link</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </main>
+
+  <footer>Open this file from your computer · <a href="index.html">Back to the examples</a></footer>
+</body>
+</html>

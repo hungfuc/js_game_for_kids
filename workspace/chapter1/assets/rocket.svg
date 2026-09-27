@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 220" role="img" aria-labelledby="title">
+  <title id="title">A purple rocket flying past a yellow star</title>
+  <rect width="260" height="220" rx="26" fill="#d7f8f0"/>
+  <circle cx="46" cy="46" r="9" fill="#ffe38b"/>
+  <path d="M203 34l5 14 14 5-14 5-5 14-5-14-14-5 14-5z" fill="#ffcb43"/>
+  <path d="M133 50c44 7 66 40 64 86-31 8-61-7-81-34-19-26-20-50 17-52z" fill="#6d3df5" stroke="#182742" stroke-width="6" stroke-linejoin="round"/>
+  <circle cx="151" cy="83" r="17" fill="#d7f8f0" stroke="#182742" stroke-width="6"/>
+  <path d="M111 120L75 151l42-4 11-21zM163 149l18 37 9-47-18-13z" fill="#b8a6ff" stroke="#182742" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M105 143c-21 4-34 21-38 46 20-5 35-17 43-36z" fill="#ff8b72" stroke="#182742" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M67 189c-16 5-25 11-34 22 16 1 28-4 38-14z" fill="#ffe38b" stroke="#182742" stroke-width="5" stroke-linejoin="round"/>
+</svg>
