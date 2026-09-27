@@ -61,7 +61,7 @@ The extension is important. `index.html` and `index.html.txt` are different file
 
 Follow the main explanations and code examples first. Use the diagrams to trace what the program is doing. Then try a challenge and explain your result in your own words.
 
-Chapters 1-10 establish the foundations. Chapters 11-14 build a complete 2D adventure. Chapters 15-18 introduce Three.js, custom 3D models, and Rapier physics. The later projects take more time and combine earlier ideas; work through them in small experiments.
+Chapters 1-12 establish the web and JavaScript foundations. Chapters 13-16 build a complete 2D adventure. Chapters 17-20 introduce Three.js, custom 3D models, and Rapier physics. The later projects take more time and combine earlier ideas; work through them in small experiments.
 
 Purple **Advanced Study** blocks are optional deeper dives into HTML, CSS, JavaScript, and game systems. They start open; you can collapse them while following the main path and return later.
 
@@ -97,11 +97,11 @@ Rose blocks help you check your understanding.
 
 - A modern web browser such as Chrome, Edge, Firefox, or Safari.
 - A plain-text code editor available on your computer.
-- A folder for each game containing an HTML file. Early examples keep HTML and JavaScript together so you can focus on the programming ideas.
+- A folder for each website or game containing its files. Chapter 2 begins with separate HTML and CSS files; early JavaScript examples keep their code close to the page so you can focus on the programming ideas.
 
 ::: {.callout-tip .setup title="Start with one file" icon="false"}
 
-Create a folder named `my-first-game`. Save your complete HTML example as `index.html`, not `index.html.txt`. Open it in your browser. After editing, save the file and refresh the browser. Later, module-based projects need a local development server.
+Create a folder named `my-game-site`. Save your first HTML page as `index.html`, not `index.html.txt`. Open it in your browser. After editing, save the file and refresh the browser. Later, module-based projects need a local development server.
 
 :::
 
@@ -146,7 +146,7 @@ For a one-file beginner game, `file:///` is enough. For a project that uses Java
 
 A **complete example** includes the setup for that small project. A **code fragment** illustrates one part of a game and relies on the variables or functions discussed nearby. Do not paste every fragment into one file without checking where it belongs: some examples replace earlier versions.
 
-Chapters 7-9 use Pong, Breakout, and Snake to explain larger game-building patterns. Their snippets are building blocks rather than full finished games. Chapters 11-18 add complete companion projects in the Game Lab. Their chapter snippets explain selected parts; the linked project folders contain the complete runnable source.
+Chapters 9-11 use Pong, Breakout, and Snake to explain larger game-building patterns. Their snippets are building blocks rather than full finished games. Chapters 13-20 add complete companion projects in the Game Lab. Their chapter snippets explain selected parts; the linked project folders contain the complete runnable source.
 
 ## A safe learning habit {.unnumbered}
 
@@ -156,24 +156,26 @@ When a program does not work, do not immediately replace it with someone else's 
 
 | Chapter | Game | Coding ideas | Your new ability |
 | --- | --- | --- | --- |
-| 1 | [Click the Monster](#sec-ch01) | Events, functions | Make code react to a click |
-| 2 | [Treasure Clicker](#sec-ch02) | Variables, text updates | Make the game remember |
-| 3 | [Secret Number](#sec-ch03) | Input, if/else | Make the game choose |
-| 4 | [Rock Paper Scissors](#sec-ch04) | Functions, random numbers | Package behavior into reusable actions |
-| 5 | [Catch the Star](#sec-ch05) | Timers, coordinates, DOM | Change the page over time |
-| 6 | [Bouncing Ball](#sec-ch06) | Canvas, animation | Draw every frame yourself |
-| 7 | [Pong](#sec-ch07) | Keyboard, game loop | Read keys while the game keeps running |
-| 8 | [Breakout](#sec-ch08) | Arrays, collision | Manage many objects |
-| 9 | [Snake](#sec-ch09) | Grid logic, state | Update a world one step at a time |
-| 10 | [Game Studio](#sec-ch10) | Planning, polish, final project | Design your own rules |
-| 11 | [Collision Playground](#sec-ch11) | Input, velocity, fixed steps | Build a predictable real-time loop |
-| 12 | [Platforms and jumping](#sec-ch12) | Hitboxes, collision response, gravity | Stop at walls and land on platforms |
-| 13 | [Your own 2D artwork](#sec-ch13) | Sprite sheets, loading, JSON levels | Make the game look like your design |
-| 14 | [Robot Orchard](#sec-ch14) | Scrolling, enemies, goals, restart | Finish a complete 2D adventure |
-| 15 | [Robot Island Explorer](#sec-ch15) | Scene, camera, renderer, 3D movement | Build and explore a 3D world |
-| 16 | [3D Asset Workshop](#sec-ch16) | GLB models, origins, materials | Customize and import 3D artwork |
-| 17 | [Rapier Drop Lab](#sec-ch17) | Bodies, colliders, bounce, fixed steps | Connect physics to the picture |
-| 18 | [Marble Quest](#sec-ch18) | Forces, sensors, scoring, respawn | Finish a 3D physics game |
+| 1 | [Computer and web basics](#sec-ch01) | Client, browser, files, servers | Explain where a web page comes from |
+| 2 | [Game Maker HQ](#sec-ch02) | HTML, CSS, input elements | Build a static website ready for JavaScript |
+| 3 | [Click the Monster](#sec-ch03) | Events, functions | Make code react to a click |
+| 4 | [Treasure Clicker](#sec-ch04) | Variables, text updates | Make the game remember |
+| 5 | [Secret Number](#sec-ch05) | Input, if/else | Make the game choose |
+| 6 | [Rock Paper Scissors](#sec-ch06) | Functions, random numbers | Package behavior into reusable actions |
+| 7 | [Catch the Star](#sec-ch07) | Timers, coordinates, DOM | Change the page over time |
+| 8 | [Bouncing Ball](#sec-ch08) | Canvas, animation | Draw every frame yourself |
+| 9 | [Pong](#sec-ch09) | Keyboard, game loop | Read keys while the game keeps running |
+| 10 | [Breakout](#sec-ch10) | Arrays, collision | Manage many objects |
+| 11 | [Snake](#sec-ch11) | Grid logic, state | Update a world one step at a time |
+| 12 | [Game Studio](#sec-ch12) | Planning, polish, final project | Design your own rules |
+| 13 | [Collision Playground](#sec-ch13) | Input, velocity, fixed steps | Build a predictable real-time loop |
+| 14 | [Platforms and jumping](#sec-ch14) | Hitboxes, collision response, gravity | Stop at walls and land on platforms |
+| 15 | [Your own 2D artwork](#sec-ch15) | Sprite sheets, loading, JSON levels | Make the game look like your design |
+| 16 | [Robot Orchard](#sec-ch16) | Scrolling, enemies, goals, restart | Finish a complete 2D adventure |
+| 17 | [Robot Island Explorer](#sec-ch17) | Scene, camera, renderer, 3D movement | Build and explore a 3D world |
+| 18 | [3D Asset Workshop](#sec-ch18) | GLB models, origins, materials | Customize and import 3D artwork |
+| 19 | [Rapier Drop Lab](#sec-ch19) | Bodies, colliders, bounce, fixed steps | Connect physics to the picture |
+| 20 | [Marble Quest](#sec-ch20) | Forces, sensors, scoring, respawn | Finish a 3D physics game |
 
 ## Open the Game Lab {.unnumbered}
 
@@ -185,11 +187,401 @@ From the extracted textbook folder, run `node scripts/serve.mjs`. Open `http://1
 The 2D projects use local files only. The 3D projects initially download pinned Three.js and Rapier modules from a CDN, so they need an internet connection and a browser with WebGL2. An optional dependency-download script supports later offline use.
 :::
 
-# Make the Page React {#sec-ch01}
+# Meet Your Computer, Browser, and the Web {#sec-ch01}
 
 ::: {.chapter-banner}
 
-[GAME 01 | Click the Monster]{.game-title}
+[WEB 01 | Your first web workspace]{.game-title}
+
+[Personal computer]{.skill-chip} [Browser]{.skill-chip} [Files]{.skill-chip} [Servers]{.skill-chip}
+
+:::
+
+::: {.callout-tip .mission title="Your mission" icon="false"}
+
+By the end of this chapter, you can:
+
+- name the jobs of your computer, browser, files, and web servers
+- organize a small website in its own folder
+- explain the difference between a local file and a web address
+- predict where HTML, CSS, and JavaScript will do their work
+
+:::
+
+::: {.callout-note .big-idea title="The big idea" icon="false"}
+
+Your browser is a program on **your** computer. It can open files saved on that computer or ask a server on the internet for files. In both cases, the browser assembles the page that you see.
+
+:::
+
+![A project folder on a personal computer can send a local file directly to its browser. The browser can also request files from a web server through the internet, then receive the response and show the page.](../figures/chapter_01/client-browser-server.svg){#fig-ch01-client-server fig-alt="A diagram shows a project folder and a browser client inside a personal computer. The browser opens local files from the folder or sends a request through the internet to a web server, which returns page files." width="100%"}
+
+**Read the picture:** The folder, browser, and client are all on the same personal computer. The server is only involved when the browser uses an internet address. In both routes, the browser is the program that displays the page.
+
+## Your personal computer is your first web workshop
+
+A **personal computer** is the device in front of you: perhaps a laptop, desktop, or Chromebook. It stores files and runs programs. Two programs matter especially in this book:
+
+- A **text editor** lets you write and save code as plain text.
+- A **web browser**—such as Chrome, Edge, Firefox, or Safari—reads web files and shows a page.
+
+When your browser is doing the work on your device, your device is called the **client**. “Client” does not mean a different kind of computer. It means the computer that asks for a page and uses it.
+
+For the first pages in this book, the client is all you need. You will save a file, open it in your browser, edit it, save again, and refresh the page to see the change.
+
+## Keep each website in its own folder
+
+A website is a group of related files. Make one folder for one project so its files stay together. For the next chapter, create a folder named `my-game-site` with these two files inside it:
+
+```
+my-game-site/
+  index.html
+  styles.css
+```
+
+`index.html` will describe the page. `styles.css` will describe its colors, spacing, and layout. The endings after the dots are part of the file names:
+
+- `.html` means an HTML page.
+- `.css` means a CSS style sheet.
+- `.js` will later mean a JavaScript program.
+
+Be careful to save plain-text files with the right ending. A file named `index.html.txt` is a text document, not a web page. If you cannot see file endings, ask a teacher or an adult to help turn them on.
+
+## The browser turns files into a page
+
+When you open `index.html`, the browser reads the HTML instructions and creates the page. If the HTML links to `styles.css`, the browser reads that file too. It uses CSS to decide how the same page should look.
+
+Think of the jobs this way:
+
+| Tool or file | Main job | Example |
+| --- | --- | --- |
+| HTML | structure and meaning | a heading, a paragraph, a button |
+| CSS | appearance and layout | a blue button, a roomy card, a centered title |
+| JavaScript | behavior that changes | what happens after a player clicks |
+
+HTML and CSS can make a useful, polished **static website**. “Static” means that the page does not yet run its own rules or change itself. A button can look like a game button before it has JavaScript to react to a click.
+
+## Local files and web addresses
+
+You can open a saved file directly from your computer. Its address often begins with `file:///`. For example, it might look similar to this:
+
+```
+file:///Users/your-name/Documents/my-game-site/index.html
+```
+
+This address means, “Browser, open this file from this computer.” It does not put your page on the internet.
+
+An internet address usually begins with `https://`, such as `https://example.com`. That tells the browser to contact a **server**. A server is a computer program that keeps web files ready and sends a requested file back to a browser.
+
+::: {.callout-note .advanced-study title="A browser request, step by step" icon="false" collapse="false"}
+
+[OPTIONAL DEEPER DIVE]{.study-badge}
+
+When you visit an internet address, the browser first finds the server for that address. Then it sends a **request**, such as “Please send the home page.” The server sends a **response**, such as the HTML file. The browser may make more requests for the page's CSS, pictures, fonts, or JavaScript.
+
+The server supplies files; the browser on the client turns them into the page. A later game might ask a server for an image or level file, but its drawing and player controls can still run in the browser.
+
+:::
+
+## Two kinds of servers you will meet
+
+A public server is connected to the internet so many people can visit a website. We will not publish anything in this book.
+
+A **local server** runs only on your own computer. It gives files an address such as `http://127.0.0.1:8000/`. `127.0.0.1` means “this same computer.” Later, when games use several JavaScript files, data files, or 3D models, a local server helps the browser load them safely. Starting one does not make your project public.
+
+For now, opening `index.html` directly is enough. Learn the page's structure and style first; the next chapter does exactly that.
+
+## Get ready for input and JavaScript
+
+Web pages have **input elements** such as text boxes, checkboxes, menus, and buttons. In the next chapter, you will place them on a static site and label them clearly. They will be real browser controls, but they will not yet make a game remember a choice or react to a click.
+
+That is intentional. First learn what HTML puts on a page and what CSS changes about its appearance. Then, in Chapter 3, JavaScript will find those elements and give them behavior.
+
+## Checkpoint
+
+::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
+
+Suppose you double-click `index.html` in your project folder. Which program opens it? Which device stores the file? Is a server on the internet required? Explain why.
+
+:::
+
+# Build a Static Website with HTML and CSS {#sec-ch02}
+
+::: {.chapter-banner}
+
+[WEB 02 | Game Maker HQ]{.game-title}
+
+[HTML]{.skill-chip} [CSS]{.skill-chip} [Forms]{.skill-chip} [Page structure]{.skill-chip}
+
+:::
+
+::: {.callout-tip .mission title="Your mission" icon="false"}
+
+By the end of this chapter, you can:
+
+- make an HTML page and connect a CSS file to it
+- use headings, sections, lists, and classes to give a page structure
+- style a small site with CSS selectors and properties
+- add labeled text, menu, checkbox, and button input elements
+
+:::
+
+::: {.callout-note .big-idea title="The big idea" icon="false"}
+
+HTML says what belongs on a page. CSS says how it should look. Together they make a static website—the visual stage that JavaScript will make interactive in the next chapter.
+
+:::
+
+## Make the project folder
+
+Create the folder from Chapter 1 and open it in your text editor:
+
+```
+my-game-site/
+  index.html
+  styles.css
+```
+
+Keep both files in the same folder. The HTML file will use a `<link>` element to tell the browser where to find the CSS file.
+
+## Build the page with HTML
+
+Save this complete example as `index.html`. HTML tags use angle brackets. Most tags have an opening tag and a matching closing tag; the content goes between them.
+
+[COMPLETE EXAMPLE | `index.html`]{.code-label}
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Game Maker HQ</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="card">
+    <p class="eyebrow">MY STATIC WEBSITE</p>
+    <h1>Game Maker HQ</h1>
+    <p class="intro">Plan the next game you want to build.</p>
+
+    <section>
+      <h2>Today's missions</h2>
+      <ul>
+        <li>Sketch one game character.</li>
+        <li>Choose a goal for the player.</li>
+        <li>Invent a fair challenge.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Player card</h2>
+      <form>
+        <label for="player-name">Your game-maker name</label>
+        <input id="player-name" name="player-name" type="text"
+               placeholder="Type a nickname">
+
+        <label for="game-type">Game type</label>
+        <select id="game-type" name="game-type">
+          <option>Adventure</option>
+          <option>Puzzle</option>
+          <option>Sports</option>
+        </select>
+
+        <label class="check-row" for="sound-on">
+          <input id="sound-on" name="sound-on" type="checkbox">
+          I want sound effects in my game.
+        </label>
+
+        <button type="button">My game will use this later</button>
+      </form>
+    </section>
+
+    <p class="hint">This is a static site: the controls are ready, but JavaScript has not given them behavior yet.</p>
+  </main>
+</body>
+</html>
+```
+
+Open `index.html` in a browser. If you edit it, save the file and refresh the browser tab. The page will have structure, but it will look plain until you add the CSS.
+
+### Read the important HTML pieces {.unnumbered}
+
+- `<head>` holds information *about* the page. The browser-tab title and the CSS link belong there.
+- `<body>` holds the parts people see and use.
+- `<main>` groups the main content. Its `class="card"` gives CSS a useful name for this group.
+- `<h1>` and `<h2>` are headings. `<p>` is a paragraph. `<ul>` and `<li>` make a list.
+- `<section>` groups a related part of the page.
+
+## Style the page with CSS
+
+Save this in a second file named `styles.css`.
+
+[COMPLETE EXAMPLE | `styles.css`]{.code-label}
+
+```css
+:root {
+  --ink: #17243b;
+  --paper: #f7f4ff;
+  --purple: #6d3df5;
+  --yellow: #ffe48a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #c9efff, var(--paper));
+  color: var(--ink);
+  font-family: system-ui, sans-serif;
+}
+
+.card {
+  width: min(92%, 620px);
+  margin: 32px;
+  padding: 32px;
+  border: 4px solid var(--ink);
+  border-radius: 24px;
+  background: white;
+  box-shadow: 10px 10px 0 var(--yellow);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--purple);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+h1 {
+  margin: 8px 0;
+  font-size: clamp(2rem, 7vw, 3.5rem);
+}
+
+.intro,
+.hint {
+  line-height: 1.6;
+}
+
+section {
+  margin-top: 28px;
+  padding-top: 8px;
+  border-top: 2px dashed #b7aee5;
+}
+
+form {
+  display: grid;
+  gap: 10px;
+}
+
+input,
+select,
+button {
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  font: inherit;
+}
+
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.check-row input {
+  min-height: auto;
+}
+
+button {
+  margin-top: 8px;
+  background: var(--purple);
+  color: white;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+button:hover {
+  background: #4d24c8;
+}
+
+input:focus-visible,
+select:focus-visible,
+button:focus-visible {
+  outline: 4px solid var(--yellow);
+  outline-offset: 2px;
+}
+```
+
+Each CSS rule has a **selector**, followed by braces. The selector tells CSS which page elements to style. Inside the braces, each `property: value;` pair tells the browser what to change.
+
+```css
+button {
+  background: var(--purple);
+  color: white;
+}
+```
+
+Here, `button` is the selector. `background` and `color` are properties. The rule gives every button a purple background and white text. A selector beginning with a dot, such as `.card`, matches an HTML `class` with the same name.
+
+## Prepare the inputs for JavaScript
+
+The text box, menu, checkbox, and button are all **input elements**: parts of a page a person can use. Their labels make the controls easier to understand and help assistive technology describe them.
+
+Look closely at this pair:
+
+```html
+<label for="player-name">Your game-maker name</label>
+<input id="player-name" name="player-name" type="text">
+```
+
+The label's `for="player-name"` matches the input's `id="player-name"`. That connection means clicking the words “Your game-maker name” focuses the correct text box. The `id` will also let JavaScript find this exact element later.
+
+The button uses `type="button"`. It looks and feels like a button, but it has no task yet. It will not submit the form or save the choices. JavaScript needs to listen for a click, read the inputs, and decide what to do.
+
+::: {.callout-note .advanced-study title="Static does not mean unfinished" icon="false" collapse="false"}
+
+[OPTIONAL DEEPER DIVE]{.study-badge}
+
+Static pages are excellent for information, art portfolios, instructions, and game-planning pages. HTML gives them a sensible order; CSS makes them readable and expressive. JavaScript is only needed when the page must respond, calculate, remember, fetch data, or change while it is open.
+
+The browser may remember what you typed for a moment, but this example has no code to save a player name. Refreshing or reopening the page can clear it. Code that remembers choices comes later.
+
+:::
+
+## Level-up challenges
+
+::: {.callout-tip .challenge title="Challenge 1" icon="false"}
+
+Add a second section for your game's hero. Give it a heading, one paragraph, and a list of three powers.
+
+:::
+
+::: {.callout-tip .challenge title="Challenge 2" icon="false"}
+
+Make a color theme of your own. Change the four values in `:root`, then refresh the page. Which CSS rules change because they use those color names?
+
+:::
+
+## Checkpoint
+
+::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
+
+Why can a button look purple and still not react to a click? Point to the file that controls the button's appearance and name the language that will add its behavior in Chapter 3.
+
+:::
+
+# Make the Page React {#sec-ch03}
+
+::: {.chapter-banner}
+
+[GAME 03 | Click the Monster]{.game-title}
 
 [Events]{.skill-chip} [Functions]{.skill-chip} [HTML]{.skill-chip}
 
@@ -215,7 +607,7 @@ A game begins when the player does something and the program reacts. In the brow
 
 We will start with one HTML file. The button is our monster. When the player clicks it, JavaScript runs a function.
 
-![Event flow: a player action becomes a JavaScript response.](../figures/chapter_01/event-flow.png){#fig-ch01 fig-alt="A player clicks the monster button, the browser detects a click event, and JavaScript calls hitMonster." width="100%"}
+![Event flow: a player action becomes a JavaScript response.](../figures/chapter_01/event-flow.png){#fig-ch03 fig-alt="A player clicks the monster button, the browser detects a click event, and JavaScript calls hitMonster." width="100%"}
 
 **Read the picture:** Follow the arrows from left to right. The player creates the event; the browser notices it; the registered function supplies the response. Registering a listener does not run the function immediately.
 
@@ -267,7 +659,7 @@ const monster = document.getElementById("monster");
 monster.addEventListener("click", hitMonster);
 ```
 
-![JavaScript asks the current page for the button named monster, tells it to listen for a click, and runs hitMonster when the player clicks.](../figures/chapter_01/find-listen-react.svg){#fig-ch01-find-listen fig-alt="A diagram shows a browser page with a Monster button whose ID is monster. JavaScript asks document.getElementById for monster, stores the returned button in monster, adds a click listener, and runs hitMonster when the player clicks." width="100%"}
+![JavaScript asks the current page for the button named monster, tells it to listen for a click, and runs hitMonster when the player clicks.](../figures/chapter_01/find-listen-react.svg){#fig-ch03-find-listen fig-alt="A diagram shows a browser page with a Monster button whose ID is monster. JavaScript asks document.getElementById for monster, stores the returned button in monster, adds a click listener, and runs hitMonster when the player clicks." width="100%"}
 
 **Read the picture:** The two uses of `monster` are connected, but they are not quite the same thing. In HTML, `id="monster"` is the button's nickname. In JavaScript, `const monster` is a box that holds the button after JavaScript finds it.
 
@@ -400,11 +792,11 @@ Add a second button with a different function and message.
 
 :::
 
-# Teach the Game to Remember {#sec-ch02}
+# Teach the Game to Remember {#sec-ch04}
 
 ::: {.chapter-banner}
 
-[GAME 02 | Treasure Clicker]{.game-title}
+[GAME 04 | Treasure Clicker]{.game-title}
 
 [Variables]{.skill-chip} [Strings]{.skill-chip} [DOM]{.skill-chip}
 
@@ -430,7 +822,7 @@ A score is memory. The game needs a place to store a number and change it after 
 
 Use let when a value will change. Use `const` when the variable should keep referring to the same thing.
 
-![A variable is a named place for a value that can change.](../figures/chapter_02/variable-memory.png){#fig-ch02 fig-alt="The variable score refers to 7. Executing score equals score plus 1 replaces 7 with 8." width="100%"}
+![A variable is a named place for a value that can change.](../figures/chapter_02/variable-memory.png){#fig-ch04 fig-alt="The variable score refers to 7. Executing score equals score plus 1 replaces 7 with 8." width="100%"}
 
 **Read the picture:** First read the old value, 7. Add 1 to get 8. Finally, assign 8 back to `score`. The label stays the same while the value changes.
 
@@ -555,15 +947,15 @@ Make each treasure worth 5 points.
 
 ::: {.callout-tip .challenge title="Challenge 2" icon="false"}
 
-Add a “spend 10 points” button. Only worry about subtracting for now; Chapter 3 will teach you how to prevent negative scores.
+Add a “spend 10 points” button. Only worry about subtracting for now; Chapter 5 will teach you how to prevent negative scores.
 
 :::
 
-# Let the Game Make Decisions {#sec-ch03}
+# Let the Game Make Decisions {#sec-ch05}
 
 ::: {.chapter-banner}
 
-[GAME 03 | Secret Number]{.game-title}
+[GAME 05 | Secret Number]{.game-title}
 
 [Input]{.skill-chip} [Decisions]{.skill-chip} [Comparisons]{.skill-chip}
 
@@ -589,7 +981,7 @@ Games constantly ask questions: Did the player touch the enemy? Is the timer fin
 
 The value property reads what a player typed. `Number(...)` converts text such as "7" into the number 7.
 
-![Decision flow: conditions choose which code path runs.](../figures/chapter_03/decision-flow.png){#fig-ch03 fig-alt="A decision branches on whether a guess equals the secret. Yes gives success; no asks for another clue." width="100%"}
+![Decision flow: conditions choose which code path runs.](../figures/chapter_03/decision-flow.png){#fig-ch05 fig-alt="A decision branches on whether a guess equals the secret. Yes gives success; no asks for another clue." width="100%"}
 
 **Read the picture:** A condition chooses one path. In our game, the first check is equality. Only when it is false do the later checks decide between too low and too high.
 
@@ -752,11 +1144,11 @@ Add a rule: after 5 guesses, show the secret number.
 
 :::
 
-# Create Reusable Game Actions {#sec-ch04}
+# Create Reusable Game Actions {#sec-ch06}
 
 ::: {.chapter-banner}
 
-[GAME 04 | Rock Paper Scissors]{.game-title}
+[GAME 06 | Rock Paper Scissors]{.game-title}
 
 [Parameters]{.skill-chip} [Return values]{.skill-chip} [Randomness]{.skill-chip}
 
@@ -788,7 +1180,7 @@ As games grow, one giant function becomes difficult to understand. Small functio
 
 A parameter is a local name for information passed into a function.
 
-![Functions can transform input into an output.](../figures/chapter_04/function-input-output.png){#fig-ch04 fig-alt="A simplified diagram sends a move into a function that compares rules and returns a result." width="100%"}
+![Functions can transform input into an output.](../figures/chapter_04/function-input-output.png){#fig-ch06 fig-alt="A simplified diagram sends a move into a function that compares rules and returns a result." width="100%"}
 
 **Read the picture:** A function receives information, performs work, and may return a result. This is a simplified picture: our actual `decideWinner(player, computer)` function needs **both** moves. The player choosing rock alone does not determine a winner.
 
@@ -872,11 +1264,11 @@ Invent a fourth move and decide what it beats. Notice how the rule logic becomes
 
 :::
 
-# Make Things Change Over Time {#sec-ch05}
+# Make Things Change Over Time {#sec-ch07}
 
 ::: {.chapter-banner}
 
-[GAME 05 | Catch the Star]{.game-title}
+[GAME 07 | Catch the Star]{.game-title}
 
 [Timers]{.skill-chip} [Coordinates]{.skill-chip} [CSS]{.skill-chip}
 
@@ -902,7 +1294,7 @@ A moving game world changes even when the player is not clicking. Timers let Jav
 
 An absolutely positioned element can be moved by changing its left and top CSS properties.
 
-![Game coordinates: x moves right, y moves down.](../figures/chapter_05/browser-coordinates.png){#fig-ch05 fig-alt="A coordinate plane starts at the top left. The x axis increases rightward and y increases downward; the star is at 25,35." width="100%"}
+![Game coordinates: x moves right, y moves down.](../figures/chapter_05/browser-coordinates.png){#fig-ch07 fig-alt="A coordinate plane starts at the top left. The x axis increases rightward and y increases downward; the star is at 25,35." width="100%"}
 
 **Read the picture:** Start at the top-left corner. Move 25 units right and 35 units down to reach the star. These are example coordinates, not fixed limits for your game; use the size of your own game area.
 
@@ -1012,11 +1404,11 @@ Add a 20-second countdown and stop the game when time reaches zero.
 
 :::
 
-# Draw Your Own Game World {#sec-ch06}
+# Draw Your Own Game World {#sec-ch08}
 
 ::: {.chapter-banner}
 
-[GAME 06 | Bouncing Ball]{.game-title}
+[GAME 08 | Bouncing Ball]{.game-title}
 
 [Canvas]{.skill-chip} [Animation]{.skill-chip} [Velocity]{.skill-chip}
 
@@ -1042,7 +1434,7 @@ Canvas is different from ordinary HTML. Instead of moving page elements, your co
 
 The canvas element is a rectangular drawing surface. JavaScript asks it for a 2D drawing context.
 
-![The animation/game loop repeats update and draw work.](../figures/chapter_06/animation-loop.png){#fig-ch06 fig-alt="A cycle connects read input, update state, draw, and next frame." width="100%"}
+![The animation/game loop repeats update and draw work.](../figures/chapter_06/animation-loop.png){#fig-ch08 fig-alt="A cycle connects read input, update state, draw, and next frame." width="100%"}
 
 **Read the picture:** Each frame is one trip around the cycle. Bouncing Ball has no keyboard input yet, so it begins by updating position. The next chapter adds player input before movement.
 
@@ -1166,11 +1558,11 @@ Add a second ball with its own position and velocity.
 
 :::
 
-# Control a Real-Time Game {#sec-ch07}
+# Control a Real-Time Game {#sec-ch09}
 
 ::: {.chapter-banner}
 
-[GAME 07 | Pong]{.game-title}
+[GAME 09 | Pong]{.game-title}
 
 [Keyboard input]{.skill-chip} [State]{.skill-chip} [Collision]{.skill-chip}
 
@@ -1202,7 +1594,7 @@ In a real-time game, a key press should change what happens during the next fram
 
 `keydown` sets a state to `true`. `keyup` changes it back to `false`.
 
-![Keyboard events update state; the game loop uses that state.](../figures/chapter_07/keyboard-state.png){#fig-ch07 fig-alt="Keydown sets a pressed flag to true, keyup sets it to false, and the game loop uses the flag." width="100%"}
+![Keyboard events update state; the game loop uses that state.](../figures/chapter_07/keyboard-state.png){#fig-ch09 fig-alt="Keydown sets a pressed flag to true, keyup sets it to false, and the game loop uses the flag." width="100%"}
 
 **Read the picture:** An event changes a remembered value. The loop can then read that value on many frames. The picture uses a right-arrow flag; Pong uses the same idea for the up and down arrows.
 
@@ -1294,11 +1686,11 @@ Make the ball slightly faster after each paddle hit.
 
 :::
 
-# Manage Many Game Objects {#sec-ch08}
+# Manage Many Game Objects {#sec-ch10}
 
 ::: {.chapter-banner}
 
-[GAME 08 | Breakout]{.game-title}
+[GAME 10 | Breakout]{.game-title}
 
 [Objects]{.skill-chip} [Arrays]{.skill-chip} [Loops]{.skill-chip}
 
@@ -1331,7 +1723,7 @@ Breakout has many bricks. We do not want 30 separate variables. Arrays let one v
 
 Each brick can be an object with position, size, and whether it is still active.
 
-![Collision detection asks whether game objects overlap.](../figures/chapter_08/collision-overlap.png){#fig-ch08 fig-alt="Two rectangles partially overlap; the shared area illustrates a rectangular collision test." width="100%"}
+![Collision detection asks whether game objects overlap.](../figures/chapter_08/collision-overlap.png){#fig-ch10 fig-alt="Two rectangles partially overlap; the shared area illustrates a rectangular collision test." width="100%"}
 
 **Read the picture:** A collision is not just being close. The shapes overlap horizontally **and** vertically. The picture uses rectangles; the beginner ball test uses a square bounding box around the ball.
 
@@ -1421,11 +1813,11 @@ Add a win condition when every brick is gone.
 
 :::
 
-# Build a World on a Grid {#sec-ch09}
+# Build a World on a Grid {#sec-ch11}
 
 ::: {.chapter-banner}
 
-[GAME 09 | Snake]{.game-title}
+[GAME 11 | Snake]{.game-title}
 
 [Grid cells]{.skill-chip} [Arrays]{.skill-chip} [Game state]{.skill-chip}
 
@@ -1458,7 +1850,7 @@ Snake becomes easier when the world is a grid. Instead of moving by tiny pixels,
 
 The first item can be the head. Each cell stores x and y coordinates.
 
-![A grid game stores positions as x/y cells.](../figures/chapter_09/snake-grid.png){#fig-ch09 fig-alt="A snake occupies three adjacent cells in a grid. A food cell is above and to the right of the head." width="100%"}
+![A grid game stores positions as x/y cells.](../figures/chapter_09/snake-grid.png){#fig-ch11 fig-alt="A snake occupies three adjacent cells in a grid. A food cell is above and to the right of the head." width="100%"}
 
 **Read the picture:** Each square is one cell, not one screen pixel. The head is the first item in the body array. The arrow points toward food; it does not allow a diagonal move. Move one horizontal or vertical cell per step.
 
@@ -1546,11 +1938,11 @@ Add a start screen and a restart key.
 
 :::
 
-# Game Studio {#sec-ch10}
+# Game Studio {#sec-ch12}
 
 ::: {.chapter-banner}
 
-[GAME 10 | Design Your Own Game]{.game-title}
+[GAME 12 | Design Your Own Game]{.game-title}
 
 [Design]{.skill-chip} [Playtesting]{.skill-chip} [Modules]{.skill-chip}
 
@@ -1647,7 +2039,7 @@ Serve module-based projects through a local development server. Opening HTML dir
 
 Further reading: [MDN: JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules).
 
-![The DOM is a tree of page elements JavaScript can read and change.](../figures/chapter_10/dom-tree.png){#fig-ch10 fig-alt="The document contains html, which contains head and body. Body contains a start button and a game canvas." width="100%"}
+![The DOM is a tree of page elements JavaScript can read and change.](../figures/chapter_10/dom-tree.png){#fig-ch12 fig-alt="The document contains html, which contains head and body. Body contains a start button and a game canvas." width="100%"}
 
 **Read the picture:** The browser keeps elements in a tree. `button#start` means a button with `id="start"`, while `canvas#game` means a canvas with `id="game"`. JavaScript can find those elements and connect them to game behavior.
 
@@ -1673,10 +2065,10 @@ Ask two players to test it and record one change you made because of their feedb
 
 :::
 
-# Build a Real-Time 2D Game {#sec-ch11}
+# Build a Real-Time 2D Game {#sec-ch13}
 
 ::: {.chapter-banner}
-[GAME LAB 11 | Collision Playground]{.game-title}
+[GAME LAB 13 | Collision Playground]{.game-title}
 [Time]{.skill-chip} [Velocity]{.skill-chip} [Input state]{.skill-chip} [Game loop]{.skill-chip}
 :::
 
@@ -1744,7 +2136,7 @@ player.vx = direction * 240;
 
 For movement in two directions, normalize the direction vector. Otherwise, holding two keys can make diagonal movement faster than straight movement. The helper `normalize2(x, y)` returns a direction with length one, or `(0, 0)` when no key is held.
 
-![Input is remembered, the world advances in small steps, and drawing displays the result.](../figures/chapter_11/fixed-step.svg){#fig-ch11 fig-alt="Input feeds a fixed simulation step, which feeds drawing. A row shows eight equally spaced simulation steps." width="100%"}
+![Input is remembered, the world advances in small steps, and drawing displays the result.](../figures/chapter_11/fixed-step.svg){#fig-ch13 fig-alt="Input feeds a fixed simulation step, which feeds drawing. A row shows eight equally spaced simulation steps." width="100%"}
 
 **Read the picture:** The numbered steps are simulation updates, not necessarily separate screen images. One browser frame may require zero, one, or several updates. The arrows show responsibilities, not three separate programs.
 
@@ -1799,10 +2191,10 @@ Change the speed from 240 to 120 and predict the distance traveled in one second
 
 **Complete companion source:** [Collision Playground](../games/collision-lab/index.html), [main.js](../games/collision-lab/main.js), [fixed-step loop](../games/shared/loop.js), and [input helper](../games/shared/input.js).
 
-# Make Objects Collide, Stop, and Jump {#sec-ch12}
+# Make Objects Collide, Stop, and Jump {#sec-ch14}
 
 ::: {.chapter-banner}
-[GAME LAB 12 | Robot Orchard: movement and platforms]{.game-title}
+[GAME LAB 14 | Robot Orchard: movement and platforms]{.game-title}
 [Hitboxes]{.skill-chip} [Collision response]{.skill-chip} [Gravity]{.skill-chip} [Jumping]{.skill-chip}
 :::
 
@@ -1877,7 +2269,7 @@ The numbers are game settings, not measurements of a real robot. Gravity has uni
 
 The companion input helper distinguishes **held** input from **just pressed** input. `input.consume("Space")` reads a jump press once. Holding Space should not start a new jump every simulation step.
 
-![Rectangle overlap and the correction needed to place a falling player's feet on a platform.](../figures/chapter_12/collision-response.svg){#fig-ch12 fig-alt="Two boxes share a pink overlap. A separate before-and-after drawing snaps a player's feet to the platform top and clears downward velocity." width="100%"}
+![Rectangle overlap and the correction needed to place a falling player's feet on a platform.](../figures/chapter_12/collision-response.svg){#fig-ch14 fig-alt="Two boxes share a pink overlap. A separate before-and-after drawing snaps a player's feet to the platform top and clears downward velocity." width="100%"}
 
 **Read the picture:** The overlap test notices the problem. Landing requires three changes: correct the position, stop downward velocity, and remember that the player is grounded. Changing only the velocity leaves the character partly inside the platform.
 
@@ -1927,10 +2319,10 @@ Create a platform that the robot can just reach. Predict how a stronger jump or 
 
 **Complete companion source:** [Robot Orchard](../games/robot-orchard/index.html), [simulation rules](../games/robot-orchard/world.js), [collision helpers](../games/shared/math.js), and [level data](../games/robot-orchard/level.json).
 
-# Give Your 2D Game Its Own Artwork {#sec-ch13}
+# Give Your 2D Game Its Own Artwork {#sec-ch15}
 
 ::: {.chapter-banner}
-[GAME LAB 13 | Robot Orchard: sprites and assets]{.game-title}
+[GAME LAB 15 | Robot Orchard: sprites and assets]{.game-title}
 [Custom assets]{.skill-chip} [Sprite sheets]{.skill-chip} [Loading]{.skill-chip} [Level data]{.skill-chip}
 :::
 
@@ -1995,7 +2387,7 @@ The first four numbers after the image select the crop. The next four choose whe
 
 This is the nine-argument form of [`drawImage`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage). It copies part of an image; it does not modify the original file.
 
-![A four-frame robot sheet feeds a selected drawing while the player's collision rectangle stays fixed.](../figures/chapter_13/sprite-hitbox.svg){#fig-ch13 fig-alt="Four 64-pixel robot frames, a selected crop, and a separate smaller dashed hitbox inside the visible character." width="100%"}
+![A four-frame robot sheet feeds a selected drawing while the player's collision rectangle stays fixed.](../figures/chapter_13/sprite-hitbox.svg){#fig-ch15 fig-alt="Four 64-pixel robot frames, a selected crop, and a separate smaller dashed hitbox inside the visible character." width="100%"}
 
 **Read the picture:** Frame numbers start at zero. The dashed rectangle is the physical body, not the full image. Transparent space, a waving arm, or a decorative antenna should not unexpectedly change where the robot lands.
 
@@ -2059,10 +2451,10 @@ Make a space-station version of Robot Orchard. Change the robot color, turn gems
 
 **Editable assets:** [robot sheet](../games/assets/2d/robot-strip.svg), [gem](../games/assets/2d/gem.svg), [background](../games/assets/2d/background.svg), and [asset permissions](../games/assets/ASSET_LICENSE.md). **Complete renderer:** [Robot Orchard main.js](../games/robot-orchard/main.js).
 
-# Finish a Scrolling 2D Adventure {#sec-ch14}
+# Finish a Scrolling 2D Adventure {#sec-ch16}
 
 ::: {.chapter-banner}
-[GAME LAB 14 | Robot Orchard: a complete game]{.game-title}
+[GAME LAB 16 | Robot Orchard: a complete game]{.game-title}
 [Camera]{.skill-chip} [Game states]{.skill-chip} [Scoring]{.skill-chip} [Restart]{.skill-chip}
 :::
 
@@ -2105,7 +2497,7 @@ ctx.restore();
 
 The function names here describe drawing responsibilities. The companion `draw()` contains their actual drawing loops. After `restore`, draw interface elements in screen coordinates so a message does not scroll away with the level.
 
-![The camera selects a viewport from a wider world and converts a world x-coordinate to a screen x-coordinate.](../figures/chapter_14/camera-world.svg){#fig-ch14 fig-alt="A long level contains a camera window. A world x of 1500 and camera x of 1020 produce screen x 480." width="100%"}
+![The camera selects a viewport from a wider world and converts a world x-coordinate to a screen x-coordinate.](../figures/chapter_14/camera-world.svg){#fig-ch16 fig-alt="A long level contains a camera window. A world x of 1500 and camera x of 1020 produce screen x 480." width="100%"}
 
 **Read the picture:** The player and terrain keep their world coordinates. Only the drawing position changes. At the left and right ends of the level, clamping stops the camera from showing empty space beyond the level boundary.
 
@@ -2208,10 +2600,10 @@ Add a checkpoint after the first gap, create an optional high route with extra r
 
 **Complete project:** [Play Robot Orchard](../games/robot-orchard/index.html). Source: [main.js](../games/robot-orchard/main.js), [world.js](../games/robot-orchard/world.js), and [level.json](../games/robot-orchard/level.json).
 
-# Step into a 3D World with Three.js {#sec-ch15}
+# Step into a 3D World with Three.js {#sec-ch17}
 
 ::: {.chapter-banner}
-[GAME LAB 15 | Robot Island Explorer]{.game-title}
+[GAME LAB 17 | Robot Island Explorer]{.game-title}
 [Three.js]{.skill-chip} [Scene]{.skill-chip} [Camera]{.skill-chip} [3D coordinates]{.skill-chip}
 :::
 
@@ -2230,7 +2622,7 @@ You already know that a game needs state, input, rules, and drawing. Those ideas
 Open **Robot Island Explorer** in the Game Lab. Move with WASD or the arrow keys and collect four crystals. Drag to orbit the camera and scroll to zoom. The decorative crates are intentionally not solid in this pre-physics project. We will give objects real physical behavior with Rapier later.
 
 ::: {.callout-tip .setup title="Set up the 3D projects" icon="false"}
-Use the same local server from Chapter 11. The supplied 3D pages load **Three.js 0.180.0** and, where needed, **Rapier 0.17.3** from a CDN. These are pinned lesson dependencies, not a claim that they are the newest releases.
+Use the same local server from Chapter 13. The supplied 3D pages load **Three.js 0.180.0** and, where needed, **Rapier 0.17.3** from a CDN. These are pinned lesson dependencies, not a claim that they are the newest releases.
 
 Internet access is required for those library downloads unless you run the optional vendoring script described in the Game Lab appendix. Your local images and GLB files are included. A WebGL 2-capable browser and graphics setup are required by this Three.js renderer; see the [renderer documentation](https://threejs.org/docs/pages/WebGLRenderer.html).
 :::
@@ -2282,7 +2674,7 @@ Put the map before the module that uses it. Keep Three.js core and its addons on
 
 In this book's 3D worlds, `y` points upward. The floor lies in the `x-z` plane. Positive `x` moves right along the world axis; positive `z` moves toward the near side in the starting camera view. These are world directions, not permanent screen directions.
 
-![A comparison between the downward y-axis of Canvas and the upward y-axis of our 3D world.](../figures/chapter_15/axes.svg){#fig-ch15 fig-alt="Canvas uses x right and y down. The 3D world uses x, y up, and z depth, with floor movement in x and z." width="100%"}
+![A comparison between the downward y-axis of Canvas and the upward y-axis of our 3D world.](../figures/chapter_15/axes.svg){#fig-ch17 fig-alt="Canvas uses x right and y down. The 3D world uses x, y up, and z depth, with floor movement in x and z." width="100%"}
 
 **Read the picture:** Do not carry the 2D gravity sign into the 3D game unchanged. Downward motion increased `y` on the canvas. In this 3D convention, downward motion decreases `y`.
 
@@ -2348,10 +2740,10 @@ Move the starting camera higher, change the island material, and place one extra
 
 **Complete companion source:** [Robot Island Explorer](../games/three-explorer/index.html), [main.js](../games/three-explorer/main.js), and [shared Three.js setup](../games/shared/three-scene.js).
 
-# Build and Import Your Own 3D Assets {#sec-ch16}
+# Build and Import Your Own 3D Assets {#sec-ch18}
 
 ::: {.chapter-banner}
-[GAME LAB 16 | Your own robot, crate, and crystal]{.game-title}
+[GAME LAB 18 | Your own robot, crate, and crystal]{.game-title}
 [GLB]{.skill-chip} [Models]{.skill-chip} [Materials]{.skill-chip} [Scale and origin]{.skill-chip}
 :::
 
@@ -2392,7 +2784,7 @@ A `.gltf` file may refer to separate buffers or textures. A `.glb` can package t
 
 An origin is the point used as the model's local `(0, 0, 0)`. A character often benefits from an origin at its feet: placing it at world `y = 0` then puts it on the floor. A physical crate often benefits from a center origin: its visual center can match its rigid-body position.
 
-![A three-stage asset pipeline and a comparison between a foot-centered robot and a center-origin crate.](../figures/chapter_16/asset-origins.svg){#fig-ch16 fig-alt="Author a model, load its GLB, then place it. A robot's origin is at the feet, while a unit crate uses a center origin and half-unit collider extents." width="100%"}
+![A three-stage asset pipeline and a comparison between a foot-centered robot and a center-origin crate.](../figures/chapter_16/asset-origins.svg){#fig-ch18 fig-alt="Author a model, load its GLB, then place it. A robot's origin is at the feet, while a unit crate uses a center origin and half-unit collider extents." width="100%"}
 
 **Read the picture:** The two origins are both sensible because the objects have different jobs. Problems happen when your code assumes one origin but the asset was authored with another.
 
@@ -2487,10 +2879,10 @@ Export a different-colored robot and load it into the Explorer. Next, change the
 
 **Companion workshop:** [3D Asset Workshop](../games/asset-workshop/index.html), [workshop source](../games/asset-workshop/main.js), and [model specifications](../games/assets/3d/model-specifications.json). **Included models:** [robot.glb](../games/assets/3d/robot.glb), [crate.glb](../games/assets/3d/crate.glb), and [gem.glb](../games/assets/3d/gem.glb).
 
-# Add Gravity and Solid Objects with Rapier {#sec-ch17}
+# Add Gravity and Solid Objects with Rapier {#sec-ch19}
 
 ::: {.chapter-banner}
-[GAME LAB 17 | Rapier Drop Lab]{.game-title}
+[GAME LAB 19 | Rapier Drop Lab]{.game-title}
 [Rapier.js]{.skill-chip} [Rigid bodies]{.skill-chip} [Colliders]{.skill-chip} [Physics steps]{.skill-chip}
 :::
 
@@ -2562,7 +2954,7 @@ world.createCollider(
 
 Placing the floor's center at `y = -0.5` puts its top surface at `y = 0`. A collider twice as large as its visible model is often a full-size-versus-half-size mistake.
 
-![Rapier advances bodies and colliders, then Three.js copies their transforms and renders the scene.](../figures/chapter_17/physics-render.svg){#fig-ch17 fig-alt="The Rapier physics representation and Three.js visual representation are connected by a one-way transform copy after each fixed physics step." width="100%"}
+![Rapier advances bodies and colliders, then Three.js copies their transforms and renders the scene.](../figures/chapter_17/physics-render.svg){#fig-ch19 fig-alt="The Rapier physics representation and Three.js visual representation are connected by a one-way transform copy after each fixed physics step." width="100%"}
 
 **Read the picture:** The body owns movement. The mesh follows it. Do not also add homemade gravity to the mesh after Rapier has already moved the body.
 
@@ -2624,10 +3016,10 @@ Change one ball's bounce coefficient and predict the result. Next, deliberately 
 
 **Complete companion source:** [Rapier Drop Lab](../games/physics-lab/index.html), [main.js](../games/physics-lab/main.js), and [physics debug display](../games/shared/physics-debug.js).
 
-# Create a 3D Physics Game: Marble Quest {#sec-ch18}
+# Create a 3D Physics Game: Marble Quest {#sec-ch20}
 
 ::: {.chapter-banner}
-[GAME LAB 18 | Marble Quest]{.game-title}
+[GAME LAB 20 | Marble Quest]{.game-title}
 [Three.js + Rapier]{.skill-chip} [Sensors]{.skill-chip} [Collision events]{.skill-chip} [Custom assets]{.skill-chip}
 :::
 
@@ -2694,7 +3086,7 @@ const sensor = world.createCollider(descriptor, gemBody);
 
 The crystal's body is fixed because the collectible stays in place. Its visual can rotate for decoration without rotating a spherical sensor. Rapier distinguishes nonblocking sensors from contact-generating colliders in its [collider guide](https://rapier.rs/docs/user_guides/javascript/colliders/).
 
-![Solid contacts affect motion while sensor events feed one-time scoring and victory rules.](../figures/chapter_18/sensor-rules.svg){#fig-ch18 fig-alt="Solid collisions push bodies apart. Sensor overlaps produce an event, which is checked once before score and win conditions are updated." width="100%"}
+![Solid contacts affect motion while sensor events feed one-time scoring and victory rules.](../figures/chapter_18/sensor-rules.svg){#fig-ch20 fig-alt="Solid collisions push bodies apart. Sensor overlaps produce an event, which is checked once before score and win conditions are updated." width="100%"}
 
 **Read the picture:** The physics response to a solid object and the game response to a collectible take different paths. The sensor itself does not know how many points a crystal is worth.
 
@@ -2786,7 +3178,7 @@ The same design applies to a future walking character, vehicle, or multiplayer g
 
 Start with a small change that has a clear test: move one wall, reposition a crystal, change a crate's density, or change the marble's damping. Then try a visual remix by replacing a model while keeping its physical dimensions.
 
-A more ambitious extension is a capsule-controlled character with a matching visual model. That requires grounded movement, jump handling, and a character-controller policy; changing the sphere mesh into a robot is not enough. Return to the character-controller discussion in Chapter 17 before attempting it.
+A more ambitious extension is a capsule-controlled character with a matching visual model. That requires grounded movement, jump handling, and a character-controller policy; changing the sphere mesh into a robot is not enough. Return to the character-controller discussion in Chapter 19 before attempting it.
 
 ::: {.callout-tip .challenge title="Level up" icon="false"}
 Make a delivery game: push a crate into a target sensor to unlock the exit. Decide which collider may trigger the target, whether the crate must remain inside, and what happens after a restart. Draw the event-to-rule flow before changing the code.
@@ -2930,7 +3322,7 @@ Click the game canvas before using keys. Movement controls are intentionally wor
 
 ```text
 chapters/               The textbook's Quarto chapters
-figures/                Original diagrams with editable SVGs for Chapters 11-18
+figures/                Original diagrams with editable SVGs used by Chapters 13-20
 games/
   index.html            Game Lab menu
   collision-lab/        Shape detection and wall-response experiment
@@ -3014,7 +3406,7 @@ Use these resources when you want another explanation or a new project idea. Fol
 
 ## Dynamic 2D and 3D game development {.unnumbered}
 
-The new projects are original examples. The following official documentation explains the browser and engine APIs used in Chapters 11-18. Read the short examples in the book first, then consult an API page when you need to check a specific behavior.
+The companion projects are original examples. The following official documentation explains the browser and engine APIs used in Chapters 13-20. Read the short examples in the book first, then consult an API page when you need to check a specific behavior.
 
 - [MDN: 2D collision detection](https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection) - geometric overlap tests and the difference between simple bounding shapes and visible artwork.
 - [MDN: requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame) - browser animation callbacks and timestamp-based motion.

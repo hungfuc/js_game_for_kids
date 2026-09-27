@@ -1,7 +1,7 @@
-# Build and Import Your Own 3D Assets {#sec-ch16}
+# Build and Import Your Own 3D Assets {#sec-ch18}
 
 ::: {.chapter-banner}
-[GAME LAB 16 | Your own robot, crate, and crystal]{.game-title}
+[GAME LAB 18 | Your own robot, crate, and crystal]{.game-title}
 [GLB]{.skill-chip} [Models]{.skill-chip} [Materials]{.skill-chip} [Scale and origin]{.skill-chip}
 :::
 
@@ -42,7 +42,7 @@ A `.gltf` file may refer to separate buffers or textures. A `.glb` can package t
 
 An origin is the point used as the model's local `(0, 0, 0)`. A character often benefits from an origin at its feet: placing it at world `y = 0` then puts it on the floor. A physical crate often benefits from a center origin: its visual center can match its rigid-body position.
 
-![A three-stage asset pipeline and a comparison between a foot-centered robot and a center-origin crate.](../figures/chapter_16/asset-origins.svg){#fig-ch16 fig-alt="Author a model, load its GLB, then place it. A robot's origin is at the feet, while a unit crate uses a center origin and half-unit collider extents." width="100%"}
+![A three-stage asset pipeline and a comparison between a foot-centered robot and a center-origin crate.](../figures/chapter_16/asset-origins.svg){#fig-ch18 fig-alt="Author a model, load its GLB, then place it. A robot's origin is at the feet, while a unit crate uses a center origin and half-unit collider extents." width="100%"}
 
 **Read the picture:** The two origins are both sensible because the objects have different jobs. Problems happen when your code assumes one origin but the asset was authored with another.
 

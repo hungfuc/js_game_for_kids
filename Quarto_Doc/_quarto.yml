@@ -13,34 +13,38 @@ book:
     collapse-level: 2
   chapters:
   - index.qmd
+  - part: Build your web foundation
+    chapters:
+    - chapters/01-computer-and-web-basics.qmd
+    - chapters/02-static-website.qmd
   - part: Make the browser react
     chapters:
-    - chapters/01-click-the-monster.qmd
-    - chapters/02-treasure-clicker.qmd
-    - chapters/03-secret-number.qmd
-    - chapters/04-rock-paper-scissors.qmd
-    - chapters/05-catch-the-star.qmd
+    - chapters/03-click-the-monster.qmd
+    - chapters/04-treasure-clicker.qmd
+    - chapters/05-secret-number.qmd
+    - chapters/06-rock-paper-scissors.qmd
+    - chapters/07-catch-the-star.qmd
   - part: Build a moving game world
     chapters:
-    - chapters/06-bouncing-ball.qmd
-    - chapters/07-pong.qmd
-    - chapters/08-breakout.qmd
-    - chapters/09-snake.qmd
+    - chapters/08-bouncing-ball.qmd
+    - chapters/09-pong.qmd
+    - chapters/10-breakout.qmd
+    - chapters/11-snake.qmd
   - part: Create your own game
     chapters:
-    - chapters/10-game-studio.qmd
+    - chapters/12-game-studio.qmd
   - part: Build a complete 2D adventure
     chapters:
-    - chapters/11-real-time-2d.qmd
-    - chapters/12-collision-and-platforms.qmd
-    - chapters/13-custom-2d-assets.qmd
-    - chapters/14-robot-orchard.qmd
+    - chapters/13-real-time-2d.qmd
+    - chapters/14-collision-and-platforms.qmd
+    - chapters/15-custom-2d-assets.qmd
+    - chapters/16-robot-orchard.qmd
   - part: Explore 3D with Three.js and Rapier
     chapters:
-    - chapters/15-first-threejs-world.qmd
-    - chapters/16-custom-3d-assets.qmd
-    - chapters/17-rapier-physics.qmd
-    - chapters/18-marble-quest.qmd
+    - chapters/17-first-threejs-world.qmd
+    - chapters/18-custom-3d-assets.qmd
+    - chapters/19-rapier-physics.qmd
+    - chapters/20-marble-quest.qmd
   - references.qmd
   appendices:
   - appendices/a-cheat-sheet.qmd

@@ -56,7 +56,7 @@ The extension is important. `index.html` and `index.html.txt` are different file
 
 Follow the main explanations and code examples first. Use the diagrams to trace what the program is doing. Then try a challenge and explain your result in your own words.
 
-Chapters 1-10 establish the foundations. Chapters 11-14 build a complete 2D adventure. Chapters 15-18 introduce Three.js, custom 3D models, and Rapier physics. The later projects take more time and combine earlier ideas; work through them in small experiments.
+Chapters 1-12 establish the web and JavaScript foundations. Chapters 13-16 build a complete 2D adventure. Chapters 17-20 introduce Three.js, custom 3D models, and Rapier physics. The later projects take more time and combine earlier ideas; work through them in small experiments.
 
 Purple **Advanced Study** blocks are optional deeper dives into HTML, CSS, JavaScript, and game systems. They start open; you can collapse them while following the main path and return later.
 
@@ -92,11 +92,11 @@ Rose blocks help you check your understanding.
 
 - A modern web browser such as Chrome, Edge, Firefox, or Safari.
 - A plain-text code editor available on your computer.
-- A folder for each game containing an HTML file. Early examples keep HTML and JavaScript together so you can focus on the programming ideas.
+- A folder for each website or game containing its files. Chapter 2 begins with separate HTML and CSS files; early JavaScript examples keep their code close to the page so you can focus on the programming ideas.
 
 ::: {.callout-tip .setup title="Start with one file" icon="false"}
 
-Create a folder named `my-first-game`. Save your complete HTML example as `index.html`, not `index.html.txt`. Open it in your browser. After editing, save the file and refresh the browser. Later, module-based projects need a local development server.
+Create a folder named `my-game-site`. Save your first HTML page as `index.html`, not `index.html.txt`. Open it in your browser. After editing, save the file and refresh the browser. Later, module-based projects need a local development server.
 
 :::
 
@@ -141,7 +141,7 @@ For a one-file beginner game, `file:///` is enough. For a project that uses Java
 
 A **complete example** includes the setup for that small project. A **code fragment** illustrates one part of a game and relies on the variables or functions discussed nearby. Do not paste every fragment into one file without checking where it belongs: some examples replace earlier versions.
 
-Chapters 7-9 use Pong, Breakout, and Snake to explain larger game-building patterns. Their snippets are building blocks rather than full finished games. Chapters 11-18 add complete companion projects in the Game Lab. Their chapter snippets explain selected parts; the linked project folders contain the complete runnable source.
+Chapters 9-11 use Pong, Breakout, and Snake to explain larger game-building patterns. Their snippets are building blocks rather than full finished games. Chapters 13-20 add complete companion projects in the Game Lab. Their chapter snippets explain selected parts; the linked project folders contain the complete runnable source.
 
 ## A safe learning habit {.unnumbered}
 
@@ -151,24 +151,26 @@ When a program does not work, do not immediately replace it with someone else's 
 
 | Chapter | Game | Coding ideas | Your new ability |
 | --- | --- | --- | --- |
-| 1 | [Click the Monster](chapters/01-click-the-monster.qmd) | Events, functions | Make code react to a click |
-| 2 | [Treasure Clicker](chapters/02-treasure-clicker.qmd) | Variables, text updates | Make the game remember |
-| 3 | [Secret Number](chapters/03-secret-number.qmd) | Input, if/else | Make the game choose |
-| 4 | [Rock Paper Scissors](chapters/04-rock-paper-scissors.qmd) | Functions, random numbers | Package behavior into reusable actions |
-| 5 | [Catch the Star](chapters/05-catch-the-star.qmd) | Timers, coordinates, DOM | Change the page over time |
-| 6 | [Bouncing Ball](chapters/06-bouncing-ball.qmd) | Canvas, animation | Draw every frame yourself |
-| 7 | [Pong](chapters/07-pong.qmd) | Keyboard, game loop | Read keys while the game keeps running |
-| 8 | [Breakout](chapters/08-breakout.qmd) | Arrays, collision | Manage many objects |
-| 9 | [Snake](chapters/09-snake.qmd) | Grid logic, state | Update a world one step at a time |
-| 10 | [Game Studio](chapters/10-game-studio.qmd) | Planning, polish, final project | Design your own rules |
-| 11 | [Collision Playground](chapters/11-real-time-2d.qmd) | Input, velocity, fixed steps | Build a predictable real-time loop |
-| 12 | [Platforms and jumping](chapters/12-collision-and-platforms.qmd) | Hitboxes, collision response, gravity | Stop at walls and land on platforms |
-| 13 | [Your own 2D artwork](chapters/13-custom-2d-assets.qmd) | Sprite sheets, loading, JSON levels | Make the game look like your design |
-| 14 | [Robot Orchard](chapters/14-robot-orchard.qmd) | Scrolling, enemies, goals, restart | Finish a complete 2D adventure |
-| 15 | [Robot Island Explorer](chapters/15-first-threejs-world.qmd) | Scene, camera, renderer, 3D movement | Build and explore a 3D world |
-| 16 | [3D Asset Workshop](chapters/16-custom-3d-assets.qmd) | GLB models, origins, materials | Customize and import 3D artwork |
-| 17 | [Rapier Drop Lab](chapters/17-rapier-physics.qmd) | Bodies, colliders, bounce, fixed steps | Connect physics to the picture |
-| 18 | [Marble Quest](chapters/18-marble-quest.qmd) | Forces, sensors, scoring, respawn | Finish a 3D physics game |
+| 1 | [Computer and web basics](chapters/01-computer-and-web-basics.qmd) | Client, browser, files, servers | Explain where a web page comes from |
+| 2 | [Game Maker HQ](chapters/02-static-website.qmd) | HTML, CSS, input elements | Build a static website ready for JavaScript |
+| 3 | [Click the Monster](chapters/03-click-the-monster.qmd) | Events, functions | Make code react to a click |
+| 4 | [Treasure Clicker](chapters/04-treasure-clicker.qmd) | Variables, text updates | Make the game remember |
+| 5 | [Secret Number](chapters/05-secret-number.qmd) | Input, if/else | Make the game choose |
+| 6 | [Rock Paper Scissors](chapters/06-rock-paper-scissors.qmd) | Functions, random numbers | Package behavior into reusable actions |
+| 7 | [Catch the Star](chapters/07-catch-the-star.qmd) | Timers, coordinates, DOM | Change the page over time |
+| 8 | [Bouncing Ball](chapters/08-bouncing-ball.qmd) | Canvas, animation | Draw every frame yourself |
+| 9 | [Pong](chapters/09-pong.qmd) | Keyboard, game loop | Read keys while the game keeps running |
+| 10 | [Breakout](chapters/10-breakout.qmd) | Arrays, collision | Manage many objects |
+| 11 | [Snake](chapters/11-snake.qmd) | Grid logic, state | Update a world one step at a time |
+| 12 | [Game Studio](chapters/12-game-studio.qmd) | Planning, polish, final project | Design your own rules |
+| 13 | [Collision Playground](chapters/13-real-time-2d.qmd) | Input, velocity, fixed steps | Build a predictable real-time loop |
+| 14 | [Platforms and jumping](chapters/14-collision-and-platforms.qmd) | Hitboxes, collision response, gravity | Stop at walls and land on platforms |
+| 15 | [Your own 2D artwork](chapters/15-custom-2d-assets.qmd) | Sprite sheets, loading, JSON levels | Make the game look like your design |
+| 16 | [Robot Orchard](chapters/16-robot-orchard.qmd) | Scrolling, enemies, goals, restart | Finish a complete 2D adventure |
+| 17 | [Robot Island Explorer](chapters/17-first-threejs-world.qmd) | Scene, camera, renderer, 3D movement | Build and explore a 3D world |
+| 18 | [3D Asset Workshop](chapters/18-custom-3d-assets.qmd) | GLB models, origins, materials | Customize and import 3D artwork |
+| 19 | [Rapier Drop Lab](chapters/19-rapier-physics.qmd) | Bodies, colliders, bounce, fixed steps | Connect physics to the picture |
+| 20 | [Marble Quest](chapters/20-marble-quest.qmd) | Forces, sensors, scoring, respawn | Finish a 3D physics game |
 
 ## Open the Game Lab {.unnumbered}
 

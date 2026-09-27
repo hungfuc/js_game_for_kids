@@ -16,7 +16,7 @@ Use these resources when you want another explanation or a new project idea. Fol
 
 ## Dynamic 2D and 3D game development {.unnumbered}
 
-The new projects are original examples. The following official documentation explains the browser and engine APIs used in Chapters 11-18. Read the short examples in the book first, then consult an API page when you need to check a specific behavior.
+The companion projects are original examples. The following official documentation explains the browser and engine APIs used in Chapters 13-20. Read the short examples in the book first, then consult an API page when you need to check a specific behavior.
 
 - [MDN: 2D collision detection](https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection) - geometric overlap tests and the difference between simple bounding shapes and visible artwork.
 - [MDN: requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame) - browser animation callbacks and timestamp-based motion.

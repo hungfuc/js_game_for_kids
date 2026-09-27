@@ -1,8 +1,8 @@
-# Draw Your Own Game World {#sec-ch06}
+# Draw Your Own Game World {#sec-ch08}
 
 ::: {.chapter-banner}
 
-[GAME 06 | Bouncing Ball]{.game-title}
+[GAME 08 | Bouncing Ball]{.game-title}
 
 [Canvas]{.skill-chip} [Animation]{.skill-chip} [Velocity]{.skill-chip}
 
@@ -28,7 +28,7 @@ Canvas is different from ordinary HTML. Instead of moving page elements, your co
 
 The canvas element is a rectangular drawing surface. JavaScript asks it for a 2D drawing context.
 
-![The animation/game loop repeats update and draw work.](../figures/chapter_06/animation-loop.png){#fig-ch06 fig-alt="A cycle connects read input, update state, draw, and next frame." width="100%"}
+![The animation/game loop repeats update and draw work.](../figures/chapter_06/animation-loop.png){#fig-ch08 fig-alt="A cycle connects read input, update state, draw, and next frame." width="100%"}
 
 **Read the picture:** Each frame is one trip around the cycle. Bouncing Ball has no keyboard input yet, so it begins by updating position. The next chapter adds player input before movement.
 

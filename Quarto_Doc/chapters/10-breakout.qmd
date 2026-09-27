@@ -1,8 +1,8 @@
-# Manage Many Game Objects {#sec-ch08}
+# Manage Many Game Objects {#sec-ch10}
 
 ::: {.chapter-banner}
 
-[GAME 08 | Breakout]{.game-title}
+[GAME 10 | Breakout]{.game-title}
 
 [Objects]{.skill-chip} [Arrays]{.skill-chip} [Loops]{.skill-chip}
 
@@ -35,7 +35,7 @@ Breakout has many bricks. We do not want 30 separate variables. Arrays let one v
 
 Each brick can be an object with position, size, and whether it is still active.
 
-![Collision detection asks whether game objects overlap.](../figures/chapter_08/collision-overlap.png){#fig-ch08 fig-alt="Two rectangles partially overlap; the shared area illustrates a rectangular collision test." width="100%"}
+![Collision detection asks whether game objects overlap.](../figures/chapter_08/collision-overlap.png){#fig-ch10 fig-alt="Two rectangles partially overlap; the shared area illustrates a rectangular collision test." width="100%"}
 
 **Read the picture:** A collision is not just being close. The shapes overlap horizontally **and** vertically. The picture uses rectangles; the beginner ball test uses a square bounding box around the ball.
 

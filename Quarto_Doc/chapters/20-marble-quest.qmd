@@ -1,7 +1,7 @@
-# Create a 3D Physics Game: Marble Quest {#sec-ch18}
+# Create a 3D Physics Game: Marble Quest {#sec-ch20}
 
 ::: {.chapter-banner}
-[GAME LAB 18 | Marble Quest]{.game-title}
+[GAME LAB 20 | Marble Quest]{.game-title}
 [Three.js + Rapier]{.skill-chip} [Sensors]{.skill-chip} [Collision events]{.skill-chip} [Custom assets]{.skill-chip}
 :::
 
@@ -68,7 +68,7 @@ const sensor = world.createCollider(descriptor, gemBody);
 
 The crystal's body is fixed because the collectible stays in place. Its visual can rotate for decoration without rotating a spherical sensor. Rapier distinguishes nonblocking sensors from contact-generating colliders in its [collider guide](https://rapier.rs/docs/user_guides/javascript/colliders/).
 
-![Solid contacts affect motion while sensor events feed one-time scoring and victory rules.](../figures/chapter_18/sensor-rules.svg){#fig-ch18 fig-alt="Solid collisions push bodies apart. Sensor overlaps produce an event, which is checked once before score and win conditions are updated." width="100%"}
+![Solid contacts affect motion while sensor events feed one-time scoring and victory rules.](../figures/chapter_18/sensor-rules.svg){#fig-ch20 fig-alt="Solid collisions push bodies apart. Sensor overlaps produce an event, which is checked once before score and win conditions are updated." width="100%"}
 
 **Read the picture:** The physics response to a solid object and the game response to a collectible take different paths. The sensor itself does not know how many points a crystal is worth.
 
@@ -160,7 +160,7 @@ The same design applies to a future walking character, vehicle, or multiplayer g
 
 Start with a small change that has a clear test: move one wall, reposition a crystal, change a crate's density, or change the marble's damping. Then try a visual remix by replacing a model while keeping its physical dimensions.
 
-A more ambitious extension is a capsule-controlled character with a matching visual model. That requires grounded movement, jump handling, and a character-controller policy; changing the sphere mesh into a robot is not enough. Return to the character-controller discussion in Chapter 17 before attempting it.
+A more ambitious extension is a capsule-controlled character with a matching visual model. That requires grounded movement, jump handling, and a character-controller policy; changing the sphere mesh into a robot is not enough. Return to the character-controller discussion in Chapter 19 before attempting it.
 
 ::: {.callout-tip .challenge title="Level up" icon="false"}
 Make a delivery game: push a crate into a target sensor to unlock the exit. Decide which collider may trigger the target, whether the crate must remain inside, and what happens after a restart. Draw the event-to-rule flow before changing the code.

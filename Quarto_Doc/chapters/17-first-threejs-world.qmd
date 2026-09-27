@@ -1,7 +1,7 @@
-# Step into a 3D World with Three.js {#sec-ch15}
+# Step into a 3D World with Three.js {#sec-ch17}
 
 ::: {.chapter-banner}
-[GAME LAB 15 | Robot Island Explorer]{.game-title}
+[GAME LAB 17 | Robot Island Explorer]{.game-title}
 [Three.js]{.skill-chip} [Scene]{.skill-chip} [Camera]{.skill-chip} [3D coordinates]{.skill-chip}
 :::
 
@@ -20,7 +20,7 @@ You already know that a game needs state, input, rules, and drawing. Those ideas
 Open **Robot Island Explorer** in the Game Lab. Move with WASD or the arrow keys and collect four crystals. Drag to orbit the camera and scroll to zoom. The decorative crates are intentionally not solid in this pre-physics project. We will give objects real physical behavior with Rapier later.
 
 ::: {.callout-tip .setup title="Set up the 3D projects" icon="false"}
-Use the same local server from Chapter 11. The supplied 3D pages load **Three.js 0.180.0** and, where needed, **Rapier 0.17.3** from a CDN. These are pinned lesson dependencies, not a claim that they are the newest releases.
+Use the same local server from Chapter 13. The supplied 3D pages load **Three.js 0.180.0** and, where needed, **Rapier 0.17.3** from a CDN. These are pinned lesson dependencies, not a claim that they are the newest releases.
 
 Internet access is required for those library downloads unless you run the optional vendoring script described in the Game Lab appendix. Your local images and GLB files are included. A WebGL 2-capable browser and graphics setup are required by this Three.js renderer; see the [renderer documentation](https://threejs.org/docs/pages/WebGLRenderer.html).
 :::
@@ -72,7 +72,7 @@ Put the map before the module that uses it. Keep Three.js core and its addons on
 
 In this book's 3D worlds, `y` points upward. The floor lies in the `x-z` plane. Positive `x` moves right along the world axis; positive `z` moves toward the near side in the starting camera view. These are world directions, not permanent screen directions.
 
-![A comparison between the downward y-axis of Canvas and the upward y-axis of our 3D world.](../figures/chapter_15/axes.svg){#fig-ch15 fig-alt="Canvas uses x right and y down. The 3D world uses x, y up, and z depth, with floor movement in x and z." width="100%"}
+![A comparison between the downward y-axis of Canvas and the upward y-axis of our 3D world.](../figures/chapter_15/axes.svg){#fig-ch17 fig-alt="Canvas uses x right and y down. The 3D world uses x, y up, and z depth, with floor movement in x and z." width="100%"}
 
 **Read the picture:** Do not carry the 2D gravity sign into the 3D game unchanged. Downward motion increased `y` on the canvas. In this 3D convention, downward motion decreases `y`.
 

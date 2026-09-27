@@ -70,7 +70,7 @@ Click the game canvas before using keys. Movement controls are intentionally wor
 
 ```text
 chapters/               The textbook's Quarto chapters
-figures/                Original diagrams with editable SVGs for Chapters 11-18
+figures/                Original diagrams with editable SVGs used by Chapters 13-20
 games/
   index.html            Game Lab menu
   collision-lab/        Shape detection and wall-response experiment

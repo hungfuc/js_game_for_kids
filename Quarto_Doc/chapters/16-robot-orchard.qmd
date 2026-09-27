@@ -1,7 +1,7 @@
-# Finish a Scrolling 2D Adventure {#sec-ch14}
+# Finish a Scrolling 2D Adventure {#sec-ch16}
 
 ::: {.chapter-banner}
-[GAME LAB 14 | Robot Orchard: a complete game]{.game-title}
+[GAME LAB 16 | Robot Orchard: a complete game]{.game-title}
 [Camera]{.skill-chip} [Game states]{.skill-chip} [Scoring]{.skill-chip} [Restart]{.skill-chip}
 :::
 
@@ -44,7 +44,7 @@ ctx.restore();
 
 The function names here describe drawing responsibilities. The companion `draw()` contains their actual drawing loops. After `restore`, draw interface elements in screen coordinates so a message does not scroll away with the level.
 
-![The camera selects a viewport from a wider world and converts a world x-coordinate to a screen x-coordinate.](../figures/chapter_14/camera-world.svg){#fig-ch14 fig-alt="A long level contains a camera window. A world x of 1500 and camera x of 1020 produce screen x 480." width="100%"}
+![The camera selects a viewport from a wider world and converts a world x-coordinate to a screen x-coordinate.](../figures/chapter_14/camera-world.svg){#fig-ch16 fig-alt="A long level contains a camera window. A world x of 1500 and camera x of 1020 produce screen x 480." width="100%"}
 
 **Read the picture:** The player and terrain keep their world coordinates. Only the drawing position changes. At the left and right ends of the level, clamping stops the camera from showing empty space beyond the level boundary.
 

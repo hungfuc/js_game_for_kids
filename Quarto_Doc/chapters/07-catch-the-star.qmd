@@ -1,8 +1,8 @@
-# Make Things Change Over Time {#sec-ch05}
+# Make Things Change Over Time {#sec-ch07}
 
 ::: {.chapter-banner}
 
-[GAME 05 | Catch the Star]{.game-title}
+[GAME 07 | Catch the Star]{.game-title}
 
 [Timers]{.skill-chip} [Coordinates]{.skill-chip} [CSS]{.skill-chip}
 
@@ -28,7 +28,7 @@ A moving game world changes even when the player is not clicking. Timers let Jav
 
 An absolutely positioned element can be moved by changing its left and top CSS properties.
 
-![Game coordinates: x moves right, y moves down.](../figures/chapter_05/browser-coordinates.png){#fig-ch05 fig-alt="A coordinate plane starts at the top left. The x axis increases rightward and y increases downward; the star is at 25,35." width="100%"}
+![Game coordinates: x moves right, y moves down.](../figures/chapter_05/browser-coordinates.png){#fig-ch07 fig-alt="A coordinate plane starts at the top left. The x axis increases rightward and y increases downward; the star is at 25,35." width="100%"}
 
 **Read the picture:** Start at the top-left corner. Move 25 units right and 35 units down to reach the star. These are example coordinates, not fixed limits for your game; use the size of your own game area.
 

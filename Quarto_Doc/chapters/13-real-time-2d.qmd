@@ -1,7 +1,7 @@
-# Build a Real-Time 2D Game {#sec-ch11}
+# Build a Real-Time 2D Game {#sec-ch13}
 
 ::: {.chapter-banner}
-[GAME LAB 11 | Collision Playground]{.game-title}
+[GAME LAB 13 | Collision Playground]{.game-title}
 [Time]{.skill-chip} [Velocity]{.skill-chip} [Input state]{.skill-chip} [Game loop]{.skill-chip}
 :::
 
@@ -69,7 +69,7 @@ player.vx = direction * 240;
 
 For movement in two directions, normalize the direction vector. Otherwise, holding two keys can make diagonal movement faster than straight movement. The helper `normalize2(x, y)` returns a direction with length one, or `(0, 0)` when no key is held.
 
-![Input is remembered, the world advances in small steps, and drawing displays the result.](../figures/chapter_11/fixed-step.svg){#fig-ch11 fig-alt="Input feeds a fixed simulation step, which feeds drawing. A row shows eight equally spaced simulation steps." width="100%"}
+![Input is remembered, the world advances in small steps, and drawing displays the result.](../figures/chapter_11/fixed-step.svg){#fig-ch13 fig-alt="Input feeds a fixed simulation step, which feeds drawing. A row shows eight equally spaced simulation steps." width="100%"}
 
 **Read the picture:** The numbered steps are simulation updates, not necessarily separate screen images. One browser frame may require zero, one, or several updates. The arrows show responsibilities, not three separate programs.
 

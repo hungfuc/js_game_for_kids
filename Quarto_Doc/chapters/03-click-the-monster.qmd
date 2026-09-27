@@ -1,8 +1,8 @@
-# Make the Page React {#sec-ch01}
+# Make the Page React {#sec-ch03}
 
 ::: {.chapter-banner}
 
-[GAME 01 | Click the Monster]{.game-title}
+[GAME 03 | Click the Monster]{.game-title}
 
 [Events]{.skill-chip} [Functions]{.skill-chip} [HTML]{.skill-chip}
 
@@ -28,7 +28,7 @@ A game begins when the player does something and the program reacts. In the brow
 
 We will start with one HTML file. The button is our monster. When the player clicks it, JavaScript runs a function.
 
-![Event flow: a player action becomes a JavaScript response.](../figures/chapter_01/event-flow.png){#fig-ch01 fig-alt="A player clicks the monster button, the browser detects a click event, and JavaScript calls hitMonster." width="100%"}
+![Event flow: a player action becomes a JavaScript response.](../figures/chapter_01/event-flow.png){#fig-ch03 fig-alt="A player clicks the monster button, the browser detects a click event, and JavaScript calls hitMonster." width="100%"}
 
 **Read the picture:** Follow the arrows from left to right. The player creates the event; the browser notices it; the registered function supplies the response. Registering a listener does not run the function immediately.
 
@@ -80,7 +80,7 @@ const monster = document.getElementById("monster");
 monster.addEventListener("click", hitMonster);
 ```
 
-![JavaScript asks the current page for the button named monster, tells it to listen for a click, and runs hitMonster when the player clicks.](../figures/chapter_01/find-listen-react.svg){#fig-ch01-find-listen fig-alt="A diagram shows a browser page with a Monster button whose ID is monster. JavaScript asks document.getElementById for monster, stores the returned button in monster, adds a click listener, and runs hitMonster when the player clicks." width="100%"}
+![JavaScript asks the current page for the button named monster, tells it to listen for a click, and runs hitMonster when the player clicks.](../figures/chapter_01/find-listen-react.svg){#fig-ch03-find-listen fig-alt="A diagram shows a browser page with a Monster button whose ID is monster. JavaScript asks document.getElementById for monster, stores the returned button in monster, adds a click listener, and runs hitMonster when the player clicks." width="100%"}
 
 **Read the picture:** The two uses of `monster` are connected, but they are not quite the same thing. In HTML, `id="monster"` is the button's nickname. In JavaScript, `const monster` is a box that holds the button after JavaScript finds it.
 

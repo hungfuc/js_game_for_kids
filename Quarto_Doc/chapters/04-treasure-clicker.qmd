@@ -1,8 +1,8 @@
-# Teach the Game to Remember {#sec-ch02}
+# Teach the Game to Remember {#sec-ch04}
 
 ::: {.chapter-banner}
 
-[GAME 02 | Treasure Clicker]{.game-title}
+[GAME 04 | Treasure Clicker]{.game-title}
 
 [Variables]{.skill-chip} [Strings]{.skill-chip} [DOM]{.skill-chip}
 
@@ -28,7 +28,7 @@ A score is memory. The game needs a place to store a number and change it after 
 
 Use let when a value will change. Use `const` when the variable should keep referring to the same thing.
 
-![A variable is a named place for a value that can change.](../figures/chapter_02/variable-memory.png){#fig-ch02 fig-alt="The variable score refers to 7. Executing score equals score plus 1 replaces 7 with 8." width="100%"}
+![A variable is a named place for a value that can change.](../figures/chapter_02/variable-memory.png){#fig-ch04 fig-alt="The variable score refers to 7. Executing score equals score plus 1 replaces 7 with 8." width="100%"}
 
 **Read the picture:** First read the old value, 7. Add 1 to get 8. Finally, assign 8 back to `score`. The label stays the same while the value changes.
 
@@ -153,6 +153,6 @@ Make each treasure worth 5 points.
 
 ::: {.callout-tip .challenge title="Challenge 2" icon="false"}
 
-Add a “spend 10 points” button. Only worry about subtracting for now; Chapter 3 will teach you how to prevent negative scores.
+Add a “spend 10 points” button. Only worry about subtracting for now; Chapter 5 will teach you how to prevent negative scores.
 
 :::

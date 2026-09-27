@@ -1,0 +1,117 @@
+# Meet Your Computer, Browser, and the Web {#sec-ch01}
+
+::: {.chapter-banner}
+
+[WEB 01 | Your first web workspace]{.game-title}
+
+[Personal computer]{.skill-chip} [Browser]{.skill-chip} [Files]{.skill-chip} [Servers]{.skill-chip}
+
+:::
+
+::: {.callout-tip .mission title="Your mission" icon="false"}
+
+By the end of this chapter, you can:
+
+- name the jobs of your computer, browser, files, and web servers
+- organize a small website in its own folder
+- explain the difference between a local file and a web address
+- predict where HTML, CSS, and JavaScript will do their work
+
+:::
+
+::: {.callout-note .big-idea title="The big idea" icon="false"}
+
+Your browser is a program on **your** computer. It can open files saved on that computer or ask a server on the internet for files. In both cases, the browser assembles the page that you see.
+
+:::
+
+![A project folder on a personal computer can send a local file directly to its browser. The browser can also request files from a web server through the internet, then receive the response and show the page.](../figures/chapter_01/client-browser-server.svg){#fig-ch01-client-server fig-alt="A diagram shows a project folder and a browser client inside a personal computer. The browser opens local files from the folder or sends a request through the internet to a web server, which returns page files." width="100%"}
+
+**Read the picture:** The folder, browser, and client are all on the same personal computer. The server is only involved when the browser uses an internet address. In both routes, the browser is the program that displays the page.
+
+## Your personal computer is your first web workshop
+
+A **personal computer** is the device in front of you: perhaps a laptop, desktop, or Chromebook. It stores files and runs programs. Two programs matter especially in this book:
+
+- A **text editor** lets you write and save code as plain text.
+- A **web browser**—such as Chrome, Edge, Firefox, or Safari—reads web files and shows a page.
+
+When your browser is doing the work on your device, your device is called the **client**. “Client” does not mean a different kind of computer. It means the computer that asks for a page and uses it.
+
+For the first pages in this book, the client is all you need. You will save a file, open it in your browser, edit it, save again, and refresh the page to see the change.
+
+## Keep each website in its own folder
+
+A website is a group of related files. Make one folder for one project so its files stay together. For the next chapter, create a folder named `my-game-site` with these two files inside it:
+
+```
+my-game-site/
+  index.html
+  styles.css
+```
+
+`index.html` will describe the page. `styles.css` will describe its colors, spacing, and layout. The endings after the dots are part of the file names:
+
+- `.html` means an HTML page.
+- `.css` means a CSS style sheet.
+- `.js` will later mean a JavaScript program.
+
+Be careful to save plain-text files with the right ending. A file named `index.html.txt` is a text document, not a web page. If you cannot see file endings, ask a teacher or an adult to help turn them on.
+
+## The browser turns files into a page
+
+When you open `index.html`, the browser reads the HTML instructions and creates the page. If the HTML links to `styles.css`, the browser reads that file too. It uses CSS to decide how the same page should look.
+
+Think of the jobs this way:
+
+| Tool or file | Main job | Example |
+| --- | --- | --- |
+| HTML | structure and meaning | a heading, a paragraph, a button |
+| CSS | appearance and layout | a blue button, a roomy card, a centered title |
+| JavaScript | behavior that changes | what happens after a player clicks |
+
+HTML and CSS can make a useful, polished **static website**. “Static” means that the page does not yet run its own rules or change itself. A button can look like a game button before it has JavaScript to react to a click.
+
+## Local files and web addresses
+
+You can open a saved file directly from your computer. Its address often begins with `file:///`. For example, it might look similar to this:
+
+```
+file:///Users/your-name/Documents/my-game-site/index.html
+```
+
+This address means, “Browser, open this file from this computer.” It does not put your page on the internet.
+
+An internet address usually begins with `https://`, such as `https://example.com`. That tells the browser to contact a **server**. A server is a computer program that keeps web files ready and sends a requested file back to a browser.
+
+::: {.callout-note .advanced-study title="A browser request, step by step" icon="false" collapse="false"}
+
+[OPTIONAL DEEPER DIVE]{.study-badge}
+
+When you visit an internet address, the browser first finds the server for that address. Then it sends a **request**, such as “Please send the home page.” The server sends a **response**, such as the HTML file. The browser may make more requests for the page's CSS, pictures, fonts, or JavaScript.
+
+The server supplies files; the browser on the client turns them into the page. A later game might ask a server for an image or level file, but its drawing and player controls can still run in the browser.
+
+:::
+
+## Two kinds of servers you will meet
+
+A public server is connected to the internet so many people can visit a website. We will not publish anything in this book.
+
+A **local server** runs only on your own computer. It gives files an address such as `http://127.0.0.1:8000/`. `127.0.0.1` means “this same computer.” Later, when games use several JavaScript files, data files, or 3D models, a local server helps the browser load them safely. Starting one does not make your project public.
+
+For now, opening `index.html` directly is enough. Learn the page's structure and style first; the next chapter does exactly that.
+
+## Get ready for input and JavaScript
+
+Web pages have **input elements** such as text boxes, checkboxes, menus, and buttons. In the next chapter, you will place them on a static site and label them clearly. They will be real browser controls, but they will not yet make a game remember a choice or react to a click.
+
+That is intentional. First learn what HTML puts on a page and what CSS changes about its appearance. Then, in Chapter 3, JavaScript will find those elements and give them behavior.
+
+## Checkpoint
+
+::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
+
+Suppose you double-click `index.html` in your project folder. Which program opens it? Which device stores the file? Is a server on the internet required? Explain why.
+
+:::

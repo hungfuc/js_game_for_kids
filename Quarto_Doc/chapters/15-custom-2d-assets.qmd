@@ -1,7 +1,7 @@
-# Give Your 2D Game Its Own Artwork {#sec-ch13}
+# Give Your 2D Game Its Own Artwork {#sec-ch15}
 
 ::: {.chapter-banner}
-[GAME LAB 13 | Robot Orchard: sprites and assets]{.game-title}
+[GAME LAB 15 | Robot Orchard: sprites and assets]{.game-title}
 [Custom assets]{.skill-chip} [Sprite sheets]{.skill-chip} [Loading]{.skill-chip} [Level data]{.skill-chip}
 :::
 
@@ -66,7 +66,7 @@ The first four numbers after the image select the crop. The next four choose whe
 
 This is the nine-argument form of [`drawImage`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage). It copies part of an image; it does not modify the original file.
 
-![A four-frame robot sheet feeds a selected drawing while the player's collision rectangle stays fixed.](../figures/chapter_13/sprite-hitbox.svg){#fig-ch13 fig-alt="Four 64-pixel robot frames, a selected crop, and a separate smaller dashed hitbox inside the visible character." width="100%"}
+![A four-frame robot sheet feeds a selected drawing while the player's collision rectangle stays fixed.](../figures/chapter_13/sprite-hitbox.svg){#fig-ch15 fig-alt="Four 64-pixel robot frames, a selected crop, and a separate smaller dashed hitbox inside the visible character." width="100%"}
 
 **Read the picture:** Frame numbers start at zero. The dashed rectangle is the physical body, not the full image. Transparent space, a waving arm, or a decorative antenna should not unexpectedly change where the robot lands.
 

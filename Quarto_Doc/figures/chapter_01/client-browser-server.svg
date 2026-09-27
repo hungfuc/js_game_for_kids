@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" viewBox="0 0 1000 500" role="img" aria-labelledby="title desc">
+  <title id="title">How a browser opens a local file or requests a file from a web server</title>
+  <desc id="desc">A personal computer contains a project folder and a browser client. An arrow from the folder to the browser is labeled open a local file. A second arrow from the browser through the internet to a web server is labeled request a web page. An arrow returns a response to the browser.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#20304b"/>
+    </marker>
+    <style>
+      .title { font: 700 27px system-ui, sans-serif; fill: #17243b; }
+      .label { font: 700 20px system-ui, sans-serif; fill: #17243b; }
+      .text { font: 17px system-ui, sans-serif; fill: #243858; }
+      .small { font: 15px system-ui, sans-serif; fill: #405677; }
+      .arrow { stroke: #20304b; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1000" height="500" rx="28" fill="#f7f4ff"/>
+  <text x="500" y="50" text-anchor="middle" class="title">A browser can use local files or ask a web server for files</text>
+
+  <rect x="44" y="96" width="438" height="338" rx="26" fill="#dff5ff" stroke="#20304b" stroke-width="4"/>
+  <text x="263" y="132" text-anchor="middle" class="label">Your personal computer</text>
+  <text x="263" y="157" text-anchor="middle" class="small">The client</text>
+
+  <path d="M94 205 h112 l25 25 v105 h-137 z" fill="#fff8d8" stroke="#20304b" stroke-width="4"/>
+  <path d="M206 205 v25 h25" fill="none" stroke="#20304b" stroke-width="4"/>
+  <text x="163" y="271" text-anchor="middle" class="label">Project folder</text>
+  <text x="163" y="300" text-anchor="middle" class="text">index.html</text>
+  <text x="163" y="326" text-anchor="middle" class="text">styles.css</text>
+
+  <rect x="293" y="205" width="144" height="130" rx="18" fill="#ffffff" stroke="#20304b" stroke-width="4"/>
+  <rect x="311" y="225" width="108" height="66" rx="6" fill="#aee9df" stroke="#20304b" stroke-width="3"/>
+  <path d="M348 315 h34 M365 292 v23" stroke="#20304b" stroke-width="4" stroke-linecap="round"/>
+  <text x="365" y="365" text-anchor="middle" class="label">Browser</text>
+  <text x="365" y="389" text-anchor="middle" class="small">reads and shows the page</text>
+
+  <path d="M235 270 H285" class="arrow"/>
+  <text x="260" y="251" text-anchor="middle" class="small">open a local file</text>
+
+  <path d="M487 270 C550 270, 573 190, 656 190 H758" class="arrow"/>
+  <text x="552" y="202" text-anchor="middle" class="small">request</text>
+
+  <path d="M758 306 H656 C570 306, 546 350, 487 350" class="arrow"/>
+  <text x="562" y="339" text-anchor="middle" class="small">response: HTML, CSS, pictures</text>
+
+  <path d="M594 235 C581 218 596 195 619 195 C624 170 659 166 673 190 C700 180 718 202 709 224 C733 233 729 265 704 269 H610 C585 268 578 247 594 235 Z" fill="#ffffff" stroke="#20304b" stroke-width="4"/>
+  <text x="654" y="239" text-anchor="middle" class="label">Internet</text>
+
+  <rect x="758" y="138" width="190" height="220" rx="22" fill="#e7dcff" stroke="#20304b" stroke-width="4"/>
+  <text x="853" y="181" text-anchor="middle" class="label">Web server</text>
+  <text x="853" y="207" text-anchor="middle" class="small">a program on another</text>
+  <text x="853" y="228" text-anchor="middle" class="small">computer that sends files</text>
+  <rect x="797" y="254" width="112" height="56" rx="9" fill="#ffffff" stroke="#20304b" stroke-width="3"/>
+  <circle cx="816" cy="282" r="7" fill="#6d3df5"/>
+  <circle cx="843" cy="282" r="7" fill="#6d3df5"/>
+  <circle cx="870" cy="282" r="7" fill="#6d3df5"/>
+  <text x="853" y="339" text-anchor="middle" class="small">https://example.com</text>
+</svg>

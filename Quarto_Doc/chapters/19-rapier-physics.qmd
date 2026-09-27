@@ -1,7 +1,7 @@
-# Add Gravity and Solid Objects with Rapier {#sec-ch17}
+# Add Gravity and Solid Objects with Rapier {#sec-ch19}
 
 ::: {.chapter-banner}
-[GAME LAB 17 | Rapier Drop Lab]{.game-title}
+[GAME LAB 19 | Rapier Drop Lab]{.game-title}
 [Rapier.js]{.skill-chip} [Rigid bodies]{.skill-chip} [Colliders]{.skill-chip} [Physics steps]{.skill-chip}
 :::
 
@@ -73,7 +73,7 @@ world.createCollider(
 
 Placing the floor's center at `y = -0.5` puts its top surface at `y = 0`. A collider twice as large as its visible model is often a full-size-versus-half-size mistake.
 
-![Rapier advances bodies and colliders, then Three.js copies their transforms and renders the scene.](../figures/chapter_17/physics-render.svg){#fig-ch17 fig-alt="The Rapier physics representation and Three.js visual representation are connected by a one-way transform copy after each fixed physics step." width="100%"}
+![Rapier advances bodies and colliders, then Three.js copies their transforms and renders the scene.](../figures/chapter_17/physics-render.svg){#fig-ch19 fig-alt="The Rapier physics representation and Three.js visual representation are connected by a one-way transform copy after each fixed physics step." width="100%"}
 
 **Read the picture:** The body owns movement. The mesh follows it. Do not also add homemade gravity to the mesh after Rapier has already moved the body.
 

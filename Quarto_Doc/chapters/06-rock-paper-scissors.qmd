@@ -1,8 +1,8 @@
-# Create Reusable Game Actions {#sec-ch04}
+# Create Reusable Game Actions {#sec-ch06}
 
 ::: {.chapter-banner}
 
-[GAME 04 | Rock Paper Scissors]{.game-title}
+[GAME 06 | Rock Paper Scissors]{.game-title}
 
 [Parameters]{.skill-chip} [Return values]{.skill-chip} [Randomness]{.skill-chip}
 
@@ -34,7 +34,7 @@ As games grow, one giant function becomes difficult to understand. Small functio
 
 A parameter is a local name for information passed into a function.
 
-![Functions can transform input into an output.](../figures/chapter_04/function-input-output.png){#fig-ch04 fig-alt="A simplified diagram sends a move into a function that compares rules and returns a result." width="100%"}
+![Functions can transform input into an output.](../figures/chapter_04/function-input-output.png){#fig-ch06 fig-alt="A simplified diagram sends a move into a function that compares rules and returns a result." width="100%"}
 
 **Read the picture:** A function receives information, performs work, and may return a result. This is a simplified picture: our actual `decideWinner(player, computer)` function needs **both** moves. The player choosing rock alone does not determine a winner.
 

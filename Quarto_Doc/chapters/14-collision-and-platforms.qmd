@@ -1,7 +1,7 @@
-# Make Objects Collide, Stop, and Jump {#sec-ch12}
+# Make Objects Collide, Stop, and Jump {#sec-ch14}
 
 ::: {.chapter-banner}
-[GAME LAB 12 | Robot Orchard: movement and platforms]{.game-title}
+[GAME LAB 14 | Robot Orchard: movement and platforms]{.game-title}
 [Hitboxes]{.skill-chip} [Collision response]{.skill-chip} [Gravity]{.skill-chip} [Jumping]{.skill-chip}
 :::
 
@@ -76,7 +76,7 @@ The numbers are game settings, not measurements of a real robot. Gravity has uni
 
 The companion input helper distinguishes **held** input from **just pressed** input. `input.consume("Space")` reads a jump press once. Holding Space should not start a new jump every simulation step.
 
-![Rectangle overlap and the correction needed to place a falling player's feet on a platform.](../figures/chapter_12/collision-response.svg){#fig-ch12 fig-alt="Two boxes share a pink overlap. A separate before-and-after drawing snaps a player's feet to the platform top and clears downward velocity." width="100%"}
+![Rectangle overlap and the correction needed to place a falling player's feet on a platform.](../figures/chapter_12/collision-response.svg){#fig-ch14 fig-alt="Two boxes share a pink overlap. A separate before-and-after drawing snaps a player's feet to the platform top and clears downward velocity." width="100%"}
 
 **Read the picture:** The overlap test notices the problem. Landing requires three changes: correct the position, stop downward velocity, and remember that the player is grounded. Changing only the velocity leaves the character partly inside the platform.
 

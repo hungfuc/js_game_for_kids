@@ -1,7 +1,7 @@
 # JavaScript Game Programming for Kids
 ## Colorful Quarto edition: Dynamic 2D and 3D
 
-An 18-chapter, student-facing textbook with diagrams, playable companion projects, original assets, and optional Advanced Study callouts. The original ten chapters are retained. Chapters 11-18 extend the progression into complete 2D game development and Three.js/Rapier 3D games. There are no teacher-note sections.
+A 20-chapter, student-facing textbook with diagrams, playable companion projects, original assets, and optional Advanced Study callouts. Chapters 1-2 establish computer, browser, HTML, and CSS fundamentals before the game-programming sequence begins in Chapter 3. Chapters 13-20 extend the progression into complete 2D game development and Three.js/Rapier 3D games. There are no teacher-note sections.
 
 ## Read and play
 
@@ -28,14 +28,17 @@ The two 2D projects work from local files once the server is running. The four 3
 
 | Chapter | Project / focus |
 |---|---|
-| 11 | Real-time 2D loops, input state, velocity, fixed updates |
-| 12 | Rectangle and circle collision, wall response, gravity, jumping |
-| 13 | Original sprites, animation sheets, image loading, JSON levels |
-| 14 | Robot Orchard: scrolling camera, enemies, collectibles, lives, restart |
-| 15 | Three.js scenes, cameras, meshes, lighting, movement |
-| 16 | GLB loading, custom models, materials, origins, Asset Workshop |
-| 17 | Rapier worlds, bodies, colliders, synchronization, bounce experiment |
-| 18 | Marble Quest: dynamic obstacles, sensors, scoring, respawn, win rules |
+| 1 | Personal computer, browser, local files, client/server web basics |
+| 2 | Static HTML and CSS website, semantic structure, labeled input elements |
+| 3-12 | JavaScript events, state, decisions, timing, canvas, game patterns, and game design |
+| 13 | Real-time 2D loops, input state, velocity, fixed updates |
+| 14 | Rectangle and circle collision, wall response, gravity, jumping |
+| 15 | Original sprites, animation sheets, image loading, JSON levels |
+| 16 | Robot Orchard: scrolling camera, enemies, collectibles, lives, restart |
+| 17 | Three.js scenes, cameras, meshes, lighting, movement |
+| 18 | GLB loading, custom models, materials, origins, Asset Workshop |
+| 19 | Rapier worlds, bodies, colliders, synchronization, bounce experiment |
+| 20 | Marble Quest: dynamic obstacles, sensors, scoring, respawn, win rules |
 
 Each new chapter includes an original explanatory SVG diagram, two optional Advanced Study blocks, a challenge, a checkpoint, and links to complete companion source. The original chapters retain their existing visual explanations and callouts.
 
@@ -85,7 +88,7 @@ The `_quarto.yml` file organizes five parts, appends student reference material,
 - `styles/textbook.scss` - Quarto/Bootstrap theme settings
 - `styles/textbook.css` - colorful textbook components
 - `styles/preview.css` - standalone reading-edition navigation/layout
-- `figures/chapter_11/` through `chapter_18/` - editable SVG explanations
+- `figures/chapter_11/` through `chapter_18/` - editable SVG explanations used by the later game chapters
 
 Rebuild the combined manuscript after editing:
 

@@ -1,8 +1,8 @@
-# Game Studio {#sec-ch10}
+# Game Studio {#sec-ch12}
 
 ::: {.chapter-banner}
 
-[GAME 10 | Design Your Own Game]{.game-title}
+[GAME 12 | Design Your Own Game]{.game-title}
 
 [Design]{.skill-chip} [Playtesting]{.skill-chip} [Modules]{.skill-chip}
 
@@ -99,7 +99,7 @@ Serve module-based projects through a local development server. Opening HTML dir
 
 Further reading: [MDN: JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules).
 
-![The DOM is a tree of page elements JavaScript can read and change.](../figures/chapter_10/dom-tree.png){#fig-ch10 fig-alt="The document contains html, which contains head and body. Body contains a start button and a game canvas." width="100%"}
+![The DOM is a tree of page elements JavaScript can read and change.](../figures/chapter_10/dom-tree.png){#fig-ch12 fig-alt="The document contains html, which contains head and body. Body contains a start button and a game canvas." width="100%"}
 
 **Read the picture:** The browser keeps elements in a tree. `button#start` means a button with `id="start"`, while `canvas#game` means a canvas with `id="game"`. JavaScript can find those elements and connect them to game behavior.
 
