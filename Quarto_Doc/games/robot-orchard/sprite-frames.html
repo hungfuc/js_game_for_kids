@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Robot Sprite Frames | Game Lab</title><link rel="stylesheet" href="../shared/lab.css"></head>
+<body><main><a href="./index.html">Back to Robot Orchard</a><p class="eyebrow">JAVASCRIPT GAME PROGRAMMING | SPRITE SHEET</p><h1>Robot sprite frames</h1><p>The same 256 × 64 SVG supplies four 64 × 64 animation frames. Each drawing crops a different part of the sheet.</p><section class="panel"><p id="status" role="status">Loading robot-strip.svg...</p><canvas id="game" width="960" height="420" aria-label="Four robot animation frames and a separate collision rectangle"></canvas></section><p class="hint">The dashed rectangle shows a 28 × 42 collision body. The antenna and arms remain artwork.</p></main>
+<script type="module">
+const canvas = document.getElementById('game');
+const ctx = canvas.getContext('2d');
+const robotImage = new Image();
+robotImage.onload = () => {
+  ctx.fillStyle = '#dfeef8'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.font = 'bold 26px system-ui'; ctx.fillStyle = '#17304b';
+  for (let frame = 0; frame < 4; frame++) {
+    const x = 38 + frame * 225;
+    ctx.fillText(`Frame ${frame}`, x + 50, 65);
+    ctx.fillStyle = '#fff'; ctx.fillRect(x, 85, 205, 270);
+    ctx.strokeStyle = '#a5bfd0'; ctx.strokeRect(x, 85, 205, 270);
+    ctx.drawImage(robotImage, frame * 64, 0, 64, 64, x + 37, 113, 132, 176);
+    ctx.setLineDash([8, 5]); ctx.lineWidth = 3; ctx.strokeStyle = '#b32460';
+    ctx.strokeRect(x + 89, 171, 76, 116); ctx.setLineDash([]);
+    ctx.fillStyle = '#17304b'; ctx.font = 'bold 26px system-ui';
+  }
+  document.getElementById('status').textContent = 'Four frames loaded from one SVG; pink dashed lines show the collision body.';
+};
+robotImage.onerror = () => { document.getElementById('status').textContent = 'Could not load the robot sprite sheet.'; };
+robotImage.src = '../assets/2d/robot-strip.svg';
+</script></body></html>
