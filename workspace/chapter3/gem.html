@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<body>
+  <h1>Click the Gem!</h1>
+  <img id="gem" src="gem.svg"
+       alt="A purple gem. Click it to collect it." width="96">
+  <p id="message">The gem is waiting.</p>
+
+  <script>
+    const gem = document.getElementById("gem");
+    const message = document.getElementById("message");
+
+    function collectGem() {
+      message.textContent = "You collected the gem!";
+    }
+
+    gem.addEventListener("click", collectGem);
+  </script>
+</body>
+</html>

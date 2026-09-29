@@ -341,6 +341,16 @@ Put the pieces together. Type the code yourself if you can; typing helps your br
 </html>
 ```
 
+Save the code as `index.html` and open it in your browser, or open the ready-to-run copy at `workspace/chapter2-treasure/index.html`. The score begins at zero because `let score = 0` runs when the page loads.
+
+![Treasure Clicker in Chrome before any clicks, showing the collect button and Score: 0.](Quarto_Doc/figures/chapter_02/treasure-clicker-start.png){#fig-ch02-treasure-start fig-alt="The Treasure Clicker page shows a Collect treasure button and Score: 0." width="100%"}
+
+Click the treasure button three times. Each click calls `collectTreasure()`, adds one to `score`, and puts the new number into the paragraph. The `after-three-clicks.html` companion runs those three clicks automatically so you can compare the browser result.
+
+![Treasure Clicker in Chrome after three clicks, showing Score: 3.](Quarto_Doc/figures/chapter_02/treasure-clicker-three-clicks.png){#fig-ch02-treasure-three fig-alt="The same Treasure Clicker page shows Score: 3 after three button clicks." width="100%"}
+
+**Read the pictures:** The button and heading stay the same. The score changes from 0 to 3 because the `score` variable remembers the number between clicks, while `scoreText.textContent` shows its current value on the page. Refresh the browser to start a new game at zero.
+
 ::: {.callout-note .advanced-study title="Advanced Study | let, const, scope, and types" icon="false" collapse="false"}
 
 [OPTIONAL DEEPER DIVE]{.study-badge}
@@ -481,6 +491,16 @@ Put the pieces together. Type the code yourself if you can; typing helps your br
 </html>
 ```
 
+Open the ready-to-run game at `workspace/chapter3-secret-number/index.html`, or save the code above as `index.html` and open it in your browser. The game chooses a new secret from 1 to 10 each time the page loads. To show all three paths in the screenshots, the companion demo pages use a fixed secret of 6 and enter one guess automatically.
+
+![Secret Number in Chrome after guessing 3 when the secret is 6. The page says Too low!](Quarto_Doc/figures/chapter_03/secret-number-too-low.png){#fig-ch03-too-low fig-alt="The Secret Number page has 3 in the number input and displays Too low! below the Check button." width="100%"}
+
+![Secret Number in Chrome after guessing 9 when the secret is 6. The page says Too high!](Quarto_Doc/figures/chapter_03/secret-number-too-high.png){#fig-ch03-too-high fig-alt="The Secret Number page has 9 in the number input and displays Too high! below the Check button." width="100%"}
+
+![Secret Number in Chrome after guessing 6 when the secret is 6. The page says Correct!](Quarto_Doc/figures/chapter_03/secret-number-correct.png){#fig-ch03-correct fig-alt="The Secret Number page has 6 in the number input and displays Correct! below the Check button." width="100%"}
+
+**Read the pictures:** The same click handler runs for every guess. For 3, `guess === secret` is false and `guess < secret` is true, so the second branch says “Too low!” For 9, both checks are false, so `else` says “Too high!” For 6, the first check is true, so the game says “Correct!” and skips the other branches. Try these guesses yourself; your secret number will usually be different.
+
 ::: {.callout-note .advanced-study title="Advanced Study | How comparisons really work" icon="false" collapse="false"}
 
 [OPTIONAL DEEPER DIVE]{.study-badge}
@@ -613,6 +633,115 @@ function decideWinner(player, computer) {
   return "Computer wins!";
 }
 ```
+
+## Play the complete game in your browser {.unnumbered}
+
+The fragments above are now assembled into one runnable page. Save this complete example as `index.html`, or open `workspace/chapter4-rock-paper-scissors/index.html`. Click Rock, Paper, or Scissors to play a round. `playRound(player)` passes your move to `decideWinner(player, computer)` and puts its returned result on the page.
+
+[COMPLETE EXAMPLE | `index.html`]{.code-label}
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rock Paper Scissors</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #eaf4ff;
+      color: #17243b;
+      font-family: system-ui, sans-serif;
+    }
+    main {
+      width: min(90%, 480px);
+      padding: 28px;
+      border: 3px solid #17243b;
+      border-radius: 20px;
+      background: white;
+      box-shadow: 8px 8px 0 #ffe48a;
+    }
+    h1 { margin-top: 0; color: #5d35d5; }
+    .choices { display: flex; flex-wrap: wrap; gap: 10px; }
+    button {
+      padding: 12px 16px;
+      border: 2px solid #17243b;
+      border-radius: 12px;
+      background: #f2edff;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    button:hover, button:focus-visible { background: #dfd1ff; }
+    #round, #result { min-height: 1.5em; }
+    #result { font-size: 1.4rem; font-weight: 800; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Rock Paper Scissors</h1>
+    <p>Choose your move. The computer picks one too.</p>
+    <div class="choices">
+      <button type="button" data-move="rock">🪨 Rock</button>
+      <button type="button" data-move="paper">📄 Paper</button>
+      <button type="button" data-move="scissors">✂️ Scissors</button>
+    </div>
+    <p id="round" aria-live="polite">Pick a move to start.</p>
+    <p id="result" aria-live="polite"></p>
+  </main>
+  <script>
+    function computerChoice() {
+      const choices = ["rock", "paper", "scissors"];
+      const index = Math.floor(Math.random() * 3);
+      return choices[index];
+    }
+
+    function decideWinner(player, computer) {
+      if (player === computer) return "Tie!";
+
+      if (
+        (player === "rock" && computer === "scissors") ||
+        (player === "paper" && computer === "rock") ||
+        (player === "scissors" && computer === "paper")
+      ) {
+        return "You win!";
+      }
+      return "Computer wins!";
+    }
+
+    function playRound(player) {
+      const computer = computerChoice();
+      const result = decideWinner(player, computer);
+      document.getElementById("round").textContent =
+        "You chose " + player + ". Computer chose " + computer + ".";
+      document.getElementById("result").textContent = result;
+    }
+
+    document.querySelectorAll("[data-move]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        playRound(button.dataset.move);
+      });
+    });
+  </script>
+</body>
+</html>
+```
+
+![Rock Paper Scissors in Chrome before a move. Three buttons offer rock, paper, and scissors.](Quarto_Doc/figures/chapter_04/rock-paper-scissors-start.png){#fig-ch04-rps-start fig-alt="A Rock Paper Scissors page has three move buttons and the prompt Pick a move to start." width="100%"}
+
+For the next three browser captures, the companion demo pages make the computer choose a known move and click Rock automatically. The regular `index.html` still uses `Math.random()` each round.
+
+![Rock Paper Scissors in Chrome when both player and computer choose rock. The result is Tie!](Quarto_Doc/figures/chapter_04/rock-paper-scissors-tie.png){#fig-ch04-rps-tie fig-alt="The page says You chose rock. Computer chose rock. and Tie!" width="100%"}
+
+![Rock Paper Scissors in Chrome when the player chooses rock and the computer chooses scissors. The result is You win!](Quarto_Doc/figures/chapter_04/rock-paper-scissors-win.png){#fig-ch04-rps-win fig-alt="The page says You chose rock. Computer chose scissors. and You win!" width="100%"}
+
+![Rock Paper Scissors in Chrome when the player chooses rock and the computer chooses paper. The result is Computer wins!](Quarto_Doc/figures/chapter_04/rock-paper-scissors-loss.png){#fig-ch04-rps-loss fig-alt="The page says You chose rock. Computer chose paper. and Computer wins!" width="100%"}
+
+**Read the pictures:** Each button gives `playRound` a player move. `computerChoice()` returns the computer move, then `decideWinner()` returns one of three result strings. Rock against rock returns “Tie!” immediately. Rock beats scissors, while paper beats rock. The caller displays the returned string in the result paragraph; `return` by itself does not change the page.
 
 ::: {.callout-note .advanced-study title="Advanced Study | Parameters, return values, and local scope" icon="false" collapse="false"}
 
@@ -769,6 +898,18 @@ Put the pieces together. Type the code yourself if you can; typing helps your br
 </body>
 </html>
 ```
+
+Open the runnable copy at `workspace/chapter5-catch-the-star/index.html`, or save the code above as `index.html` and open it in a browser. The real game calls `moveStar()` at the start and once every second. Clicking the star adds one point and moves it immediately.
+
+For the browser screenshots, the companion demonstration pages use known random values. `demo-start.html` pauses the timer, `demo-after-timer.html` runs one scheduled move, and `demo-after-click.html` runs one scheduled move and one click. This makes each state easy to compare; the regular game still uses its one-second timer.
+
+![Catch the Star in Chrome at score zero, with the star near the upper left of the game area.](Quarto_Doc/figures/chapter_05/star-start.png){#fig-ch05-star-start fig-alt="The Catch the Star page shows Score: 0 and a yellow star near the upper-left corner of a bordered game area." width="100%"}
+
+![Catch the Star in Chrome after one timer move. The star is farther right and lower, while the score stays zero.](Quarto_Doc/figures/chapter_05/star-after-timer.png){#fig-ch05-star-timer fig-alt="The same game shows Score: 0 with the yellow star near the middle-right of the game area." width="100%"}
+
+![Catch the Star in Chrome after a click. The score is one and the star has moved again.](Quarto_Doc/figures/chapter_05/star-after-click.png){#fig-ch05-star-click fig-alt="The game shows Score: 1 with the yellow star in a new position inside the game area." width="100%"}
+
+**Read the pictures:** The timer calls `moveStar()` even when the player does nothing, so the star changes position while the score stays at zero. The click handler changes `score` from 0 to 1, updates the paragraph, and calls `moveStar()` again. Each new `left` and `top` value places the star inside the bordered game area.
 
 ::: {.callout-note .advanced-study title="Advanced Study | CSS positioning and browser coordinates" icon="false" collapse="false"}
 

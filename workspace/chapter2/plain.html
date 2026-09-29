@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Game Maker HQ</title>
+</head>
+<body>
+  <main class="card">
+    <p class="eyebrow">MY STATIC WEBSITE</p>
+    <h1>Game Maker HQ</h1>
+    <p class="intro">Plan the next game you want to build.</p>
+
+    <section class="game-preview">
+      <img class="game-art" src="gem.svg"
+           alt="A shiny purple gem for a game treasure.">
+      <div>
+        <h2>Gem Quest</h2>
+        <p>Collect three gems, then open the portal.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Today's missions</h2>
+      <ul>
+        <li>Sketch one game character.</li>
+        <li>Choose a goal for the player.</li>
+        <li>Invent a fair challenge.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Player card</h2>
+      <form>
+        <label for="player-name">Your game-maker name</label>
+        <input id="player-name" name="player-name" type="text"
+               placeholder="Type a nickname">
+
+        <label for="game-type">Game type</label>
+        <select id="game-type" name="game-type">
+          <option>Adventure</option>
+          <option>Puzzle</option>
+          <option>Sports</option>
+        </select>
+
+        <label class="check-row" for="sound-on">
+          <input id="sound-on" name="sound-on" type="checkbox">
+          I want sound effects in my game.
+        </label>
+
+        <button type="button">My game will use this later</button>
+      </form>
+    </section>
+
+    <p class="hint">This is a static site: the controls are ready, but JavaScript has not given them behavior yet.</p>
+  </main>
+</body>
+</html>

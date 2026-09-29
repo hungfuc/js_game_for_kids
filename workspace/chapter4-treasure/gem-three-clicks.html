@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<body>
+  <h1>Gem Collector</h1>
+  <img id="treasure" src="gem.svg"
+       alt="A purple gem. Click it to collect it." width="96">
+  <p id="score">Score: 0</p>
+
+  <script>
+    let score = 0;
+    const treasure = document.getElementById("treasure");
+    const scoreText = document.getElementById("score");
+
+    function collectTreasure() {
+      score = score + 1;
+      scoreText.textContent = "Score: " + score;
+    }
+
+    treasure.addEventListener("click", collectTreasure);
+  </script>
+  <script>
+    for (let click = 0; click < 3; click++) treasure.click();
+  </script>
+</body>
+</html>

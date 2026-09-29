@@ -108,7 +108,11 @@ Save this complete example as `index.html`. HTML tags use angle brackets. Most t
 </html>
 ```
 
-Open `index.html` in a browser. If you edit it, save the file and refresh the browser tab. The page will have structure, but it will look plain until you add the CSS.
+Open `index.html` in a browser. If you edit it, save the file and refresh the browser tab. The page will have structure, but it will look plain until you add the CSS. A ready-to-run copy of these files is in `workspace/chapter2/`; open `plain.html` there to see the same page with its stylesheet link removed.
+
+![The Game Maker HQ page in Chrome before its CSS file is linked. The headings, mission list, gem image, and player form appear in the browser's default style.](../figures/chapter_02/game-maker-hq-plain.png){#fig-ch02-plain-page fig-alt="A plain white browser page shows Game Maker HQ, a small gem, three missions, and a player form with default browser controls." width="100%"}
+
+**Read the picture:** The content is already in a useful order: heading, game preview, missions, then player card. The gem loads because its `<img>` path points to a real local file. Without the stylesheet link, the browser supplies its default fonts, spacing, and control layout.
 
 ### Read the important HTML pieces {.unnumbered}
 
@@ -302,6 +306,12 @@ button:focus-visible {
   }
 }
 ```
+
+Save `styles.css` beside `index.html`, then refresh the page. Compare this browser result with the plain version above. The HTML content is the same; the linked CSS file changes its appearance.
+
+![The Game Maker HQ page in Chrome after the linked CSS file is loaded. A centered white card contains a large purple title, framed gem preview, spaced missions, and stacked form controls.](../figures/chapter_02/game-maker-hq-styled.png){#fig-ch02-styled-page fig-alt="A styled Game Maker HQ page has a pale blue background, white card, purple title, framed gem, mission list, and full-width player form controls." width="100%"}
+
+**Read the picture:** `.card` makes the white panel, `.game-preview` arranges the gem and its text, and `.game-art` adds the gem's rounded frame and shadow. The `form` rule stacks the labeled controls. Try changing one CSS value, saving, and refreshing to see which part of this picture changes.
 
 ### Give the site a readable voice {.unnumbered}
 

@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<body>
+  <h1>Secret Number</h1>
+  <input id="guess" type="number" min="1" max="10">
+  <button id="check">Check</button>
+  <p id="message">Guess a number from 1 to 10.</p>
+
+  <script>
+    const secret = Math.floor(Math.random() * 10) + 1;
+    const guessBox = document.getElementById("guess");
+    const message = document.getElementById("message");
+
+    document.getElementById("check").addEventListener("click", function () {
+      const guess = Number(guessBox.value);
+      if (guess === secret) {
+        message.textContent = "Correct!";
+      } else if (guess < secret) {
+        message.textContent = "Too low!";
+      } else {
+        message.textContent = "Too high!";
+      }
+    });
+  </script>
+</body>
+</html>

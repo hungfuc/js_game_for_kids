@@ -145,6 +145,14 @@ Put the pieces together. Type the code yourself if you can; typing helps your br
 </html>
 ```
 
+Open the runnable copy at `workspace/chapter3/monster.html`, or save the complete example above as `index.html` and open it in a browser. Before a click, the paragraph asks the player to catch the monster.
+
+![Click the Monster in Chrome before the button is clicked. The message asks, Can you catch it?](../figures/chapter_03/monster-before-click.png){#fig-ch03-monster-before fig-alt="The Click the Monster page shows a Monster button and the message Can you catch it?" width="100%"}
+
+![Click the Monster in Chrome after the button is clicked. The message changes to Great hit!](../figures/chapter_03/monster-after-click.png){#fig-ch03-monster-after fig-alt="The same Click the Monster page shows the unchanged button and the new message Great hit!" width="100%"}
+
+**Read the pictures:** The heading and button stay in place. The click listener runs `hitMonster()`, and `message.textContent` replaces only the paragraph's text. The `monster-after-click.html` companion makes that click automatically for the second screenshot.
+
 ::: {.callout-note .advanced-study title="Second example | Click a picture" icon="false" collapse="false"}
 
 [OPTIONAL IMAGE UPGRADE]{.study-badge}
@@ -173,6 +181,14 @@ Buttons are useful, but a game can also react when the player clicks a picture. 
 </body>
 </html>
 ~~~
+
+Open `workspace/chapter3/gem.html` to try this picture version. The gem image appears before you click it; the paragraph starts with “The gem is waiting.”
+
+![Click the Gem in Chrome before the gem is clicked. The message says The gem is waiting.](../figures/chapter_03/gem-before-click.png){#fig-ch03-gem-before fig-alt="The Click the Gem page shows a purple gem image above the message The gem is waiting." width="100%"}
+
+![Click the Gem in Chrome after the gem is clicked. The message changes to You collected the gem!](../figures/chapter_03/gem-after-click.png){#fig-ch03-gem-after fig-alt="The same Click the Gem page shows the purple gem and the new message You collected the gem!" width="100%"}
+
+**Read the pictures:** The image itself receives the click. `getElementById("gem")` finds it, and its listener runs `collectGem()`. Only the message changes. `workspace/chapter3/gem-after-click.html` makes the click automatically for the second screenshot.
 
 The `<img>` tag puts a picture on the page. Its `src="gem.svg"` tells the browser which picture file to load. Its `alt` text describes the picture for players who cannot see it. We use `id="gem"` and `getElementById("gem")` for the same reason we used `monster` before: JavaScript needs a unique nickname for the picture it should listen to.
 

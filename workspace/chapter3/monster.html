@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<body>
+  <h1>Click the Monster!</h1>
+  <button id="monster">👾 Monster</button>
+  <p id="message">Can you catch it?</p>
+
+  <script>
+    const monster = document.getElementById("monster");
+    const message = document.getElementById("message");
+
+    function hitMonster() {
+      message.textContent = "Great hit!";
+    }
+
+    monster.addEventListener("click", hitMonster);
+  </script>
+</body>
+</html>

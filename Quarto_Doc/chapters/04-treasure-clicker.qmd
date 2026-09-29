@@ -88,6 +88,14 @@ Put the pieces together. Type the code yourself if you can; typing helps your br
 </html>
 ```
 
+Open `workspace/chapter4-treasure/button.html` to run the complete example, or save the code above as `index.html`. The score starts at zero. The `button-three-clicks.html` companion clicks the button three times automatically for the second screenshot.
+
+![Treasure Clicker in Chrome before the button is clicked. Its score is zero.](../figures/chapter_04/treasure-button-start.png){#fig-ch04-button-start fig-alt="The Treasure Clicker page shows a Collect treasure button and Score: 0." width="100%"}
+
+![Treasure Clicker in Chrome after three button clicks. Its score is three.](../figures/chapter_04/treasure-button-three-clicks.png){#fig-ch04-button-three fig-alt="The same Treasure Clicker page shows Score: 3 after three button clicks." width="100%"}
+
+**Read the pictures:** The click listener calls `collectTreasure()` each time. `score = score + 1` remembers the new number; `scoreText.textContent` displays it. The heading and button do not change. Refresh to start again at zero.
+
 ::: {.callout-note .advanced-study title="Second example | Collect a picture" icon="false" collapse="false"}
 
 [OPTIONAL IMAGE UPGRADE]{.study-badge}
@@ -118,6 +126,14 @@ Turn the treasure button into a picture. First, copy [gem.svg](../games/assets/2
 </body>
 </html>
 ~~~
+
+Open `workspace/chapter4-treasure/gem.html` to try this version. Its score also begins at zero, and the gem itself is the thing to click. The `gem-three-clicks.html` companion clicks it three times automatically for the second screenshot.
+
+![Gem Collector in Chrome before the gem is clicked. Its score is zero.](../figures/chapter_04/treasure-gem-start.png){#fig-ch04-gem-start fig-alt="The Gem Collector page shows a purple gem above Score: 0." width="100%"}
+
+![Gem Collector in Chrome after three clicks on the gem. Its score is three.](../figures/chapter_04/treasure-gem-three-clicks.png){#fig-ch04-gem-three fig-alt="The same Gem Collector page shows Score: 3 after three gem clicks." width="100%"}
+
+**Read the pictures:** Here `treasure` refers to the `<img>` element. Its click listener runs the same `collectTreasure()` function as the button version, so the score update works without changing the game rule.
 
 The name `treasure` is only a helpful label. In this example, it refers to a gem picture instead of a button. Try clicking the gem several times. Each click is an event, so the same `collectTreasure` function can add another point.
 
