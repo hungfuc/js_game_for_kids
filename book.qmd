@@ -1037,32 +1037,58 @@ Put the pieces together. Type the code yourself if you can; typing helps your br
 [COMPLETE EXAMPLE]{.code-label}
 
 ```html
-<canvas id="game" width="500" height="300"></canvas>
-<script>
-const canvas = document.getElementById("game");
-const ctx = canvas.getContext("2d");
-let x = 100, y = 80;
-let dx = 3, dy = 2;
-const radius = 15;
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bouncing Ball</title>
+  <style>
+    body { font-family: system-ui, sans-serif; color: #17243b; }
+    canvas { border: 2px solid #17243b; background: #f0f7ff; }
+  </style>
+</head>
+<body>
+  <h1>Bouncing Ball</h1>
+  <canvas id="game" width="500" height="300"></canvas>
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+    let x = 100, y = 80;
+    let dx = 3, dy = 2;
+    const radius = 15;
 
-function drawBall() {
-  ctx.beginPath();
-  ctx.arc(x, y, radius, 0, Math.PI * 2);
-  ctx.fill();
-}
+    function drawBall() {
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.fillStyle = "#6d3df5";
+      ctx.fill();
+    }
 
-function loop() {
-  x += dx;
-  y += dy;
-  if (x < radius || x > canvas.width - radius) dx = -dx;
-  if (y < radius || y > canvas.height - radius) dy = -dy;
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawBall();
-  requestAnimationFrame(loop);
-}
-loop();
-</script>
+    function loop() {
+      x += dx;
+      y += dy;
+      if (x < radius || x > canvas.width - radius) dx = -dx;
+      if (y < radius || y > canvas.height - radius) dy = -dy;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawBall();
+      requestAnimationFrame(loop);
+    }
+    loop();
+  </script>
+</body>
+</html>
 ```
+
+Open `workspace/chapter6-bouncing-ball/index.html` to watch the complete example. The browser redraws the purple ball on every animation frame. The screenshot demonstration pages pause automatic frames, then call the same `loop()` function a known number of times so the positions are easy to compare.
+
+![Bouncing Ball in Chrome near its starting position inside the canvas.](Quarto_Doc/figures/chapter_06/ball-start.png){#fig-ch06-ball-start fig-alt="A purple ball appears near the upper-left of a light blue bordered canvas." width="100%"}
+
+![Bouncing Ball in Chrome after twenty more animation frames. The ball has moved right and down.](Quarto_Doc/figures/chapter_06/ball-after-frames.png){#fig-ch06-ball-frames fig-alt="The purple ball is farther right and lower in the same canvas." width="100%"}
+
+![Bouncing Ball in Chrome after reaching the right wall and reversing horizontal direction.](Quarto_Doc/figures/chapter_06/ball-bounce.png){#fig-ch06-ball-bounce fig-alt="The purple ball is next to the right edge of the canvas." width="100%"}
+
+**Read the pictures:** Each call to `loop()` adds `dx` to `x` and `dy` to `y`, clears the old drawing, then draws the ball again. At the right edge, the code changes `dx` from positive to negative, so the following frames head left. The regular page keeps requesting new frames automatically.
 
 ::: {.callout-note .advanced-study title="Advanced Study | requestAnimationFrame and frame time" icon="false" collapse="false"}
 
@@ -1126,7 +1152,7 @@ What new JavaScript idea made the Bouncing Ball game possible? Point to one line
 
 ::: {.callout-note .code-guide title="How to use the code pieces" icon="false"}
 
-This chapter develops parts of a larger game. These short examples are **code fragments**, not a complete HTML file. Read the surrounding explanations and combine the pieces with the screen, setup, and game-loop ideas from earlier chapters.
+The short snippets below explain individual rules. The complete browser example later in this chapter combines them into a playable page.
 
 :::
 
@@ -1200,6 +1226,121 @@ if (dx > 0 && overlapsPaddle) {
 }
 ```
 
+## Play Pong in your browser {.unnumbered}
+
+Save this page as `index.html`, or open `workspace/chapter7-pong/index.html`. Hold the up or down arrow to move the right paddle. The game loop reads the remembered key state every frame, clamps the paddle inside the canvas, and checks whether the ball overlaps it.
+
+[COMPLETE EXAMPLE | `index.html`]{.code-label}
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pong Practice</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #eaf4ff; font-family: system-ui, sans-serif; color: #17243b; }
+    main { padding: 24px; border: 3px solid #17243b; border-radius: 18px; background: white; }
+    h1 { margin: 0 0 8px; color: #5d35d5; }
+    canvas { display: block; border: 2px solid #17243b; background: #102342; }
+    #status { min-height: 1.5em; margin-bottom: 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Pong Practice</h1>
+    <p>Hold ↑ or ↓ to move the paddle.</p>
+    <canvas id="game" width="560" height="320"></canvas>
+    <p id="status">Paddle hits: 0</p>
+  </main>
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+    const status = document.getElementById("status");
+    const keys = {};
+    window.addEventListener("keydown", e => {
+      if (e.key === "ArrowUp" || e.key === "ArrowDown") e.preventDefault();
+      keys[e.key] = true;
+    });
+    window.addEventListener("keyup", e => { keys[e.key] = false; });
+    window.addEventListener("blur", () => {
+      keys.ArrowUp = false;
+      keys.ArrowDown = false;
+    });
+
+    const paddleX = 530, paddleW = 12, paddleH = 70;
+    let paddleY = 125;
+    let ballX = 100, ballY = 160;
+    let dx = 3, dy = 2;
+    const radius = 10;
+    let hits = 0;
+
+    function update() {
+      if (keys["ArrowUp"]) paddleY -= 5;
+      if (keys["ArrowDown"]) paddleY += 5;
+      paddleY = Math.max(0, paddleY);
+      paddleY = Math.min(canvas.height - paddleH, paddleY);
+
+      ballX += dx;
+      ballY += dy;
+      if (ballX < radius) dx = Math.abs(dx);
+      if (ballY < radius || ballY > canvas.height - radius) dy = -dy;
+
+      const overlapsPaddle = (
+        ballX + radius >= paddleX &&
+        ballX - radius <= paddleX + paddleW &&
+        ballY + radius >= paddleY &&
+        ballY - radius <= paddleY + paddleH
+      );
+      if (dx > 0 && overlapsPaddle) {
+        ballX = paddleX - radius;
+        dx = -Math.abs(dx);
+        hits++;
+        status.textContent = "Paddle hits: " + hits;
+      }
+      if (ballX > canvas.width + radius) {
+        ballX = 100;
+        ballY = canvas.height / 2;
+        dx = Math.abs(dx);
+        status.textContent = "Missed! Paddle hits: " + hits;
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#102342";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#86d8ff";
+      ctx.fillRect(paddleX, paddleY, paddleW, paddleH);
+      ctx.beginPath();
+      ctx.arc(ballX, ballY, radius, 0, Math.PI * 2);
+      ctx.fillStyle = "#ffe48a";
+      ctx.fill();
+    }
+
+    function loop() {
+      update();
+      draw();
+      requestAnimationFrame(loop);
+    }
+    draw();
+    requestAnimationFrame(loop);
+  </script>
+</body>
+</html>
+```
+
+The demonstration pages pause automatic animation and make a known number of updates. The playable `index.html` keeps animating normally.
+
+![Pong Practice in Chrome before moving the paddle. The ball is left of the right paddle.](Quarto_Doc/figures/chapter_07/pong-start.png){#fig-ch07-pong-start fig-alt="A dark Pong canvas shows a yellow ball, a blue paddle on the right, and Paddle hits: 0." width="100%"}
+
+![Pong Practice in Chrome after holding the up arrow for twelve updates. The paddle is higher.](Quarto_Doc/figures/chapter_07/pong-paddle-up.png){#fig-ch07-pong-up fig-alt="The blue paddle has moved toward the top of the canvas while the ball continues across it." width="100%"}
+
+![Pong Practice in Chrome after the ball overlaps the paddle. The hit count is one.](Quarto_Doc/figures/chapter_07/pong-paddle-hit.png){#fig-ch07-pong-hit fig-alt="The ball touches the right paddle and the page says Paddle hits: 1." width="100%"}
+
+**Read the pictures:** A held key leaves `keys["ArrowUp"]` true across several updates, so the paddle keeps moving. When the ball's bounding box overlaps the paddle and `dx` is positive, the collision code places the ball just left of the paddle and changes `dx` to a negative value. The hit count confirms that the response ran once.
+
 ::: {.callout-note .advanced-study title="Advanced Study | Input state versus input events" icon="false" collapse="false"}
 
 [OPTIONAL DEEPER DIVE]{.study-badge}
@@ -1262,7 +1403,7 @@ What new JavaScript idea made the Pong game possible? Point to one line of code 
 
 ::: {.callout-note .code-guide title="How to use the code pieces" icon="false"}
 
-This chapter develops parts of a larger game. These short examples are **code fragments**, not a complete HTML file. Read the surrounding explanations and combine the pieces with the screen, setup, and game-loop ideas from earlier chapters.
+The short snippets below explain individual rules. The complete browser example later in this chapter combines them into a playable page.
 
 :::
 
@@ -1338,6 +1479,144 @@ if (brick.alive && hitsBrick(x, y, radius, brick)) {
 }
 ```
 
+## Play Breakout in your browser {.unnumbered}
+
+Save this page as `index.html`, or open `workspace/chapter8-breakout/index.html`. Move the paddle with the left and right arrows. Each brick is an object in `bricks`; the game loop visits that array to draw active bricks and test the ball against them.
+
+[COMPLETE EXAMPLE | `index.html`]{.code-label}
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Breakout Practice</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #fff3e8; font-family: system-ui, sans-serif; color: #17243b; }
+    main { padding: 24px; border: 3px solid #17243b; border-radius: 18px; background: white; }
+    h1 { margin: 0 0 8px; color: #c04a5a; }
+    canvas { display: block; border: 2px solid #17243b; background: #17243b; }
+    #status { min-height: 1.5em; margin-bottom: 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Breakout Practice</h1>
+    <p>Hold ← or → to move the paddle and catch the ball.</p>
+    <canvas id="game" width="560" height="360"></canvas>
+    <p id="status">Bricks cleared: 0</p>
+  </main>
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+    const status = document.getElementById("status");
+    const keys = {};
+    window.addEventListener("keydown", e => {
+      if (e.key === "ArrowLeft" || e.key === "ArrowRight") e.preventDefault();
+      keys[e.key] = true;
+    });
+    window.addEventListener("keyup", e => { keys[e.key] = false; });
+    window.addEventListener("blur", () => {
+      keys.ArrowLeft = false;
+      keys.ArrowRight = false;
+    });
+
+    const bricks = [
+      { x: 45, y: 40, w: 100, h: 22, alive: true },
+      { x: 165, y: 40, w: 100, h: 22, alive: true },
+      { x: 285, y: 40, w: 100, h: 22, alive: true },
+      { x: 405, y: 40, w: 100, h: 22, alive: true },
+      { x: 45, y: 76, w: 100, h: 22, alive: true },
+      { x: 165, y: 76, w: 100, h: 22, alive: true },
+      { x: 285, y: 76, w: 100, h: 22, alive: true },
+      { x: 405, y: 76, w: 100, h: 22, alive: true }
+    ];
+    let paddleX = 230;
+    const paddleY = 330, paddleW = 100, paddleH = 12;
+    let x = 280, y = 250, dx = 3, dy = -3;
+    const radius = 10;
+    let score = 0;
+
+    function hitsBrick(ballX, ballY, r, brick) {
+      return (
+        ballX + r > brick.x &&
+        ballX - r < brick.x + brick.w &&
+        ballY + r > brick.y &&
+        ballY - r < brick.y + brick.h
+      );
+    }
+
+    function update() {
+      if (keys.ArrowLeft) paddleX -= 6;
+      if (keys.ArrowRight) paddleX += 6;
+      paddleX = Math.max(0, Math.min(canvas.width - paddleW, paddleX));
+      x += dx;
+      y += dy;
+      if (x < radius || x > canvas.width - radius) dx = -dx;
+      if (y < radius) dy = Math.abs(dy);
+      if (dy > 0 && y + radius >= paddleY && y - radius <= paddleY + paddleH &&
+          x + radius >= paddleX && x - radius <= paddleX + paddleW) {
+        y = paddleY - radius;
+        dy = -Math.abs(dy);
+      }
+      for (const brick of bricks) {
+        if (brick.alive && hitsBrick(x, y, radius, brick)) {
+          brick.alive = false;
+          dy = -dy;
+          score++;
+          status.textContent = "Bricks cleared: " + score;
+          break;
+        }
+      }
+      if (y > canvas.height + radius) {
+        x = canvas.width / 2;
+        y = 250;
+        dy = -3;
+        status.textContent = "Try again! Bricks cleared: " + score;
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#17243b";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      for (const brick of bricks) {
+        if (brick.alive) {
+          ctx.fillStyle = brick.y === 40 ? "#f899b5" : "#ffe48a";
+          ctx.fillRect(brick.x, brick.y, brick.w, brick.h);
+        }
+      }
+      ctx.fillStyle = "#8ce3ff";
+      ctx.fillRect(paddleX, paddleY, paddleW, paddleH);
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.fillStyle = "white";
+      ctx.fill();
+    }
+
+    function loop() {
+      update();
+      draw();
+      requestAnimationFrame(loop);
+    }
+    draw();
+    requestAnimationFrame(loop);
+  </script>
+</body>
+</html>
+```
+
+The demonstration pages pause automatic animation and place the ball for one or three known collisions. The playable `index.html` keeps animating normally.
+
+![Breakout Practice in Chrome before a brick is hit. Eight colored bricks are visible.](Quarto_Doc/figures/chapter_08/breakout-start.png){#fig-ch08-breakout-start fig-alt="A Breakout canvas shows two rows of four colored bricks, a ball, a paddle, and Bricks cleared: 0." width="100%"}
+
+![Breakout Practice in Chrome after one brick is hit. One brick disappears and the score is one.](Quarto_Doc/figures/chapter_08/breakout-one-hit.png){#fig-ch08-breakout-one fig-alt="The first top-row brick is missing, the ball is near the bricks, and the page says Bricks cleared: 1." width="100%"}
+
+![Breakout Practice in Chrome after three brick hits. Three bricks disappear and the score is three.](Quarto_Doc/figures/chapter_08/breakout-three-hits.png){#fig-ch08-breakout-three fig-alt="Three top-row bricks are missing and the page says Bricks cleared: 3." width="100%"}
+
+**Read the pictures:** A collision makes `brick.alive` false, so the drawing loop skips that object on later frames. The brick stays in the array, but it is no longer visible or hittable. `score++` records each hit, and `break` stops this update after one collision so the ball reverses only once.
+
 ::: {.callout-note .advanced-study title="Advanced Study | Objects, arrays, and collision logic" icon="false" collapse="false"}
 
 [OPTIONAL DEEPER DIVE]{.study-badge}
@@ -1397,7 +1676,7 @@ What new JavaScript idea made the Breakout game possible? Point to one line of c
 
 ::: {.callout-note .code-guide title="How to use the code pieces" icon="false"}
 
-This chapter develops parts of a larger game. These short examples are **code fragments**, not a complete HTML file. Read the surrounding explanations and combine the pieces with the screen, setup, and game-loop ideas from earlier chapters.
+The short snippets below explain individual rules. The complete browser example later in this chapter combines them into a playable page.
 
 :::
 
@@ -1469,6 +1748,124 @@ if (e.key === "ArrowLeft" && dx !== 1) {
 }
 ```
 
+## Play Snake in your browser {.unnumbered}
+
+Save this page as `index.html`, or open `workspace/chapter9-snake/index.html`. The snake is an array of grid cells. Each step creates a new head; eating food keeps the tail, while an ordinary step removes it. Arrow keys choose a new direction, and Restart begins again after a collision.
+
+[COMPLETE EXAMPLE | `index.html`]{.code-label}
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Snake Grid</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #e8f8ef; color: #193b2d; font-family: system-ui, sans-serif; }
+    main { padding: 24px; border: 3px solid #193b2d; border-radius: 18px; background: white; }
+    h1 { margin: 0 0 8px; color: #24875d; }
+    canvas { display: block; border: 2px solid #193b2d; background: #f4fff8; }
+    button { margin-top: 10px; padding: 8px 14px; font: inherit; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Snake Grid</h1>
+    <p>Use arrow keys. Eat the red food; avoid walls and your body.</p>
+    <canvas id="game" width="400" height="400"></canvas>
+    <p id="status">Score: 0</p>
+    <button id="restart" type="button">Restart</button>
+  </main>
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+    const status = document.getElementById("status");
+    const cell = 20, count = canvas.width / cell;
+    let snake, food, dx, dy, score, gameOver, turned;
+
+    function reset() {
+      snake = [{ x: 5, y: 5 }, { x: 4, y: 5 }, { x: 3, y: 5 }];
+      food = { x: 8, y: 5 };
+      dx = 1; dy = 0; score = 0; gameOver = false; turned = false;
+      status.textContent = "Score: 0";
+      draw();
+    }
+
+    function placeFood() {
+      do {
+        food = { x: Math.floor(Math.random() * count), y: Math.floor(Math.random() * count) };
+      } while (snake.some(part => part.x === food.x && part.y === food.y));
+    }
+
+    window.addEventListener("keydown", e => {
+      const turns = { ArrowUp: [0, -1], ArrowDown: [0, 1], ArrowLeft: [-1, 0], ArrowRight: [1, 0] };
+      const next = turns[e.key];
+      if (!next) return;
+      e.preventDefault();
+      if (!turned && (next[0] !== -dx || next[1] !== -dy)) {
+        [dx, dy] = next;
+        turned = true;
+      }
+    });
+    document.getElementById("restart").addEventListener("click", reset);
+
+    function step() {
+      if (gameOver) return;
+      const head = snake[0];
+      const newHead = { x: head.x + dx, y: head.y + dy };
+      const eating = newHead.x === food.x && newHead.y === food.y;
+      const body = eating ? snake : snake.slice(0, -1);
+      if (newHead.x < 0 || newHead.x >= count || newHead.y < 0 || newHead.y >= count ||
+          body.some(part => part.x === newHead.x && part.y === newHead.y)) {
+        gameOver = true;
+        status.textContent = "Game over! Score: " + score + ". Press Restart.";
+        draw();
+        return;
+      }
+      snake.unshift(newHead);
+      if (eating) {
+        score++;
+        placeFood();
+      } else {
+        snake.pop();
+      }
+      turned = false;
+      status.textContent = "Score: " + score;
+      draw();
+    }
+
+    function draw() {
+      ctx.fillStyle = "#f4fff8";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.strokeStyle = "#d8eedd";
+      for (let line = 0; line <= count; line++) {
+        ctx.beginPath(); ctx.moveTo(line * cell, 0); ctx.lineTo(line * cell, canvas.height); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(0, line * cell); ctx.lineTo(canvas.width, line * cell); ctx.stroke();
+      }
+      ctx.fillStyle = "#e75454";
+      ctx.fillRect(food.x * cell + 2, food.y * cell + 2, cell - 4, cell - 4);
+      for (const [index, part] of snake.entries()) {
+        ctx.fillStyle = index === 0 ? "#176b49" : "#42ae76";
+        ctx.fillRect(part.x * cell + 1, part.y * cell + 1, cell - 2, cell - 2);
+      }
+    }
+
+    reset();
+    setInterval(step, 150);
+  </script>
+</body>
+</html>
+```
+
+The demonstration pages pause the automatic timer, then make known steps to show growth and a wall collision. The playable page advances every 150 milliseconds.
+
+![Snake Grid in Chrome before the snake reaches the food.](Quarto_Doc/figures/chapter_09/snake-start.png){#fig-ch09-snake-start fig-alt="A three-cell green snake faces red food on a square grid, with Score: 0." width="100%"}
+![Snake Grid in Chrome after the head reaches food and the snake grows.](Quarto_Doc/figures/chapter_09/snake-food.png){#fig-ch09-snake-food fig-alt="The green snake is four cells long and the page shows Score: 1." width="100%"}
+![Snake Grid in Chrome after a wall collision ends the game.](Quarto_Doc/figures/chapter_09/snake-wall.png){#fig-ch09-snake-wall fig-alt="The snake has reached the right wall and the page says Game over! Score: 0. Press Restart." width="100%"}
+
+**Read the pictures:** The first snake has three cells. After three rightward steps, its head reaches food: `unshift` adds the new head, `score++` runs, and the tail is kept, so the snake has four cells. In the last picture, the next head would be outside the grid, so the game sets `gameOver` and stops updating until Restart.
+
 ::: {.callout-note .advanced-study title="Advanced Study | Game state as data" icon="false" collapse="false"}
 
 [OPTIONAL DEEPER DIVE]{.study-badge}
@@ -1530,7 +1927,7 @@ What new JavaScript idea made the Snake game possible? Point to one line of code
 
 ::: {.callout-note .code-guide title="Your own project" icon="false"}
 
-This chapter gives you a plan and code sketches for your own game. The named functions in the planning example are jobs for you to implement, not functions the browser already provides.
+The planning snippets name jobs a game needs. The complete Catch the Fruit example later in this chapter implements those jobs in one playable page.
 
 :::
 
@@ -1600,6 +1997,115 @@ Your first version needs only enough features to answer: “Can someone play thi
 ## Playtest like a scientist
 
 Give the game to another person without explaining every rule. Watch where they get confused. Ask what they expected to happen. Change one thing and test again.
+
+## Try a minimum playable game {.unnumbered}
+
+The plan above becomes **Catch the Fruit** in this complete page. Save it as `index.html`, or open `workspace/chapter10-catch-fruit/index.html`. Move the basket with the arrow keys. Catch five fruit to win; missing three ends the game. Restart resets the state and starts a new loop.
+
+[COMPLETE EXAMPLE | `index.html`]{.code-label}
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catch the Fruit</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #fff2e4; color: #46301c; font-family: system-ui, sans-serif; }
+    main { padding: 24px; border: 3px solid #46301c; border-radius: 18px; background: white; }
+    h1 { margin: 0 0 8px; color: #c35a24; }
+    canvas { display: block; border: 2px solid #46301c; background: #fffaf2; }
+    button { padding: 8px 14px; font: inherit; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Catch the Fruit</h1>
+    <p>Move with ← and →. Catch five fruit before losing three lives.</p>
+    <canvas id="game" width="500" height="350"></canvas>
+    <p id="status">Score: 0 | Lives: 3</p>
+    <button id="restart" type="button">Restart</button>
+  </main>
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+    const status = document.getElementById("status");
+    const keys = {};
+    let score = 0;
+    let lives = 3;
+    let basketX = 200;
+    let fruitX = 100;
+    let fruitY = 0;
+    let gameOver = false;
+    const basketY = 310, basketW = 100, basketH = 16, fruitR = 12;
+
+    window.addEventListener("keydown", e => {
+      if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+        e.preventDefault();
+        keys[e.key] = true;
+      }
+    });
+    window.addEventListener("keyup", e => { keys[e.key] = false; });
+    window.addEventListener("blur", () => { keys.ArrowLeft = false; keys.ArrowRight = false; });
+
+    function updatePlayer() {
+      if (keys.ArrowLeft) basketX -= 5;
+      if (keys.ArrowRight) basketX += 5;
+      basketX = Math.max(0, Math.min(canvas.width - basketW, basketX));
+    }
+    function updateFruit() { fruitY += 3; }
+    function checkCollisions() {
+      if (fruitY + fruitR < basketY) return;
+      const caught = fruitX + fruitR >= basketX && fruitX - fruitR <= basketX + basketW;
+      if (caught) score++;
+      else lives--;
+      fruitX = 25 + Math.floor(Math.random() * (canvas.width - 50));
+      fruitY = 0;
+      if (score >= 5 || lives <= 0) gameOver = true;
+      status.textContent = gameOver
+        ? (score >= 5 ? "You win!" : "Game over!") + " Score: " + score + " | Lives: " + lives
+        : "Score: " + score + " | Lives: " + lives;
+    }
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#fffaf2";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#96552d";
+      ctx.fillRect(basketX, basketY, basketW, basketH);
+      ctx.beginPath();
+      ctx.arc(fruitX, fruitY, fruitR, 0, Math.PI * 2);
+      ctx.fillStyle = "#e75454";
+      ctx.fill();
+    }
+    function loop() {
+      if (gameOver) return;
+      updatePlayer();
+      updateFruit();
+      checkCollisions();
+      draw();
+      if (!gameOver) requestAnimationFrame(loop);
+    }
+    function restart() {
+      score = 0; lives = 3; basketX = 200; fruitX = 100; fruitY = 0; gameOver = false;
+      status.textContent = "Score: 0 | Lives: 3";
+      draw();
+      requestAnimationFrame(loop);
+    }
+    document.getElementById("restart").addEventListener("click", restart);
+    restart();
+  </script>
+</body>
+</html>
+```
+
+The screenshot demonstration pages pause automatic frames and arrange one catch or three misses so the outcomes are easy to inspect. The playable page uses `requestAnimationFrame()`.
+
+![Catch the Fruit in Chrome at the beginning of a game.](Quarto_Doc/figures/chapter_10/fruit-start.png){#fig-ch10-fruit-start fig-alt="Catch the Fruit shows a falling red fruit, a brown basket, Score: 0, and Lives: 3." width="100%"}
+![Catch the Fruit in Chrome after one successful catch.](Quarto_Doc/figures/chapter_10/fruit-catch.png){#fig-ch10-fruit-catch fig-alt="The Catch the Fruit page shows Score: 1 and Lives: 3 after a fruit lands in the basket." width="100%"}
+![Catch the Fruit in Chrome after three missed fruit end the game.](Quarto_Doc/figures/chapter_10/fruit-game-over.png){#fig-ch10-fruit-over fig-alt="The Catch the Fruit page shows Game over! Score: 0 and Lives: 0." width="100%"}
+
+**Read the pictures:** `score`, `lives`, `basketX`, `fruitX`, `fruitY`, and `gameOver` are the game's remembered state. The loop calls `updatePlayer()`, `updateFruit()`, `checkCollisions()`, and `draw()` in order. A catch raises the score without losing a life. Three misses reduce lives to zero and stop the loop. Restart restores the initial values.
 
 ::: {.callout-note .advanced-study title="Advanced Study | From one-file games to structured applications" icon="false" collapse="false"}
 
@@ -1679,6 +2185,14 @@ From the extracted textbook folder, run `node scripts/serve.mjs`. Open `http://1
 
 Keep the complete `games/` folder together: the projects share code and artwork. These new projects use JavaScript modules and must be opened through a local server, not by double-clicking an HTML file.
 :::
+
+The next two screenshots come from the actual Collision Playground running through the local server. In the first, rectangle blocking is on and the player is away from the wall. For the second, switch to Circle, turn off blocking, and drag the player into the wall.
+
+![Collision Playground in Chrome with a blue rectangle away from the wall and rectangle blocking enabled.](Quarto_Doc/figures/chapter_11/collision-start.png){#fig-ch11-collision-start fig-alt="Collision Playground shows Wall overlap: no, a blue player rectangle left of an orange wall, and rectangle blocking enabled." width="100%"}
+
+![Collision Playground in Chrome with a blue circle inside the pink wall and detection-only mode active.](Quarto_Doc/figures/chapter_11/collision-overlap.png){#fig-ch11-collision-overlap fig-alt="Collision Playground shows Wall overlap: YES, a blue circle inside the pink wall, and a status saying shapes may pass through." width="100%"}
+
+**Read the pictures:** The status changes from `Wall overlap: no` to `Wall overlap: YES`; the wall also turns pink. The second screen still shows the player inside the wall because collision **detection** reports contact while detection-only mode does not apply a blocking response. This is why checking overlap and deciding what to do about it are separate steps.
 
 ## Give the player state, not just a picture
 
@@ -1802,6 +2316,14 @@ The artwork helps you see a robot. A simple invisible shape helps the program de
 A robot touches three objects: a wall, a gem, and a bug. The same word, "touch," leads to three different rules. A wall blocks movement. A gem increases the score. A bug costs a life. Start by detecting contact; then choose a response appropriate to the game.
 
 Open **Robot Orchard** from the Game Lab. Press Start, then press **H** or choose **Show hitboxes**. The rectangles and circles are the shapes used by the rules, not decorations. The robot's antenna does not need to collide with a low ceiling just because it appears in the artwork.
+
+These screenshots show the actual Robot Orchard project running through the local server. Press Start / Restart, then Show hitboxes (or H) to reveal the shapes used by the rules.
+
+![Robot Orchard in Chrome before play begins, with the ready message over the level.](Quarto_Doc/figures/chapter_12/robot-ready.png){#fig-ch12-robot-ready fig-alt="Robot Orchard shows its welcome overlay, Gems: 0/10, Lives: 3, and the level artwork behind it." width="100%"}
+
+![Robot Orchard in Chrome after starting with hitboxes visible around the robot, platforms, and gems.](Quarto_Doc/figures/chapter_12/robot-hitboxes.png){#fig-ch12-robot-hitboxes fig-alt="Robot Orchard is playing, with outlined collision shapes around the robot, platform edges, and collectible gems." width="100%"}
+
+**Read the pictures:** Starting the game removes the welcome overlay, and the hitbox option draws the simple shapes used by collision rules. The robot's outlined rectangle is smaller and simpler than its artwork. Platform rectangles block movement; gem circles are sensors that can increase the score when touched. The status still shows three lives and zero gems because the screenshot was taken before collecting anything.
 
 ## Rectangle against rectangle
 

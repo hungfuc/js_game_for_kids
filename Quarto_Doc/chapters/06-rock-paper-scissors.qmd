@@ -10,7 +10,7 @@
 
 ::: {.callout-note .code-guide title="How to use the code pieces" icon="false"}
 
-This chapter develops parts of a larger game. These short examples are **code fragments**, not a complete HTML file. Read the surrounding explanations and combine the pieces with the screen, setup, and game-loop ideas from earlier chapters.
+The short snippets below explain individual rules. The complete browser example later in this chapter combines them into a playable page.
 
 :::
 
@@ -76,6 +76,115 @@ function decideWinner(player, computer) {
   return "Computer wins!";
 }
 ```
+
+## Play the complete game in your browser {.unnumbered}
+
+Save this page as `index.html`, or open `workspace/chapter6-rock-paper-scissors/index.html`. Each button passes a player move to `playRound()`, which asks `computerChoice()` for a move and displays the value returned by `decideWinner()`.
+
+[COMPLETE EXAMPLE | `index.html`]{.code-label}
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rock Paper Scissors</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #eaf4ff;
+      color: #17243b;
+      font-family: system-ui, sans-serif;
+    }
+    main {
+      width: min(90%, 480px);
+      padding: 28px;
+      border: 3px solid #17243b;
+      border-radius: 20px;
+      background: white;
+      box-shadow: 8px 8px 0 #ffe48a;
+    }
+    h1 { margin-top: 0; color: #5d35d5; }
+    .choices { display: flex; flex-wrap: wrap; gap: 10px; }
+    button {
+      padding: 12px 16px;
+      border: 2px solid #17243b;
+      border-radius: 12px;
+      background: #f2edff;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    button:hover, button:focus-visible { background: #dfd1ff; }
+    #round, #result { min-height: 1.5em; }
+    #result { font-size: 1.4rem; font-weight: 800; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Rock Paper Scissors</h1>
+    <p>Choose your move. The computer picks one too.</p>
+    <div class="choices">
+      <button type="button" data-move="rock">🪨 Rock</button>
+      <button type="button" data-move="paper">📄 Paper</button>
+      <button type="button" data-move="scissors">✂️ Scissors</button>
+    </div>
+    <p id="round" aria-live="polite">Pick a move to start.</p>
+    <p id="result" aria-live="polite"></p>
+  </main>
+  <script>
+    function computerChoice() {
+      const choices = ["rock", "paper", "scissors"];
+      const index = Math.floor(Math.random() * 3);
+      return choices[index];
+    }
+
+    function decideWinner(player, computer) {
+      if (player === computer) return "Tie!";
+
+      if (
+        (player === "rock" && computer === "scissors") ||
+        (player === "paper" && computer === "rock") ||
+        (player === "scissors" && computer === "paper")
+      ) {
+        return "You win!";
+      }
+      return "Computer wins!";
+    }
+
+    function playRound(player) {
+      const computer = computerChoice();
+      const result = decideWinner(player, computer);
+      document.getElementById("round").textContent =
+        "You chose " + player + ". Computer chose " + computer + ".";
+      document.getElementById("result").textContent = result;
+    }
+
+    document.querySelectorAll("[data-move]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        playRound(button.dataset.move);
+      });
+    });
+  </script>
+</body>
+</html>
+```
+
+The demonstration pages set a known computer move and click Rock automatically for the next three screenshots. The playable page uses `Math.random()` each round.
+
+![Rock Paper Scissors in Chrome before a move. Three buttons offer rock, paper, and scissors.](../figures/chapter_06/rps-start.png){#fig-ch06-rps-start fig-alt="A Rock Paper Scissors page has three move buttons and the prompt Pick a move to start." width="100%"}
+
+![Rock Paper Scissors in Chrome when both moves are rock. The result is Tie!](../figures/chapter_06/rps-tie.png){#fig-ch06-rps-tie fig-alt="The page says You chose rock. Computer chose rock. and Tie!" width="100%"}
+
+![Rock Paper Scissors in Chrome when rock beats scissors. The result is You win!](../figures/chapter_06/rps-win.png){#fig-ch06-rps-win fig-alt="The page says You chose rock. Computer chose scissors. and You win!" width="100%"}
+
+![Rock Paper Scissors in Chrome when paper beats rock. The result is Computer wins!](../figures/chapter_06/rps-loss.png){#fig-ch06-rps-loss fig-alt="The page says You chose rock. Computer chose paper. and Computer wins!" width="100%"}
+
+**Read the pictures:** The computer choice is returned to `playRound()`, then both moves become arguments to `decideWinner()`. That function returns a result string. A tie returns immediately; otherwise the winning combinations are checked before the remaining result becomes “Computer wins!” The caller puts the returned text on the page.
 
 ::: {.callout-note .advanced-study title="Advanced Study | Parameters, return values, and local scope" icon="false" collapse="false"}
 

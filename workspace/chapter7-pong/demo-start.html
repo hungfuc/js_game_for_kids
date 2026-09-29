@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pong Practice</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #eaf4ff; font-family: system-ui, sans-serif; color: #17243b; }
+    main { padding: 24px; border: 3px solid #17243b; border-radius: 18px; background: white; }
+    h1 { margin: 0 0 8px; color: #5d35d5; }
+    canvas { display: block; border: 2px solid #17243b; background: #102342; }
+    #status { min-height: 1.5em; margin-bottom: 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Pong Practice</h1>
+    <p>Hold ↑ or ↓ to move the paddle.</p>
+    <canvas id="game" width="560" height="320"></canvas>
+    <p id="status">Paddle hits: 0</p>
+  </main>
+  <script>window.requestAnimationFrame = () => 0;</script>
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+    const status = document.getElementById("status");
+    const keys = {};
+    window.addEventListener("keydown", e => {
+      if (e.key === "ArrowUp" || e.key === "ArrowDown") e.preventDefault();
+      keys[e.key] = true;
+    });
+    window.addEventListener("keyup", e => { keys[e.key] = false; });
+    window.addEventListener("blur", () => {
+      keys.ArrowUp = false;
+      keys.ArrowDown = false;
+    });
+
+    const paddleX = 530, paddleW = 12, paddleH = 70;
+    let paddleY = 125;
+    let ballX = 100, ballY = 160;
+    let dx = 3, dy = 2;
+    const radius = 10;
+    let hits = 0;
+
+    function update() {
+      if (keys["ArrowUp"]) paddleY -= 5;
+      if (keys["ArrowDown"]) paddleY += 5;
+      paddleY = Math.max(0, paddleY);
+      paddleY = Math.min(canvas.height - paddleH, paddleY);
+
+      ballX += dx;
+      ballY += dy;
+      if (ballX < radius) dx = Math.abs(dx);
+      if (ballY < radius || ballY > canvas.height - radius) dy = -dy;
+
+      const overlapsPaddle = (
+        ballX + radius >= paddleX &&
+        ballX - radius <= paddleX + paddleW &&
+        ballY + radius >= paddleY &&
+        ballY - radius <= paddleY + paddleH
+      );
+      if (dx > 0 && overlapsPaddle) {
+        ballX = paddleX - radius;
+        dx = -Math.abs(dx);
+        hits++;
+        status.textContent = "Paddle hits: " + hits;
+      }
+      if (ballX > canvas.width + radius) {
+        ballX = 100;
+        ballY = canvas.height / 2;
+        dx = Math.abs(dx);
+        status.textContent = "Missed! Paddle hits: " + hits;
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#102342";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#86d8ff";
+      ctx.fillRect(paddleX, paddleY, paddleW, paddleH);
+      ctx.beginPath();
+      ctx.arc(ballX, ballY, radius, 0, Math.PI * 2);
+      ctx.fillStyle = "#ffe48a";
+      ctx.fill();
+    }
+
+    function loop() {
+      update();
+      draw();
+      requestAnimationFrame(loop);
+    }
+    draw();
+    requestAnimationFrame(loop);
+  </script>
+</body>
+</html>

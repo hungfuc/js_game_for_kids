@@ -10,7 +10,7 @@
 
 ::: {.callout-note .code-guide title="How to use the code pieces" icon="false"}
 
-This chapter develops parts of a larger game. These short examples are **code fragments**, not a complete HTML file. Read the surrounding explanations and combine the pieces with the screen, setup, and game-loop ideas from earlier chapters.
+The short snippets below explain individual rules. The complete browser example later in this chapter combines them into a playable page.
 
 :::
 
@@ -85,6 +85,142 @@ if (brick.alive && hitsBrick(x, y, radius, brick)) {
   score++;
 }
 ```
+
+## Play Breakout in your browser {.unnumbered}
+
+Save this page as `index.html`, or open `workspace/chapter10-breakout/index.html`. Each brick is an object in the `bricks` array. The loop draws only active bricks and tests the ball against them.
+
+[COMPLETE EXAMPLE | `index.html`]{.code-label}
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Breakout Practice</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #fff3e8; font-family: system-ui, sans-serif; color: #17243b; }
+    main { padding: 24px; border: 3px solid #17243b; border-radius: 18px; background: white; }
+    h1 { margin: 0 0 8px; color: #c04a5a; }
+    canvas { display: block; border: 2px solid #17243b; background: #17243b; }
+    #status { min-height: 1.5em; margin-bottom: 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Breakout Practice</h1>
+    <p>Hold ← or → to move the paddle and catch the ball.</p>
+    <canvas id="game" width="560" height="360"></canvas>
+    <p id="status">Bricks cleared: 0</p>
+  </main>
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+    const status = document.getElementById("status");
+    const keys = {};
+    window.addEventListener("keydown", e => {
+      if (e.key === "ArrowLeft" || e.key === "ArrowRight") e.preventDefault();
+      keys[e.key] = true;
+    });
+    window.addEventListener("keyup", e => { keys[e.key] = false; });
+    window.addEventListener("blur", () => {
+      keys.ArrowLeft = false;
+      keys.ArrowRight = false;
+    });
+
+    const bricks = [
+      { x: 45, y: 40, w: 100, h: 22, alive: true },
+      { x: 165, y: 40, w: 100, h: 22, alive: true },
+      { x: 285, y: 40, w: 100, h: 22, alive: true },
+      { x: 405, y: 40, w: 100, h: 22, alive: true },
+      { x: 45, y: 76, w: 100, h: 22, alive: true },
+      { x: 165, y: 76, w: 100, h: 22, alive: true },
+      { x: 285, y: 76, w: 100, h: 22, alive: true },
+      { x: 405, y: 76, w: 100, h: 22, alive: true }
+    ];
+    let paddleX = 230;
+    const paddleY = 330, paddleW = 100, paddleH = 12;
+    let x = 280, y = 250, dx = 3, dy = -3;
+    const radius = 10;
+    let score = 0;
+
+    function hitsBrick(ballX, ballY, r, brick) {
+      return (
+        ballX + r > brick.x &&
+        ballX - r < brick.x + brick.w &&
+        ballY + r > brick.y &&
+        ballY - r < brick.y + brick.h
+      );
+    }
+
+    function update() {
+      if (keys.ArrowLeft) paddleX -= 6;
+      if (keys.ArrowRight) paddleX += 6;
+      paddleX = Math.max(0, Math.min(canvas.width - paddleW, paddleX));
+      x += dx;
+      y += dy;
+      if (x < radius || x > canvas.width - radius) dx = -dx;
+      if (y < radius) dy = Math.abs(dy);
+      if (dy > 0 && y + radius >= paddleY && y - radius <= paddleY + paddleH &&
+          x + radius >= paddleX && x - radius <= paddleX + paddleW) {
+        y = paddleY - radius;
+        dy = -Math.abs(dy);
+      }
+      for (const brick of bricks) {
+        if (brick.alive && hitsBrick(x, y, radius, brick)) {
+          brick.alive = false;
+          dy = -dy;
+          score++;
+          status.textContent = "Bricks cleared: " + score;
+          break;
+        }
+      }
+      if (y > canvas.height + radius) {
+        x = canvas.width / 2;
+        y = 250;
+        dy = -3;
+        status.textContent = "Try again! Bricks cleared: " + score;
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#17243b";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      for (const brick of bricks) {
+        if (brick.alive) {
+          ctx.fillStyle = brick.y === 40 ? "#f899b5" : "#ffe48a";
+          ctx.fillRect(brick.x, brick.y, brick.w, brick.h);
+        }
+      }
+      ctx.fillStyle = "#8ce3ff";
+      ctx.fillRect(paddleX, paddleY, paddleW, paddleH);
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.fillStyle = "white";
+      ctx.fill();
+    }
+
+    function loop() {
+      update();
+      draw();
+      requestAnimationFrame(loop);
+    }
+    draw();
+    requestAnimationFrame(loop);
+  </script>
+</body>
+</html>
+```
+
+The demonstration pages pause automatic animation and place the ball for one or three known brick collisions. The playable page keeps animating normally.
+
+![Breakout Practice in Chrome before a brick is hit.](../figures/chapter_10/breakout-start.png){#fig-ch10-breakout-start fig-alt="A Breakout canvas shows eight colored bricks, a ball, a paddle, and Bricks cleared: 0." width="100%"}
+![Breakout Practice in Chrome after one brick collision.](../figures/chapter_10/breakout-one-hit.png){#fig-ch10-breakout-one fig-alt="One top-row brick is missing and the page says Bricks cleared: 1." width="100%"}
+![Breakout Practice in Chrome after three brick collisions.](../figures/chapter_10/breakout-three-hits.png){#fig-ch10-breakout-three fig-alt="Three top-row bricks are missing and the page says Bricks cleared: 3." width="100%"}
+
+**Read the pictures:** `hitsBrick()` finds an overlap, then the code sets that brick's `alive` property to false. The next draw skips it, so a gap appears in the row. The score rises from zero to one, then three. The brick object stays in the array even though it is no longer drawn or hit.
 
 ::: {.callout-note .advanced-study title="Advanced Study | Objects, arrays, and collision logic" icon="false" collapse="false"}
 

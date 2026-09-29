@@ -105,6 +105,16 @@ Put the pieces together. Type the code yourself if you can; typing helps your br
 </html>
 ```
 
+Open `workspace/chapter7-catch-the-star/index.html` to watch the complete example. The star moves once per second, and a click raises the score and moves it immediately. The screenshot pages use known positions and control one timer callback so their states are reproducible.
+
+![Catch the Star in Chrome at score zero, with the star near the upper left of the game area.](../figures/chapter_07/star-start.png){#fig-ch07-star-start fig-alt="The Catch the Star page shows Score: 0 and a yellow star near the upper-left corner of a bordered game area." width="100%"}
+
+![Catch the Star in Chrome after one timer move. The star moves while the score stays zero.](../figures/chapter_07/star-after-timer.png){#fig-ch07-star-timer fig-alt="The same game shows Score: 0 with the yellow star near the middle-right of the game area." width="100%"}
+
+![Catch the Star in Chrome after one click. The score is one and the star moves again.](../figures/chapter_07/star-after-click.png){#fig-ch07-star-click fig-alt="The game shows Score: 1 with the yellow star in a new position inside the game area." width="100%"}
+
+**Read the pictures:** The timer calls `moveStar()` without a player action, changing `left` and `top` while the score remains zero. The click handler also calls `moveStar()`, but first it adds one to `score` and updates the paragraph. The regular page keeps its one-second timer; the demonstration pages control when the callback runs for the screenshots.
+
 ::: {.callout-note .advanced-study title="Advanced Study | CSS positioning and browser coordinates" icon="false" collapse="false"}
 
 [OPTIONAL DEEPER DIVE]{.study-badge}

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catch the Fruit</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #fff2e4; color: #46301c; font-family: system-ui, sans-serif; }
+    main { padding: 24px; border: 3px solid #46301c; border-radius: 18px; background: white; }
+    h1 { margin: 0 0 8px; color: #c35a24; }
+    canvas { display: block; border: 2px solid #46301c; background: #fffaf2; }
+    button { padding: 8px 14px; font: inherit; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Catch the Fruit</h1>
+    <p>Move with ← and →. Catch five fruit before losing three lives.</p>
+    <canvas id="game" width="500" height="350"></canvas>
+    <p id="status">Score: 0 | Lives: 3</p>
+    <button id="restart" type="button">Restart</button>
+  </main>
+  <script>window.requestAnimationFrame = () => 0;</script>
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+    const status = document.getElementById("status");
+    const keys = {};
+    let score = 0;
+    let lives = 3;
+    let basketX = 200;
+    let fruitX = 100;
+    let fruitY = 0;
+    let gameOver = false;
+    const basketY = 310, basketW = 100, basketH = 16, fruitR = 12;
+
+    window.addEventListener("keydown", e => {
+      if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+        e.preventDefault();
+        keys[e.key] = true;
+      }
+    });
+    window.addEventListener("keyup", e => { keys[e.key] = false; });
+    window.addEventListener("blur", () => { keys.ArrowLeft = false; keys.ArrowRight = false; });
+
+    function updatePlayer() {
+      if (keys.ArrowLeft) basketX -= 5;
+      if (keys.ArrowRight) basketX += 5;
+      basketX = Math.max(0, Math.min(canvas.width - basketW, basketX));
+    }
+    function updateFruit() { fruitY += 3; }
+    function checkCollisions() {
+      if (fruitY + fruitR < basketY) return;
+      const caught = fruitX + fruitR >= basketX && fruitX - fruitR <= basketX + basketW;
+      if (caught) score++;
+      else lives--;
+      fruitX = 25 + Math.floor(Math.random() * (canvas.width - 50));
+      fruitY = 0;
+      if (score >= 5 || lives <= 0) gameOver = true;
+      status.textContent = gameOver
+        ? (score >= 5 ? "You win!" : "Game over!") + " Score: " + score + " | Lives: " + lives
+        : "Score: " + score + " | Lives: " + lives;
+    }
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#fffaf2";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#96552d";
+      ctx.fillRect(basketX, basketY, basketW, basketH);
+      ctx.beginPath();
+      ctx.arc(fruitX, fruitY, fruitR, 0, Math.PI * 2);
+      ctx.fillStyle = "#e75454";
+      ctx.fill();
+    }
+    function loop() {
+      if (gameOver) return;
+      updatePlayer();
+      updateFruit();
+      checkCollisions();
+      draw();
+      if (!gameOver) requestAnimationFrame(loop);
+    }
+    function restart() {
+      score = 0; lives = 3; basketX = 200; fruitX = 100; fruitY = 0; gameOver = false;
+      status.textContent = "Score: 0 | Lives: 3";
+      draw();
+      requestAnimationFrame(loop);
+    }
+    document.getElementById("restart").addEventListener("click", restart);
+    restart();
+  </script>
+  <script>
+    for (let missed = 0; missed < 3; missed++) {
+      fruitX = 20; fruitY = basketY - fruitR - 2; loop();
+    }
+  </script>
+</body>
+</html>

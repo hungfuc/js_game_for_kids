@@ -1356,7 +1356,7 @@ Add a rule: after 5 guesses, show the secret number.
 
 ::: {.callout-note .code-guide title="How to use the code pieces" icon="false"}
 
-This chapter develops parts of a larger game. These short examples are **code fragments**, not a complete HTML file. Read the surrounding explanations and combine the pieces with the screen, setup, and game-loop ideas from earlier chapters.
+The short snippets below explain individual rules. The complete browser example later in this chapter combines them into a playable page.
 
 :::
 
@@ -1422,6 +1422,115 @@ function decideWinner(player, computer) {
   return "Computer wins!";
 }
 ```
+
+## Play the complete game in your browser {.unnumbered}
+
+Save this page as `index.html`, or open `workspace/chapter6-rock-paper-scissors/index.html`. Each button passes a player move to `playRound()`, which asks `computerChoice()` for a move and displays the value returned by `decideWinner()`.
+
+[COMPLETE EXAMPLE | `index.html`]{.code-label}
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rock Paper Scissors</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #eaf4ff;
+      color: #17243b;
+      font-family: system-ui, sans-serif;
+    }
+    main {
+      width: min(90%, 480px);
+      padding: 28px;
+      border: 3px solid #17243b;
+      border-radius: 20px;
+      background: white;
+      box-shadow: 8px 8px 0 #ffe48a;
+    }
+    h1 { margin-top: 0; color: #5d35d5; }
+    .choices { display: flex; flex-wrap: wrap; gap: 10px; }
+    button {
+      padding: 12px 16px;
+      border: 2px solid #17243b;
+      border-radius: 12px;
+      background: #f2edff;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    button:hover, button:focus-visible { background: #dfd1ff; }
+    #round, #result { min-height: 1.5em; }
+    #result { font-size: 1.4rem; font-weight: 800; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Rock Paper Scissors</h1>
+    <p>Choose your move. The computer picks one too.</p>
+    <div class="choices">
+      <button type="button" data-move="rock">🪨 Rock</button>
+      <button type="button" data-move="paper">📄 Paper</button>
+      <button type="button" data-move="scissors">✂️ Scissors</button>
+    </div>
+    <p id="round" aria-live="polite">Pick a move to start.</p>
+    <p id="result" aria-live="polite"></p>
+  </main>
+  <script>
+    function computerChoice() {
+      const choices = ["rock", "paper", "scissors"];
+      const index = Math.floor(Math.random() * 3);
+      return choices[index];
+    }
+
+    function decideWinner(player, computer) {
+      if (player === computer) return "Tie!";
+
+      if (
+        (player === "rock" && computer === "scissors") ||
+        (player === "paper" && computer === "rock") ||
+        (player === "scissors" && computer === "paper")
+      ) {
+        return "You win!";
+      }
+      return "Computer wins!";
+    }
+
+    function playRound(player) {
+      const computer = computerChoice();
+      const result = decideWinner(player, computer);
+      document.getElementById("round").textContent =
+        "You chose " + player + ". Computer chose " + computer + ".";
+      document.getElementById("result").textContent = result;
+    }
+
+    document.querySelectorAll("[data-move]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        playRound(button.dataset.move);
+      });
+    });
+  </script>
+</body>
+</html>
+```
+
+The demonstration pages set a known computer move and click Rock automatically for the next three screenshots. The playable page uses `Math.random()` each round.
+
+![Rock Paper Scissors in Chrome before a move. Three buttons offer rock, paper, and scissors.](../figures/chapter_06/rps-start.png){#fig-ch06-rps-start fig-alt="A Rock Paper Scissors page has three move buttons and the prompt Pick a move to start." width="100%"}
+
+![Rock Paper Scissors in Chrome when both moves are rock. The result is Tie!](../figures/chapter_06/rps-tie.png){#fig-ch06-rps-tie fig-alt="The page says You chose rock. Computer chose rock. and Tie!" width="100%"}
+
+![Rock Paper Scissors in Chrome when rock beats scissors. The result is You win!](../figures/chapter_06/rps-win.png){#fig-ch06-rps-win fig-alt="The page says You chose rock. Computer chose scissors. and You win!" width="100%"}
+
+![Rock Paper Scissors in Chrome when paper beats rock. The result is Computer wins!](../figures/chapter_06/rps-loss.png){#fig-ch06-rps-loss fig-alt="The page says You chose rock. Computer chose paper. and Computer wins!" width="100%"}
+
+**Read the pictures:** The computer choice is returned to `playRound()`, then both moves become arguments to `decideWinner()`. That function returns a result string. A tie returns immediately; otherwise the winning combinations are checked before the remaining result becomes “Computer wins!” The caller puts the returned text on the page.
 
 ::: {.callout-note .advanced-study title="Advanced Study | Parameters, return values, and local scope" icon="false" collapse="false"}
 
@@ -1571,6 +1680,16 @@ Put the pieces together. Type the code yourself if you can; typing helps your br
 </html>
 ```
 
+Open `workspace/chapter7-catch-the-star/index.html` to watch the complete example. The star moves once per second, and a click raises the score and moves it immediately. The screenshot pages use known positions and control one timer callback so their states are reproducible.
+
+![Catch the Star in Chrome at score zero, with the star near the upper left of the game area.](../figures/chapter_07/star-start.png){#fig-ch07-star-start fig-alt="The Catch the Star page shows Score: 0 and a yellow star near the upper-left corner of a bordered game area." width="100%"}
+
+![Catch the Star in Chrome after one timer move. The star moves while the score stays zero.](../figures/chapter_07/star-after-timer.png){#fig-ch07-star-timer fig-alt="The same game shows Score: 0 with the yellow star near the middle-right of the game area." width="100%"}
+
+![Catch the Star in Chrome after one click. The score is one and the star moves again.](../figures/chapter_07/star-after-click.png){#fig-ch07-star-click fig-alt="The game shows Score: 1 with the yellow star in a new position inside the game area." width="100%"}
+
+**Read the pictures:** The timer calls `moveStar()` without a player action, changing `left` and `top` while the score remains zero. The click handler also calls `moveStar()`, but first it adds one to `score` and updates the paragraph. The regular page keeps its one-second timer; the demonstration pages control when the callback runs for the screenshots.
+
 ::: {.callout-note .advanced-study title="Advanced Study | CSS positioning and browser coordinates" icon="false" collapse="false"}
 
 [OPTIONAL DEEPER DIVE]{.study-badge}
@@ -1689,32 +1808,58 @@ Put the pieces together. Type the code yourself if you can; typing helps your br
 [COMPLETE EXAMPLE]{.code-label}
 
 ```html
-<canvas id="game" width="500" height="300"></canvas>
-<script>
-const canvas = document.getElementById("game");
-const ctx = canvas.getContext("2d");
-let x = 100, y = 80;
-let dx = 3, dy = 2;
-const radius = 15;
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bouncing Ball</title>
+  <style>
+    body { font-family: system-ui, sans-serif; color: #17243b; }
+    canvas { border: 2px solid #17243b; background: #f0f7ff; }
+  </style>
+</head>
+<body>
+  <h1>Bouncing Ball</h1>
+  <canvas id="game" width="500" height="300"></canvas>
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+    let x = 100, y = 80;
+    let dx = 3, dy = 2;
+    const radius = 15;
 
-function drawBall() {
-  ctx.beginPath();
-  ctx.arc(x, y, radius, 0, Math.PI * 2);
-  ctx.fill();
-}
+    function drawBall() {
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.fillStyle = "#6d3df5";
+      ctx.fill();
+    }
 
-function loop() {
-  x += dx;
-  y += dy;
-  if (x < radius || x > canvas.width - radius) dx = -dx;
-  if (y < radius || y > canvas.height - radius) dy = -dy;
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawBall();
-  requestAnimationFrame(loop);
-}
-loop();
-</script>
+    function loop() {
+      x += dx;
+      y += dy;
+      if (x < radius || x > canvas.width - radius) dx = -dx;
+      if (y < radius || y > canvas.height - radius) dy = -dy;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawBall();
+      requestAnimationFrame(loop);
+    }
+    loop();
+  </script>
+</body>
+</html>
 ```
+
+Open `workspace/chapter6-bouncing-ball/index.html` to watch the complete example. The browser redraws the purple ball on every animation frame. The screenshot pages pause automatic frames and call the same `loop()` function a known number of times.
+
+![Bouncing Ball in Chrome near its starting position inside the canvas.](../figures/chapter_06/ball-start.png){#fig-ch08-ball-start fig-alt="A purple ball appears near the upper-left of a light blue bordered canvas." width="100%"}
+
+![Bouncing Ball in Chrome after twenty more animation frames. The ball has moved right and down.](../figures/chapter_06/ball-after-frames.png){#fig-ch08-ball-frames fig-alt="The purple ball is farther right and lower in the same canvas." width="100%"}
+
+![Bouncing Ball in Chrome after reaching the right wall and reversing horizontal direction.](../figures/chapter_06/ball-bounce.png){#fig-ch08-ball-bounce fig-alt="The purple ball is next to the right edge of the canvas." width="100%"}
+
+**Read the pictures:** Every `loop()` call changes `x` and `y`, clears the previous drawing, and draws the ball again. At the right wall, `dx` becomes negative, so the next frames move left. The regular page uses `requestAnimationFrame()` to continue automatically.
 
 ::: {.callout-note .advanced-study title="Advanced Study | requestAnimationFrame and frame time" icon="false" collapse="false"}
 
@@ -1770,7 +1915,7 @@ Add a second ball with its own position and velocity.
 
 ::: {.callout-note .code-guide title="How to use the code pieces" icon="false"}
 
-This chapter develops parts of a larger game. These short examples are **code fragments**, not a complete HTML file. Read the surrounding explanations and combine the pieces with the screen, setup, and game-loop ideas from earlier chapters.
+The short snippets below explain individual rules. The complete browser example later in this chapter combines them into a playable page.
 
 :::
 
@@ -1844,6 +1989,119 @@ if (dx > 0 && overlapsPaddle) {
 }
 ```
 
+## Play Pong in your browser {.unnumbered}
+
+Save this page as `index.html`, or open `workspace/chapter9-pong/index.html`. Hold the up or down arrow to move the right paddle. The game loop reads the remembered key state every frame and checks whether the ball overlaps the paddle.
+
+[COMPLETE EXAMPLE | `index.html`]{.code-label}
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pong Practice</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #eaf4ff; font-family: system-ui, sans-serif; color: #17243b; }
+    main { padding: 24px; border: 3px solid #17243b; border-radius: 18px; background: white; }
+    h1 { margin: 0 0 8px; color: #5d35d5; }
+    canvas { display: block; border: 2px solid #17243b; background: #102342; }
+    #status { min-height: 1.5em; margin-bottom: 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Pong Practice</h1>
+    <p>Hold ↑ or ↓ to move the paddle.</p>
+    <canvas id="game" width="560" height="320"></canvas>
+    <p id="status">Paddle hits: 0</p>
+  </main>
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+    const status = document.getElementById("status");
+    const keys = {};
+    window.addEventListener("keydown", e => {
+      if (e.key === "ArrowUp" || e.key === "ArrowDown") e.preventDefault();
+      keys[e.key] = true;
+    });
+    window.addEventListener("keyup", e => { keys[e.key] = false; });
+    window.addEventListener("blur", () => {
+      keys.ArrowUp = false;
+      keys.ArrowDown = false;
+    });
+
+    const paddleX = 530, paddleW = 12, paddleH = 70;
+    let paddleY = 125;
+    let ballX = 100, ballY = 160;
+    let dx = 3, dy = 2;
+    const radius = 10;
+    let hits = 0;
+
+    function update() {
+      if (keys["ArrowUp"]) paddleY -= 5;
+      if (keys["ArrowDown"]) paddleY += 5;
+      paddleY = Math.max(0, paddleY);
+      paddleY = Math.min(canvas.height - paddleH, paddleY);
+
+      ballX += dx;
+      ballY += dy;
+      if (ballX < radius) dx = Math.abs(dx);
+      if (ballY < radius || ballY > canvas.height - radius) dy = -dy;
+
+      const overlapsPaddle = (
+        ballX + radius >= paddleX &&
+        ballX - radius <= paddleX + paddleW &&
+        ballY + radius >= paddleY &&
+        ballY - radius <= paddleY + paddleH
+      );
+      if (dx > 0 && overlapsPaddle) {
+        ballX = paddleX - radius;
+        dx = -Math.abs(dx);
+        hits++;
+        status.textContent = "Paddle hits: " + hits;
+      }
+      if (ballX > canvas.width + radius) {
+        ballX = 100;
+        ballY = canvas.height / 2;
+        dx = Math.abs(dx);
+        status.textContent = "Missed! Paddle hits: " + hits;
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#102342";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#86d8ff";
+      ctx.fillRect(paddleX, paddleY, paddleW, paddleH);
+      ctx.beginPath();
+      ctx.arc(ballX, ballY, radius, 0, Math.PI * 2);
+      ctx.fillStyle = "#ffe48a";
+      ctx.fill();
+    }
+
+    function loop() {
+      update();
+      draw();
+      requestAnimationFrame(loop);
+    }
+    draw();
+    requestAnimationFrame(loop);
+  </script>
+</body>
+</html>
+```
+
+The demonstration pages pause automatic animation, then make a known number of updates or one paddle collision. The playable page keeps animating normally.
+
+![Pong Practice in Chrome before the paddle moves.](../figures/chapter_09/pong-start.png){#fig-ch09-pong-start fig-alt="A dark Pong canvas shows a yellow ball, a blue paddle on the right, and Paddle hits: 0." width="100%"}
+![Pong Practice in Chrome after holding the up arrow for twelve updates.](../figures/chapter_09/pong-paddle-up.png){#fig-ch09-pong-up fig-alt="The blue paddle has moved upward after held-key updates while the ball moves across the canvas." width="100%"}
+![Pong Practice in Chrome after a ball and paddle collision.](../figures/chapter_09/pong-paddle-hit.png){#fig-ch09-pong-hit fig-alt="The yellow ball touches the right paddle and the page says Paddle hits: 1." width="100%"}
+
+**Read the pictures:** A held key keeps `keys["ArrowUp"]` true, so the paddle moves through several updates. When the ball reaches the paddle, the overlap test becomes true and `dx` changes sign. The hit count confirms that the collision response ran once.
+
 ::: {.callout-note .advanced-study title="Advanced Study | Input state versus input events" icon="false" collapse="false"}
 
 [OPTIONAL DEEPER DIVE]{.study-badge}
@@ -1898,7 +2156,7 @@ Make the ball slightly faster after each paddle hit.
 
 ::: {.callout-note .code-guide title="How to use the code pieces" icon="false"}
 
-This chapter develops parts of a larger game. These short examples are **code fragments**, not a complete HTML file. Read the surrounding explanations and combine the pieces with the screen, setup, and game-loop ideas from earlier chapters.
+The short snippets below explain individual rules. The complete browser example later in this chapter combines them into a playable page.
 
 :::
 
@@ -1974,6 +2232,142 @@ if (brick.alive && hitsBrick(x, y, radius, brick)) {
 }
 ```
 
+## Play Breakout in your browser {.unnumbered}
+
+Save this page as `index.html`, or open `workspace/chapter10-breakout/index.html`. Each brick is an object in the `bricks` array. The loop draws only active bricks and tests the ball against them.
+
+[COMPLETE EXAMPLE | `index.html`]{.code-label}
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Breakout Practice</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #fff3e8; font-family: system-ui, sans-serif; color: #17243b; }
+    main { padding: 24px; border: 3px solid #17243b; border-radius: 18px; background: white; }
+    h1 { margin: 0 0 8px; color: #c04a5a; }
+    canvas { display: block; border: 2px solid #17243b; background: #17243b; }
+    #status { min-height: 1.5em; margin-bottom: 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Breakout Practice</h1>
+    <p>Hold ← or → to move the paddle and catch the ball.</p>
+    <canvas id="game" width="560" height="360"></canvas>
+    <p id="status">Bricks cleared: 0</p>
+  </main>
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+    const status = document.getElementById("status");
+    const keys = {};
+    window.addEventListener("keydown", e => {
+      if (e.key === "ArrowLeft" || e.key === "ArrowRight") e.preventDefault();
+      keys[e.key] = true;
+    });
+    window.addEventListener("keyup", e => { keys[e.key] = false; });
+    window.addEventListener("blur", () => {
+      keys.ArrowLeft = false;
+      keys.ArrowRight = false;
+    });
+
+    const bricks = [
+      { x: 45, y: 40, w: 100, h: 22, alive: true },
+      { x: 165, y: 40, w: 100, h: 22, alive: true },
+      { x: 285, y: 40, w: 100, h: 22, alive: true },
+      { x: 405, y: 40, w: 100, h: 22, alive: true },
+      { x: 45, y: 76, w: 100, h: 22, alive: true },
+      { x: 165, y: 76, w: 100, h: 22, alive: true },
+      { x: 285, y: 76, w: 100, h: 22, alive: true },
+      { x: 405, y: 76, w: 100, h: 22, alive: true }
+    ];
+    let paddleX = 230;
+    const paddleY = 330, paddleW = 100, paddleH = 12;
+    let x = 280, y = 250, dx = 3, dy = -3;
+    const radius = 10;
+    let score = 0;
+
+    function hitsBrick(ballX, ballY, r, brick) {
+      return (
+        ballX + r > brick.x &&
+        ballX - r < brick.x + brick.w &&
+        ballY + r > brick.y &&
+        ballY - r < brick.y + brick.h
+      );
+    }
+
+    function update() {
+      if (keys.ArrowLeft) paddleX -= 6;
+      if (keys.ArrowRight) paddleX += 6;
+      paddleX = Math.max(0, Math.min(canvas.width - paddleW, paddleX));
+      x += dx;
+      y += dy;
+      if (x < radius || x > canvas.width - radius) dx = -dx;
+      if (y < radius) dy = Math.abs(dy);
+      if (dy > 0 && y + radius >= paddleY && y - radius <= paddleY + paddleH &&
+          x + radius >= paddleX && x - radius <= paddleX + paddleW) {
+        y = paddleY - radius;
+        dy = -Math.abs(dy);
+      }
+      for (const brick of bricks) {
+        if (brick.alive && hitsBrick(x, y, radius, brick)) {
+          brick.alive = false;
+          dy = -dy;
+          score++;
+          status.textContent = "Bricks cleared: " + score;
+          break;
+        }
+      }
+      if (y > canvas.height + radius) {
+        x = canvas.width / 2;
+        y = 250;
+        dy = -3;
+        status.textContent = "Try again! Bricks cleared: " + score;
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#17243b";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      for (const brick of bricks) {
+        if (brick.alive) {
+          ctx.fillStyle = brick.y === 40 ? "#f899b5" : "#ffe48a";
+          ctx.fillRect(brick.x, brick.y, brick.w, brick.h);
+        }
+      }
+      ctx.fillStyle = "#8ce3ff";
+      ctx.fillRect(paddleX, paddleY, paddleW, paddleH);
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.fillStyle = "white";
+      ctx.fill();
+    }
+
+    function loop() {
+      update();
+      draw();
+      requestAnimationFrame(loop);
+    }
+    draw();
+    requestAnimationFrame(loop);
+  </script>
+</body>
+</html>
+```
+
+The demonstration pages pause automatic animation and place the ball for one or three known brick collisions. The playable page keeps animating normally.
+
+![Breakout Practice in Chrome before a brick is hit.](../figures/chapter_10/breakout-start.png){#fig-ch10-breakout-start fig-alt="A Breakout canvas shows eight colored bricks, a ball, a paddle, and Bricks cleared: 0." width="100%"}
+![Breakout Practice in Chrome after one brick collision.](../figures/chapter_10/breakout-one-hit.png){#fig-ch10-breakout-one fig-alt="One top-row brick is missing and the page says Bricks cleared: 1." width="100%"}
+![Breakout Practice in Chrome after three brick collisions.](../figures/chapter_10/breakout-three-hits.png){#fig-ch10-breakout-three fig-alt="Three top-row bricks are missing and the page says Bricks cleared: 3." width="100%"}
+
+**Read the pictures:** `hitsBrick()` finds an overlap, then the code sets that brick's `alive` property to false. The next draw skips it, so a gap appears in the row. The score rises from zero to one, then three. The brick object stays in the array even though it is no longer drawn or hit.
+
 ::: {.callout-note .advanced-study title="Advanced Study | Objects, arrays, and collision logic" icon="false" collapse="false"}
 
 [OPTIONAL DEEPER DIVE]{.study-badge}
@@ -2025,7 +2419,7 @@ Add a win condition when every brick is gone.
 
 ::: {.callout-note .code-guide title="How to use the code pieces" icon="false"}
 
-This chapter develops parts of a larger game. These short examples are **code fragments**, not a complete HTML file. Read the surrounding explanations and combine the pieces with the screen, setup, and game-loop ideas from earlier chapters.
+The short snippets below explain individual rules. The complete browser example later in this chapter combines them into a playable page.
 
 :::
 
@@ -2097,6 +2491,124 @@ if (e.key === "ArrowLeft" && dx !== 1) {
 }
 ```
 
+## Play Snake in your browser {.unnumbered}
+
+Save this page as `index.html`, or open `workspace/chapter9-snake/index.html`. The snake is an array of grid cells. Each step adds a new head; eating food keeps the tail, and an ordinary step removes it.
+
+[COMPLETE EXAMPLE | `index.html`]{.code-label}
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Snake Grid</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #e8f8ef; color: #193b2d; font-family: system-ui, sans-serif; }
+    main { padding: 24px; border: 3px solid #193b2d; border-radius: 18px; background: white; }
+    h1 { margin: 0 0 8px; color: #24875d; }
+    canvas { display: block; border: 2px solid #193b2d; background: #f4fff8; }
+    button { margin-top: 10px; padding: 8px 14px; font: inherit; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Snake Grid</h1>
+    <p>Use arrow keys. Eat the red food; avoid walls and your body.</p>
+    <canvas id="game" width="400" height="400"></canvas>
+    <p id="status">Score: 0</p>
+    <button id="restart" type="button">Restart</button>
+  </main>
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+    const status = document.getElementById("status");
+    const cell = 20, count = canvas.width / cell;
+    let snake, food, dx, dy, score, gameOver, turned;
+
+    function reset() {
+      snake = [{ x: 5, y: 5 }, { x: 4, y: 5 }, { x: 3, y: 5 }];
+      food = { x: 8, y: 5 };
+      dx = 1; dy = 0; score = 0; gameOver = false; turned = false;
+      status.textContent = "Score: 0";
+      draw();
+    }
+
+    function placeFood() {
+      do {
+        food = { x: Math.floor(Math.random() * count), y: Math.floor(Math.random() * count) };
+      } while (snake.some(part => part.x === food.x && part.y === food.y));
+    }
+
+    window.addEventListener("keydown", e => {
+      const turns = { ArrowUp: [0, -1], ArrowDown: [0, 1], ArrowLeft: [-1, 0], ArrowRight: [1, 0] };
+      const next = turns[e.key];
+      if (!next) return;
+      e.preventDefault();
+      if (!turned && (next[0] !== -dx || next[1] !== -dy)) {
+        [dx, dy] = next;
+        turned = true;
+      }
+    });
+    document.getElementById("restart").addEventListener("click", reset);
+
+    function step() {
+      if (gameOver) return;
+      const head = snake[0];
+      const newHead = { x: head.x + dx, y: head.y + dy };
+      const eating = newHead.x === food.x && newHead.y === food.y;
+      const body = eating ? snake : snake.slice(0, -1);
+      if (newHead.x < 0 || newHead.x >= count || newHead.y < 0 || newHead.y >= count ||
+          body.some(part => part.x === newHead.x && part.y === newHead.y)) {
+        gameOver = true;
+        status.textContent = "Game over! Score: " + score + ". Press Restart.";
+        draw();
+        return;
+      }
+      snake.unshift(newHead);
+      if (eating) {
+        score++;
+        placeFood();
+      } else {
+        snake.pop();
+      }
+      turned = false;
+      status.textContent = "Score: " + score;
+      draw();
+    }
+
+    function draw() {
+      ctx.fillStyle = "#f4fff8";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.strokeStyle = "#d8eedd";
+      for (let line = 0; line <= count; line++) {
+        ctx.beginPath(); ctx.moveTo(line * cell, 0); ctx.lineTo(line * cell, canvas.height); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(0, line * cell); ctx.lineTo(canvas.width, line * cell); ctx.stroke();
+      }
+      ctx.fillStyle = "#e75454";
+      ctx.fillRect(food.x * cell + 2, food.y * cell + 2, cell - 4, cell - 4);
+      for (const [index, part] of snake.entries()) {
+        ctx.fillStyle = index === 0 ? "#176b49" : "#42ae76";
+        ctx.fillRect(part.x * cell + 1, part.y * cell + 1, cell - 2, cell - 2);
+      }
+    }
+
+    reset();
+    setInterval(step, 150);
+  </script>
+</body>
+</html>
+```
+
+The demonstration pages pause the timer and make known steps. The playable page advances every 150 milliseconds.
+
+![Snake Grid in Chrome before the snake reaches the food.](../figures/chapter_09/snake-start.png){#fig-ch11-snake-start fig-alt="A three-cell green snake faces red food on a square grid, with Score: 0." width="100%"}
+![Snake Grid in Chrome after the head reaches food and the snake grows.](../figures/chapter_09/snake-food.png){#fig-ch11-snake-food fig-alt="The green snake is four cells long and the page shows Score: 1." width="100%"}
+![Snake Grid in Chrome after a wall collision ends the game.](../figures/chapter_09/snake-wall.png){#fig-ch11-snake-wall fig-alt="The snake has reached the right wall and the page says Game over! Score: 0. Press Restart." width="100%"}
+
+**Read the pictures:** The snake starts with three cells. Reaching food raises the score and leaves the tail in place, so it grows to four cells. A move beyond the right edge ends the game. Restart resets the body, direction, food, and score.
+
 ::: {.callout-note .advanced-study title="Advanced Study | Game state as data" icon="false" collapse="false"}
 
 [OPTIONAL DEEPER DIVE]{.study-badge}
@@ -2150,7 +2662,7 @@ Add a start screen and a restart key.
 
 ::: {.callout-note .code-guide title="Your own project" icon="false"}
 
-This chapter gives you a plan and code sketches for your own game. The named functions in the planning example are jobs for you to implement, not functions the browser already provides.
+The planning snippets name jobs a game needs. The complete Catch the Fruit example later in this chapter implements those jobs in one playable page.
 
 :::
 
@@ -2220,6 +2732,115 @@ Your first version needs only enough features to answer: “Can someone play thi
 ## Playtest like a scientist
 
 Give the game to another person without explaining every rule. Watch where they get confused. Ask what they expected to happen. Change one thing and test again.
+
+## Try a minimum playable game {.unnumbered}
+
+The planning sketch becomes **Catch the Fruit** in this complete page. Save it as `index.html`, or open `workspace/chapter10-catch-fruit/index.html`. Move the basket with arrow keys; catch five fruit to win, or lose after three misses.
+
+[COMPLETE EXAMPLE | `index.html`]{.code-label}
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catch the Fruit</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #fff2e4; color: #46301c; font-family: system-ui, sans-serif; }
+    main { padding: 24px; border: 3px solid #46301c; border-radius: 18px; background: white; }
+    h1 { margin: 0 0 8px; color: #c35a24; }
+    canvas { display: block; border: 2px solid #46301c; background: #fffaf2; }
+    button { padding: 8px 14px; font: inherit; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Catch the Fruit</h1>
+    <p>Move with ← and →. Catch five fruit before losing three lives.</p>
+    <canvas id="game" width="500" height="350"></canvas>
+    <p id="status">Score: 0 | Lives: 3</p>
+    <button id="restart" type="button">Restart</button>
+  </main>
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+    const status = document.getElementById("status");
+    const keys = {};
+    let score = 0;
+    let lives = 3;
+    let basketX = 200;
+    let fruitX = 100;
+    let fruitY = 0;
+    let gameOver = false;
+    const basketY = 310, basketW = 100, basketH = 16, fruitR = 12;
+
+    window.addEventListener("keydown", e => {
+      if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+        e.preventDefault();
+        keys[e.key] = true;
+      }
+    });
+    window.addEventListener("keyup", e => { keys[e.key] = false; });
+    window.addEventListener("blur", () => { keys.ArrowLeft = false; keys.ArrowRight = false; });
+
+    function updatePlayer() {
+      if (keys.ArrowLeft) basketX -= 5;
+      if (keys.ArrowRight) basketX += 5;
+      basketX = Math.max(0, Math.min(canvas.width - basketW, basketX));
+    }
+    function updateFruit() { fruitY += 3; }
+    function checkCollisions() {
+      if (fruitY + fruitR < basketY) return;
+      const caught = fruitX + fruitR >= basketX && fruitX - fruitR <= basketX + basketW;
+      if (caught) score++;
+      else lives--;
+      fruitX = 25 + Math.floor(Math.random() * (canvas.width - 50));
+      fruitY = 0;
+      if (score >= 5 || lives <= 0) gameOver = true;
+      status.textContent = gameOver
+        ? (score >= 5 ? "You win!" : "Game over!") + " Score: " + score + " | Lives: " + lives
+        : "Score: " + score + " | Lives: " + lives;
+    }
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#fffaf2";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#96552d";
+      ctx.fillRect(basketX, basketY, basketW, basketH);
+      ctx.beginPath();
+      ctx.arc(fruitX, fruitY, fruitR, 0, Math.PI * 2);
+      ctx.fillStyle = "#e75454";
+      ctx.fill();
+    }
+    function loop() {
+      if (gameOver) return;
+      updatePlayer();
+      updateFruit();
+      checkCollisions();
+      draw();
+      if (!gameOver) requestAnimationFrame(loop);
+    }
+    function restart() {
+      score = 0; lives = 3; basketX = 200; fruitX = 100; fruitY = 0; gameOver = false;
+      status.textContent = "Score: 0 | Lives: 3";
+      draw();
+      requestAnimationFrame(loop);
+    }
+    document.getElementById("restart").addEventListener("click", restart);
+    restart();
+  </script>
+</body>
+</html>
+```
+
+The screenshot demonstration pages pause automatic frames and arrange one catch or three misses. The playable page uses `requestAnimationFrame()`.
+
+![Catch the Fruit in Chrome at the beginning of a game.](../figures/chapter_10/fruit-start.png){#fig-ch12-fruit-start fig-alt="Catch the Fruit shows a falling red fruit, a brown basket, Score: 0, and Lives: 3." width="100%"}
+![Catch the Fruit in Chrome after one successful catch.](../figures/chapter_10/fruit-catch.png){#fig-ch12-fruit-catch fig-alt="The Catch the Fruit page shows Score: 1 and Lives: 3 after a fruit lands in the basket." width="100%"}
+![Catch the Fruit in Chrome after three missed fruit end the game.](../figures/chapter_10/fruit-game-over.png){#fig-ch12-fruit-over fig-alt="The Catch the Fruit page shows Game over! Score: 0 and Lives: 0." width="100%"}
+
+**Read the pictures:** The six state values from the planning sketch control the game. The loop calls the planned update and draw jobs in order. A catch increases `score`; a miss decreases `lives`. When lives reach zero, `gameOver` stops the loop, and Restart restores the initial state.
 
 ::: {.callout-note .advanced-study title="Advanced Study | From one-file games to structured applications" icon="false" collapse="false"}
 

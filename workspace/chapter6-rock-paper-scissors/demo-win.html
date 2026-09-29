@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rock Paper Scissors</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #eaf4ff;
+      color: #17243b;
+      font-family: system-ui, sans-serif;
+    }
+    main {
+      width: min(90%, 480px);
+      padding: 28px;
+      border: 3px solid #17243b;
+      border-radius: 20px;
+      background: white;
+      box-shadow: 8px 8px 0 #ffe48a;
+    }
+    h1 { margin-top: 0; color: #5d35d5; }
+    .choices { display: flex; flex-wrap: wrap; gap: 10px; }
+    button {
+      padding: 12px 16px;
+      border: 2px solid #17243b;
+      border-radius: 12px;
+      background: #f2edff;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    button:hover, button:focus-visible { background: #dfd1ff; }
+    #round, #result { min-height: 1.5em; }
+    #result { font-size: 1.4rem; font-weight: 800; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Rock Paper Scissors</h1>
+    <p>Choose your move. The computer picks one too.</p>
+    <div class="choices">
+      <button type="button" data-move="rock">🪨 Rock</button>
+      <button type="button" data-move="paper">📄 Paper</button>
+      <button type="button" data-move="scissors">✂️ Scissors</button>
+    </div>
+    <p id="round" aria-live="polite">Pick a move to start.</p>
+    <p id="result" aria-live="polite"></p>
+  </main>
+  <script>
+    function computerChoice() {
+      const choices = ["rock", "paper", "scissors"];
+      const index = Math.floor(Math.random() * 3);
+      return choices[index];
+    }
+
+    function decideWinner(player, computer) {
+      if (player === computer) return "Tie!";
+
+      if (
+        (player === "rock" && computer === "scissors") ||
+        (player === "paper" && computer === "rock") ||
+        (player === "scissors" && computer === "paper")
+      ) {
+        return "You win!";
+      }
+      return "Computer wins!";
+    }
+
+    function playRound(player) {
+      const computer = computerChoice();
+      const result = decideWinner(player, computer);
+      document.getElementById("round").textContent =
+        "You chose " + player + ". Computer chose " + computer + ".";
+      document.getElementById("result").textContent = result;
+    }
+
+    document.querySelectorAll("[data-move]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        playRound(button.dataset.move);
+      });
+    });
+  </script>
+  <script>
+    Math.random = () => 0.9;
+    document.querySelector('[data-move="rock"]').click();
+  </script>
+</body>
+</html>

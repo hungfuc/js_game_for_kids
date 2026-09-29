@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bouncing Ball</title>
+  <style>
+    body { font-family: system-ui, sans-serif; color: #17243b; }
+    canvas { border: 2px solid #17243b; background: #f0f7ff; }
+  </style>
+</head>
+<body>
+  <h1>Bouncing Ball</h1>
+  <canvas id="game" width="500" height="300"></canvas>
+  <script>window.requestAnimationFrame = () => 0;</script>
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+    let x = 100, y = 80;
+    let dx = 3, dy = 2;
+    const radius = 15;
+
+    function drawBall() {
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.fillStyle = "#6d3df5";
+      ctx.fill();
+    }
+
+    function loop() {
+      x += dx;
+      y += dy;
+      if (x < radius || x > canvas.width - radius) dx = -dx;
+      if (y < radius || y > canvas.height - radius) dy = -dy;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawBall();
+      requestAnimationFrame(loop);
+    }
+    loop();
+  </script>
+  <script>
+    x = canvas.width - radius - 1;
+    dx = 3;
+    loop();
+    loop();
+  </script>
+</body>
+</html>
