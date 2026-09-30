@@ -16,7 +16,7 @@ def main() -> None:
         raise SystemExit("No chapter files were found in chapters/.")
     files = [root / "index.qmd", *chapters, *appendices, root / "references.qmd"]
     parts = ['---\ntitle: "JavaScript Game Programming for Kids"\n'
-             'subtitle: "From browser games to dynamic 2D and 3D worlds"\n---']
+             'subtitle: "From browser games to dynamic 2D and 3D worlds"\nauthor: "Hung-Fu Chang, Ph.D. and Wenhui Zhu, Ph.D."\n---']
     for path in files:
         text = path.read_text(encoding="utf-8")
         if path.name == "index.qmd":

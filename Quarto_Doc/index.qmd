@@ -8,6 +8,8 @@
 
 *Learn JavaScript by Building 2D and 3D Games*
 
+**Hung-Fu Chang, Ph.D. and Wenhui Zhu, Ph.D.**
+
 Build a game. Understand the code. Make it your own.
 
 [18 chapters]{.hero-chip} [Visual explanations]{.hero-chip} [Advanced Study]{.hero-chip}

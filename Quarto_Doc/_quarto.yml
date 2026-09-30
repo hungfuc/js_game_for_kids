@@ -6,6 +6,7 @@ project:
 book:
   title: "Web Game Coding for Kids"
   subtitle: "Learn JavaScript by Building 2D and 3D Games"
+  author: "Hung-Fu Chang, Ph.D. and Wenhui Zhu, Ph.D."
   search: true
   sidebar:
     style: docked

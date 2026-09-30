@@ -19,6 +19,14 @@ You already know that a game needs state, input, rules, and drawing. Those ideas
 
 Open **Robot Island Explorer** in the Game Lab. Move with WASD or the arrow keys and collect four crystals. Drag to orbit the camera and scroll to zoom. The decorative crates are intentionally not solid in this pre-physics project. We will give objects real physical behavior with Rapier later.
 
+These Chrome screenshots show the supplied Three.js project after its scene, camera, lights, local GLB models, and controls have loaded. The second state places the robot on a crystal so the ordinary collection rule removes it and updates the score.
+
+![Robot Island Explorer in Chrome at its starting position.](../figures/chapter_17/explorer-start.png){#fig-ch17-explorer-start fig-alt="Robot Island Explorer shows a small robot, two wooden crates, and four purple crystals on a green gridded island." width="100%"}
+
+![Robot Island Explorer after one crystal has been collected.](../figures/chapter_17/explorer-crystal.png){#fig-ch17-explorer-crystal fig-alt="Robot Island Explorer shows the robot at the far-right corner, three remaining crystals, and a status of Crystals: 1/4." width="100%"}
+
+**Read the screenshots:** The camera turns the same flat browser canvas into a view of an `x-z` floor with height along `y`. The robot's changed world position changes where the camera sees it; the island itself does not move. One crystal disappears because the update loop measured the robot-to-crystal distance and marked that collectible as collected.
+
 ::: {.callout-tip .setup title="Set up the 3D projects" icon="false"}
 Use the same local server from Chapter 13. The supplied 3D pages load **Three.js 0.180.0** and, where needed, **Rapier 0.17.3** from a CDN. These are pinned lesson dependencies, not a claim that they are the newest releases.
 

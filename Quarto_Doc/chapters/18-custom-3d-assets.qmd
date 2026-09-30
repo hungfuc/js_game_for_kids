@@ -21,6 +21,14 @@ These models have no skeletal rig or animation clips. The robot can move and tur
 
 Open **3D Asset Workshop** in the Game Lab. Change the robot's body color, inspect it from several angles, and choose **Export robot.glb**. The workshop produces `my-robot.glb`; it does not overwrite your original asset automatically.
 
+The workshop was run in Chrome for both views below. The first uses the material stored in the included GLB. The second sends a new color through the page's real color input and redraws the same loaded model.
+
+![The 3D Asset Workshop displaying the original turquoise robot.](../figures/chapter_18/workshop-original.png){#fig-ch18-workshop-original fig-alt="The 3D Asset Workshop shows a turquoise block-style robot standing on a perspective grid." width="100%"}
+
+![The same robot after its body material has been changed to pink.](../figures/chapter_18/workshop-recolored.png){#fig-ch18-workshop-recolored fig-alt="The 3D Asset Workshop shows the same robot and grid, with the robot body changed from turquoise to pink." width="100%"}
+
+**Read the screenshots:** Geometry, camera, scale, and origin stay fixed while the body material changes. The arms, head, and legs keep their original materials because the code finds the mesh named `body`, clones only that material, and edits its color. That separation lets one visual property change without rebuilding the model or moving its foot-level origin.
+
 ## Load a GLB with GLTFLoader
 
 GLB is a binary container for glTF content. Three.js provides `GLTFLoader` as an addon. It returns a loaded object containing the scene and, when present, animations.

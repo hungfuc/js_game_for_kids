@@ -1,6 +1,7 @@
 ---
 title: "JavaScript Game Programming for Kids"
 subtitle: "From browser games to dynamic 2D and 3D worlds"
+author: "Hung-Fu Chang, Ph.D. and Wenhui Zhu, Ph.D."
 ---
 
 # Welcome, game maker! {.unnumbered #welcome}
@@ -10,6 +11,8 @@ subtitle: "From browser games to dynamic 2D and 3D worlds"
 [LEARN BY MAKING]{.eyebrow}
 
 [JavaScript Game Programming for Kids]{.hero-title}
+
+**Hung-Fu Chang, Ph.D. and Wenhui Zhu, Ph.D.**
 
 Build a game. Understand the code. Make it your own. Explore 2D and 3D.
 
@@ -3026,6 +3029,14 @@ Three.js draws the ball. Rapier calculates how it falls and collides. Your code 
 
 Open **Rapier Drop Lab**. Three balls begin at the same height and fall onto the same floor. Their bounce settings differ. Choose Drop again, then show the colliders. Watch the shapes that the simulation actually uses.
 
+These screenshots come from the supplied project running in Chrome through the local Game Lab server. The second view turns on Rapier's debug drawing while the same simulation continues.
+
+![Rapier Drop Lab in Chrome with three balls above the shared floor.](Quarto_Doc/figures/chapter_17/drop-lab.png){#fig-ch17-drop-start fig-alt="Rapier Drop Lab shows blue, purple, and gold balls falling above one green floor." width="100%"}
+
+![Rapier Drop Lab with wireframes showing the ball and floor colliders.](Quarto_Doc/figures/chapter_17/drop-colliders.png){#fig-ch17-drop-colliders fig-alt="Rapier Drop Lab shows wireframe sphere colliders around the three balls and a wireframe cuboid collider around the floor." width="100%"}
+
+**Read the screenshots:** The colored spheres are Three.js meshes. The wireframes in the second view are Rapier's collision shapes. Their alignment shows that each visible ball follows a spherical collider and that the floor uses one large cuboid. The balls are at different heights because their restitution values produce different bounces after they contact the same floor.
+
 This book uses **Rapier**, often called Rapier.js for its JavaScript bindings, with Three.js. The compatibility package includes WebAssembly data in the JavaScript package and still needs asynchronous initialization. See [Rapier's JavaScript getting-started guide](https://rapier.rs/docs/user_guides/javascript/getting_started_js/).
 
 ## Initialize before creating a world
@@ -3165,6 +3176,14 @@ Physics tells you what touched. Game rules decide what that contact means: stop,
 ## Play the complete reference game
 
 Open **Marble Quest** in the Game Lab and choose Start. Use WASD or the arrow keys to roll the marble. Collect five crystals and enter the far gate. Walls block you; crates can be pushed; the ramp changes your motion. Rolling off the board costs a life.
+
+The first browser view shows the complete course before play begins. The second starts the real physics world and turns on its collider display.
+
+![Marble Quest in Chrome before the player starts the round.](Quarto_Doc/figures/chapter_18/marble-ready.png){#fig-ch18-marble-ready fig-alt="Marble Quest shows a patterned marble, five purple crystals, two crates, walls, a ramp, and a far gate." width="100%"}
+
+![Marble Quest running with Rapier collider wireframes visible.](Quarto_Doc/figures/chapter_18/marble-collected.png){#fig-ch18-marble-colliders fig-alt="Marble Quest shows wireframe colliders around the marble, crystal sensors, crates, walls, ramp, floor, and goal." width="100%"}
+
+**Read the screenshots:** The artwork makes the course understandable, while the wireframes reveal the simpler shapes used by physics. Solid cuboids block or move the marble. Circular crystal sensors report overlaps without becoming walls. The large floor collider supports every dynamic object, and the outlined goal waits for the score rule described later in this chapter.
 
 The game uses the original crystal and crate GLBs, a custom marble texture, Three.js rendering, and Rapier physics. The source is fully supplied in `games/marble-quest/`, with shared helpers in `games/shared/`. Snippets in this chapter explain selected parts of that implementation; they are not meant to be pasted together as an unrelated second loop.
 
