@@ -1,133 +1,546 @@
-# Meet Your Computer, Browser, and the Web {#sec-ch01}
+# Computer, Browser, and Web {#sec-ch01}
 
 ::: {.chapter-banner}
 
-[WEB 01 | Your first web workspace]{.game-title}
+[WEB 01 | Before we build a web game]{.game-title}
 
-[Personal computer]{.skill-chip} [Browser]{.skill-chip} [Files]{.skill-chip} [Servers]{.skill-chip}
-
-:::
-
-::: {.callout-tip .mission title="Your mission" icon="false"}
-
-By the end of this chapter, you can:
-
-- name the jobs of your computer, browser, files, and web servers
-- organize a small website in its own folder
-- explain the difference between a local file and a web address
-- predict where HTML, CSS, and JavaScript will do their work
+[Hardware]{.skill-chip} [Software]{.skill-chip} [Browser]{.skill-chip} [Web]{.skill-chip} [URL]{.skill-chip} [Server]{.skill-chip}
 
 :::
 
-::: {.callout-note .big-idea title="The big idea" icon="false"}
+## Overview {.unnumbered}
 
-Your browser is a program on **your** computer. It can open files saved on that computer or ask a server on the internet for files. In both cases, the browser assembles the page that you see.
+Before you build a web game, it helps to know **where the game lives**, **what runs it**, and **how the pieces reach the screen**.
 
+A web game may look like one thing when you play it, but several parts work together behind the scenes. Your computer provides the hardware. Programs such as a browser provide the software. Files store the pictures, sounds, page information, and game instructions. The Web lets a browser request files from other computers when those files are not already on your own computer.
+
+You do **not** need to memorize every technical word in this chapter. The goal is to build a simple picture in your mind. Later chapters will add HTML, CSS, and JavaScript to that picture one step at a time.
+
+::: {.callout-note title="The big picture" icon="false"}
+When you play a web game, you are usually using **software** called a browser on **hardware** such as a laptop or desktop computer. The browser opens game files from your computer or receives them from a server, then uses those files to show and run the game.
 :::
 
-![A project folder on a personal computer can send a local file directly to its browser. The browser can also request files from a web server through the internet, then receive the response and show the page.](../figures/chapter_01/client-browser-server.svg){#fig-ch01-client-server fig-alt="A diagram shows a project folder and a browser client inside a personal computer. The browser opens local files from the folder or sends a request through the internet to a web server, which returns page files." width="100%"}
-
-**Read the picture:** The folder, browser, and client are all on the same personal computer. The server is only involved when the browser uses an internet address. In both routes, the browser is the program that displays the page.
-
-## Your personal computer is your first web workshop
-
-A **personal computer** is the device in front of you: perhaps a laptop, desktop, or Chromebook. It stores files and runs programs. Two programs matter especially in this book:
-
-- A **text editor** lets you write and save code as plain text.
-- A **web browser**—such as Chrome, Edge, Firefox, or Safari—reads web files and shows a page.
-
-When your browser is doing the work on your device, your device is called the **client**. “Client” does not mean a different kind of computer. It means the computer that asks for a page and uses it.
-
-For the first pages in this book, the client is all you need. You will save a file, open it in your browser, edit it, save again, and refresh the page to see the change.
-
-## Keep each website in its own folder
-
-A website is a group of related files. Make one folder for one project so its files stay together. For the next chapter, create a folder named `my-game-site` with these two files inside it:
-
-```
-my-game-site/
-  index.html
-  styles.css
+```{mermaid}
+flowchart LR
+    A[Computer hardware] --> B[Browser software]
+    C[Game files] --> B
+    B --> D[Web game on the screen]
 ```
 
-`index.html` will describe the page. `styles.css` will describe its colors, spacing, and layout. The endings after the dots are part of the file names:
+**Read the picture:** The computer is the physical machine. The browser is a program running on that machine. The browser uses files to create the game experience you see.
 
-- `.html` means an HTML page.
-- `.css` means a CSS style sheet.
-- `.js` will later mean a JavaScript program.
+## Learning Objectives {.unnumbered}
 
-Be careful to save plain-text files with the right ending. A file named `index.html.txt` is a text document, not a web page. If you cannot see file endings, ask a teacher or an adult to help turn them on.
+By the end of this chapter, you will be able to:
 
-## The browser turns files into a page
+- distinguish **hardware** from **software**;
+- explain the difference between a **program**, a **file**, and a **folder**;
+- explain what a **browser** does;
+- distinguish the **Internet** from the **Web**;
+- distinguish a **web page**, **website**, and **web game**;
+- explain what a **URL** is and recognize its basic parts;
+- describe the jobs of a **client** and a **server**;
+- trace a simple **request and response** between a browser and a server;
+- explain the difference between opening a **local file** and visiting a web address;
+- describe, at a high level, where a web game can do its work.
 
-When you open `index.html`, the browser reads the HTML instructions and creates the page. If the HTML links to `styles.css`, the browser reads that file too. It uses CSS to decide how the same page should look.
+## Hardware and software work together
 
-Think of the jobs this way:
+Look at the computer in front of you. You may see a screen, keyboard, mouse, trackpad, and perhaps a desktop computer or laptop case. These are examples of **hardware**.
 
-| Tool or file | Main job | Example |
+**Hardware** means the physical parts of a computer system---the parts that are built from electronic or mechanical components. You can usually touch hardware.
+
+Examples include:
+
+- a screen;
+- a keyboard;
+- a mouse or trackpad;
+- a processor;
+- memory;
+- a storage drive;
+- speakers.
+
+Hardware by itself does not know how to open a website or run a game. It needs instructions. Those instructions are provided by **software**.
+
+**Software** is a program, or a collection of programs and data, that tells computer hardware what work to do.
+
+Examples include:
+
+- a web browser such as Chrome, Edge, Firefox, or Safari;
+- a text editor used to write code;
+- a drawing program;
+- a music player;
+- a web game running in a browser.
+
+```{mermaid}
+flowchart TB
+    C[Computer system]
+    C --> H[Hardware<br/>physical parts]
+    C --> S[Software<br/>programs and instructions]
+    H --> H1[Screen]
+    H --> H2[Keyboard]
+    H --> H3[Storage]
+    S --> S1[Browser]
+    S --> S2[Text editor]
+    S --> S3[Games]
+```
+
+::: {.callout-warning title="Watch Out: A browser is not hardware" icon="false"}
+Chrome, Edge, Firefox, and Safari are **software**. The screen that shows the browser is hardware.
+:::
+
+### What is a program? {.unnumbered}
+
+A **program** is a set of instructions that a computer can follow. A browser is a program. A calculator app is a program. A game is also a program.
+
+When you start a program, the computer loads the instructions and begins carrying them out. Some programs open documents. Some programs play music. A browser opens and runs web content.
+
+For this book, two programs will be especially important:
+
+- A **text editor** lets you create and change code files.
+- A **web browser** reads web files and shows the result.
+
+You will spend a lot of time moving between these two programs: edit something, save it, return to the browser, and see what changed.
+
+## Files and folders keep a project organized
+
+Computers store information in **files**. A file can contain many kinds of information: words, pictures, music, video, data, or program instructions.
+
+A **file name** helps you recognize a file. Many file names also end with a **file extension**, such as `.png` or `.txt`. The extension gives people and programs a clue about what kind of information the file contains.
+
+A **folder** is a container used to organize files and other folders.
+
+Think of a folder as a project box. If you make a space game, you want the files for that game to stay together instead of being scattered around your computer.
+
+```text
+space-game/
+  game-page
+  game-style
+  game-program
+  images/
+    spaceship.png
+    planet.png
+  sounds/
+    launch.mp3
+```
+
+The names `game-page`, `game-style`, and `game-program` are only labels in this picture. In later chapters, you will learn the actual file types used for web pages and JavaScript programs.
+
+```{mermaid}
+flowchart TB
+    A[space-game folder] --> B[Page file]
+    A --> C[Style file]
+    A --> D[Game program file]
+    A --> E[images folder]
+    A --> F[sounds folder]
+    E --> G[spaceship.png]
+    E --> H[planet.png]
+    F --> I[launch.mp3]
+```
+
+::: {.callout-tip title="Try It: Find a file and its folder" icon="false"}
+Open a folder on your computer. Pick one file and answer these questions:
+
+1. What is the file's name?
+2. Does it have a file extension?
+3. Which folder contains it?
+4. Which program would you use to open it?
+:::
+
+## The Internet and the Web are related, but they are not the same thing
+
+People often use the words **Internet** and **Web** as if they mean the same thing. They are related, but they describe different ideas.
+
+The **Internet** is a huge network that connects computers and devices around the world. It is the communication system that lets connected computers exchange information.
+
+The **World Wide Web**, usually called the **Web**, is a system of pages and other resources that we access through the Internet, usually with a web browser.
+
+One simple way to remember the difference is:
+
+- **Internet:** the network that connects computers.
+- **Web:** pages, sites, games, pictures, and other resources that browsers access using that network.
+
+```{mermaid}
+flowchart LR
+    A[Your computer] --> B[Internet<br/>connects computers]
+    B --> C[Web server]
+    C --> D[Web pages and game files]
+```
+
+The Internet can be used for things other than the Web. The Web is one important service that uses the Internet.
+
+::: {.callout-note title="A useful comparison" icon="false"}
+Imagine roads connecting many towns. The **Internet** is like the road system. A **website** is like a place you can reach using those roads. A **browser** is one of the tools that helps you travel to and use that place.
+
+The comparison is not perfect, but it can help you keep the words separate.
+:::
+
+## A browser is software that works with web resources
+
+A **web browser** is software that helps you open and use web pages and web applications. Chrome, Edge, Firefox, and Safari are examples.
+
+A browser can get web files in two common ways:
+
+1. It can open files that are already stored on your computer.
+2. It can request files from another computer through a network.
+
+After it receives the files, the browser uses them to create what you see and interact with on the screen.
+
+```{mermaid}
+flowchart LR
+    L[Files on your computer] -->|open| B[Browser]
+    B --> S[What you see and use]
+    W[Files from a web server] -->|receive| B
+```
+
+::: {.callout-warning title="Watch Out: The browser is not the Internet" icon="false"}
+A browser is a program on your device. The Internet is the network connecting devices. You can even use a browser to open some local files when your computer is not connected to the Internet.
+:::
+
+### What happens when you type something in the address bar? {.unnumbered}
+
+The long box near the top of a browser is usually called the **address bar**. You can use it to enter a web address. Browsers can also send words from the address bar to a search engine, so typing into the address bar does not always mean that you typed a web address.
+
+When you enter a web address, the browser tries to find the resource at that address. If the resource is on another computer, the browser sends a request for it.
+
+## Web pages, websites, and web games
+
+These three terms are connected, but they do not mean exactly the same thing.
+
+A **web page** is one page or view that a browser can display. A page might show instructions, a menu, a story, a score screen, or part of a game.
+
+A **website** is a collection of related web pages and other files that belong together. A school website, news website, and game website may each contain many pages, images, and other resources.
+
+A **web game** is a game designed to run through a web browser. It may use one page or several files. The browser may draw graphics, play sounds, read keyboard or mouse input, update scores, and run the rules of the game.
+
+| Term | Simple meaning | Example |
 | --- | --- | --- |
-| HTML | structure and meaning | a heading, a paragraph, a button |
-| CSS | appearance and layout | a blue button, a roomy card, a centered title |
-| JavaScript | behavior that changes | what happens after a player clicks |
+| Web page | one page shown by a browser | a game's start screen |
+| Website | related pages and resources | a game site with a home page, instructions, and games |
+| Web game | a game that runs in a browser | a game where you move a character and collect stars |
 
-HTML and CSS can make a useful, polished **static website**. “Static” means that the page does not yet run its own rules or change itself. A button can look like a game button before it has JavaScript to react to a click.
+::: {.callout-note title="Why this matters for our book" icon="false"}
+The games in this book are **web games**. That means the browser is not just showing information. It will eventually run instructions that let the game react to clicks, keys, timers, collisions, and other events.
+:::
 
-## Try two local browser examples
+## A URL tells a browser where to look
 
-This book project now includes two tiny example pages in `workspace/chapter1/`. Open `index.html` from that folder, then choose an example. They use only files saved on the computer, so you do not need an internet connection or a server.
+A **URL** is an address for a resource. URL stands for **Uniform Resource Locator**.
 
-The first page shows how many HTML elements can work together. It has a page title, navigation links, headings, paragraphs, a picture, an ordered list, and a table. CSS gives the elements their colors, spacing, and card-like layout.
+You can think of a URL as directions that help a browser locate something. That "something" might be a web page, an image, a game file, or another resource.
 
-![A Chrome rendering of a local HTML example page. The page has a Pixel Planet header, navigation links, a large heading, a paragraph, a rocket image, an ordered mission list, and a table that names the jobs of several HTML elements.](../figures/chapter_01/html-elements-browser.png){#fig-ch01-html-elements fig-alt="A local browser page titled Welcome, space explorer. It shows a header with links, a rocket image, an ordered list, and a table that explains heading, paragraph, and link elements." width="100%"}
+Here is a simple example:
 
-**Read the picture:** Every visible piece started as an HTML element. HTML explains what each piece is; the separate CSS file decides how the pieces are arranged and styled.
+```text
+https://example.com/games/space-quest
+```
+
+For now, focus on three parts:
+
+| Part | Example | What it tells us |
+| --- | --- | --- |
+| Scheme | `https://` | how the browser should communicate |
+| Domain | `example.com` | which site or server name to contact |
+| Path | `/games/space-quest` | which resource or location to ask for |
+
+You do not need to memorize every possible URL part yet. The important idea is that a URL gives the browser an address it can use.
+
+::: {.callout-important collapse="true" title="Advanced Study: A URL can contain more parts" icon="false"}
+A URL can include additional information. For example:
+
+```text
+https://games.example.com:443/levels/maze?mode=easy#start
+```
+
+It may contain:
+
+- a **scheme** such as `https`;
+- a **host name** such as `games.example.com`;
+- an optional **port** such as `443`;
+- a **path** such as `/levels/maze`;
+- an optional **query** such as `?mode=easy`;
+- an optional **fragment** such as `#start`.
+
+You will not need most of these pieces to begin making games. Return to them when a later project needs them.
+:::
 
 ## Local files and web addresses
 
-You can open a saved file directly from your computer. Its address often begins with `file:///`. For example, it might look similar to this:
+A browser does not always need to get a page from the Internet. It can also open a file stored directly on your computer.
 
+A local file address may begin with `file:///`. For example:
+
+```text
+file:///Users/your-name/Documents/space-game/start.html
 ```
-file:///Users/your-name/Documents/my-game-site/index.html
+
+The important part is not the exact folder name. `file:///` tells you that the browser is opening a file from the local computer.
+
+A web address often begins with `http://` or `https://`:
+
+```text
+https://example.com/games/space-quest
 ```
 
-This address means, “Browser, open this file from this computer.” It does not put your page on the internet.
+That normally tells the browser to contact a server through a network.
 
-An internet address usually begins with `https://`, such as `https://example.com`. That tells the browser to contact a **server**. A server is a computer program that keeps web files ready and sends a requested file back to a browser.
+| Address begins with | Usual meaning |
+| --- | --- |
+| `file:///` | open a file stored on this computer |
+| `http://` | request a web resource using HTTP |
+| `https://` | request a web resource using encrypted HTTP communication |
 
-::: {.callout-note .advanced-study title="A browser request, step by step" icon="false" collapse="false"}
+```{mermaid}
+flowchart TB
+    B[Browser]
+    L[Local file<br/>on your computer]
+    I[Internet]
+    S[Web server]
+    L -->|open directly| B
+    B -->|request| I
+    I --> S
+    S -->|response| I
+    I --> B
+```
 
-[OPTIONAL DEEPER DIVE]{.study-badge}
+**Read the picture:** A local file can go directly from storage on your computer to your browser. A web resource takes another route: the browser sends a request through the network and receives a response.
 
-When you visit an internet address, the browser first finds the server for that address. Then it sends a **request**, such as “Please send the home page.” The server sends a **response**, such as the HTML file. The browser may make more requests for the page's CSS, pictures, fonts, or JavaScript.
+## Client and server describe jobs
 
-The server supplies files; the browser on the client turns them into the page. A later game might ask a server for an image or level file, but its drawing and player controls can still run in the browser.
+When computers communicate, we often describe them by the job they are doing.
 
+A **client** asks for or uses a service or resource. In this book, your browser often acts as a client because it asks for web files.
+
+A **server** provides a service or resource. A web server can receive a request and send back a requested file or other data.
+
+The words **client** and **server** describe roles. They do not always describe special kinds of hardware.
+
+For example, your laptop is hardware. Chrome is software. When Chrome asks a web server for a page, Chrome is acting as a **client**.
+
+A server also involves software. In everyday conversation, people sometimes use the word *server* for both the server program and the computer running that program. For now, remember the job: **a server responds to requests**.
+
+```{mermaid}
+sequenceDiagram
+    participant B as Browser (client)
+    participant S as Web server
+    B->>S: Request a game file
+    S-->>B: Send a response
+    B->>B: Use the file
+```
+
+### Request and response {.unnumbered}
+
+A **request** is a message asking for something.
+
+A **response** is the answer that comes back.
+
+For a web game, a simplified conversation might look like this:
+
+> Browser: "Please send the game page."
+>
+> Server: "Here it is."
+>
+> Browser: "Now I need a picture used by the game."
+>
+> Server: "Here is that picture."
+
+Real web communication contains more details, but this request-and-response idea is the foundation.
+
+## Where does a web game do its work?
+
+A web game can do a lot of work directly inside the browser. For example, the browser can respond when a player presses a key, move an object, update a score, draw graphics, and play sounds.
+
+Some web games also communicate with servers. A server might help with jobs such as:
+
+- saving an online account;
+- storing a high score;
+- loading shared game data;
+- connecting several players.
+
+A beginner game does not need all of those features. Many of the first games in this book can run mostly on your own computer in the browser.
+
+```{mermaid}
+flowchart LR
+    P[Player] -->|clicks and keys| B[Browser game]
+    B -->|updates| G[Game screen]
+    B -. optional requests .-> S[Server]
+    S -. optional data .-> B
+```
+
+::: {.callout-note title="Client-side and server-side" icon="false"}
+When work happens in the browser on the player's device, programmers often call it **client-side** work. When work happens in a server program, they call it **server-side** work.
+
+You only need the basic idea now. Most of our early attention will stay on the browser side.
 :::
 
-## Two kinds of servers you will meet
+## How HTML, CSS, and JavaScript will fit later
 
-A public server is connected to the internet so many people can visit a website. We will not publish anything in this book.
+You will start learning HTML in Chapter 2, so this chapter will not teach HTML tags or page syntax. For now, you only need the names of three technologies that often work together in a web game:
 
-A **local server** runs only on your own computer. It gives files an address such as `http://127.0.0.1:8000/`. `127.0.0.1` means “this same computer.” Later, when games use several JavaScript files, data files, or 3D models, a local server helps the browser load them safely. Starting one does not make your project public.
+- **HTML** describes the page's structure and content.
+- **CSS** describes much of the page's appearance and layout.
+- **JavaScript** gives the page programmable behavior.
 
-For now, opening `index.html` directly is enough. Learn the page's structure and style first; the next chapter does exactly that.
+Think of them as three different jobs rather than three things you must learn all at once.
 
-## Get ready for input and JavaScript
+| Technology | Job in a future web game | Example |
+| --- | --- | --- |
+| HTML | what is on the page | a score area or game button |
+| CSS | how it looks | size, spacing, color, position |
+| JavaScript | what it does | increase the score after an action |
 
-Web pages have **input elements** such as text boxes, checkboxes, menus, and buttons. In the next chapter, you will place them on a static site and label them clearly. They will be real browser controls, but they will not yet make a game remember a choice or react to a click.
+```{mermaid}
+flowchart LR
+    H[HTML<br/>what is there] --> G[Web game]
+    C[CSS<br/>how it looks] --> G
+    J[JavaScript<br/>what it does] --> G
+```
 
-Here is the second local browser example. It puts several input elements on one player-card page: text, email, number, and date fields; a menu; a color picker; a slider; radio buttons; a checkbox; a text area; and a button.
+Do not worry about the code yet. Chapter 2 begins with HTML and shows how a browser turns page structure into something you can see.
 
-![A Chrome rendering of a local player-card form. It contains fields for nickname, email, number, date, a menu, color picker, range slider, radio buttons, checkbox, text area, and a button that says JavaScript comes next.](../figures/chapter_01/input-elements-browser.png){#fig-ch01-input-elements fig-alt="A browser page titled Design your player card with labeled text, email, number, date, select, color, range, radio, checkbox, text area, and button controls." width="100%"}
+::: {.callout-important collapse="true" title="Advanced Study: What is a local web server?" icon="false"}
+Later games in this book will use several JavaScript files, data files, or 3D models. For those projects, we will sometimes run a **local web server**.
 
-**Read the picture:** The controls are already real browser elements. A person can type and choose, but the page has no JavaScript yet to save the answers, calculate with them, or react to the button.
+A local server is server software running on your own computer. It may give your browser an address such as:
 
-That is intentional. First learn what HTML puts on a page and what CSS changes about its appearance. Then, in Chapter 3, JavaScript will find those elements and give them behavior.
+```text
+http://127.0.0.1:8000/
+```
 
-## Checkpoint
+`127.0.0.1` is a special address that refers back to the same computer. Starting a local server for a project does **not** automatically publish that project to the Internet.
 
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-Suppose you double-click `index.html` in your project folder. Which program opens it? Which device stores the file? Is a server on the internet required? Explain why.
-
+For now, you only need to recognize the idea. Later chapters will tell you when to use the local server and how to start it.
 :::
+
+## Exercises {.unnumbered}
+
+### Exercise 1: Hardware or software?
+
+Classify each item as **hardware** or **software**.
+
+1. Keyboard
+2. Firefox
+3. Monitor
+4. Text editor
+5. Speakers
+6. A browser game
+
+### Exercise 2: File, folder, or program?
+
+For each item, choose **file**, **folder**, or **program**.
+
+1. `spaceship.png`
+2. Chrome
+3. `space-game/`
+4. `launch.mp3`
+5. A text editor
+6. `images/`
+
+### Exercise 3: Internet or Web?
+
+Complete each sentence with **Internet** or **Web**.
+
+1. The __________ connects computers and devices so they can exchange information.
+2. The __________ includes pages and resources that a browser can access.
+3. A browser normally uses the __________ to reach a website on another computer.
+
+### Exercise 4: Page, site, or game?
+
+Choose **web page**, **website**, or **web game**.
+
+1. One instruction screen displayed in a browser
+2. A collection containing a home page, help page, and several games
+3. An interactive browser program where the player catches falling stars
+
+### Exercise 5: Read a URL
+
+Look at this URL:
+
+```text
+https://games.example.com/arcade/star-catcher
+```
+
+Answer the questions.
+
+1. What is the scheme?
+2. What is the domain or host name?
+3. What is the path?
+4. Does this look like a local file address or a web address?
+
+### Exercise 6: Local or remote?
+
+For each address, decide whether the browser is most likely opening a **local file** or requesting a **web resource**.
+
+```text
+file:///Users/Ari/Games/star-game/start.html
+https://example.com/games/star-game
+file:///C:/Games/maze/start.html
+http://school.example.org/game-lab
+```
+
+### Exercise 7: Trace the request
+
+Put these actions in a sensible order:
+
+- The server sends a response.
+- The browser shows or uses the returned resource.
+- The browser sends a request.
+- The player enters a web address.
+
+### Exercise 8: Who is doing the job?
+
+A player opens a browser and visits an online game. The browser asks another computer for the game files.
+
+Answer these questions:
+
+1. Which software is acting as the client?
+2. What is the server's job?
+3. Which part is hardware: the laptop or the browser?
+4. After the files arrive, where can much of the game logic run?
+
+### Exercise 9: Explain the picture
+
+Draw four boxes labeled **Player**, **Browser**, **Internet**, and **Server**. Add arrows to show how a player can request a web game. Label at least one arrow **request** and one arrow **response**.
+
+## Challenges {.unnumbered}
+
+### Challenge 1: Explain a web game to a beginner
+
+Imagine a friend says, "A web game is stored inside Chrome."
+
+Write a short explanation that uses at least four of these words correctly:
+
+**hardware, software, browser, file, Internet, Web, server, client**
+
+### Challenge 2: Draw the journey of a game
+
+Draw a diagram showing two ways a browser can get game files:
+
+1. from the same computer;
+2. from a web server through the Internet.
+
+Your diagram must include **browser**, **local file**, **request**, **response**, and **server**.
+
+Then write two or three sentences explaining the difference between the two routes.
+
+### Challenge 3: Plan a future game project
+
+Imagine you will build a game called **Robot Rescue**. Sketch a folder for the project. Include folders or files for at least:
+
+- the game page;
+- game instructions or code;
+- images;
+- sounds.
+
+You do not need to know the real web file extensions yet. Use names that clearly describe each item's job.
+
+Then answer: **Why is keeping related game files in one project folder useful?**
+
+### Challenge 4: Local game or online game?
+
+You are designing two games:
+
+- **Game A** is a simple maze that runs on one student's laptop.
+- **Game B** lets students on different computers compare high scores online.
+
+For each game, explain which work could happen in the browser and whether a server would be useful. You do not need to design the server; explain only the jobs it might perform.
