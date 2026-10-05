@@ -1,0 +1,823 @@
+# Repeat Game Actions with Loops {#sec-ch06}
+
+::: {.chapter-banner}
+
+[GAME 06 | Monster Swarm]{.game-title}
+
+[Loops]{.skill-chip} [Arrays]{.skill-chip} [Repeated actions]{.skill-chip}
+
+:::
+
+## Overview
+
+In Chapter 3, you made one monster react to a click. In Chapter 4, you added a `score` variable so the game could remember how many hits the player made. In Chapter 5, you added **branches** so the game could make decisions from that score.
+
+Now the monster has called for backup.
+
+Instead of one monster, the game will have several monsters. We *could* write the same JavaScript again and again for every monster, but that becomes tedious very quickly. A **loop** lets JavaScript repeat a block of code for us.
+
+This chapter grows the same Monster Clicker game one more step:
+
+```text
+Chapter 3: one monster can be clicked
+       ↓
+Chapter 4: remember the score
+       ↓
+Chapter 5: make decisions from the score
+       ↓
+Chapter 6: repeat actions for many monsters
+```
+
+The main idea is simple:
+
+> A branch chooses **which code** should run. A loop chooses **how many times** code should run.
+
+```{mermaid}
+flowchart LR
+    A[Several monsters] --> B[Array of monster IDs]
+    B --> C[Loop through the array]
+    C --> D[Find each monster]
+    D --> E[Connect the click event]
+```
+
+By the end of the chapter, one small loop will replace several nearly identical lines of JavaScript.
+
+## Learning Objectives
+
+By the end of this chapter, you will be able to:
+
+- explain why programs use loops;
+- identify the three main parts of a `for` loop;
+- trace how a loop variable changes during repetition;
+- use `.length` so a loop matches the size of an array;
+- loop through an array by using an index;
+- use a loop to connect click events to several game elements;
+- distinguish a loop from a branch;
+- recognize how a loop can accidentally run forever.
+
+## 6.1 Why Do We Need a Loop?
+
+Imagine that our Monster Clicker now has three monsters:
+
+```html
+<button id="slime">Slime</button>
+<button id="bat">Bat</button>
+<button id="ghost">Ghost</button>
+```
+
+We already know how to connect one monster to the `hitMonster()` function:
+
+```javascript
+const slime = document.getElementById("slime");
+slime.addEventListener("click", hitMonster);
+```
+
+For three monsters, we could repeat the same idea:
+
+```javascript
+const slime = document.getElementById("slime");
+const bat = document.getElementById("bat");
+const ghost = document.getElementById("ghost");
+
+slime.addEventListener("click", hitMonster);
+bat.addEventListener("click", hitMonster);
+ghost.addEventListener("click", hitMonster);
+```
+
+This works, but notice the pattern. We are doing almost the same job three times.
+
+```text
+find a monster → connect its click event
+find a monster → connect its click event
+find a monster → connect its click event
+```
+
+A **loop** is useful when a program needs to repeat a pattern.
+
+::: {.callout-note title="Loop Mental Model"}
+A loop says:
+
+**Repeat this block of code while a rule says to keep going.**
+:::
+
+A loop does not mean that every game must constantly repeat forever. It can repeat exactly 3 times, 10 times, or once for every item in a list.
+
+## 6.2 Your First `for` Loop
+
+A common JavaScript loop is the **`for` loop**.
+
+Here is a small example:
+
+```javascript
+for (let i = 0; i < 3; i++) {
+  console.log("A monster appeared!");
+}
+```
+
+This prints the same message three times.
+
+The first line may look strange at first:
+
+```javascript
+for (let i = 0; i < 3; i++) {
+```
+
+A `for` loop has three important parts inside the parentheses:
+
+```text
+for ( START ; KEEP-GOING TEST ; CHANGE )
+```
+
+For our example:
+
+```text
+for ( let i = 0 ; i < 3 ; i++ )
+      ─────────   ─────   ───
+        start      test   change
+```
+
+### Start: `let i = 0`
+
+```javascript
+let i = 0
+```
+
+The loop creates a variable named `i` and starts it at `0`.
+
+Programmers often use `i` as a short name for **index**. An index is a position number. You will use indexes with arrays later in this chapter.
+
+### Keep-going test: `i < 3`
+
+```javascript
+i < 3
+```
+
+Before each repetition, JavaScript checks this condition.
+
+- If it is `true`, the loop body runs.
+- If it is `false`, the loop stops.
+
+### Change: `i++`
+
+```javascript
+i++
+```
+
+This adds `1` to `i` after each repetition.
+
+It is a short way to write:
+
+```javascript
+i = i + 1;
+```
+
+::: {.callout-tip title="Try It"}
+Change `i < 3` to `i < 5`. Predict how many times the message will appear before you run the code.
+:::
+
+## 6.3 Trace a Loop One Step at a Time
+
+Loops become easier when you trace the changing value.
+
+Consider:
+
+```javascript
+for (let i = 0; i < 3; i++) {
+  console.log(i);
+}
+```
+
+JavaScript follows these steps:
+
+| Repetition | Value of `i` | Is `i < 3` true? | What happens? |
+|---|---:|---|---|
+| 1 | 0 | yes | print `0` |
+| 2 | 1 | yes | print `1` |
+| 3 | 2 | yes | print `2` |
+| stop | 3 | no | leave the loop |
+
+So the output is:
+
+```text
+0
+1
+2
+```
+
+Why does it begin with `0` instead of `1`?
+
+Because JavaScript arrays also begin counting positions at `0`. Starting a loop at `0` will soon become very useful.
+
+::: {.callout-warning title="Watch Out: `<` Is Important"}
+If the loop starts at `0`, then this repeats **three** times:
+
+```javascript
+for (let i = 0; i < 3; i++)
+```
+
+The values are `0`, `1`, and `2`.
+
+Using `i <= 3` would also include `3`, so the loop would repeat four times.
+:::
+
+## 6.4 Arrays Store Several Values Together
+
+In Chapter 4, you learned that a variable can store different kinds of values. An **array** is a value that can hold several items in order.
+
+Suppose our game has three monsters:
+
+```javascript
+const monsterIds = ["slime", "bat", "ghost"];
+```
+
+The square brackets `[` and `]` create an array.
+
+The array has three items:
+
+```text
+Index:       0        1        2
+             ↓        ↓        ↓
+Value:   "slime"   "bat"   "ghost"
+```
+
+We can get one item by putting its index in square brackets:
+
+```javascript
+console.log(monsterIds[0]); // slime
+console.log(monsterIds[1]); // bat
+console.log(monsterIds[2]); // ghost
+```
+
+The first item is index `0`, not index `1`.
+
+### Use `.length` to ask how many items are in an array
+
+```javascript
+console.log(monsterIds.length);
+```
+
+For our array, `monsterIds.length` is `3`.
+
+This is better than writing the number `3` directly in many places. If we add another monster later, the array's length changes automatically.
+
+::: {.callout-note title="Understand"}
+For an array with 3 items:
+
+- `.length` is `3`;
+- valid indexes are `0`, `1`, and `2`;
+- the last index is one less than the length.
+:::
+
+## 6.5 Loop Through an Array
+
+Now we can combine a loop with an array.
+
+```javascript
+const monsterIds = ["slime", "bat", "ghost"];
+
+for (let i = 0; i < monsterIds.length; i++) {
+  console.log(monsterIds[i]);
+}
+```
+
+Trace it:
+
+```text
+i = 0 → monsterIds[0] → "slime"
+i = 1 → monsterIds[1] → "bat"
+i = 2 → monsterIds[2] → "ghost"
+i = 3 → 3 < 3 is false → stop
+```
+
+This pattern is extremely useful:
+
+```javascript
+for (let i = 0; i < arrayName.length; i++) {
+  // use arrayName[i]
+}
+```
+
+Read it in plain language:
+
+> Start at the first array position. Keep going while the index is smaller than the number of items. Move to the next position each time.
+
+### Why use `.length`?
+
+Suppose we add a fourth monster:
+
+```javascript
+const monsterIds = ["slime", "bat", "ghost", "dragon"];
+```
+
+Our loop still works:
+
+```javascript
+for (let i = 0; i < monsterIds.length; i++) {
+  console.log(monsterIds[i]);
+}
+```
+
+We do not need to change `3` into `4`. The loop asks the array for its current length.
+
+## 6.6 Upgrade the Monster Clicker: One Loop, Many Monsters
+
+Now we can solve the real game problem.
+
+Our HTML contains three monster buttons:
+
+```html
+<div id="monsters">
+  <button id="slime" class="monster">Slime</button>
+  <button id="bat" class="monster">Bat</button>
+  <button id="ghost" class="monster">Ghost</button>
+</div>
+```
+
+The JavaScript stores their IDs in an array:
+
+```javascript
+const monsterIds = ["slime", "bat", "ghost"];
+```
+
+Then a loop visits each ID:
+
+```javascript
+for (let i = 0; i < monsterIds.length; i++) {
+  const monster = document.getElementById(monsterIds[i]);
+  monster.addEventListener("click", hitMonster);
+}
+```
+
+Look carefully at the line inside the loop:
+
+```javascript
+const monster = document.getElementById(monsterIds[i]);
+```
+
+Each time the loop repeats, `monsterIds[i]` is different.
+
+```text
+First time:  monsterIds[0] → "slime"
+Second time: monsterIds[1] → "bat"
+Third time:  monsterIds[2] → "ghost"
+```
+
+So the browser finds each monster and connects the same `hitMonster()` function to it.
+
+```{mermaid}
+flowchart TD
+    A[monsterIds array] --> B[i = 0: slime]
+    B --> C[i = 1: bat]
+    C --> D[i = 2: ghost]
+    D --> E[All three use hitMonster]
+```
+
+This is an important programming skill: **when several objects need the same setup, put their information in a collection and loop through it.**
+
+## 6.7 Keep the Score and Branches from Earlier Chapters
+
+The loop is new, but we do not throw away the code from Chapters 4 and 5.
+
+We still keep the score:
+
+```javascript
+let score = 0;
+const scoreText = document.getElementById("score");
+const message = document.getElementById("message");
+```
+
+We still update the score when a monster is clicked:
+
+```javascript
+function hitMonster() {
+  score = score + 1;
+  scoreText.textContent = score;
+
+  if (score < 5) {
+    message.textContent = "Keep hunting!";
+  } else if (score < 10) {
+    message.textContent = "Monster Hunter!";
+  } else {
+    message.textContent = "Monster Master!";
+  }
+}
+```
+
+And the Power Hit rule still uses a branch:
+
+```javascript
+function powerHit() {
+  if (score >= 5) {
+    score = score - 5;
+    scoreText.textContent = score;
+    message.textContent = "POWER HIT!";
+  } else {
+    message.textContent = "You need 5 points for a Power Hit.";
+  }
+}
+```
+
+Notice that branches and loops do different jobs:
+
+| Tool | Question it answers | Monster Clicker example |
+|---|---|---|
+| `if` / `else` | **Should** this code run? | Is the score at least 5? |
+| `for` loop | **How many times** should this code run? | Connect every monster button |
+
+A game often needs both.
+
+## 6.8 Build the Complete Monster Swarm Game
+
+Here is the complete version. It continues the ideas from Chapters 3, 4, and 5, but replaces repeated monster setup with a loop.
+
+[COMPLETE EXAMPLE | `index.html`]{.code-label}
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Monster Swarm</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      text-align: center;
+      background: #eef7ff;
+      color: #17243b;
+    }
+
+    main {
+      max-width: 650px;
+      margin: 40px auto;
+      padding: 24px;
+      background: white;
+      border: 3px solid #17243b;
+      border-radius: 20px;
+    }
+
+    #monsters {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 24px 0;
+    }
+
+    .monster {
+      padding: 18px;
+      font-size: 1.1rem;
+      border: 2px solid #17243b;
+      border-radius: 14px;
+      background: #e7dcff;
+      cursor: pointer;
+    }
+
+    #powerHit {
+      padding: 12px 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #message {
+      min-height: 1.5em;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Monster Swarm</h1>
+    <p>Score: <span id="score">0</span></p>
+
+    <div id="monsters">
+      <button id="slime" class="monster">🟢 Slime</button>
+      <button id="bat" class="monster">🦇 Bat</button>
+      <button id="ghost" class="monster">👻 Ghost</button>
+    </div>
+
+    <button id="powerHit">⚡ Power Hit (-5 points)</button>
+    <p id="message">Click any monster to begin!</p>
+  </main>
+
+  <script>
+    let score = 0;
+
+    const scoreText = document.getElementById("score");
+    const message = document.getElementById("message");
+    const powerHitButton = document.getElementById("powerHit");
+
+    const monsterIds = ["slime", "bat", "ghost"];
+
+    function updateLevelMessage() {
+      if (score < 5) {
+        message.textContent = "Keep hunting!";
+      } else if (score < 10) {
+        message.textContent = "Monster Hunter!";
+      } else {
+        message.textContent = "Monster Master!";
+      }
+    }
+
+    function hitMonster() {
+      score = score + 1;
+      scoreText.textContent = score;
+      updateLevelMessage();
+    }
+
+    function powerHit() {
+      if (score >= 5) {
+        score = score - 5;
+        scoreText.textContent = score;
+        message.textContent = "POWER HIT!";
+      } else {
+        message.textContent = "You need 5 points for a Power Hit.";
+      }
+    }
+
+    for (let i = 0; i < monsterIds.length; i++) {
+      const monster = document.getElementById(monsterIds[i]);
+      monster.addEventListener("click", hitMonster);
+    }
+
+    powerHitButton.addEventListener("click", powerHit);
+  </script>
+</body>
+</html>
+```
+
+### What is new in this version?
+
+The important new code is the array:
+
+```javascript
+const monsterIds = ["slime", "bat", "ghost"];
+```
+
+and the loop:
+
+```javascript
+for (let i = 0; i < monsterIds.length; i++) {
+  const monster = document.getElementById(monsterIds[i]);
+  monster.addEventListener("click", hitMonster);
+}
+```
+
+Everything else builds on ideas you already know:
+
+```text
+DOM element        → Chapter 3
+click event        → Chapter 3
+score variable     → Chapter 4
+if / else branches → Chapter 5
+array + loop       → Chapter 6
+```
+
+This is how larger programs grow: keep useful code, then add one new idea that solves the next problem.
+
+::: {.callout-tip title="Try It: Add One More Monster"}
+Add this button to the HTML:
+
+```html
+<button id="dragon" class="monster">🐉 Dragon</button>
+```
+
+Then add only one value to the array:
+
+```javascript
+const monsterIds = ["slime", "bat", "ghost", "dragon"];
+```
+
+You do **not** need another `addEventListener()` line. The loop takes care of the new monster.
+:::
+
+## 6.9 A `while` Loop Repeats While a Condition Is True
+
+A `for` loop is useful when you can count repetitions or move through an array.
+
+JavaScript also has a **`while` loop**:
+
+```javascript
+let energy = 3;
+
+while (energy > 0) {
+  console.log("Monster attack!");
+  energy = energy - 1;
+}
+```
+
+Read it as:
+
+> While `energy > 0` is true, keep running the block.
+
+The values change like this:
+
+```text
+energy = 3 → run
+energy = 2 → run
+energy = 1 → run
+energy = 0 → stop
+```
+
+A `while` loop is useful when the stopping rule matters more than a fixed number of repetitions.
+
+For now, use a `for` loop as your main tool for stepping through arrays.
+
+::: {.callout-warning title="Watch Out: Infinite Loops"}
+A loop must eventually reach a stopping condition.
+
+This loop never changes `energy`:
+
+```javascript
+let energy = 3;
+
+while (energy > 0) {
+  console.log("Attack!");
+}
+```
+
+Because `energy` stays `3`, the condition stays true forever. This is called an **infinite loop**.
+
+When writing a loop, always ask: **What changes so this loop can stop?**
+:::
+
+## 6.10 Another Way to Loop Through an Array
+
+Once you are comfortable with the three-part `for` loop, JavaScript has a shorter form for reading every value in an array:
+
+```javascript
+const monsterIds = ["slime", "bat", "ghost"];
+
+for (const monsterId of monsterIds) {
+  console.log(monsterId);
+}
+```
+
+This is called a **`for...of` loop**.
+
+Read it as:
+
+> For each `monsterId` of `monsterIds`, run this code.
+
+We could use it in our game:
+
+```javascript
+for (const monsterId of monsterIds) {
+  const monster = document.getElementById(monsterId);
+  monster.addEventListener("click", hitMonster);
+}
+```
+
+This version is shorter, but the regular `for` loop is still important because it teaches you how a loop starts, tests a condition, changes, and uses array indexes.
+
+::: {.callout-important collapse="true" title="Advanced Study: `for` or `for...of`?"}
+Use a regular `for` loop when you need the index number:
+
+```javascript
+for (let i = 0; i < monsterIds.length; i++) {
+  console.log(i, monsterIds[i]);
+}
+```
+
+Use `for...of` when you mainly need each value:
+
+```javascript
+for (const monsterId of monsterIds) {
+  console.log(monsterId);
+}
+```
+
+Both are useful. The best choice depends on what information your code needs.
+:::
+
+## Exercises
+
+### Exercise 1: Name the Three Parts
+
+For this loop:
+
+```javascript
+for (let i = 0; i < 4; i++) {
+  console.log(i);
+}
+```
+
+Identify:
+
+1. the starting code;
+2. the keep-going condition;
+3. the code that changes the loop variable.
+
+### Exercise 2: Predict the Output
+
+What will this code print?
+
+```javascript
+for (let i = 0; i < 3; i++) {
+  console.log("Hit " + i);
+}
+```
+
+Write the output before running it.
+
+### Exercise 3: Trace the Array
+
+Given:
+
+```javascript
+const monsters = ["slime", "bat", "ghost", "dragon"];
+```
+
+Answer these questions:
+
+1. What is `monsters[0]`?
+2. What is `monsters[2]`?
+3. What is `monsters.length`?
+4. What is the index of `"dragon"`?
+
+### Exercise 4: Complete the Loop
+
+Fill in the missing parts so every monster name is printed.
+
+```javascript
+const monsters = ["slime", "bat", "ghost"];
+
+for (let i = ___; i < monsters.______; i____) {
+  console.log(monsters[___]);
+}
+```
+
+### Exercise 5: Loop or Branch?
+
+Choose **loop** or **branch** for each job.
+
+1. Check whether the player has at least 5 points.
+2. Connect the same click event to five monsters.
+3. Show one message for beginners and another for high scores.
+4. Print every monster name in an array.
+
+### Exercise 6: Find the Bug
+
+This code tries to print all three monsters:
+
+```javascript
+const monsters = ["slime", "bat", "ghost"];
+
+for (let i = 0; i <= monsters.length; i++) {
+  console.log(monsters[i]);
+}
+```
+
+Why does it try to read one position too far? Change one symbol to fix it.
+
+### Exercise 7: Add a Monster
+
+Start with the complete Monster Swarm game. Add a fourth monster button and update the array so the loop connects it automatically.
+
+## Challenges
+
+### Challenge 1: Different Monster Names
+
+Create at least five monsters of your own. Put their IDs in the `monsterIds` array and confirm that the same loop connects every monster.
+
+### Challenge 2: Show the Monster List
+
+Create an array of display names such as:
+
+```javascript
+const monsterNames = ["Slime", "Bat", "Ghost"];
+```
+
+Use a loop to build a message that lists all monsters in the game.
+
+Do not write three separate `message.textContent` statements.
+
+### Challenge 3: Count Down a Power Move
+
+Use a loop to print a countdown in the console:
+
+```text
+3
+2
+1
+POWER HIT!
+```
+
+Decide how your loop should start, when it should stop, and how its counter should change.
+
+### Challenge 4: Create a Monster Wave
+
+Add a second array for another wave of monsters. Use the same loop idea to connect each monster in the new wave. Try to avoid copying the event-listener code for every button.
+
+### Challenge 5: Explain Your Design
+
+In your own words, explain why this code is easier to expand:
+
+```javascript
+for (let i = 0; i < monsterIds.length; i++) {
+  const monster = document.getElementById(monsterIds[i]);
+  monster.addEventListener("click", hitMonster);
+}
+```
+
+Compare it with writing a separate `getElementById()` and `addEventListener()` pair for every monster.

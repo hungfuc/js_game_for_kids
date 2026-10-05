@@ -1,0 +1,923 @@
+# Make the Page React: DOM Elements and Click Events {#sec-ch04}
+
+::: {.chapter-banner}
+
+[GAME 04 | Click the Monster]{.game-title}
+
+[DOM]{.skill-chip} [Events]{.skill-chip} [JavaScript]{.skill-chip}
+
+:::
+
+## Overview
+
+In Chapter 2, you used **HTML** to put things on a page and **CSS** to change how they look. In Chapter 3, you learned how JavaScript stores values using variables such as `const` and `let`.
+
+Now we can connect JavaScript to the web page itself. A game needs to know **which thing on the page** JavaScript should work with and **when something happens** to that thing.
+
+Imagine a monster button on the screen. Two questions must be answered before JavaScript can make it part of a game:
+
+1. **How can JavaScript find the monster on the page?**
+2. **How can JavaScript know when the player clicks it?**
+
+Those two questions introduce two of the most important ideas in browser programming:
+
+- the **DOM**, which lets JavaScript find and change page elements;
+- **events**, which let JavaScript react to things that happen.
+
+```{mermaid}
+flowchart LR
+    A[HTML creates the page] --> B[Browser builds the DOM]
+    B --> C[JavaScript finds an element]
+    D[Player clicks] --> E[Click event]
+    E --> F[JavaScript reacts]
+    F --> C
+```
+
+By the end of this chapter, one ordinary web page will become your first interactive web game.
+
+## Learning Objectives
+
+By the end of this chapter, you will be able to:
+
+- explain what an **HTML element** is;
+- explain why the HTML `id` attribute gives JavaScript a way to identify one element;
+- describe the DOM as the browser's JavaScript-friendly representation of the page;
+- connect `id="..."` in HTML to the string used by `document.getElementById("...")`;
+- explain what an **event** is;
+- distinguish normal top-to-bottom execution from **event-driven execution**;
+- connect a `click` event to a JavaScript function with `addEventListener()`;
+- trace the flow from **page setup → waiting → event → handler → DOM change**;
+- recognize that keyboard, input, and other events follow the same event-listener pattern.
+
+## From HTML Elements to DOM Elements
+
+Start with a small page:
+
+```html
+<h1>Click the Monster!</h1>
+<button id="monster">👾 Monster</button>
+<p id="message">Can you catch it?</p>
+```
+
+The browser shows three visible pieces:
+
+- a heading;
+- a button;
+- a paragraph.
+
+Each piece created by an HTML tag is an **HTML element**.
+
+For example:
+
+```html
+<button id="monster">👾 Monster</button>
+```
+
+This creates a button element. The attribute `id="monster"` gives that element a unique name on the page.
+
+::: {.callout-note title="Understand"}
+An **element** is one part of a web page. Headings, paragraphs, buttons, images, and input boxes are all examples of elements.
+:::
+
+### The browser creates a page model {.unnumbered}
+
+When the browser reads HTML, it does more than draw words and buttons on the screen. It also creates an organized representation of those elements in memory.
+
+That representation is called the **Document Object Model**, usually shortened to **DOM**.
+
+For beginners, you can think of the DOM as the browser's **live map of the page**.
+
+```{mermaid}
+flowchart TD
+    D[document] --> H[h1: Click the Monster!]
+    D --> B[button: monster]
+    D --> P[p: message]
+```
+
+The HTML file is the code you wrote. The DOM is the live page structure the browser created from that code.
+
+JavaScript works with this live DOM while the page is running.
+
+::: {.callout-note title="HTML File vs. DOM"}
+**HTML file:** the source code saved on your computer.
+
+**DOM:** the browser's live representation of the page after it reads the HTML.
+
+JavaScript usually changes the DOM while the program runs. It does not rewrite your saved HTML file.
+:::
+
+## The `id`: The Link Between HTML and JavaScript
+
+Before JavaScript can change a monster, button, message, or picture, it must know **which element you mean**.
+
+HTML gives us an important attribute for this job: `id`.
+
+Look closely at this button:
+
+```html
+<button id="monster">👾 Monster</button>
+```
+
+The whole thing is a `button` element. Inside its opening tag, this part:
+
+```html
+id="monster"
+```
+
+gives that element an **ID value** of `monster`.
+
+Think of an ID like a name tag attached to one object on the page.
+
+```{mermaid}
+flowchart LR
+    A[HTML button element] --> B[id="monster"]
+    B --> C[Unique label: monster]
+```
+
+::: {.callout-note title="Understand: Attribute Name and Attribute Value"}
+In:
+
+```html
+id="monster"
+```
+
+- `id` is the **attribute name**;
+- `monster` is the **attribute value**.
+
+The value is written inside quotation marks in the HTML.
+:::
+
+### Why the ID matters {.unnumbered}
+
+A page may contain many buttons, paragraphs, and images.
+
+```html
+<button id="monster">👾 Monster</button>
+<button id="startButton">Start</button>
+<p id="message">Can you catch it?</p>
+```
+
+If JavaScript only said, “Give me a button,” which button should the browser choose?
+
+The ID gives JavaScript a precise way to identify one element.
+
+For this HTML:
+
+```html
+<button id="monster">👾 Monster</button>
+```
+
+JavaScript can ask:
+
+```javascript
+const monster = document.getElementById("monster");
+```
+
+The string inside `getElementById()` must match the HTML ID value.
+
+```{mermaid}
+flowchart LR
+    H[HTML] --> I[id="monster"]
+    I -->|same value| J[getElementById("monster")]
+    J --> D[DOM button element]
+    D --> V[const monster]
+```
+
+This connection is so important that it is worth reading both directions:
+
+```text
+HTML:       id="monster"
+                     ↓ same text
+JavaScript: getElementById("monster")
+```
+
+The word `monster` is **not special JavaScript vocabulary**. You chose that ID in the HTML, and JavaScript uses the same value to find the element.
+
+::: {.callout-warning title="The Two Names Do Not Have to Match"}
+This is valid:
+
+```html
+<button id="monster">👾 Monster</button>
+```
+
+```javascript
+const enemyButton = document.getElementById("monster");
+```
+
+There are two different names here:
+
+- `"monster"` is the **HTML ID value** JavaScript searches for;
+- `enemyButton` is the **JavaScript variable name** that stores the found DOM element.
+
+Using the same word for both can be easier for beginners, but JavaScript does not require it.
+:::
+
+### Step by step: from HTML to a JavaScript variable {.unnumbered}
+
+Start with the HTML:
+
+```html
+<p id="message">Can you catch it?</p>
+```
+
+**Step 1 — HTML gives the element an ID.**
+
+```text
+id value = message
+```
+
+**Step 2 — The browser creates a DOM element.**
+
+The DOM element keeps information about that paragraph, including its ID.
+
+**Step 3 — JavaScript asks the DOM for that ID.**
+
+```javascript
+document.getElementById("message")
+```
+
+**Step 4 — The browser returns the matching DOM element.**
+
+**Step 5 — A variable stores the returned element.**
+
+```javascript
+const message = document.getElementById("message");
+```
+
+Because Chapter 3 introduced variables, you can read this as an assignment:
+
+> Put the DOM element whose ID is `message` into the constant named `message`.
+
+```{mermaid}
+flowchart TD
+    A[HTML source] --> B["<p id='message'>"]
+    B --> C[Browser builds DOM]
+    C --> D[DOM paragraph with id message]
+    E["getElementById('message')"] --> F{Matching ID?}
+    D --> F
+    F -->|Yes| G[Return DOM element]
+    G --> H[Store it in const message]
+```
+
+### IDs should identify one element {.unnumbered}
+
+An HTML `id` should be unique on the page.
+
+Good:
+
+```html
+<button id="monster">Monster</button>
+<p id="message">Ready!</p>
+```
+
+Avoid giving two different elements the same ID:
+
+```html
+<button id="monster">Monster 1</button>
+<button id="monster">Monster 2</button>
+```
+
+If several game objects need to belong to the same group, later you will learn other ways to select groups of elements. For now, use one unique ID for each element JavaScript needs to find directly.
+
+::: {.callout-warning title="IDs Must Match Exactly"}
+This HTML:
+
+```html
+<button id="monster">Monster</button>
+```
+
+matches:
+
+```javascript
+document.getElementById("monster")
+```
+
+but it does **not** match:
+
+```javascript
+document.getElementById("Monster")
+document.getElementById("monsters")
+document.getElementById("monsterButton")
+```
+
+The browser searches for the exact ID value you provide.
+:::
+
+### What does `document` mean? {.unnumbered}
+
+In browser JavaScript, `document` represents the current web page's DOM.
+
+So:
+
+```javascript
+document.getElementById("monster")
+```
+
+can be read as:
+
+> In the current page, get the element whose ID value is `monster`.
+
+This gives us our first reusable browser-programming pattern:
+
+```text
+Give an HTML element an ID
+        ↓
+Use the same ID in getElementById()
+        ↓
+Store the returned DOM element in a variable
+```
+
+## A DOM Element Can Be Changed
+
+Finding an element matters because JavaScript can now do something with it.
+
+For example, this line changes the paragraph text:
+
+```javascript
+message.textContent = "Great hit!";
+```
+
+`textContent` means the text stored inside that DOM element.
+
+Before JavaScript runs:
+
+```html
+<p id="message">Can you catch it?</p>
+```
+
+After this JavaScript runs:
+
+```javascript
+message.textContent = "Great hit!";
+```
+
+the browser shows:
+
+```text
+Great hit!
+```
+
+The saved HTML file has not changed. The browser changed the **DOM**, so the player sees the new text immediately.
+
+::: {.callout-tip title="Try It"}
+Open the browser console on a simple page and try:
+
+```javascript
+document.getElementById("message").textContent = "Hello from JavaScript!";
+```
+
+If the page has an element with `id="message"`, its text changes immediately.
+:::
+
+This gives us our first important game pattern:
+
+```text
+Find an element → Change the element
+```
+
+But a game should not change everything immediately. Usually it should wait for the **player**.
+
+That brings us to events.
+
+## 4.4 What Is an Event?
+
+An **event** is something that happens while the page is running.
+
+Many events come from the player:
+
+- clicking or tapping;
+- pressing a key;
+- moving the mouse;
+- typing in an input box;
+- changing a selection.
+
+Some events come from the browser or program:
+
+- the page finishes loading;
+- a timer finishes;
+- an animation frame is ready.
+
+For now, we will begin with the easiest event to see: **click**.
+
+### Normal programs often run top to bottom {.unnumbered}
+
+When beginners first learn programming, code often looks like a fixed sequence:
+
+```javascript
+const playerName = "Mia";
+const score = 0;
+console.log(playerName);
+console.log(score);
+```
+
+The computer begins at the top and executes the statements in order.
+
+```{mermaid}
+flowchart TD
+    A[Start] --> B[Run statement 1]
+    B --> C[Run statement 2]
+    C --> D[Run statement 3]
+    D --> E[Finish]
+```
+
+That model is useful, but an interactive web game has another kind of execution.
+
+## Event-Driven Programming: Set Up, Then Wait
+
+A web page cannot know **when** the player will click.
+
+The player might click immediately, five seconds later, or never.
+
+So an event-driven program usually has two phases:
+
+1. **Setup phase** — JavaScript runs code that prepares the page and registers event listeners.
+2. **Waiting-and-response phase** — the browser waits. When an event occurs, it runs the connected handler function.
+
+```{mermaid}
+flowchart TD
+    A[Page starts] --> B[Run setup code]
+    B --> C[Find DOM elements]
+    C --> D[Register event listeners]
+    D --> E[Browser waits]
+    E --> F{Did an event happen?}
+    F -->|No| E
+    F -->|Yes: click| G[Run click handler]
+    G --> H[Change game state or DOM]
+    H --> E
+```
+
+The important difference is the loop back to **waiting**.
+
+The whole JavaScript file does not restart after every click. Instead, the browser remembers the event listener and calls the connected function whenever the event happens.
+
+::: {.callout-note title="Event-Driven Does Not Mean Random Order"}
+The browser still executes each function's statements in order.
+
+What changes is **when a function begins**. An event handler starts because an event occurred, not simply because it was the next line in the original file.
+:::
+
+### Compare the two execution models {.unnumbered}
+
+```{mermaid}
+flowchart LR
+    subgraph Normal[Simple sequential program]
+      A1[Start] --> A2[Statement A] --> A3[Statement B] --> A4[Statement C] --> A5[End]
+    end
+
+    subgraph EventDriven[Event-driven web program]
+      B1[Setup] --> B2[Register listener] --> B3[Wait]
+      B3 -->|event| B4[Run handler]
+      B4 --> B3
+    end
+```
+
+This is a major idea in web games: **the program spends much of its time waiting for events and reacting to them**.
+
+## Listening for a Click Event
+
+Consider this game rule:
+
+> When the player clicks the monster, show “Great hit!”
+
+It contains two parts:
+
+1. **Event:** the player clicks the monster.
+2. **Event handler:** the code that responds to the click.
+
+First, JavaScript gets the element:
+
+```javascript
+const monster = document.getElementById("monster");
+```
+
+Then we define the response function:
+
+```javascript
+function hitMonster() {
+  message.textContent = "Great hit!";
+}
+```
+
+Finally, we connect the element, event type, and function:
+
+```javascript
+monster.addEventListener("click", hitMonster);
+```
+
+Read it like this:
+
+> On the `monster` DOM element, listen for a `click`. When that click occurs, run `hitMonster`.
+
+```{mermaid}
+flowchart LR
+    A[DOM element: monster] --> D[Event listener]
+    B[Event type: click] --> D
+    C[Handler: hitMonster] --> D
+    D --> E[Browser remembers the connection]
+    F[Player clicks later] --> G[click event occurs]
+    G --> E
+    E --> H[Browser calls hitMonster]
+```
+
+### Why `hitMonster` has no parentheses {.unnumbered}
+
+Use:
+
+```javascript
+monster.addEventListener("click", hitMonster);
+```
+
+not:
+
+```javascript
+monster.addEventListener("click", hitMonster());
+```
+
+`hitMonster` gives the browser the function so it can run it **later** when the event happens.
+
+`hitMonster()` means **run the function now** while the setup code is executing.
+
+## The Same Event Pattern Works for Other Events
+
+The click event is only the first example. The same structure can be reused for many events.
+
+```text
+DOM element + event type + handler function
+```
+
+For a click:
+
+```javascript
+monster.addEventListener("click", hitMonster);
+```
+
+For typing into an input box:
+
+```javascript
+nameBox.addEventListener("input", updateName);
+```
+
+For pressing a key:
+
+```javascript
+document.addEventListener("keydown", movePlayer);
+```
+
+The event names are different, but the mental model is the same.
+
+```{mermaid}
+flowchart TD
+    A[Something happens] --> B{Which event?}
+    B -->|click| C[Run click handler]
+    B -->|keydown| D[Run keyboard handler]
+    B -->|input| E[Run input handler]
+    C --> F[Update game]
+    D --> F
+    E --> F
+    F --> G[Wait for the next event]
+```
+
+You do **not** need to memorize all event types now. The important idea is that browsers report events, and your program chooses which events to listen for.
+
+### Put the DOM and event ideas together {.unnumbered}
+
+The full browser-game pattern is:
+
+```{mermaid}
+flowchart TD
+    A[HTML gives element an id] --> B[Browser builds DOM]
+    B --> C[JavaScript gets element by id]
+    C --> D[JavaScript registers event listener]
+    D --> E[Browser waits]
+    E --> F[Player action creates event]
+    F --> G[Browser runs handler function]
+    G --> H[Handler changes game state or DOM]
+    H --> E
+```
+
+Or remember it as:
+
+```text
+ID → Get element → Listen → Wait → Event → Handler → Change → Wait again
+```
+
+## Build the First Click Game
+
+Now put everything into one page.
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Click the Monster</title>
+</head>
+<body>
+  <h1>Click the Monster!</h1>
+
+  <button id="monster">👾 Monster</button>
+  <p id="message">Can you catch it?</p>
+
+  <script>
+    const monster = document.getElementById("monster");
+    const message = document.getElementById("message");
+
+    function hitMonster() {
+      message.textContent = "Great hit!";
+    }
+
+    monster.addEventListener("click", hitMonster);
+  </script>
+</body>
+</html>
+```
+
+### What happens when the page opens? {.unnumbered}
+
+The browser:
+
+1. reads the HTML;
+2. builds DOM elements for the heading, button, and paragraph;
+3. reaches the `<script>`;
+4. finds the `monster` and `message` DOM elements;
+5. creates the `hitMonster` function;
+6. attaches a click listener to the monster;
+7. enters the waiting phase.
+
+Nothing says “Great hit!” yet because the handler has not been called. The browser is waiting for a click event.
+
+### What happens when the player clicks? {.unnumbered}
+
+The browser:
+
+1. detects a `click` event on the monster;
+2. sees that a click listener is attached;
+3. runs `hitMonster()`;
+4. changes `message.textContent`;
+5. redraws the page with the new message.
+
+That is your first event-driven game interaction.
+
+## A Picture Can Receive Events Too
+
+A click event is not only for buttons.
+
+Any DOM element can receive events, including an image.
+
+```html
+<img id="gem" src="gem.svg" alt="Purple game gem" width="96">
+<p id="message">Click the gem.</p>
+```
+
+JavaScript can find the image:
+
+```javascript
+const gem = document.getElementById("gem");
+const message = document.getElementById("message");
+```
+
+Then listen for its click:
+
+```javascript
+function collectGem() {
+  message.textContent = "You collected the gem!";
+}
+
+gem.addEventListener("click", collectGem);
+```
+
+The important idea is not “buttons can be clicked.”
+
+The important idea is:
+
+> JavaScript can find a DOM element and listen for events on that element.
+
+That is much more powerful. Later, game characters, cards, menu items, pictures, and parts of a game screen can all become interactive.
+
+## One Mental Model to Remember
+
+If this chapter feels like many new words, remember this simple model:
+
+```{mermaid}
+flowchart LR
+    A[HTML element] --> B[DOM element]
+    B --> C[JavaScript gets it]
+    D[Player action] --> E[Event]
+    E --> F[Event listener]
+    F --> G[Function runs]
+    G --> H[DOM changes]
+```
+
+Or say it in one sentence:
+
+> **JavaScript gets a DOM element, listens for an event, and changes the page when that event happens.**
+
+::: {.callout-important collapse="true" title="Advanced Study: What If JavaScript Cannot Find the Element?"}
+If this code cannot find a matching element:
+
+```javascript
+const monster = document.getElementById("monster");
+```
+
+JavaScript receives a special value called `null`.
+
+This can happen when:
+
+- the ID is misspelled;
+- the element does not have that ID;
+- JavaScript runs before the browser has created that element.
+
+For now, keep the `<script>` near the bottom of `<body>`, after the elements your JavaScript needs. That way, the browser creates those DOM elements before JavaScript searches for them.
+:::
+
+## Exercises
+
+### Exercise 1: Element or Event?
+
+For each item, write **element** or **event**.
+
+1. a button
+2. a paragraph
+3. a click
+4. an image
+5. a key press
+
+### Exercise 2: Match the HTML and JavaScript
+
+Given this HTML:
+
+```html
+<button id="dragon">🐉 Dragon</button>
+<p id="status">Ready!</p>
+```
+
+Complete the JavaScript:
+
+```javascript
+const dragon = document.getElementById("________");
+const status = document.getElementById("________");
+```
+
+### Exercise 3: Read the DOM Lookup
+
+Explain this line in plain English:
+
+```javascript
+const treasure = document.getElementById("treasure");
+```
+
+### Exercise 4: Predict Before You Run
+
+What will the player see after clicking the button?
+
+```html
+<button id="door">Open Door</button>
+<p id="message">The door is closed.</p>
+
+<script>
+  const door = document.getElementById("door");
+  const message = document.getElementById("message");
+
+  function openDoor() {
+    message.textContent = "The door is open!";
+  }
+
+  door.addEventListener("click", openDoor);
+</script>
+```
+
+### Exercise 5: Find the Bug
+
+Why does this code fail to find the button?
+
+```html
+<button id="monster">Monster</button>
+```
+
+```javascript
+const monster = document.getElementById("Monster");
+```
+
+Fix the JavaScript.
+
+### Exercise 6: Trace the Event Flow
+
+Put these steps in the correct order:
+
+- `hitMonster` changes the message.
+- The browser detects a click.
+- The player clicks the monster.
+- The event listener tells the browser which function to run.
+- The player sees the changed message.
+
+
+### Exercise 7: Follow the ID Connection
+
+For each pair, decide whether `getElementById()` will find the element.
+
+1.
+
+```html
+<img id="star" src="star.png">
+```
+
+```javascript
+document.getElementById("star")
+```
+
+2.
+
+```html
+<button id="startGame">Start</button>
+```
+
+```javascript
+document.getElementById("start")
+```
+
+3.
+
+```html
+<p id="Score">0</p>
+```
+
+```javascript
+document.getElementById("score")
+```
+
+Explain why each one does or does not match.
+
+### Exercise 8: Sequential or Event-Driven?
+
+For each statement, decide whether it belongs to the **setup phase** or happens **later because of an event**.
+
+1. `getElementById("monster")` runs when the page script starts.
+2. The player waits three seconds and clicks the monster.
+3. `hitMonster` runs because the click occurred.
+4. `addEventListener()` connects the click to `hitMonster`.
+5. The browser waits for another event.
+
+### Exercise 9: Same Pattern, New Event
+
+Look at this code:
+
+```javascript
+document.addEventListener("keydown", movePlayer);
+```
+
+Identify:
+
+1. the object receiving the listener;
+2. the event type;
+3. the handler function;
+4. when `movePlayer` runs.
+
+## Challenges
+
+### Challenge 1: Change the Character
+
+Change the monster into a dragon, robot, ghost, or another character.
+
+You must change:
+
+- the visible HTML;
+- the element's `id`;
+- the matching `getElementById()` call;
+- the response message.
+
+### Challenge 2: Two Clickable Game Objects
+
+Create two buttons or images.
+
+For example:
+
+- a monster;
+- a treasure chest.
+
+Give each element its own ID, event listener, and response function.
+
+### Challenge 3: Build a Choice Game
+
+Create two choices such as:
+
+- **Open the red door**
+- **Open the blue door**
+
+When the player clicks each choice, show a different message.
+
+Use the same four-part pattern:
+
+```text
+Get element → Listen for click → Run function → Change DOM
+```
+
+### Challenge 4: Explain Your Game Like a Programmer
+
+Choose one clickable object from your game and explain:
+
+1. which HTML element represents it;
+2. which ID identifies it;
+3. how JavaScript gets its DOM element;
+4. which event the program listens for;
+5. which function runs;
+6. which DOM element changes after the event.

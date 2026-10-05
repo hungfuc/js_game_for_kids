@@ -20,10 +20,10 @@ book:
     - chapters/02-static-website.qmd
   - part: Make the browser react
     chapters:
-    - chapters/03-click-the-monster.qmd
-    - chapters/04-treasure-clicker.qmd
-    - chapters/05-secret-number.qmd
-    - chapters/06-rock-paper-scissors.qmd
+    - chapters/03-variables-monster-starter.qmd
+    - chapters/04-dom-and-event-driven-programming.qmd
+    - chapters/05-monster-decisions.qmd
+    - chapters/06-monster-loops.qmd.qmd
     - chapters/07-catch-the-star.qmd
   - part: Build a moving game world
     chapters:

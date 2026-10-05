@@ -1,0 +1,565 @@
+# Let the Monster Clicker Make Decisions {#sec-ch05}
+
+::: {.chapter-banner}
+
+[GAME 05 | Monster Clicker: Decisions]{.game-title}
+
+[Branches]{.skill-chip} [Comparisons]{.skill-chip} [Game Rules]{.skill-chip}
+
+:::
+
+## Overview
+
+In Chapter 3, you made a monster react when the player clicked it. In Chapter 4, you gave the game **memory** by storing a score and increasing it after every click.
+
+Now the game needs something new: **rules**.
+
+A real game does not always do the same thing. It asks questions:
+
+- Is the score high enough for a power move?
+- Has the player reached a new level?
+- Has the player won?
+- Should the game show encouragement or a victory message?
+
+JavaScript answers these questions with **conditions** and **branches**. A branch lets the program choose one path or another.
+
+```{mermaid}
+flowchart LR
+    A[Player clicks monster] --> B[Score changes]
+    B --> C{What is the score?}
+    C -->|Less than 5| D[Keep going!]
+    C -->|5 to 9| E[Monster is nervous!]
+    C -->|10 or more| F[You win!]
+```
+
+The game is still the same project. We are not throwing away Chapters 3 and 4. We are **upgrading** them.
+
+## Learning Objectives
+
+By the end of this chapter, you will be able to:
+
+- explain what a **condition** is;
+- use comparison operators such as `===`, `<`, `>`, `<=`, and `>=`;
+- write an `if` statement;
+- choose between two paths with `if` and `else`;
+- choose among several paths with `if`, `else if`, and `else`;
+- use branches to create rules for the Monster Clicker game.
+
+## 5.1 From Memory to Decisions
+
+At the end of Chapter 4, your clicker had code like this:
+
+```javascript
+let score = 0;
+
+function hitMonster() {
+  score = score + 1;
+  scoreText.textContent = "Score: " + score;
+}
+```
+
+Every click does exactly the same thing:
+
+1. add 1 to `score`;
+2. show the new score.
+
+But suppose you want the game to say **"You reached 5 hits!"** when the score reaches 5.
+
+Now the program must ask a question:
+
+> Is the score equal to 5?
+
+That kind of yes-or-no question is called a **condition**.
+
+## 5.2 Conditions Become `true` or `false`
+
+A condition is an expression that JavaScript can answer with either:
+
+- `true` — yes;
+- `false` — no.
+
+For example:
+
+```javascript
+score === 5
+```
+
+If `score` is 5, this condition is `true`.
+
+If `score` is 3, this condition is `false`.
+
+::: {.callout-note title="Important: `=` and `===` Have Different Jobs"}
+
+These symbols look similar, but they do different jobs.
+
+```javascript
+score = 5;      // store 5 in score
+score === 5     // ask: is score equal to 5?
+```
+
+Use `=` to **assign** a value.
+
+Use `===` to **compare** values.
+
+:::
+
+Here are several useful comparison operators:
+
+| Operator | Meaning | Example |
+|---|---|---|
+| `===` | equal to | `score === 5` |
+| `!==` | not equal to | `score !== 5` |
+| `>` | greater than | `score > 5` |
+| `<` | less than | `score < 5` |
+| `>=` | greater than or equal to | `score >= 5` |
+| `<=` | less than or equal to | `score <= 5` |
+
+::: {.callout-tip title="Try It: Predict Before Running"}
+
+Suppose `score` is 7. Decide whether each condition is `true` or `false`.
+
+```javascript
+score === 7
+score > 10
+score >= 5
+score < 7
+score !== 3
+```
+
+:::
+
+## 5.3 Your First Branch with `if`
+
+An `if` statement tells JavaScript:
+
+> If this condition is true, run this code.
+
+```javascript
+if (score === 5) {
+  message.textContent = "You reached 5 hits!";
+}
+```
+
+Read it from top to bottom:
+
+1. `if` starts a decision.
+2. `(score === 5)` is the condition.
+3. `{` and `}` surround the code that belongs to this branch.
+4. The message changes only when the condition is `true`.
+
+Add it to the Monster Clicker:
+
+```javascript
+function hitMonster() {
+  score = score + 1;
+  scoreText.textContent = "Score: " + score;
+
+  if (score === 5) {
+    message.textContent = "You reached 5 hits!";
+  }
+}
+```
+
+Now the game behaves differently on one special click.
+
+```{mermaid}
+flowchart TD
+    A[Monster clicked] --> B[Add 1 to score]
+    B --> C{score === 5?}
+    C -->|Yes| D[Show milestone message]
+    C -->|No| E[Do nothing extra]
+```
+
+::: {.callout-warning title="Watch Out: The Condition Goes Inside Parentheses"}
+
+Write:
+
+```javascript
+if (score === 5) {
+```
+
+not:
+
+```javascript
+if score === 5 {
+```
+
+JavaScript needs the parentheses around the condition.
+
+:::
+
+## 5.4 Choose Between Two Paths with `if` and `else`
+
+Sometimes the game should do one thing when a condition is true and something different when it is false.
+
+Suppose the monster should react differently before and after 5 hits.
+
+```javascript
+if (score < 5) {
+  message.textContent = "Keep clicking!";
+} else {
+  message.textContent = "The monster is getting nervous!";
+}
+```
+
+There are now two possible paths:
+
+```{mermaid}
+flowchart LR
+    A{score < 5?} -->|Yes| B[Keep clicking!]
+    A -->|No| C[Monster is getting nervous!]
+```
+
+Notice that `else` does not need another condition. It means:
+
+> If the first condition was false, do this instead.
+
+### Put it into the click function
+
+```javascript
+function hitMonster() {
+  score = score + 1;
+  scoreText.textContent = "Score: " + score;
+
+  if (score < 5) {
+    message.textContent = "Keep clicking!";
+  } else {
+    message.textContent = "The monster is getting nervous!";
+  }
+}
+```
+
+This is already more game-like because the response changes as the player makes progress.
+
+## 5.5 Choose Among Several Paths with `else if`
+
+Games often need more than two choices.
+
+For our Monster Clicker, let us create three stages:
+
+- score 1–4: **Keep clicking!**
+- score 5–9: **The monster is getting nervous!**
+- score 10 or more: **You win!**
+
+Use `else if` for the middle choice:
+
+```javascript
+if (score < 5) {
+  message.textContent = "Keep clicking!";
+} else if (score < 10) {
+  message.textContent = "The monster is getting nervous!";
+} else {
+  message.textContent = "You win!";
+}
+```
+
+JavaScript checks the branches **from top to bottom**.
+
+If `score` is 3:
+
+1. `score < 5` is true;
+2. JavaScript uses the first branch;
+3. it skips the rest.
+
+If `score` is 7:
+
+1. `score < 5` is false;
+2. `score < 10` is true;
+3. JavaScript uses the second branch.
+
+If `score` is 12:
+
+1. `score < 5` is false;
+2. `score < 10` is false;
+3. `else` runs.
+
+::: {.callout-note title="Why Does the Middle Branch Mean 5 Through 9?"}
+
+Look at this code again:
+
+```javascript
+if (score < 5) {
+  // 0 through 4
+} else if (score < 10) {
+  // 5 through 9
+}
+```
+
+The second branch is checked only after JavaScript already knows that `score < 5` is false.
+
+So when JavaScript reaches `score < 10`, the score must already be 5 or more.
+
+That is why the middle branch covers 5 through 9.
+
+:::
+
+## 5.6 Use a Branch to Enforce a Game Rule
+
+Chapter 4 ended with a challenge about spending points without letting the score become negative. Branches solve that problem.
+
+Imagine a **Power Hit** costs 5 points.
+
+The game should ask:
+
+> Does the player have at least 5 points?
+
+```javascript
+if (score >= 5) {
+  score = score - 5;
+  message.textContent = "POWER HIT! You spent 5 points.";
+} else {
+  message.textContent = "You need 5 points for a Power Hit.";
+}
+```
+
+This branch protects the game rule. The score cannot drop below zero because subtraction happens only when `score >= 5` is true.
+
+::: {.callout-tip title="Game Design Idea"}
+
+A branch is more than JavaScript syntax. It is how you turn a **game rule** into code.
+
+Rule in words:
+
+> A Power Hit costs 5 points.
+
+Rule in JavaScript:
+
+```javascript
+if (score >= 5) {
+  score = score - 5;
+}
+```
+
+:::
+
+## 5.7 Build the Complete Game: Monster Clicker with Levels
+
+Now combine what you built across three chapters.
+
+- Chapter 3: the monster listens for a click.
+- Chapter 4: the game remembers a score.
+- Chapter 5: the game makes decisions using that score.
+
+[COMPLETE EXAMPLE]{.code-label}
+
+```html
+<!doctype html>
+<html>
+<body>
+  <h1>Monster Clicker</h1>
+
+  <button id="monster">👾 Hit the monster</button>
+  <button id="power">⚡ Power Hit (-5 points)</button>
+
+  <p id="score">Score: 0</p>
+  <p id="message">Start clicking the monster!</p>
+
+  <script>
+    let score = 0;
+
+    const monster = document.getElementById("monster");
+    const power = document.getElementById("power");
+    const scoreText = document.getElementById("score");
+    const message = document.getElementById("message");
+
+    function showGameState() {
+      scoreText.textContent = "Score: " + score;
+
+      if (score < 5) {
+        message.textContent = "Keep clicking!";
+      } else if (score < 10) {
+        message.textContent = "The monster is getting nervous!";
+      } else {
+        message.textContent = "You reached Monster Master level!";
+      }
+    }
+
+    function hitMonster() {
+      score = score + 1;
+      showGameState();
+    }
+
+    function powerHit() {
+      if (score >= 5) {
+        score = score - 5;
+        scoreText.textContent = "Score: " + score;
+        message.textContent = "POWER HIT! You spent 5 points.";
+      } else {
+        message.textContent = "You need 5 points for a Power Hit.";
+      }
+    }
+
+    monster.addEventListener("click", hitMonster);
+    power.addEventListener("click", powerHit);
+  </script>
+</body>
+</html>
+```
+
+Open `workspace/chapter5-monster-decisions/index.html` to try the complete example, or save the code above as `index.html`.
+
+### Trace one game
+
+Suppose the player starts at 0.
+
+1. Click the monster four times. The score becomes 4 and the message says **Keep clicking!**
+2. Click one more time. The score becomes 5 and the message changes to **The monster is getting nervous!**
+3. Click **Power Hit**. Because `score >= 5` is true, the game spends 5 points and the score returns to 0.
+4. Click **Power Hit** again. Now `score >= 5` is false, so the game refuses the move.
+5. Build the score to 10. The message changes to **You reached Monster Master level!**
+
+That is branching in action: the same button can lead to different results because the game checks its current state first.
+
+## 5.8 Reading Branches Like a Game Designer
+
+When you see a branch, translate it into a rule written in plain language.
+
+```javascript
+if (score >= 10) {
+  message.textContent = "You win!";
+}
+```
+
+Plain-language rule:
+
+> If the player has 10 or more points, show the winning message.
+
+Now go the other direction. Start with a rule:
+
+> If the player has fewer than 3 points, the shield cannot be used.
+
+One possible branch is:
+
+```javascript
+if (score < 3) {
+  message.textContent = "Not enough points for a shield.";
+}
+```
+
+This skill becomes very important as games grow. Collision rules, health rules, timers, lives, levels, and winning conditions all depend on decisions.
+
+::: {.callout-important collapse="true" title="Advanced Study: Combining Conditions"}
+
+Sometimes one rule needs more than one condition.
+
+Use `&&` to mean **AND**:
+
+```javascript
+if (score >= 5 && score < 10) {
+  message.textContent = "Level 2";
+}
+```
+
+Both conditions must be true.
+
+Use `||` to mean **OR**:
+
+```javascript
+if (score === 5 || score === 10) {
+  message.textContent = "Milestone reached!";
+}
+```
+
+At least one condition must be true.
+
+You do not need these operators for the main Monster Clicker yet, but you will see them again in larger games.
+
+:::
+
+## Exercises
+
+### Exercise 1: `true` or `false`?
+
+Suppose:
+
+```javascript
+let score = 6;
+```
+
+Write `true` or `false` for each condition.
+
+1. `score === 6`
+2. `score < 5`
+3. `score >= 5`
+4. `score > 10`
+5. `score !== 2`
+
+### Exercise 2: Assignment or comparison?
+
+For each line, decide whether it **stores a value** or **asks a question**.
+
+```javascript
+score = 10;
+score === 10;
+score = score + 1;
+score >= 5;
+```
+
+### Exercise 3: Predict the branch
+
+Suppose `score` is 8.
+
+```javascript
+if (score < 5) {
+  message.textContent = "A";
+} else if (score < 10) {
+  message.textContent = "B";
+} else {
+  message.textContent = "C";
+}
+```
+
+Which letter appears? Explain why.
+
+### Exercise 4: Complete the rule
+
+Fill in the missing condition so a shield can be used only when the player has at least 3 points.
+
+```javascript
+if (________________) {
+  message.textContent = "Shield activated!";
+} else {
+  message.textContent = "Not enough points.";
+}
+```
+
+### Exercise 5: Add a milestone
+
+Modify the Monster Clicker so the message says **"Halfway there!"** when the score is exactly 5.
+
+## Challenges
+
+### Challenge 1: Add More Monster Levels
+
+Create at least four score ranges instead of three. For example:
+
+- 0–4: Rookie
+- 5–9: Hunter
+- 10–19: Monster Master
+- 20 or more: Legend
+
+Choose your own messages.
+
+### Challenge 2: Create a Healing Rule
+
+Add a button named **Heal** that costs 3 points.
+
+The button should:
+
+- subtract 3 points only when the player has enough points;
+- never let the score become negative;
+- show a different message when the player cannot afford the action.
+
+### Challenge 3: Design Your Own Rule
+
+Invent one new rule for Monster Clicker.
+
+Write the rule first in plain language. Then turn it into an `if`, `if/else`, or `if/else if/else` statement.
+
+Examples of ideas:
+
+- a bonus at a certain score;
+- a warning after too many clicks;
+- a special move that needs points;
+- a new monster level;
+- a victory condition.
