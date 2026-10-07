@@ -23,7 +23,7 @@ book:
     - chapters/03-variables-monster-starter.qmd
     - chapters/04-dom-and-event-driven-programming.qmd
     - chapters/05-monster-decisions.qmd
-    - chapters/06-monster-loops.qmd.qmd
+    - chapters/06-monster-loops.qmd
     - chapters/07-catch-the-star.qmd
   - part: Build a moving game world
     chapters:
