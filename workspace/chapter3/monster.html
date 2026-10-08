@@ -1,10 +1,14 @@
 <!doctype html>
 <html>
 <body>
+  <!-- Development flow: Build the scene structure -> Style the scene -> Program game behavior. -->
+  <!-- Step 1: Build the scene structure (page structure): character and message. -->
+  <!-- Step 2: This small interaction example uses the browser default style. -->
   <h1>Click the Monster!</h1>
   <button id="monster">👾 Monster</button>
   <p id="message">Can you catch it?</p>
 
+  <!-- Step 3: Program game behavior (game operations and actions), taught in Chapter 4. -->
   <script>
     const monster = document.getElementById("monster");
     const message = document.getElementById("message");

@@ -3,6 +3,12 @@
 
 A 20-chapter, student-facing textbook with diagrams, playable companion projects, original assets, and optional Advanced Study callouts. Chapters 1-2 establish computer, browser, HTML, and CSS fundamentals before the game-programming sequence begins in Chapter 3. Chapters 13-20 extend the progression into complete 2D game development and Three.js/Rapier 3D games. There are no teacher-note sections.
 
+## Development theme throughout the book
+
+**Build the scene structure → Style the scene → Program game behavior** (short form: **Structure → Style → Behavior**) guides all 20 chapters, their exercises and challenges, and the reference appendices. “Scene” covers both HTML page structure and game-world objects. “Style” includes CSS, canvas drawing, sprites, 3D materials, lighting, and feedback. “Program game behavior” covers game data, input, operations, and rules.
+
+Exercises identify the stage they practice; challenges give a concrete route through the three steps. Reuse an unchanged stage rather than rebuilding it, predict a result, and check it. This is a development strategy, not the browser’s loading order or the game’s update loop.
+
 ## Read and play
 
 The included `preview.html` is a self-contained HTML reading edition generated from the Quarto manuscript with Pandoc. It includes the diagrams and styling; it is **not a native Quarto build**. The project links inside it work when the complete folder is served locally.
@@ -30,7 +36,7 @@ The two 2D projects work from local files once the server is running. The four 3
 |---|---|
 | 1 | Personal computer, browser, local files, client/server web basics |
 | 2 | Static HTML and CSS website, semantic structure, labeled input elements |
-| 3-12 | JavaScript events, state, decisions, timing, canvas, game patterns, and game design |
+| 3-12 | JavaScript state, events, decisions, timing, canvas, game patterns, and game design |
 | 13 | Real-time 2D loops, input state, velocity, fixed updates |
 | 14 | Rectangle and circle collision, wall response, gravity, jumping |
 | 15 | Original sprites, animation sheets, image loading, JSON levels |
@@ -51,7 +57,7 @@ Each new chapter includes an original explanatory SVG diagram, two optional Adva
 - `games/physics-lab/` - compare three bouncing balls in Rapier
 - `games/marble-quest/` - complete marble-and-collectibles physics game
 
-Shared helpers are in `games/shared/`. The code snippets in the textbook are explanatory selections; the companion folders contain the complete runnable implementations. Early Pong/Breakout/Snake chapters remain concept-building examples rather than full runnable projects.
+Shared helpers are in `games/shared/`. The code snippets in the textbook are explanatory selections; the companion folders contain the complete runnable implementations. The early Pong, Breakout, and Snake chapters include complete small examples alongside focused explanatory snippets.
 
 ## Original custom assets
 

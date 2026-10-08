@@ -5,6 +5,19 @@
 [Custom assets]{.skill-chip} [Sprite sheets]{.skill-chip} [Loading]{.skill-chip} [Level data]{.skill-chip}
 :::
 
+::: {.callout-note .big-idea title="Structure → Style → Behavior" icon="false"}
+
+**Build the scene structure → Style the scene → Program game behavior.**
+
+- **Build the scene structure:** Choose the player, terrain, rewards, asset sizes, and level-data layout.
+- **Style the scene:** Customize sprites and sound feedback while preserving the asset size/origin agreement.
+- **Behavior:** Load assets before play, animate the correct frames, and test a new level route separately.
+
+Use this plan for the examples and exercises below. Reuse parts that already work; change only what the task needs. After each step, predict one result and check it.
+
+:::
+
+
 ::: {.callout-tip .mission title="Your mission" icon="false"}
 Load your own images, animate a sprite sheet, keep artwork separate from collision, and change a level without rewriting its movement code.
 :::
@@ -125,7 +138,16 @@ Repeatedly creating `new Image()` inside `draw()` is not an asset-loading strate
 
 ::: {.callout-tip .challenge title="Level up" icon="false"}
 Make a space-station version of Robot Orchard. Change the robot color, turn gems into energy crystals, and redraw the ground as metal panels. Keep the movement and colliders unchanged first. Then design one new platform route in `level.json` and test it separately.
+
+1. **Build the scene structure:** Keep the player dimensions and define the new route in level data.
+2. **Style the scene:** Redraw the space-station artwork within the existing asset sizes.
+3. **Behavior:** First check unchanged movement with the new art; then separately test the changed route.
+
 :::
 
 
 **Editable assets:** [robot sheet](../games/assets/2d/robot-strip.svg), [gem](../games/assets/2d/gem.svg), [background](../games/assets/2d/background.svg), and [asset permissions](../games/assets/ASSET_LICENSE.md). **Complete renderer:** [Robot Orchard main.js](../games/robot-orchard/main.js).
+
+## Check your development flow {.unnumbered}
+
+After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.

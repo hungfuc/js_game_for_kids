@@ -1,5 +1,15 @@
 # JavaScript Game Maker Cheat Sheet {#sec-cheat-sheet}
 
+## Plan before choosing code
+
+**Build the scene structure → Style the scene → Program game behavior.** Choose the job first, then the tool. JavaScript can help with all three jobs in canvas and 3D games.
+
+| Step | Prepare or change | Quick check |
+| --- | --- | --- |
+| Build the scene structure | HTML groups and controls; canvas or 3D objects; level layout and game data. | Are the needed parts present and arranged sensibly? |
+| Style the scene | CSS; canvas drawing; sprites; materials, lights, and readable feedback. | Can a player recognize the goal, controls, and important objects? |
+| Program game behavior | Input, state, decisions, movement, collisions, scoring, and restart. | Does one action produce the predicted result? |
+
 Keep these patterns nearby while you build. Examples with `...` are sketches, not finished code.
 
 | Tool | `Example` | Use it when... |

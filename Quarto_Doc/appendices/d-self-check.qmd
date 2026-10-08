@@ -1,5 +1,17 @@
 # Check Your Game-Making Skills {#sec-self-check}
 
+## Explain your three steps
+
+For every exercise or challenge, describe **Build the scene structure → Style the scene → Program game behavior**. If you reused a stage, explain why it was already suitable.
+
+| Step | Evidence to collect |
+| --- | --- |
+| Build the scene structure | A labeled sketch or screenshot showing the page groups or world objects. |
+| Style the scene | One design choice and how it helps the player read or use the scene. |
+| Program game behavior | One predicted action, the observed result, and an explanation of the state or rule involved. |
+
+Choose your next improvement from that evidence, then repeat the three-step flow.
+
 A working game is only part of what you have learned. Use this checklist to collect evidence that you understand your program and can improve it.
 
 | Skill | I can show that... | My evidence |

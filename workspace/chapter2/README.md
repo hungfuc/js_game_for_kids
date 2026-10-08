@@ -1,5 +1,11 @@
-# Chapter 2 browser example
+# Chapter 2 browser examples
 
-Open `index.html` directly in a browser to see the completed Game Maker HQ page. Open `plain.html` to compare the same HTML content without the CSS link. The copied `gem.svg` keeps both pages self-contained and offline.
+Follow **Build the scene structure → Style the scene → Program game behavior**.
 
-The `index.html` and `styles.css` files match the complete code examples in Chapter 2. Edit one CSS value, save, and refresh `index.html` to see its effect. The controls are static: no JavaScript reads or saves their values yet.
+1. **Build the scene structure:** open `plain.html` and identify the title, gem preview, missions, and player controls.
+2. **Style the scene:** open `index.html` to see the same scene with `styles.css`. Change one CSS value, save, and refresh to check the result.
+3. **Program game behavior:** describe the future action that reads the nickname and choices to prepare a game. The page has no JavaScript game operations yet; native typing, selection, and checkbox interaction still work.
+
+`index.html` and `styles.css` match Chapter 2's complete Game Maker HQ examples. The local `gem.svg` keeps both pages offline. Open them directly in a browser; no server is needed.
+
+`monster-page/index.html` is the chapter's static Monster Clicker rehearsal. Apply the same three steps: locate the monster/message/score, inspect their style, then plan the hit action. Chapter 3 supplies data before Chapter 4 connects that action.

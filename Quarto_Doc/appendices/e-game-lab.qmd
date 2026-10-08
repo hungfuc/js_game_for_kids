@@ -1,5 +1,17 @@
 # Your Game Lab {#sec-game-lab}
 
+## Remix with the three-step guide
+
+Use **Build the scene structure → Style the scene → Program game behavior** for every Game Lab experiment. Inspect the existing project first and keep any stage that already supports your change.
+
+| Step | Where to look | What to check |
+| --- | --- | --- |
+| Build the scene structure | Project `index.html`, scene setup in `main.js`, and any level data such as Robot Orchard’s `level.json`. | Required controls, objects, starting positions, and state exist. |
+| Style the scene | Linked styles in `games/shared/`, canvas drawing, sprite assets, or 3D materials and lights. | The player can distinguish the changed object and understand its feedback. |
+| Program game behavior | Input handlers, update functions, collision helpers, and game rules. | The change behaves as predicted during play, at boundaries, and after restart. |
+
+For example, a new collectible needs a place and a stored collected state; a recognizable appearance; and a collection rule that updates the score only once. Add and test one collectible before making a whole new level. A color-only exercise can reuse the existing scene and rules, then check that the new color remains readable during play.
+
 ## Start a local server
 
 The first one-file games can open directly from your drive. The Game Lab projects are different: their HTML pages load JavaScript modules, shared code, artwork, level data, or 3D models. A local web server gives the browser a safe way to ask for those files.
@@ -57,12 +69,12 @@ The browser's trip is simple: browser asks for `main.js` or an image, the local 
 
 | Project | Chapter | Controls and purpose |
 | --- | --- | --- |
-| Collision Playground | 11-12 | Move with arrows/WASD or drag the player. Switch shape and turn wall blocking on or off. |
-| Robot Orchard | 12-14 | Start; move with A/D or left/right; jump with Space/up/W; P pauses, R restarts, H shows hitboxes. Collect every gem and enter the portal. |
-| Robot Island Explorer | 15-16 | Move with arrows/WASD; drag to orbit the camera; scroll to zoom. Collect four gems. Crates are decorative in this non-physics project. |
-| Rapier Drop Lab | 17 | Drop again; orbit the camera; show colliders. Compare three bounce coefficients. |
-| Marble Quest | 18 | Start; arrows/WASD move the marble; P pauses, R restarts, H shows colliders. Collect five gems and enter the gate. Falling costs a life. |
-| 3D Asset Workshop | 16 | Change the robot body's color, orbit the view, and export your own GLB file. |
+| Collision Playground | 13–14 | Move with arrows/WASD or drag the player. Switch shape and turn wall blocking on or off. |
+| Robot Orchard | 13–16 | Start; move with A/D or left/right; jump with Space/up/W; P pauses, R restarts, H shows hitboxes. Collect every gem and enter the portal. |
+| Robot Island Explorer | 17–18 | Move with arrows/WASD; drag to orbit the camera; scroll to zoom. Collect four gems. Crates are decorative in this non-physics project. |
+| Rapier Drop Lab | 19 | Drop again; orbit the camera; show colliders. Compare three bounce coefficients. |
+| Marble Quest | 20 | Start; arrows/WASD move the marble; P pauses, R restarts, H shows colliders. Collect five gems and enter the gate. Falling costs a life. |
+| 3D Asset Workshop | 18 | Change the robot body's color, orbit the view, and export your own GLB file. |
 
 Click the game canvas before using keys. Movement controls are intentionally world-relative in the 3D games: W/up moves toward negative Z even if you rotate the exploration camera. The lab also supplies large onscreen controls where movement is needed. These are useful alternatives, not a claim that every canvas interaction is fully accessible to every player.
 

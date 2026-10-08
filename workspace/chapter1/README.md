@@ -1,10 +1,14 @@
 # Chapter 1 browser examples
 
-These small, local pages accompany Chapter 1 of the book.
+Follow **Build the scene structure → Style the scene → Program game behavior** for each page.
 
-- `index.html` links to both examples.
-- `elements.html` introduces common HTML elements.
-- `input-elements.html` shows labeled browser input controls before JavaScript gives them behavior.
-- `styles.css` supplies the shared presentation.
+- `index.html` links to both exploration examples.
+- `elements.html` groups headings, a picture, missions, and a table.
+- `input-elements.html` groups labeled player controls.
+- `styles.css` supplies the shared style.
 
-Open `index.html` directly in a browser, then follow the links. The examples use only local files and do not need a server.
+1. **Build the scene structure:** sketch the page parts, then locate their HTML elements and groups.
+2. **Style the scene:** inspect the shared CSS; change a color or spacing value, save, and refresh.
+3. **Program game behavior:** write one future action and its expected result, such as using player choices to start a game. Native controls already accept input; these pages have no JavaScript game operations.
+
+Open `index.html` directly in a browser. These local examples do not need a server.

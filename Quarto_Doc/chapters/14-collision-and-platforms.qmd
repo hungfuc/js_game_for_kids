@@ -5,6 +5,19 @@
 [Hitboxes]{.skill-chip} [Collision response]{.skill-chip} [Gravity]{.skill-chip} [Jumping]{.skill-chip}
 :::
 
+::: {.callout-note .big-idea title="Structure → Style → Behavior" icon="false"}
+
+**Build the scene structure → Style the scene → Program game behavior.**
+
+- **Build the scene structure:** Place platforms, player, and collectibles and define their hitboxes and spawn point.
+- **Style the scene:** Compare the visible artwork with the debug hitboxes; make reachable routes legible.
+- **Behavior:** Test side collisions, landings, head bumps, jumps, and collectible contact.
+
+Use this plan for the examples and exercises below. Reuse parts that already work; change only what the task needs. After each step, predict one result and check it.
+
+:::
+
+
 ::: {.callout-tip .mission title="Your mission" icon="false"}
 Test rectangle and circle collisions, stop a character at a wall, land on a platform, and allow a jump only when the character is grounded.
 :::
@@ -121,7 +134,16 @@ The package includes `tests/game-logic.test.mjs`. Run `node --test tests/*.test.
 
 ::: {.callout-tip .challenge title="Level up" icon="false"}
 Create a platform that the robot can just reach. Predict how a stronger jump or stronger gravity changes that result, then test it. Add a new gem beside a platform corner and check whether collecting it feels fair with the hitbox display on.
+
+1. **Build the scene structure:** Place the test platform and corner gem and define their hitboxes.
+2. **Style the scene:** Inspect the artwork and debug shapes together.
+3. **Behavior:** Test reachability after jump/gravity changes and check collection at the corner.
+
 :::
 
 
 **Complete companion source:** [Robot Orchard](../games/robot-orchard/index.html), [simulation rules](../games/robot-orchard/world.js), [collision helpers](../games/shared/math.js), and [level data](../games/robot-orchard/level.json).
+
+## Check your development flow {.unnumbered}
+
+After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.

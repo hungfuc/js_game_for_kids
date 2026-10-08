@@ -5,6 +5,19 @@
 [Time]{.skill-chip} [Velocity]{.skill-chip} [Input state]{.skill-chip} [Game loop]{.skill-chip}
 :::
 
+::: {.callout-note .big-idea title="Structure → Style → Behavior" icon="false"}
+
+**Build the scene structure → Style the scene → Program game behavior.**
+
+- **Build the scene structure:** Identify the canvas, player shape, walls, shape choice, and status display.
+- **Style the scene:** Keep shapes, boundaries, and the overlap/blocking feedback clear.
+- **Behavior:** Check input, velocity, elapsed-time movement, and one fixed-step loop.
+
+Use this plan for the examples and exercises below. Reuse parts that already work; change only what the task needs. After each step, predict one result and check it.
+
+:::
+
+
 ::: {.callout-tip .mission title="Your mission" icon="false"}
 Move a character smoothly, measure movement in seconds, and separate input, simulation, and drawing. You will use these same ideas in both 2D and 3D games.
 :::
@@ -119,7 +132,16 @@ The lab uses this conversion when you drag a shape. Without it, the shape would 
 
 ::: {.callout-tip .challenge title="Level up" icon="false"}
 Change the speed from 240 to 120 and predict the distance traveled in one second. Next, make a diagonal move and compare it with a straight move. Finally, add a second wall by putting another rectangle in an array and checking each wall.
+
+1. **Build the scene structure:** Add the second wall to the existing world description.
+2. **Style the scene:** Draw both walls and keep the movement/status display readable.
+3. **Behavior:** Predict and compare half-speed travel, normalized diagonal movement, and blocking at both walls.
+
 :::
 
 
 **Complete companion source:** [Collision Playground](../games/collision-lab/index.html), [main.js](../games/collision-lab/main.js), [fixed-step loop](../games/shared/loop.js), and [input helper](../games/shared/input.js).
+
+## Check your development flow {.unnumbered}
+
+After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.

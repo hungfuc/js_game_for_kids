@@ -5,6 +5,19 @@
 [Three.js + Rapier]{.skill-chip} [Sensors]{.skill-chip} [Collision events]{.skill-chip} [Custom assets]{.skill-chip}
 :::
 
+::: {.callout-note .big-idea title="Structure → Style → Behavior" icon="false"}
+
+**Build the scene structure → Style the scene → Program game behavior.**
+
+- **Build the scene structure:** Arrange the marble, walls, crates, gems, gate, sensors, and status/controls.
+- **Style the scene:** Make solids, collectibles, targets, and success/locked feedback distinguishable.
+- **Behavior:** Apply movement and collision rules, award rewards once, and test falls, victory, and restart.
+
+Use this plan for the examples and exercises below. Reuse parts that already work; change only what the task needs. After each step, predict one result and check it.
+
+:::
+
+
 ::: {.callout-tip .mission title="Your mission" icon="false"}
 Control a physical marble, push crates, collect custom crystal models, unlock a gate, and restart a complete game without duplicating the simulation.
 :::
@@ -164,7 +177,16 @@ A more ambitious extension is a capsule-controlled character with a matching vis
 
 ::: {.callout-tip .challenge title="Level up" icon="false"}
 Make a delivery game: push a crate into a target sensor to unlock the exit. Decide which collider may trigger the target, whether the crate must remain inside, and what happens after a restart. Draw the event-to-rule flow before changing the code.
+
+1. **Build the scene structure:** Place the crate, target sensor, exit, and any target-status display.
+2. **Style the scene:** Make crate, target, and locked/unlocked exit states recognizable.
+3. **Behavior:** Define which contact qualifies, whether staying inside is required, and how reset clears progress; test valid and invalid contacts.
+
 :::
 
 
 **Complete companion source:** [Marble Quest](../games/marble-quest/index.html), [main.js](../games/marble-quest/main.js), [testable rules](../games/marble-quest/rules.js), and [shared debug display](../games/shared/physics-debug.js).
+
+## Check your development flow {.unnumbered}
+
+After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.

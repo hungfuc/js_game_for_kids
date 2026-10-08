@@ -8,6 +8,19 @@
 
 :::
 
+::: {.callout-note .big-idea title="Structure → Style → Behavior" icon="false"}
+
+**Build the scene structure → Style the scene → Program game behavior.**
+
+- **Build the scene structure:** Describe the paddle, ball, and brick collection, including positions and active flags.
+- **Style the scene:** Draw the bricks and any remaining-hit feedback so their state is visible.
+- **Behavior:** Process the collection, handle each hit once, and check score and victory rules.
+
+Use this plan for the examples and exercises below. Reuse parts that already work; change only what the task needs. After each step, predict one result and check it.
+
+:::
+
+
 ::: {.callout-note .code-guide title="How to use the code pieces" icon="false"}
 
 The short snippets below explain individual rules. The complete browser example later in this chapter combines them into a playable page.
@@ -247,11 +260,19 @@ bricks.push(brick);
 
 Create the brick array with nested loops instead of typing each brick.
 
+1. **Build the scene structure:** Describe brick rows and columns and the same starting positions.
+2. **Style the scene:** Keep brick sizes, spacing, and colors consistent.
+3. **Behavior:** Generate the collection with nested loops and compare its count and layout with the original.
+
 :::
 
 ::: {.callout-tip .challenge title="Challenge 2" icon="false"}
 
 Give some bricks two hit points.
+
+1. **Build the scene structure:** Add remaining hit points to the chosen bricks.
+2. **Style the scene:** Show remaining strength with distinct colors or labels.
+3. **Behavior:** Reduce strength once per collision and remove/score a brick only at zero.
 
 :::
 
@@ -259,4 +280,12 @@ Give some bricks two hit points.
 
 Add a win condition when every brick is gone.
 
+1. **Build the scene structure:** Reuse the brick collection and add a victory message only if needed.
+2. **Style the scene:** Make the cleared board and victory feedback understandable.
+3. **Behavior:** Detect when no active bricks remain and decide how updates stop or transition.
+
 :::
+
+## Check your development flow {.unnumbered}
+
+After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.

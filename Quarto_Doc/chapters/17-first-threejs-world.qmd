@@ -5,6 +5,19 @@
 [Three.js]{.skill-chip} [Scene]{.skill-chip} [Camera]{.skill-chip} [3D coordinates]{.skill-chip}
 :::
 
+::: {.callout-note .big-idea title="Structure → Style → Behavior" icon="false"}
+
+**Build the scene structure → Style the scene → Program game behavior.**
+
+- **Build the scene structure:** Arrange the HTML stage and the 3D scene: meshes, floor, camera, and lights.
+- **Style the scene:** Choose materials, lighting, and a camera view that makes the world easy to read.
+- **Behavior:** Load the modules, move the player, collect crystals, and check resizing and camera controls.
+
+Use this plan for the examples and exercises below. Reuse parts that already work; change only what the task needs. After each step, predict one result and check it.
+
+:::
+
+
 ::: {.callout-tip .mission title="Your mission" icon="false"}
 Create a 3D scene, position a camera, light a mesh, and move a character across a floor. Keep the familiar input-update-draw structure while adding a third coordinate.
 :::
@@ -141,7 +154,16 @@ The camera's near and far distances bound what it can see. A model outside that 
 
 ::: {.callout-tip .challenge title="Level up" icon="false"}
 Move the starting camera higher, change the island material, and place one extra crystal. Then orbit the camera halfway around and explain why the movement keys now look different. Keep the world controls unchanged while you investigate.
+
+1. **Build the scene structure:** Place the extra crystal and choose the starting camera position.
+2. **Style the scene:** Adjust the island material and verify the view stays readable.
+3. **Behavior:** Check collection and orbit controls, then compare apparent movement with unchanged world-relative keys.
+
 :::
 
 
 **Complete companion source:** [Robot Island Explorer](../games/three-explorer/index.html), [main.js](../games/three-explorer/main.js), and [shared Three.js setup](../games/shared/three-scene.js).
+
+## Check your development flow {.unnumbered}
+
+After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.

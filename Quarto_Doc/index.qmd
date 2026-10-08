@@ -12,7 +12,7 @@
 
 Build a game. Understand the code. Make it your own.
 
-[18 chapters]{.hero-chip} [Visual explanations]{.hero-chip} [Advanced Study]{.hero-chip}
+[20 chapters]{.hero-chip} [Visual explanations]{.hero-chip} [Advanced Study]{.hero-chip}
 
 :::
 
@@ -20,9 +20,35 @@ This book teaches JavaScript in the order a young game designer needs it. Instea
 
 ::: {.callout-tip .big-idea title="The rule of this book" icon="false"}
 
-Make something move. Make something react. Make something fun. Then study the code that made it happen.
+**Build the scene structure → Style the scene → Program game behavior.**
+
+First decide what belongs in the game. Next make those parts readable and recognizable. Then give them actions and rules. Use the same thinking strategy for every example, exercise, and challenge.
 
 :::
+
+## Your three-step game-making guide {.unnumbered #sec-development-guide}
+
+Remember **Structure → Style → Behavior**. The full names tell you what to do:
+
+| Step | Ask yourself | What you produce | How to check it |
+| --- | --- | --- | --- |
+| **1. Build the scene structure** | What needs to exist, and how do its parts fit together? | A page or world plan: controls, player, objects, score/status, groups, and starting positions | Point to each required part and explain its job. |
+| **2. Style the scene** | How will the player recognize and understand those parts? | Readable layout, colors, shapes, artwork, materials, lighting, and visible feedback | Check visibility, labels, spacing, contrast, and the view of the play area. |
+| **3. Program game behavior** | What happens on a player action, a timer tick, or a collision? | Data, operations, actions, rules, and their connections | Predict a result, run or trace the action, and compare the result with your prediction. |
+
+The full names turn the three responsibilities into instructions: **build the structure**, **style**, and **program game behavior**. In the first projects, HTML builds the page, CSS styles it, and JavaScript gives it game actions. In canvas and 3D projects, JavaScript also creates and draws world objects. The steps describe **your design decisions**, not exclusive ownership by a programming language.
+
+A **scene** includes what the player sees and uses: the surrounding page and the game world inside it. A 3D scene object is one part of that larger player-facing scene. **Program game behavior** includes memory, input, movement, rules, timing, and reset—not only animation. **Style** includes readable placeholder shapes; you do not need finished artwork before testing an action.
+
+### Use the guide for every exercise {.unnumbered}
+
+1. **Structure:** identify the parts the task uses. Reuse the current scene, or sketch one for a paper exercise. Add parts only when they are needed.
+2. **Style:** check that those parts and their feedback are understandable. Keep the current style when the task changes only a rule.
+3. **Behavior:** state the operation or expected result. Write code, trace code, or explain the result, depending on the exercise.
+
+Short reading and prediction exercises can focus on one step. Their **Flow focus** tells you which responsibility you are investigating; it does not ask you to rebuild a game. For challenges, use the concrete **Structure**, **Style**, and **Program game behavior** prompts. Finish with a small check: what did you expect, what happened, and what would you change next?
+
+Repeat the flow for each new feature. A new action may need a new control; return to Structure, style that control, and connect the action. These steps are a development strategy, not the browser's loading order or the game's repeating update-and-draw loop.
 
 ## Your computer toolkit {.unnumbered}
 
@@ -112,7 +138,7 @@ Your web browser is the program that turns your game files into a page you can p
 | **CSS** | Chooses how those parts look. | A purple button or a large play area. |
 | **JavaScript** | Makes the page react and change. | Add a point when the player clicks. |
 
-Think of HTML as the game room, CSS as the paint and decorations, and JavaScript as the rules that make things happen. This book begins with HTML and JavaScript in one file so you can see their connection clearly. CSS will appear when a game needs it.
+Use **Build the scene structure → Style the scene → Program game behavior**: HTML describes the first pages, CSS makes their parts readable, and JavaScript adds game operations and actions. Chapter 2 uses linked HTML and CSS files; Chapter 3 combines a styled scene and JavaScript data in one starter file.
 
 ### What “client-side JavaScript” means {.unnumbered}
 
@@ -143,7 +169,7 @@ For a one-file beginner game, `file:///` is enough. For a project that uses Java
 
 A **complete example** includes the setup for that small project. A **code fragment** illustrates one part of a game and relies on the variables or functions discussed nearby. Do not paste every fragment into one file without checking where it belongs: some examples replace earlier versions.
 
-Chapters 9-11 use Pong, Breakout, and Snake to explain larger game-building patterns. Their snippets are building blocks rather than full finished games. Chapters 13-20 add complete companion projects in the Game Lab. Their chapter snippets explain selected parts; the linked project folders contain the complete runnable source.
+Chapters 9–11 use Pong, Breakout, and Snake to explain larger game-building patterns. Each chapter includes a complete small browser example alongside fragments explaining individual rules. Locate its scene, its style, and its actions before changing a fragment. Chapters 13-20 add complete companion projects in the Game Lab. Their chapter snippets explain selected parts; the linked project folders contain the complete runnable source.
 
 ## A safe learning habit {.unnumbered}
 
@@ -155,10 +181,10 @@ When a program does not work, do not immediately replace it with someone else's 
 | --- | --- | --- | --- |
 | 1 | [Computer and web basics](chapters/01-computer-and-web-basics.qmd) | Client, browser, files, servers | Explain where a web page comes from |
 | 2 | [Game Maker HQ](chapters/02-static-website.qmd) | HTML, CSS, input elements | Build a static website ready for JavaScript |
-| 3 | [Click the Monster](chapters/03-click-the-monster.qmd) | Events, functions | Make code react to a click |
-| 4 | [Treasure Clicker](chapters/04-treasure-clicker.qmd) | Variables, text updates | Make the game remember |
-| 5 | [Secret Number](chapters/05-secret-number.qmd) | Input, if/else | Make the game choose |
-| 6 | [Rock Paper Scissors](chapters/06-rock-paper-scissors.qmd) | Functions, random numbers | Package behavior into reusable actions |
+| 3 | [Monster Clicker Starter](chapters/03-variables-monster-starter.qmd) | Variables, arrays, objects | Prepare memory for game actions |
+| 4 | [Make the Page React](chapters/04-dom-and-event-driven-programming.qmd) | DOM, events, functions | Connect player actions to page updates |
+| 5 | [Monster Decisions](chapters/05-monster-decisions.qmd) | Conditions, branches | Enforce game rules |
+| 6 | [Monster Swarm](chapters/06-monster-loops.qmd) | Arrays, loops | Process a collection of monsters |
 | 7 | [Catch the Star](chapters/07-catch-the-star.qmd) | Timers, coordinates, DOM | Change the page over time |
 | 8 | [Bouncing Ball](chapters/08-bouncing-ball.qmd) | Canvas, animation | Draw every frame yourself |
 | 9 | [Pong](chapters/09-pong.qmd) | Keyboard, game loop | Read keys while the game keeps running |

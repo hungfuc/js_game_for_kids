@@ -5,6 +5,19 @@
 [Rapier.js]{.skill-chip} [Rigid bodies]{.skill-chip} [Colliders]{.skill-chip} [Physics steps]{.skill-chip}
 :::
 
+::: {.callout-note .big-idea title="Structure → Style → Behavior" icon="false"}
+
+**Build the scene structure → Style the scene → Program game behavior.**
+
+- **Build the scene structure:** Pair the floor and balls with correctly placed bodies and collider shapes.
+- **Style the scene:** Match visible meshes to collider dimensions and use the debug display to inspect them.
+- **Behavior:** Step the physics world, synchronize visuals, and test bounce, contact, and reset.
+
+Use this plan for the examples and exercises below. Reuse parts that already work; change only what the task needs. After each step, predict one result and check it.
+
+:::
+
+
 ::: {.callout-tip .mission title="Your mission" icon="false"}
 Create a physics world, give objects colliders, compare bounces, and synchronize Rapier's invisible simulation with Three.js's visible scene.
 :::
@@ -130,7 +143,16 @@ Our next game deliberately uses a marble so you can focus on dynamic bodies, con
 
 ::: {.callout-tip .challenge title="Level up" icon="false"}
 Change one ball's bounce coefficient and predict the result. Next, deliberately mismatch a sphere's visible radius and collider radius, turn on the debug display, and explain the strange contact. Restore matching sizes before building a game.
+
+1. **Build the scene structure:** Identify each mesh, body, and collider and deliberately document the test size mismatch.
+2. **Style the scene:** Use visible shapes and the debug overlay to inspect the contact.
+3. **Behavior:** Predict the bounce change, run it, explain the mismatch, and restore matching sizes.
+
 :::
 
 
 **Complete companion source:** [Rapier Drop Lab](../games/physics-lab/index.html), [main.js](../games/physics-lab/main.js), and [physics debug display](../games/shared/physics-debug.js).
+
+## Check your development flow {.unnumbered}
+
+After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.

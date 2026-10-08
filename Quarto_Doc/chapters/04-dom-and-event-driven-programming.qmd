@@ -8,6 +8,19 @@
 
 :::
 
+::: {.callout-note .big-idea title="Structure → Style → Behavior" icon="false"}
+
+**Build the scene structure → Style the scene → Program game behavior.**
+
+- **Build the scene structure:** Identify or add the character, buttons, images, and message elements with unique IDs.
+- **Style the scene:** Keep controls recognizable and text readable; default browser styling is enough for a small test.
+- **Behavior:** Find the elements, attach one event handler, and compare its actual response with your prediction.
+
+Use this plan for the examples and exercises below. Reuse parts that already work; change only what the task needs. After each step, predict one result and check it.
+
+:::
+
+
 ## Overview
 
 In Chapter 2, you used **HTML** to put things on a page and **CSS** to change how they look. In Chapter 3, you learned how JavaScript stores values using variables such as `const` and `let`.
@@ -732,7 +745,11 @@ For now, keep the `<script>` near the bottom of `<body>`, after the elements you
 
 ## Exercises
 
+Use **Structure → Style → Behavior** as a check before each task. The focus below identifies the stage you are practicing. For reading or prediction tasks, trace or explain the result; you do not need a new page or visual redesign.
+
 ### Exercise 1: Element or Event?
+
+**Flow focus:** Structure + Behavior: separate a scene part from the event that can act on it.
 
 For each item, write **element** or **event**.
 
@@ -743,6 +760,8 @@ For each item, write **element** or **event**.
 5. a key press
 
 ### Exercise 2: Match the HTML and JavaScript
+
+**Flow focus:** Structure + Behavior: match the existing scene IDs to the code that finds them.
 
 Given this HTML:
 
@@ -760,6 +779,8 @@ const status = document.getElementById("________");
 
 ### Exercise 3: Read the DOM Lookup
 
+**Flow focus:** Program game behavior: explain how this operation selects one existing scene part.
+
 Explain this line in plain English:
 
 ```javascript
@@ -767,6 +788,8 @@ const treasure = document.getElementById("treasure");
 ```
 
 ### Exercise 4: Predict Before You Run
+
+**Flow focus:** Program game behavior: predict the response on the existing button and message; keep their style.
 
 What will the player see after clicking the button?
 
@@ -788,6 +811,8 @@ What will the player see after clicking the button?
 
 ### Exercise 5: Find the Bug
 
+**Flow focus:** Structure + Behavior: check the element identity before changing the event code.
+
 Why does this code fail to find the button?
 
 ```html
@@ -802,6 +827,8 @@ Fix the JavaScript.
 
 ### Exercise 6: Trace the Event Flow
 
+**Flow focus:** Program game behavior: trace one action from input to visible feedback.
+
 Put these steps in the correct order:
 
 - `hitMonster` changes the message.
@@ -812,6 +839,8 @@ Put these steps in the correct order:
 
 
 ### Exercise 7: Follow the ID Connection
+
+**Flow focus:** Structure + Behavior: verify each scene identity and its exact lookup spelling.
 
 For each pair, decide whether `getElementById()` will find the element.
 
@@ -849,6 +878,8 @@ Explain why each one does or does not match.
 
 ### Exercise 8: Sequential or Event-Driven?
 
+**Flow focus:** Program game behavior: distinguish setting up an action from performing it later.
+
 For each statement, decide whether it belongs to the **setup phase** or happens **later because of an event**.
 
 1. `getElementById("monster")` runs when the page script starts.
@@ -858,6 +889,8 @@ For each statement, decide whether it belongs to the **setup phase** or happens 
 5. The browser waits for another event.
 
 ### Exercise 9: Same Pattern, New Event
+
+**Flow focus:** Program game behavior: identify the input event and the operation it will trigger.
 
 Look at this code:
 
@@ -876,6 +909,8 @@ Identify:
 
 ### Challenge 1: Change the Character
 
+**Structure:** Replace the visible character and give it the intended ID. **Style:** Keep or choose a recognizable character appearance. **Behavior:** Update the matching lookup and response, then perform one click.
+
 Change the monster into a dragon, robot, ghost, or another character.
 
 You must change:
@@ -887,6 +922,8 @@ You must change:
 
 ### Challenge 2: Two Clickable Game Objects
 
+**Structure:** Add two distinct objects and their message area, each object with its own ID. **Style:** Make the objects recognizable and their targets easy to use. **Behavior:** Connect separate responses and test each object.
+
 Create two buttons or images.
 
 For example:
@@ -897,6 +934,8 @@ For example:
 Give each element its own ID, event listener, and response function.
 
 ### Challenge 3: Build a Choice Game
+
+**Structure:** Create both door choices and one message area. **Style:** Make the choice labels and red/blue identity clear. **Behavior:** Connect each choice to its response and test both paths.
 
 Create two choices such as:
 
@@ -912,6 +951,8 @@ Get element → Listen for click → Run function → Change DOM
 ```
 
 ### Challenge 4: Explain Your Game Like a Programmer
+
+**Structure:** Identify the object, its element, and its ID. **Style:** Describe the visual cue that helps the player recognize it. **Behavior:** Explain the lookup, event, handler, and visible result in order.
 
 Choose one clickable object from your game and explain:
 

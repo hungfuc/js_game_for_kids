@@ -10,7 +10,11 @@
 
 ## Overview
 
-In the first chapters, you learned that a web game is built from HTML, CSS, and JavaScript. HTML gives the page its structure. CSS controls how it looks. JavaScript gives the game behavior.
+Keep using our development flow:
+
+**Build the scene structure → Style the scene → Program game behavior.**
+
+First use HTML to build what the player sees and uses. Next use CSS to make that scene readable. Then use JavaScript to implement the game's operations and actions. This chapter begins the behavior stage by giving those actions **data and memory**; Chapter 4 connects them to clicks.
 
 Before a game can react to a player, it needs something very important: **memory**.
 
@@ -44,10 +48,23 @@ Chapter 4 will answer the next question:
 **How does JavaScript react when the player clicks something on the page?**
 :::
 
+## Think through the Monster Clicker before coding {#sec-ch03-development-flow}
+
+| Development step | Decision for our game | Check |
+| --- | --- | --- |
+| 1. Build the scene structure | Show a title, monster button, message, and score inside a main card. | All four parts exist; `monster`, `message`, and `score` have distinct IDs. |
+| 2. Style the scene | Reuse Chapter 2's readable card, button frame, colors, and spacing. | The monster and score are easy to find; the button has a visible keyboard focus ring. |
+| 3. Program game behavior | Plan a hit that raises the score and changes the message. Prepare score, lives, treasures, and player data first. | Inspect the starting values in the console. The hit action is implemented in Chapter 4. |
+
+For every JavaScript example in this chapter, ask **which future operation needs this value?** A score supports counting hits. Lives support tracking remaining chances. A Boolean supports a running/not-running decision. An array supports a treasure collection. An object groups player information. These small examples practice the memory part of Step 3; they do not each need a new page or stylesheet.
+
+When a practice task changes only data, keep the existing structure and style and work on that one behavior preparation. When a task needs a new visible part, return to structure, style the new part, and then connect its behavior.
+
 ## Learning Objectives
 
 By the end of this chapter, you will be able to:
 
+- apply **Build the scene structure → Style the scene → Program game behavior** when building the starter;
 - explain why games need variables;
 - declare variables with `let`, `const`, and `var`;
 - choose between `let` and `const` in simple programs;
@@ -595,27 +612,32 @@ The monster will **not respond to clicks yet**. That is intentional.
 
 Chapter 4 will introduce the missing ideas: how JavaScript finds HTML elements and how **events** tell the program that the player clicked something.
 
-### Step 1: Build the HTML game board {.unnumbered}
+### Step 1: Build the scene structure — build the HTML game board {.unnumbered}
 
-Create a file such as `monster-clicker.html`:
+Sketch the title, monster, message, and score first. Create a file such as `monster-clicker.html`, or continue the Chapter 2 rehearsal page. Keep the script as a placeholder while checking this first stage:
 
 ```html
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Monster Clicker</title>
+  <style>
+    /* Step 2: Style the scene rules will go here. */
+  </style>
 </head>
 <body>
-  <h1>Monster Clicker</h1>
-
-  <button id="monster">👾 Monster</button>
-
-  <p id="message">The monster is waiting...</p>
-  <p id="score">Score: 0</p>
+  <!-- Step 1: Build the scene structure (page structure). -->
+  <main class="card">
+    <h1>Monster Clicker</h1>
+    <button id="monster" class="monster" type="button">👾 Monster</button>
+    <p id="message">The monster is waiting...</p>
+    <p id="score">Score: 0</p>
+  </main>
 
   <script>
-    // JavaScript will go here.
+    // Step 3: Program game behavior — prepare data; click actions come in Chapter 4.
   </script>
 </body>
 </html>
@@ -646,7 +668,52 @@ The `id` values are like unique labels attached to HTML elements.
 In Chapter 4, JavaScript will use those labels to find the monster, message, and score on the page.
 :::
 
-### Step 2: Create the basic game variables {.unnumbered}
+### Step 2: Style the scene — reuse the page design {.unnumbered}
+
+The structure is ready. Put this familiar CSS inside the head's `<style>` element, replacing its placeholder comment. These are Chapter 2's styling ideas; the shared `.monster` class will also work when you add more monsters later.
+
+```css
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #eef7ff;
+  color: #17243b;
+  font-family: system-ui, sans-serif;
+}
+.card {
+  width: min(92%, 620px);
+  padding: 24px;
+  border: 3px solid #17243b;
+  border-radius: 20px;
+  background: white;
+}
+.monster {
+  padding: 18px;
+  border: 2px solid #17243b;
+  border-radius: 14px;
+  background: #e7dcff;
+  font: inherit;
+  cursor: pointer;
+}
+.monster:focus-visible {
+  outline: 4px solid #ffe48a;
+  outline-offset: 2px;
+}
+#message { min-height: 1.5em; }
+```
+
+Save and refresh. Check the card, monster, message, and score before adding JavaScript. If you continued the Chapter 2 page, you can instead keep its linked `styles.css`; the development step is the same. This chapter embeds CSS only to keep the complete example in one file.
+
+### Step 3: Program game behavior — prepare memory for game actions {.unnumbered}
+
+Write the intended rule first: **When the monster is hit, add one to the score and update the message.** That action needs a score to remember between hits. Prepare the starting data now; Chapter 4 will implement the event and display changes. Styling a button does not connect that operation.
+
+The substeps below all belong to this behavior-preparation stage.
+
+#### Prepare the basic game variables {.unnumbered}
 
 Inside the `<script>` block, add:
 
@@ -676,7 +743,7 @@ let gameStarted = false;
 
 These values may change while the game runs, so `let` is a good choice.
 
-### Step 3: Add a treasure list {.unnumbered}
+#### Prepare a treasure list {.unnumbered}
 
 Add an array:
 
@@ -694,7 +761,7 @@ console.log(treasures[1]);
 console.log(treasures[2]);
 ```
 
-### Step 4: Group player information in an object {.unnumbered}
+#### Group player information in an object {.unnumbered}
 
 Add:
 
@@ -724,7 +791,7 @@ let score = 0;
 
 That keeps the first event example easy to follow. The `player` object gives you a preview of how larger games can organize several related values together.
 
-### Step 5: Practice changing the score in memory {.unnumbered}
+#### Practice changing the score in memory {.unnumbered}
 
 Before a click can change the score automatically, practice changing it yourself:
 
@@ -777,23 +844,60 @@ Changing one does not automatically change the other. In Chapter 4, you will lea
 
 ## Complete Chapter 3 Starter Code
 
-Your Chapter 3 project can now look like this:
+Read this complete example in our development order: locate the **scene structure** in the body, then its **style** in the head, then the data preparing its **behaviors** in the script. The head comes before the body in HTML file order; that does not change the thinking strategy. A runnable copy is in `workspace/chapter3/starter.html`.
 
 ```html
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Monster Clicker</title>
+  <style>
+    /* Step 2: Style the scene. */
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #eef7ff;
+      color: #17243b;
+      font-family: system-ui, sans-serif;
+    }
+    .card {
+      width: min(92%, 620px);
+      padding: 24px;
+      border: 3px solid #17243b;
+      border-radius: 20px;
+      background: white;
+    }
+    .monster {
+      padding: 18px;
+      border: 2px solid #17243b;
+      border-radius: 14px;
+      background: #e7dcff;
+      font: inherit;
+      cursor: pointer;
+    }
+    .monster:focus-visible {
+      outline: 4px solid #ffe48a;
+      outline-offset: 2px;
+    }
+    #message { min-height: 1.5em; }
+  </style>
 </head>
 <body>
-  <h1>Monster Clicker</h1>
-
-  <button id="monster">👾 Monster</button>
-  <p id="message">The monster is waiting...</p>
-  <p id="score">Score: 0</p>
+  <!-- Step 1: Build the scene structure (page structure). -->
+  <main class="card">
+    <h1>Monster Clicker</h1>
+    <button id="monster" class="monster" type="button">👾 Monster</button>
+    <p id="message">The monster is waiting...</p>
+    <p id="score">Score: 0</p>
+  </main>
 
   <script>
+    // Step 3: Program game behavior — prepare data; click actions come in Chapter 4.
     const gameTitle = "Monster Clicker";
     const monsterName = "Pixel Beast";
 
@@ -830,8 +934,9 @@ That last point is not a bug. It marks your progress.
 
 ```{mermaid}
 flowchart TD
-    A[Chapter 2<br/>Build the page with HTML] --> B[Chapter 3<br/>Give the game data and memory]
-    B --> C[Chapter 4<br/>Find page elements with the DOM]
+    A[Build the scene structure<br/>HTML page elements] --> S[Style the scene<br/>CSS presentation]
+    S --> B[Program game behavior: Chapter 3<br/>Prepare game data and memory]
+    B --> C[Program game behavior: Chapter 4<br/>Find page elements with the DOM]
     C --> D[Listen for clicks with events]
     D --> E[Update score and message]
 ```
@@ -852,7 +957,11 @@ You will add only the new DOM and event code needed to make the project interact
 
 ## Exercises
 
+Use **Structure → Style → Behavior** as a check before each task. The focus below identifies the stage you are practicing. For reading or prediction tasks, trace or explain the result; you do not need a new page or visual redesign.
+
 ### Exercise 1: Name the parts of a declaration
+
+**Flow focus:** Program game behavior: identify the memory a future score action will change; keep the existing scene and style.
 
 Look at:
 
@@ -869,6 +978,8 @@ Identify:
 
 ### Exercise 2: Choose `let` or `const`
 
+**Flow focus:** Program game behavior: decide which values future actions can replace and which bindings stay fixed.
+
 Choose the better declaration for each value.
 
 1. A player's score that changes after each hit.
@@ -879,6 +990,8 @@ Choose the better declaration for each value.
 
 ### Exercise 3: Recognize `var`
 
+**Flow focus:** Program game behavior: change the declaration style while preserving the value the game will remember.
+
 You find this older code online:
 
 ```javascript
@@ -888,6 +1001,8 @@ var score = 0;
 Rewrite it using the declaration style used for a changing value in this book.
 
 ### Exercise 4: Identify the data type
+
+**Flow focus:** Program game behavior: identify the kinds of data available to game operations.
 
 For each value, identify whether it is a **Number**, **String**, or **Boolean**.
 
@@ -902,6 +1017,8 @@ false
 
 ### Exercise 5: Predict the score
 
+**Flow focus:** Program game behavior: predict successive updates to memory before checking the output.
+
 What is printed?
 
 ```javascript
@@ -915,6 +1032,8 @@ console.log(score);
 Explain why.
 
 ### Exercise 6: Read an array
+
+**Flow focus:** Program game behavior: identify which treasure a collection index selects.
 
 Given:
 
@@ -931,6 +1050,8 @@ treasures[2]
 ```
 
 ### Exercise 7: Read an object
+
+**Flow focus:** Program game behavior: read related player values without changing the player scene or its style.
 
 Given:
 
@@ -951,6 +1072,8 @@ player.lives
 ```
 
 ### Exercise 8: Memory versus page display
+
+**Flow focus:** Structure + Behavior: distinguish the visible score element from score memory; styling cannot connect them.
 
 Suppose the page contains:
 
@@ -973,7 +1096,9 @@ Explain your answer using the ideas of **JavaScript memory** and **HTML display*
 
 ### Challenge 1: Customize Your Monster
 
-Change the starter project so that it uses your own:
+**Structure:** Change the visible title and monster label. **Style:** Choose one readable button color or spacing change. **Behavior:** Customize the starting data and inspect it in the console; the hit action still waits for Chapter 4.
+
+Use **Build the scene structure → Style the scene → Program game behavior**. First change the visible title and monster label. Next choose one button color or spacing change. Then change the starter data so that it uses your own:
 
 - game title;
 - monster name;
@@ -984,7 +1109,9 @@ Choose `let` or `const` for each variable and explain one of your choices.
 
 ### Challenge 2: Build a Better Player Object
 
-Extend the player object with two new properties, such as:
+**Structure:** Keep the existing player page and identify the player information it represents. **Style:** Keep the current page style; no new display is required for this exercise. **Behavior:** Add the player properties and print their values.
+
+The scene structure and style are already in place. Continue **Step 3: Program game behavior** by preparing memory for a future player action. Extend the player object with two new properties, such as:
 
 ```javascript
 level
@@ -997,7 +1124,9 @@ Print the new properties in the console.
 
 ### Challenge 3: Grow the Inventory
 
-Start with:
+**Structure:** Keep the monster scene and identify the collection of gathered treasures. **Style:** Keep the current scene style; use the console to inspect this small operation. **Behavior:** Add the inventory items, predict its length, and check the result.
+
+Keep the scene structure and style. In the **behavior** stage, practice the operation “add treasure to inventory.” Start with:
 
 ```javascript
 const inventory = [];
@@ -1014,7 +1143,9 @@ Predict the length before you run the code.
 
 ### Challenge 4: Prepare One More Value for Chapter 4
 
-Add one new variable that might change when the monster is clicked in the next chapter. Examples include:
+**Structure:** Keep the monster and the feedback areas. **Style:** Keep their current readable style. **Behavior:** Describe the future hit action and prepare one value it will change.
+
+Keep the scene structure and style. In the **behavior** stage, describe one future hit action, then add a variable that it might change when the monster is clicked in the next chapter. Examples include:
 
 ```javascript
 let monsterHealth = 5;
@@ -1023,3 +1154,13 @@ let hits = 0;
 ```
 
 Write one sentence explaining how a click event could change your variable later.
+
+## Development-flow checkpoint
+
+Explain your starter in this order:
+
+1. **Build the scene structure:** Which HTML parts form the game scene? Which IDs identify the monster, message, and score?
+2. **Style the scene:** Which CSS rules make those parts readable and recognizable? Change one visual value and check that the game data stays the same.
+3. **Behavior:** What should one hit do? Which variables prepare memory for that operation, and which connection is still waiting for Chapter 4?
+
+For a new example, begin with the same questions. Build and check the structure, style it, then prepare and connect one game action at a time.

@@ -1,5 +1,11 @@
 # Optional Next Step: Phaser {#sec-phaser}
 
+## Keep your development flow
+
+**Build the scene structure → Style the scene → Program game behavior** still guides a framework project. First decide which objects, controls, and state the scene needs; then choose sprites, sizes, placement, and readable feedback; then connect input, movement, collisions, and game rules. Test one small action before expanding the game.
+
+These are planning steps. Phaser’s `preload`, `create`, and `update` are runtime responsibilities: `create` may both build and style objects, while `update` may change their behavior and appearance. The two sequences do not match one-to-one.
+
 Once you understand variables, functions, state, animation, and collision in plain JavaScript, you can explore a game framework such as Phaser. A framework provides tools for game tasks so you can spend less time on low-level drawing code.
 
 Keep the ideas you already know: loading resources, creating the world, and updating the game. The sketch below names those responsibilities. It is not a complete Phaser project and does not load or configure the library.

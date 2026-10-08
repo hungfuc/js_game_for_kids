@@ -5,6 +5,19 @@
 [GLB]{.skill-chip} [Models]{.skill-chip} [Materials]{.skill-chip} [Scale and origin]{.skill-chip}
 :::
 
+::: {.callout-note .big-idea title="Structure → Style → Behavior" icon="false"}
+
+**Build the scene structure → Style the scene → Program game behavior.**
+
+- **Build the scene structure:** Place the model under a gameplay root and identify its origin, dimensions, and named parts.
+- **Style the scene:** Customize a material, model appearance, or scale while keeping the asset agreement clear.
+- **Behavior:** Load/export the model and verify that movement and collection still behave as intended.
+
+Use this plan for the examples and exercises below. Reuse parts that already work; change only what the task needs. After each step, predict one result and check it.
+
+:::
+
+
 ::: {.callout-tip .mission title="Your mission" icon="false"}
 Load a custom model, understand its size and origin, make your own visual variation, and export a GLB that another Three.js project can load.
 :::
@@ -140,7 +153,16 @@ A visual walk cycle changes the pose; a movement controller changes the player's
 
 ::: {.callout-tip .challenge title="Level up" icon="false"}
 Export a different-colored robot and load it into the Explorer. Next, change the gem's displayed scale and inspect whether the collection distance still feels fair. Finally, write a tiny asset specification with the model's size, forward direction, origin, and intended collider.
+
+1. **Build the scene structure:** Record the model size, origin, forward direction, and intended collider before replacing the asset.
+2. **Style the scene:** Customize the robot color and gem scale and inspect their appearance.
+3. **Behavior:** Export/load the model and test movement and collection distances after each change.
+
 :::
 
 
 **Companion workshop:** [3D Asset Workshop](../games/asset-workshop/index.html), [workshop source](../games/asset-workshop/main.js), and [model specifications](../games/assets/3d/model-specifications.json). **Included models:** [robot.glb](../games/assets/3d/robot.glb), [crate.glb](../games/assets/3d/crate.glb), and [gem.glb](../games/assets/3d/gem.glb).
+
+## Check your development flow {.unnumbered}
+
+After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.

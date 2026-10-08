@@ -1,5 +1,17 @@
 # Debugging Checklist {#sec-debugging}
 
+## Find the stage that needs attention
+
+Use **Build the scene structure → Style the scene → Program game behavior** to narrow down a problem. Check the earlier stages before changing a rule that depends on them.
+
+| Stage | Ask | Try |
+| --- | --- | --- |
+| Build the scene structure | Does the needed element or world object exist? | Check HTML IDs, file paths, object positions, and level data. |
+| Style the scene | Is it visible and readable? | Check size, color, display rules, camera, lighting, and hitbox overlays. |
+| Program game behavior | Is the action received and the state updated? | Log input and values; trace one update; check collision, scoring, and restart. |
+
+Predict the result of your fix, change one thing, and compare what happens with your prediction.
+
 - [ ] Open the browser developer console and read the first error.
 - [ ] Check spelling and capitalization. JavaScript is case-sensitive.
 - [ ] Check matching pairs: ( ), { }, [ ], and quote marks.

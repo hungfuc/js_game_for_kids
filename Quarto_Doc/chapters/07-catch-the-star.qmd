@@ -8,6 +8,19 @@
 
 :::
 
+::: {.callout-note .big-idea title="Structure → Style → Behavior" icon="false"}
+
+**Build the scene structure → Style the scene → Program game behavior.**
+
+- **Build the scene structure:** Keep a star inside a game-area container, with score and any countdown outside it.
+- **Style the scene:** Size the arena and star and establish the positioned parent and starting offsets.
+- **Behavior:** Move the star with clicks and a timer; check score, speed changes, and how the game stops.
+
+Use this plan for the examples and exercises below. Reuse parts that already work; change only what the task needs. After each step, predict one result and check it.
+
+:::
+
+
 ::: {.callout-tip .mission title="Your mission" icon="false"}
 
 By the end of this chapter, you can:
@@ -140,10 +153,22 @@ star.style.top = y + 'px';
 
 Make the star move faster after the player reaches 5 points.
 
+1. **Build the scene structure:** Reuse the arena, star, and score display.
+2. **Style the scene:** Keep the star visible and inside the arena; faster movement does not require new artwork.
+3. **Behavior:** Change the timer schedule at the threshold and check that old timers are cleared.
+
 :::
 
 ::: {.callout-tip .challenge title="Challenge 2" icon="false"}
 
 Add a 20-second countdown and stop the game when time reaches zero.
 
+1. **Build the scene structure:** Add a countdown display beside the score.
+2. **Style the scene:** Make remaining time and the finished state easy to read.
+3. **Behavior:** Count down, stop timed movement at zero, and decide whether later clicks can still score.
+
 :::
+
+## Check your development flow {.unnumbered}
+
+After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.

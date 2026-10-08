@@ -8,6 +8,19 @@
 
 :::
 
+::: {.callout-note .big-idea title="Structure → Style → Behavior" icon="false"}
+
+**Build the scene structure → Style the scene → Program game behavior.**
+
+- **Build the scene structure:** Sketch the play area and controls; list the player, objects, goal, and state.
+- **Style the scene:** Use readable labels and simple distinguishable shapes for a first playable version.
+- **Behavior:** Implement one core action, win/lose rules, and restart, then playtest and repeat the flow.
+
+Use this plan for the examples and exercises below. Reuse parts that already work; change only what the task needs. After each step, predict one result and check it.
+
+:::
+
+
 ::: {.callout-note .code-guide title="Your own project" icon="false"}
 
 The planning snippets name jobs a game needs. The complete Catch the Fruit example later in this chapter implements those jobs in one playable page.
@@ -220,11 +233,19 @@ Further reading: [MDN: JavaScript modules](https://developer.mozilla.org/en-US/d
 
 Create a one-page game design sheet with goal, controls, win/lose rules, and game state.
 
+1. **Build the scene structure:** Sketch the world and controls on the design sheet.
+2. **Style the scene:** Specify how objects and feedback will be recognizable.
+3. **Behavior:** Write the goal, controls, win/lose rules, state, and one expected play sequence.
+
 :::
 
 ::: {.callout-tip .challenge title="Challenge 2" icon="false"}
 
 Build a playable version using only rectangles and circles before adding art.
+
+1. **Build the scene structure:** Create only the parts needed for one playable route.
+2. **Style the scene:** Use distinguishable rectangles/circles and readable labels as the first style.
+3. **Behavior:** Implement and test the core action before adding decorative artwork.
 
 :::
 
@@ -232,4 +253,12 @@ Build a playable version using only rectangles and circles before adding art.
 
 Ask two players to test it and record one change you made because of their feedback.
 
+1. **Build the scene structure:** Show the testers the current scene and goal.
+2. **Style the scene:** Observe whether they recognize controls, objects, and feedback.
+3. **Behavior:** Record action outcomes and choose one change in the appropriate stage, then retest.
+
 :::
+
+## Check your development flow {.unnumbered}
+
+After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.

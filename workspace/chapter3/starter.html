@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Monster Clicker</title>
+  <style>
+    /* Step 2: Style the scene. */
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #eef7ff;
+      color: #17243b;
+      font-family: system-ui, sans-serif;
+    }
+    .card {
+      width: min(92%, 620px);
+      padding: 24px;
+      border: 3px solid #17243b;
+      border-radius: 20px;
+      background: white;
+    }
+    .monster {
+      padding: 18px;
+      border: 2px solid #17243b;
+      border-radius: 14px;
+      background: #e7dcff;
+      font: inherit;
+      cursor: pointer;
+    }
+    .monster:focus-visible {
+      outline: 4px solid #ffe48a;
+      outline-offset: 2px;
+    }
+    #message { min-height: 1.5em; }
+  </style>
+</head>
+<body>
+  <!-- Step 1: Build the scene structure (page structure). -->
+  <main class="card">
+    <h1>Monster Clicker</h1>
+    <button id="monster" class="monster" type="button">👾 Monster</button>
+    <p id="message">The monster is waiting...</p>
+    <p id="score">Score: 0</p>
+  </main>
+
+  <script>
+    // Step 3: Program game behavior — prepare data; click actions come in Chapter 4.
+    const gameTitle = "Monster Clicker";
+    const monsterName = "Pixel Beast";
+
+    let score = 0;
+    let lives = 3;
+    let gameStarted = false;
+
+    const treasures = ["coin", "gem", "key"];
+
+    const player = {
+      name: "Maya",
+      score: 0,
+      lives: 3
+    };
+
+    console.log(gameTitle);
+    console.log(monsterName);
+    console.log(score);
+    console.log(treasures);
+    console.log(player);
+  </script>
+</body>
+</html>

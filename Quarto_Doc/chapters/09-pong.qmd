@@ -8,6 +8,19 @@
 
 :::
 
+::: {.callout-note .big-idea title="Structure → Style → Behavior" icon="false"}
+
+**Build the scene structure → Style the scene → Program game behavior.**
+
+- **Build the scene structure:** Place the canvas, paddles, ball, instructions, and score display.
+- **Style the scene:** Draw distinguishable paddles and ball and make the controls and score legible.
+- **Behavior:** Read held keys, update movement, resolve paddle hits, and test scoring and misses.
+
+Use this plan for the examples and exercises below. Reuse parts that already work; change only what the task needs. After each step, predict one result and check it.
+
+:::
+
+
 ::: {.callout-note .code-guide title="How to use the code pieces" icon="false"}
 
 The short snippets below explain individual rules. The complete browser example later in this chapter combines them into a playable page.
@@ -225,11 +238,19 @@ window.addEventListener("keyup", e => {
 
 Add a second paddle controlled by W and S.
 
+1. **Build the scene structure:** Add a second paddle and identify its starting position.
+2. **Style the scene:** Distinguish the paddles and add clear W/S instructions.
+3. **Behavior:** Track W/S input, constrain movement, and test ball contact with both paddles.
+
 :::
 
 ::: {.callout-tip .challenge title="Challenge 2" icon="false"}
 
 Add a score when the ball passes a paddle.
+
+1. **Build the scene structure:** Identify the score display and which side earns each point.
+2. **Style the scene:** Keep the score and any reset feedback readable.
+3. **Behavior:** Award one point on a miss, reset the ball, and check that the same miss is not counted again.
 
 :::
 
@@ -237,4 +258,12 @@ Add a score when the ball passes a paddle.
 
 Make the ball slightly faster after each paddle hit.
 
+1. **Build the scene structure:** Reuse the ball, paddles, and collision test.
+2. **Style the scene:** Keep the current drawing while comparing speeds.
+3. **Behavior:** Increase speed once per hit and test successive hits and misses.
+
 :::
+
+## Check your development flow {.unnumbered}
+
+After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.

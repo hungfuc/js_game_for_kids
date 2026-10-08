@@ -29,10 +29,35 @@ flowchart LR
 
 **Read the picture:** The computer is the physical machine. The browser is a program running on that machine. The browser uses files to create the game experience you see.
 
+## Our development flow: Structure → Style → Behavior {#sec-ch01-development-flow}
+
+**Build the scene structure → Style the scene → Program game behavior.**
+
+The names tell you what to do: **build the structure** by deciding what belongs in the scene, **style** it so the player understands it, and **program game behavior** with operations and actions. Use this thinking strategy whenever you plan a page or game. A **scene** here means the page the player sees: its title, instructions, play area, characters or pictures, controls, and score. First decide what belongs in that scene and how its parts are grouped. Then choose how those parts look. Finally, decide what operations and actions should happen.
+
+```{mermaid}
+flowchart LR
+    A[1. Build the scene structure<br/>What belongs on the page?] --> B[2. Style the scene<br/>How should it look?]
+    B --> C[3. Program game behavior<br/>What operations and actions happen?]
+```
+
+| Development step | Thinking question | Tool and example | Check before moving on |
+| --- | --- | --- | --- |
+| 1. Build the scene structure | What does the player need to see or use? | HTML: a monster button, message, and score area | Each part exists and is in a sensible group and reading order. |
+| 2. Style the scene | How can the player recognize and use those parts? | CSS: readable text, spacing, colors, button size | The scene is readable; its controls and play area are easy to find. |
+| 3. Program game behavior | What should happen when the player acts or time passes? | JavaScript: remember a score, respond to a hit, move a star | Predict the result of one action, then compare it with the actual result. |
+
+For example, plan **Robot Rescue** in this order: sketch a robot, an arena, a Start button, and a score; choose their sizes and colors; then describe actions such as starting, moving, collecting, and restarting. A drawing on paper is enough to begin the structure step.
+
+This is our **development order**, not a promise about exactly when a browser loads each file. You will return to an earlier step when a new game action needs a new control or display. Build a small scene, style it, add one behavior, and check the result before expanding it.
+
+Chapter 1 helps you plan these three steps. Chapter 2 builds structure and style and writes a behavior plan. Chapter 3 prepares JavaScript memory for the behavior step. Chapter 4 connects that memory to player actions.
+
 ## Learning Objectives {.unnumbered}
 
 By the end of this chapter, you will be able to:
 
+- use the development flow **Build the scene structure → Style the scene → Program game behavior** to plan a game;
 - distinguish **hardware** from **software**;
 - explain the difference between a **program**, a **file**, and a **folder**;
 - explain what a **browser** does;
@@ -114,9 +139,9 @@ Think of a folder as a project box. If you make a space game, you want the files
 
 ```text
 space-game/
-  game-page
-  game-style
-  game-program
+  index.html
+  styles.css
+  game.js
   images/
     spaceship.png
     planet.png
@@ -124,7 +149,19 @@ space-game/
     launch.mp3
 ```
 
-The names `game-page`, `game-style`, and `game-program` are only labels in this picture. In later chapters, you will learn the actual file types used for web pages and JavaScript programs.
+These are real web-project file names. `index.html` describes the page, `styles.css` describes its appearance, and `game.js` holds JavaScript instructions. The name `index.html` is a common starting-page name. An early example may keep all three kinds of code inside one HTML file; a larger project usually separates them.
+
+| File category | Extensions used in this book | Browser's job |
+| --- | --- | --- |
+| Page | `.html` | Read the page structure and find its linked resources. |
+| Stylesheet | `.css` | Apply colors, sizes, spacing, and layout rules. |
+| Program | `.js` | Run the game instructions. |
+| Picture | `.svg`, `.png` | Display an image or use it in a game drawing. |
+| Sound | `.wav`, `.mp3` | Load audio that the game can play. |
+| Data | `.json` | Read organized information, such as a level layout. |
+| 3D model | `.glb` | Supply model data to the later 3D game code. |
+
+The book itself is written in `.qmd` files. **Quarto** turns that manuscript into web pages for reading. When you build a game, you work with the game files above. A browser does not open a `.qmd` chapter as a playable game.
 
 ```{mermaid}
 flowchart TB
@@ -373,15 +410,15 @@ When work happens in the browser on the player's device, programmers often call 
 You only need the basic idea now. Most of our early attention will stay on the browser side.
 :::
 
-## How HTML, CSS, and JavaScript will fit later
+## How HTML, CSS, and JavaScript fit together
 
-You will start learning HTML in Chapter 2, so this chapter will not teach HTML tags or page syntax. For now, you only need the names of three technologies that often work together in a web game:
+You will write HTML and CSS in Chapter 2. First, recognize the three jobs that work together in our games:
 
 - **HTML** describes the page's structure and content.
 - **CSS** describes much of the page's appearance and layout.
 - **JavaScript** gives the page programmable behavior.
 
-Think of them as three different jobs rather than three things you must learn all at once.
+Use them in our development flow: **HTML builds the scene structure → CSS gives it style → JavaScript supplies behaviors**. These three jobs let you build and check a game in manageable stages.
 
 | Technology | Job in a future web game | Example |
 | --- | --- | --- |
@@ -391,12 +428,45 @@ Think of them as three different jobs rather than three things you must learn al
 
 ```{mermaid}
 flowchart LR
-    H[HTML<br/>what is there] --> G[Web game]
-    C[CSS<br/>how it looks] --> G
-    J[JavaScript<br/>what it does] --> G
+    H[HTML<br/>Build the scene structure] --> C[CSS<br/>Style the scene]
+    C --> J[JavaScript<br/>Program game behavior]
+    J --> G[Web game]
 ```
 
 Do not worry about the code yet. Chapter 2 begins with HTML and shows how a browser turns page structure into something you can see.
+
+### The browser builds a page from connected files {.unnumbered}
+
+The page file is the starting point. It can point to a stylesheet, pictures, and JavaScript files. The browser loads those resources, builds the page's structure, applies its styles, and runs its scripts. Loading a picture or a program may take time, so later games wait until their resources are ready.
+
+```{mermaid}
+flowchart LR
+    H[index.html] --> B[Browser builds page elements]
+    C[styles.css] --> S[Browser styles the elements]
+    B --> S
+    S --> P[Page on the screen]
+    J[game.js] --> R[Browser runs game instructions]
+    R --> P
+    A[Pictures, sounds, and models] --> P
+```
+
+The browser keeps a working representation of the page called the **Document Object Model**, or **DOM**. A heading, a button, and a score paragraph become elements in that representation. Chapter 2 gives some elements unique labels called **IDs**. Chapter 4 teaches JavaScript to find those elements and change them. Changing the page in the browser does not automatically change the saved HTML file.
+
+### Recognize the page structures we will reuse {.unnumbered}
+
+Our games grow in stages, but they keep familiar page parts: a title, instructions, a play area, controls, and a message or score. The play area changes as we learn new drawing techniques.
+
+| Book stage | Structure to recognize | What HTML and CSS provide | What JavaScript adds |
+| --- | --- | --- | --- |
+| Chapter 2: static website | Heading, sections, picture, list, player form | Content, labeled controls, a styled card | Game behavior comes later. |
+| Chapters 3–5: Monster Clicker | Monster button, message, score paragraph | Visible elements with unique IDs | Chapter 3 stores data; Chapters 4–5 connect clicks and decisions. |
+| Chapter 6: Monster Swarm | Container of buttons and a score span | Shared button classes and a flexible row | A loop connects the monsters. |
+| Chapter 7: Catch the Star | Game-area container with a star inside | A sized box and coordinates for the star | Timers and clicks change its position. |
+| Chapters 8–12: canvas games | Drawing surface, instructions, status, sometimes Restart | Canvas dimensions, frame, and page layout | Drawing, movement, collisions, and game rules |
+| Chapters 13–16: complete 2D projects | Canvas, toolbar, choices, movement buttons, status, error area | A reusable game page and shared stylesheet | Modules load assets and run the game. |
+| Chapters 17–20: 3D projects | A stage container plus the same controls and messages | Space for a canvas created by the renderer | Three.js draws the world; Rapier adds physics where needed. |
+
+Use this table as a map. Chapter 2 explains the HTML and CSS vocabulary for these structures before Chapter 3 begins teaching JavaScript variables.
 
 ::: {.callout-important collapse="true" title="Advanced Study: What is a local web server?" icon="false"}
 Later games in this book will use several JavaScript files, data files, or 3D models. For those projects, we will sometimes run a **local web server**.
@@ -414,7 +484,11 @@ For now, you only need to recognize the idea. Later chapters will tell you when 
 
 ## Exercises {.unnumbered}
 
+Use **Structure → Style → Behavior** to connect these computer concepts to a future game. These are explanation and planning tasks; no game code is required.
+
 ### Exercise 1: Hardware or software?
+
+**Flow focus:** Preparation for all three steps: identify the machine and tools that build, display, and run a scene.
 
 Classify each item as **hardware** or **software**.
 
@@ -427,6 +501,8 @@ Classify each item as **hardware** or **software**.
 
 ### Exercise 2: File, folder, or program?
 
+**Flow focus:** Preparation for all three steps: distinguish the saved resources from the programs that use them.
+
 For each item, choose **file**, **folder**, or **program**.
 
 1. `spaceship.png`
@@ -438,6 +514,8 @@ For each item, choose **file**, **folder**, or **program**.
 
 ### Exercise 3: Internet or Web?
 
+**Flow focus:** Preparation for all three steps: explain how the browser can receive the files for a game.
+
 Complete each sentence with **Internet** or **Web**.
 
 1. The __________ connects computers and devices so they can exchange information.
@@ -446,6 +524,8 @@ Complete each sentence with **Internet** or **Web**.
 
 ### Exercise 4: Page, site, or game?
 
+**Flow focus:** Build the scene structure: distinguish one view, a collection of pages, and an interactive game.
+
 Choose **web page**, **website**, or **web game**.
 
 1. One instruction screen displayed in a browser
@@ -453,6 +533,8 @@ Choose **web page**, **website**, or **web game**.
 3. An interactive browser program where the player catches falling stars
 
 ### Exercise 5: Read a URL
+
+**Flow focus:** Build the scene structure: identify the address used to locate a page or one of its resources.
 
 Look at this URL:
 
@@ -469,6 +551,8 @@ Answer the questions.
 
 ### Exercise 6: Local or remote?
 
+**Flow focus:** Build the scene structure: decide where a resource comes from before trying to load it.
+
 For each address, decide whether the browser is most likely opening a **local file** or requesting a **web resource**.
 
 ```text
@@ -480,6 +564,8 @@ http://school.example.org/game-lab
 
 ### Exercise 7: Trace the request
 
+**Flow focus:** Preparation for all three steps: trace delivery of the files; this is separate from development order.
+
 Put these actions in a sensible order:
 
 - The server sends a response.
@@ -488,6 +574,8 @@ Put these actions in a sensible order:
 - The player enters a web address.
 
 ### Exercise 8: Who is doing the job?
+
+**Flow focus:** Program game behavior: identify where browser actions run and what the server supplies.
 
 A player opens a browser and visits an online game. The browser asks another computer for the game files.
 
@@ -500,11 +588,15 @@ Answer these questions:
 
 ### Exercise 9: Explain the picture
 
+**Flow focus:** Preparation for all three steps: show how the files needed by the scene reach the browser.
+
 Draw four boxes labeled **Player**, **Browser**, **Internet**, and **Server**. Add arrows to show how a player can request a web game. Label at least one arrow **request** and one arrow **response**.
 
 ## Challenges {.unnumbered}
 
 ### Challenge 1: Explain a web game to a beginner
+
+**Structure:** Describe the game page and the files it needs. **Style:** Explain that the browser uses visual rules to display those parts. **Behavior:** Describe which program carries out the game actions; use the requested vocabulary.
 
 Imagine a friend says, "A web game is stored inside Chrome."
 
@@ -513,6 +605,8 @@ Write a short explanation that uses at least four of these words correctly:
 **hardware, software, browser, file, Internet, Web, server, client**
 
 ### Challenge 2: Draw the journey of a game
+
+**Structure:** Draw the browser and the two routes by which its scene files arrive. **Style:** Keep box labels and arrows readable. **Behavior:** Trace a request and response; explain how file delivery supports later game actions.
 
 Draw a diagram showing two ways a browser can get game files:
 
@@ -525,18 +619,22 @@ Then write two or three sentences explaining the difference between the two rout
 
 ### Challenge 3: Plan a future game project
 
-Imagine you will build a game called **Robot Rescue**. Sketch a folder for the project. Include folders or files for at least:
+**Structure:** Sketch Robot Rescue and its project files. **Style:** Choose two visual decisions that help a player read the scene. **Behavior:** List three player actions and their expected results.
+
+Imagine you will build a game called **Robot Rescue**. First sketch its **scene structure**: instructions, play area, robot, controls, and score. Next note two **style** choices. Then list three **behaviors**, each as an action and its expected result. Sketch a folder for the project. Include folders or files for at least:
 
 - the game page;
 - game instructions or code;
 - images;
 - sounds.
 
-You do not need to know the real web file extensions yet. Use names that clearly describe each item's job.
+Use `index.html`, `styles.css`, and `game.js` for the three web-code files, then choose meaningful names for your pictures and sounds.
 
 Then answer: **Why is keeping related game files in one project folder useful?**
 
 ### Challenge 4: Local game or online game?
+
+**Structure:** Identify the maze, controls, and score in each game plan. **Style:** Keep the scene legible in both plans; server location does not choose its colors. **Behavior:** Decide which actions and saved/shared data need browser or server work.
 
 You are designing two games:
 
@@ -544,3 +642,15 @@ You are designing two games:
 - **Game B** lets students on different computers compare high scores online.
 
 For each game, explain which work could happen in the browser and whether a server would be useful. You do not need to design the server; explain only the jobs it might perform.
+
+### Challenge 5: Trace the development flow
+
+**Structure:** Identify the treasure, Collect control, and score. **Style:** Identify the task that changes how those existing parts look. **Behavior:** Identify the task that connects collection to a score update, then order all three tasks.
+
+A friend wants to make a treasure game. Put these development tasks in order and name their stages:
+
+- choose colors and spacing so the treasure is easy to see;
+- create a treasure picture, a Collect button, and a score area;
+- make Collect increase the score.
+
+Then explain why changing a picture's color does not, by itself, make collecting it increase the score.

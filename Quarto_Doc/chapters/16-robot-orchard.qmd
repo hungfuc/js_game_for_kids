@@ -5,6 +5,19 @@
 [Camera]{.skill-chip} [Game states]{.skill-chip} [Scoring]{.skill-chip} [Restart]{.skill-chip}
 :::
 
+::: {.callout-note .big-idea title="Structure → Style → Behavior" icon="false"}
+
+**Build the scene structure → Style the scene → Program game behavior.**
+
+- **Build the scene structure:** Lay out the route, gems, hazards, portal, spawn/checkpoint, and controls.
+- **Style the scene:** Make the route, hazards, immunity, and locked/unlocked portal states understandable.
+- **Behavior:** Check collection, lives, camera follow, pause, victory, loss, and complete restart.
+
+Use this plan for the examples and exercises below. Reuse parts that already work; change only what the task needs. After each step, predict one result and check it.
+
+:::
+
+
 ::: {.callout-tip .mission title="Your mission" icon="false"}
 Connect movement, collisions, artwork, camera scrolling, and game rules into one playable adventure. Make winning, losing, pausing, and restarting predictable.
 :::
@@ -142,7 +155,16 @@ Test a normal win, a loss, a pause during a jump, a restart after losing, and a 
 
 ::: {.callout-tip .challenge title="Level up" icon="false"}
 Add a checkpoint after the first gap, create an optional high route with extra rewards, or make an alternate level with the same code. Change one system first, write what you expect to happen, and test that expectation before adding the next feature.
+
+1. **Build the scene structure:** Choose one extension: checkpoint, high route, or alternate level, and place its required parts.
+2. **Style the scene:** Make that route or checkpoint recognizable and keep goal feedback clear.
+3. **Behavior:** Specify its rules, then test collection, falls, respawn, victory, and restart where affected.
+
 :::
 
 
 **Complete project:** [Play Robot Orchard](../games/robot-orchard/index.html). Source: [main.js](../games/robot-orchard/main.js), [world.js](../games/robot-orchard/world.js), and [level.json](../games/robot-orchard/level.json).
+
+## Check your development flow {.unnumbered}
+
+After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.

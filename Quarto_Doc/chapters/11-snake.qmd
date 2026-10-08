@@ -8,6 +8,19 @@
 
 :::
 
+::: {.callout-note .big-idea title="Structure → Style → Behavior" icon="false"}
+
+**Build the scene structure → Style the scene → Program game behavior.**
+
+- **Build the scene structure:** Describe the grid, snake cells, food, obstacles, and start/restart controls.
+- **Style the scene:** Make food, snake, walls, and game-state messages visually distinct.
+- **Behavior:** Update grid movement, growth, collisions, speed changes, and resets.
+
+Use this plan for the examples and exercises below. Reuse parts that already work; change only what the task needs. After each step, predict one result and check it.
+
+:::
+
+
 ::: {.callout-note .code-guide title="How to use the code pieces" icon="false"}
 
 The short snippets below explain individual rules. The complete browser example later in this chapter combines them into a playable page.
@@ -227,11 +240,19 @@ const snake = [
 
 Add obstacles to some grid cells.
 
+1. **Build the scene structure:** Describe the obstacle grid cells and keep them separate from food placement.
+2. **Style the scene:** Draw obstacles distinctly from snake and food.
+3. **Behavior:** Check obstacle hits and prevent new food from spawning in blocked cells.
+
 :::
 
 ::: {.callout-tip .challenge title="Challenge 2" icon="false"}
 
 Increase the update speed every five pieces of food.
+
+1. **Build the scene structure:** Reuse the grid, snake, and food counter.
+2. **Style the scene:** Keep the cell layout and drawings unchanged while comparing speeds.
+3. **Behavior:** Change the update interval every five foods without accumulating timers.
 
 :::
 
@@ -239,4 +260,12 @@ Increase the update speed every five pieces of food.
 
 Add a start screen and a restart key.
 
+1. **Build the scene structure:** Add the start-state instructions and identify the restart key.
+2. **Style the scene:** Make ready, playing, and ended states easy to distinguish.
+3. **Behavior:** Start intentionally and reset the snake, food, direction, score, and timing on restart.
+
 :::
+
+## Check your development flow {.unnumbered}
+
+After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.

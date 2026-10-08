@@ -8,6 +8,19 @@
 
 :::
 
+::: {.callout-note .big-idea title="Structure → Style → Behavior" icon="false"}
+
+**Build the scene structure → Style the scene → Program game behavior.**
+
+- **Build the scene structure:** Create the canvas and list each ball with position, radius, and velocity.
+- **Style the scene:** Choose the canvas frame and the ball drawing colors and sizes.
+- **Behavior:** Update positions, handle edges, and redraw in one animation loop.
+
+Use this plan for the examples and exercises below. Reuse parts that already work; change only what the task needs. After each step, predict one result and check it.
+
+:::
+
+
 ::: {.callout-tip .mission title="Your mission" icon="false"}
 
 By the end of this chapter, you can:
@@ -170,10 +183,22 @@ Further reading: [MDN: requestAnimationFrame](https://developer.mozilla.org/en-U
 
 Change the ball speed. What values feel playable?
 
+1. **Build the scene structure:** Reuse the ball and canvas.
+2. **Style the scene:** Keep the ball size/color and frame unchanged so the comparison is fair.
+3. **Behavior:** Change velocity, observe several edge bounces, and compare playable speeds.
+
 :::
 
 ::: {.callout-tip .challenge title="Challenge 2" icon="false"}
 
 Add a second ball with its own position and velocity.
 
+1. **Build the scene structure:** Describe a second ball with independent position and velocity.
+2. **Style the scene:** Draw it in a distinguishable color within the same canvas.
+3. **Behavior:** Update and bounce both balls in the existing loop.
+
 :::
+
+## Check your development flow {.unnumbered}
+
+After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.

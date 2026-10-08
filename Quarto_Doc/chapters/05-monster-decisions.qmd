@@ -8,9 +8,22 @@
 
 :::
 
+::: {.callout-note .big-idea title="Structure → Style → Behavior" icon="false"}
+
+**Build the scene structure → Style the scene → Program game behavior.**
+
+- **Build the scene structure:** Identify the monster, special-action controls, score, and message; add a control only if the rule needs one.
+- **Style the scene:** Make action labels, costs, and success/refusal messages easy to distinguish.
+- **Behavior:** Implement the conditions and score changes, then test below, at, and above each threshold.
+
+Use this plan for the examples and exercises below. Reuse parts that already work; change only what the task needs. After each step, predict one result and check it.
+
+:::
+
+
 ## Overview
 
-In Chapter 3, you made a monster react when the player clicked it. In Chapter 4, you gave the game **memory** by storing a score and increasing it after every click.
+In Chapter 3, you prepared the game’s **memory** with variables such as a score. In Chapter 4, you connected that memory to the page and increased the score when the player clicked the monster.
 
 Now the game needs something new: **rules**.
 
@@ -336,8 +349,8 @@ if (score >= 5) {
 
 Now combine what you built across three chapters.
 
-- Chapter 3: the monster listens for a click.
-- Chapter 4: the game remembers a score.
+- Chapter 3: the game remembers a score.
+- Chapter 4: the monster listens for a click and updates the score.
 - Chapter 5: the game makes decisions using that score.
 
 [COMPLETE EXAMPLE]{.code-label}
@@ -468,7 +481,11 @@ You do not need these operators for the main Monster Clicker yet, but you will s
 
 ## Exercises
 
+Use **Structure → Style → Behavior** as a check before each task. The focus below identifies the stage you are practicing. For reading or prediction tasks, trace or explain the result; you do not need a new page or visual redesign.
+
 ### Exercise 1: `true` or `false`?
+
+**Flow focus:** Program game behavior: evaluate the rule using the current score; no scene or style change is needed.
 
 Suppose:
 
@@ -486,6 +503,8 @@ Write `true` or `false` for each condition.
 
 ### Exercise 2: Assignment or comparison?
 
+**Flow focus:** Program game behavior: separate changing game memory from testing a rule.
+
 For each line, decide whether it **stores a value** or **asks a question**.
 
 ```javascript
@@ -496,6 +515,8 @@ score >= 5;
 ```
 
 ### Exercise 3: Predict the branch
+
+**Flow focus:** Program game behavior: trace which rule changes the existing message.
 
 Suppose `score` is 8.
 
@@ -513,6 +534,8 @@ Which letter appears? Explain why.
 
 ### Exercise 4: Complete the rule
 
+**Flow focus:** Program game behavior: define the action threshold and check an affordable and an unaffordable case.
+
 Fill in the missing condition so a shield can be used only when the player has at least 3 points.
 
 ```javascript
@@ -525,11 +548,15 @@ if (________________) {
 
 ### Exercise 5: Add a milestone
 
+**Flow focus:** Program game behavior: reuse the score and message, then test the milestone and its neighboring scores.
+
 Modify the Monster Clicker so the message says **"Halfway there!"** when the score is exactly 5.
 
 ## Challenges
 
 ### Challenge 1: Add More Monster Levels
+
+**Structure:** Reuse the monster, score, and message areas. **Style:** Make each level message distinguishable while keeping the existing layout. **Behavior:** Define the four ranges and test each boundary and a value between boundaries.
 
 Create at least four score ranges instead of three. For example:
 
@@ -542,6 +569,8 @@ Choose your own messages.
 
 ### Challenge 2: Create a Healing Rule
 
+**Structure:** Add a Heal button and reuse the score/message areas. **Style:** Label its cost clearly and make success/refusal feedback readable. **Behavior:** Implement the spending rule and test scores below, at, and above the cost.
+
 Add a button named **Heal** that costs 3 points.
 
 The button should:
@@ -551,6 +580,8 @@ The button should:
 - show a different message when the player cannot afford the action.
 
 ### Challenge 3: Design Your Own Rule
+
+**Structure:** Identify which existing parts your new rule uses; add a part only if needed. **Style:** Plan the visible feedback that tells the player the rule occurred. **Behavior:** Write the rule in words, implement its branch, and test both permitted and refused cases.
 
 Invent one new rule for Monster Clicker.
 

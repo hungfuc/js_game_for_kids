@@ -8,9 +8,22 @@
 
 :::
 
+::: {.callout-note .big-idea title="Structure → Style → Behavior" icon="false"}
+
+**Build the scene structure → Style the scene → Program game behavior.**
+
+- **Build the scene structure:** Group the monster buttons and give each a unique ID; list those IDs in the collection.
+- **Style the scene:** Use one shared monster class, wrapping, and spacing for the whole group.
+- **Behavior:** Use a loop to connect or process the collection; test the first, last, and newly added monster.
+
+Use this plan for the examples and exercises below. Reuse parts that already work; change only what the task needs. After each step, predict one result and check it.
+
+:::
+
+
 ## Overview
 
-In Chapter 3, you made one monster react to a click. In Chapter 4, you added a `score` variable so the game could remember how many hits the player made. In Chapter 5, you added **branches** so the game could make decisions from that score.
+In Chapter 3, you prepared a `score` variable so the game could remember hits. In Chapter 4, you made one monster react to a click and update that score. In Chapter 5, you added **branches** so the game could make decisions from that score.
 
 Now the monster has called for backup.
 
@@ -19,9 +32,9 @@ Instead of one monster, the game will have several monsters. We *could* write th
 This chapter grows the same Monster Clicker game one more step:
 
 ```text
-Chapter 3: one monster can be clicked
+Chapter 3: prepare memory for the score
        ↓
-Chapter 4: remember the score
+Chapter 4: click a monster and update the score
        ↓
 Chapter 5: make decisions from the score
        ↓
@@ -222,7 +235,7 @@ Using `i <= 3` would also include `3`, so the loop would repeat four times.
 
 ## 6.4 Arrays Store Several Values Together
 
-In Chapter 4, you learned that a variable can store different kinds of values. An **array** is a value that can hold several items in order.
+In Chapter 3, you learned that a variable can store different kinds of values. An **array** is a value that can hold several items in order.
 
 Suppose our game has three monsters:
 
@@ -566,9 +579,9 @@ for (let i = 0; i < monsterIds.length; i++) {
 Everything else builds on ideas you already know:
 
 ```text
-DOM element        → Chapter 3
-click event        → Chapter 3
-score variable     → Chapter 4
+DOM element        → Chapter 4
+click event        → Chapter 4
+score variable     → Chapter 3
 if / else branches → Chapter 5
 array + loop       → Chapter 6
 ```
@@ -692,7 +705,11 @@ Both are useful. The best choice depends on what information your code needs.
 
 ## Exercises
 
+Use **Structure → Style → Behavior** as a check before each task. The focus below identifies the stage you are practicing. For reading or prediction tasks, trace or explain the result; you do not need a new page or visual redesign.
+
 ### Exercise 1: Name the Three Parts
+
+**Flow focus:** Program game behavior: identify how repeated operations begin, continue, and stop.
 
 For this loop:
 
@@ -710,6 +727,8 @@ Identify:
 
 ### Exercise 2: Predict the Output
 
+**Flow focus:** Program game behavior: trace each repeated operation before running it.
+
 What will this code print?
 
 ```javascript
@@ -721,6 +740,8 @@ for (let i = 0; i < 3; i++) {
 Write the output before running it.
 
 ### Exercise 3: Trace the Array
+
+**Flow focus:** Program game behavior: inspect the collection describing the monsters already in the scene.
 
 Given:
 
@@ -737,6 +758,8 @@ Answer these questions:
 
 ### Exercise 4: Complete the Loop
 
+**Flow focus:** Program game behavior: visit each collection item once without changing the page layout.
+
 Fill in the missing parts so every monster name is printed.
 
 ```javascript
@@ -749,6 +772,8 @@ for (let i = ___; i < monsters.______; i____) {
 
 ### Exercise 5: Loop or Branch?
 
+**Flow focus:** Program game behavior: choose between deciding a rule and repeating an operation.
+
 Choose **loop** or **branch** for each job.
 
 1. Check whether the player has at least 5 points.
@@ -757,6 +782,8 @@ Choose **loop** or **branch** for each job.
 4. Print every monster name in an array.
 
 ### Exercise 6: Find the Bug
+
+**Flow focus:** Program game behavior: check the first and last valid collection positions.
 
 This code tries to print all three monsters:
 
@@ -772,15 +799,21 @@ Why does it try to read one position too far? Change one symbol to fix it.
 
 ### Exercise 7: Add a Monster
 
+**Flow focus:** Structure → Style → Behavior: add a uniquely named button, reuse the monster class, and include its ID in the loop.
+
 Start with the complete Monster Swarm game. Add a fourth monster button and update the array so the loop connects it automatically.
 
 ## Challenges
 
 ### Challenge 1: Different Monster Names
 
+**Structure:** Create five uniquely identified monster buttons and list their IDs. **Style:** Reuse the shared monster class and wrapping layout. **Behavior:** Let the existing loop connect them and click the first, last, and newly added monsters.
+
 Create at least five monsters of your own. Put their IDs in the `monsterIds` array and confirm that the same loop connects every monster.
 
 ### Challenge 2: Show the Monster List
+
+**Structure:** Keep the monster scene and identify the area that will show the list. **Style:** Keep that list readable within the message area. **Behavior:** Build one list message with a loop and compare it with the collection.
 
 Create an array of display names such as:
 
@@ -793,6 +826,8 @@ Use a loop to build a message that lists all monsters in the game.
 Do not write three separate `message.textContent` statements.
 
 ### Challenge 3: Count Down a Power Move
+
+**Structure:** Reuse the current scene and identify the Power Hit operation being rehearsed. **Style:** Keep the scene style; console lines are sufficient for this practice task. **Behavior:** Trace the descending counter and check that POWER HIT prints once at the end.
 
 Use a loop to print a countdown in the console:
 
@@ -807,9 +842,13 @@ Decide how your loop should start, when it should stop, and how its counter shou
 
 ### Challenge 4: Create a Monster Wave
 
+**Structure:** Add the new wave with unique monster IDs and a second collection. **Style:** Reuse the monster style so both waves are recognizable. **Behavior:** Connect the new collection with a loop and test every new button.
+
 Add a second array for another wave of monsters. Use the same loop idea to connect each monster in the new wave. Try to avoid copying the event-listener code for every button.
 
 ### Challenge 5: Explain Your Design
+
+**Structure:** Identify the button collection and the IDs linking it to the scene. **Style:** Explain how the shared class preserves one style as the collection grows. **Behavior:** Compare the repeated setup code with the loop and describe the change needed for one more monster.
 
 In your own words, explain why this code is easier to expand:
 
