@@ -17,35 +17,37 @@ book:
   - part: Build your web foundation
     chapters:
     - chapters/01-computer-and-web-basics.qmd
-    - chapters/02-static-website.qmd
+    - chapters/02-scene-structure.qmd
+    - chapters/03-scene-style.qmd
+    - chapters/04-game-behavior.qmd
   - part: Make the browser react
     chapters:
-    - chapters/03-variables-monster-starter.qmd
-    - chapters/04-dom-and-event-driven-programming.qmd
-    - chapters/05-monster-decisions.qmd
-    - chapters/06-monster-loops.qmd
-    - chapters/07-catch-the-star.qmd
+    - chapters/05-variables-monster-starter.qmd
+    - chapters/06-dom-and-event-driven-programming.qmd
+    - chapters/07-monster-decisions.qmd
+    - chapters/08-monster-loops.qmd
+    - chapters/09-catch-the-star.qmd
   - part: Build a moving game world
     chapters:
-    - chapters/08-bouncing-ball.qmd
-    - chapters/09-pong.qmd
-    - chapters/10-breakout.qmd
-    - chapters/11-snake.qmd
+    - chapters/10-bouncing-ball.qmd
+    - chapters/11-pong.qmd
+    - chapters/12-breakout.qmd
+    - chapters/13-snake.qmd
   - part: Create your own game
     chapters:
-    - chapters/12-game-studio.qmd
+    - chapters/14-game-studio.qmd
   - part: Build a complete 2D adventure
     chapters:
-    - chapters/13-real-time-2d.qmd
-    - chapters/14-collision-and-platforms.qmd
-    - chapters/15-custom-2d-assets.qmd
-    - chapters/16-robot-orchard.qmd
+    - chapters/15-real-time-2d.qmd
+    - chapters/16-collision-and-platforms.qmd
+    - chapters/17-custom-2d-assets.qmd
+    - chapters/18-robot-orchard.qmd
   - part: Explore 3D with Three.js and Rapier
     chapters:
-    - chapters/17-first-threejs-world.qmd
-    - chapters/18-custom-3d-assets.qmd
-    - chapters/19-rapier-physics.qmd
-    - chapters/20-marble-quest.qmd
+    - chapters/19-first-threejs-world.qmd
+    - chapters/20-custom-3d-assets.qmd
+    - chapters/21-rapier-physics.qmd
+    - chapters/22-marble-quest.qmd
   - references.qmd
   appendices:
   - appendices/a-cheat-sheet.qmd
@@ -53,6 +55,7 @@ book:
   - appendices/c-phaser.qmd
   - appendices/d-self-check.qmd
   - appendices/e-game-lab.qmd
+  - appendices/f-html-css-reference.qmd
 lang: en
 number-sections: true
 number-depth: 2

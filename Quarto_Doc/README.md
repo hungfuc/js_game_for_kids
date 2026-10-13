@@ -1,13 +1,15 @@
 # JavaScript Game Programming for Kids
 ## Colorful Quarto edition: Dynamic 2D and 3D
 
-A 20-chapter, student-facing textbook with diagrams, playable companion projects, original assets, and optional Advanced Study callouts. Chapters 1-2 establish computer, browser, HTML, and CSS fundamentals before the game-programming sequence begins in Chapter 3. Chapters 13-20 extend the progression into complete 2D game development and Three.js/Rapier 3D games. There are no teacher-note sections.
+A 22-chapter, student-facing textbook with diagrams, playable companion projects, original assets, and optional Advanced Study callouts. Chapters 1–4 establish computer and file skills, then introduce Structure, Style, and Behavior in three short lessons before the game-programming sequence begins in Chapter 5. Chapters 15-22 extend the progression into complete 2D game development and Three.js/Rapier 3D games. There are no teacher-note sections.
 
 ## Development theme throughout the book
 
-**Build the scene structure → Style the scene → Program game behavior** (short form: **Structure → Style → Behavior**) guides all 20 chapters, their exercises and challenges, and the reference appendices. “Scene” covers both HTML page structure and game-world objects. “Style” includes CSS, canvas drawing, sprites, 3D materials, lighting, and feedback. “Program game behavior” covers game data, input, operations, and rules.
+**Build the scene structure → Style the scene → Program game behavior** (short form: **Structure → Style → Behavior**) is introduced in Chapter 2 and guides the subsequent chapters, their exercises and challenges, and the reference appendices. Chapter 1 focuses on computer knowledge and file operations. “Scene” covers both HTML page structure and game-world objects. “Style” includes CSS, canvas drawing, sprites, 3D materials, lighting, and feedback. “Program game behavior” covers game data, input, operations, and rules.
 
-Exercises identify the stage they practice; challenges give a concrete route through the three steps. Reuse an unchanged stage rather than rebuilding it, predict a result, and check it. This is a development strategy, not the browser’s loading order or the game’s update loop.
+From Chapter 2 onward, exercises identify the stage they practice; challenges give a concrete route through the three steps. Every chapter opens with an unnumbered overview and learning objectives, followed by its topics. Reuse an unchanged stage rather than rebuilding it, predict a result, and check it. This is a development strategy, not the browser’s loading order or the game’s update loop.
+
+The three foundation chapters reuse one Monster Clicker scene and place short practice tasks beside each concept. Linked runnable stage copies are in `games/foundations/`, with matching practice copies in `../workspace/foundations/`. The full HTML/CSS explanations and summary tables are preserved in Appendix F as an optional lookup reference, including the older Game Maker HQ project. Advanced layout techniques are introduced when later games need them.
 
 ## Read and play
 
@@ -35,16 +37,18 @@ The two 2D projects work from local files once the server is running. The four 3
 | Chapter | Project / focus |
 |---|---|
 | 1 | Personal computer, browser, local files, client/server web basics |
-| 2 | Static HTML and CSS website, semantic structure, labeled input elements |
-| 3-12 | JavaScript state, events, decisions, timing, canvas, game patterns, and game design |
-| 13 | Real-time 2D loops, input state, velocity, fixed updates |
-| 14 | Rectangle and circle collision, wall response, gravity, jumping |
-| 15 | Original sprites, animation sheets, image loading, JSON levels |
-| 16 | Robot Orchard: scrolling camera, enemies, collectibles, lives, restart |
-| 17 | Three.js scenes, cameras, meshes, lighting, movement |
-| 18 | GLB loading, custom models, materials, origins, Asset Workshop |
-| 19 | Rapier worlds, bodies, colliders, synchronization, bounce experiment |
-| 20 | Marble Quest: dynamic obstacles, sensors, scoring, respawn, win rules |
+| 2 | Structure: tiny game idea, sketch, HTML document, elements, attributes, nesting |
+| 3 | Style: CSS connection, selectors, text, boxes, image styling, readable controls |
+| 4 | Behavior: input controls, state, action rules, paper simulation, feedback, reset |
+| 5-14 | JavaScript state, events, decisions, timing, canvas, game patterns, and game design |
+| 15 | Real-time 2D loops, input state, velocity, fixed updates |
+| 16 | Rectangle and circle collision, wall response, gravity, jumping |
+| 17 | Original sprites, animation sheets, image loading, JSON levels |
+| 18 | Robot Orchard: scrolling camera, enemies, collectibles, lives, restart |
+| 19 | Three.js scenes, cameras, meshes, lighting, movement |
+| 20 | GLB loading, custom models, materials, origins, Asset Workshop |
+| 21 | Rapier worlds, bodies, colliders, synchronization, bounce experiment |
+| 22 | Marble Quest: dynamic obstacles, sensors, scoring, respawn, win rules |
 
 Each new chapter includes an original explanatory SVG diagram, two optional Advanced Study blocks, a challenge, a checkpoint, and links to complete companion source. The original chapters retain their existing visual explanations and callouts.
 

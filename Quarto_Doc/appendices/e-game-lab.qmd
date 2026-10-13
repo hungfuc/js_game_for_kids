@@ -69,12 +69,12 @@ The browser's trip is simple: browser asks for `main.js` or an image, the local 
 
 | Project | Chapter | Controls and purpose |
 | --- | --- | --- |
-| Collision Playground | 13–14 | Move with arrows/WASD or drag the player. Switch shape and turn wall blocking on or off. |
-| Robot Orchard | 13–16 | Start; move with A/D or left/right; jump with Space/up/W; P pauses, R restarts, H shows hitboxes. Collect every gem and enter the portal. |
-| Robot Island Explorer | 17–18 | Move with arrows/WASD; drag to orbit the camera; scroll to zoom. Collect four gems. Crates are decorative in this non-physics project. |
-| Rapier Drop Lab | 19 | Drop again; orbit the camera; show colliders. Compare three bounce coefficients. |
-| Marble Quest | 20 | Start; arrows/WASD move the marble; P pauses, R restarts, H shows colliders. Collect five gems and enter the gate. Falling costs a life. |
-| 3D Asset Workshop | 18 | Change the robot body's color, orbit the view, and export your own GLB file. |
+| Collision Playground | 15–16 | Move with arrows/WASD or drag the player. Switch shape and turn wall blocking on or off. |
+| Robot Orchard | 15–18 | Start; move with A/D or left/right; jump with Space/up/W; P pauses, R restarts, H shows hitboxes. Collect every gem and enter the portal. |
+| Robot Island Explorer | 19–20 | Move with arrows/WASD; drag to orbit the camera; scroll to zoom. Collect four gems. Crates are decorative in this non-physics project. |
+| Rapier Drop Lab | 21 | Drop again; orbit the camera; show colliders. Compare three bounce coefficients. |
+| Marble Quest | 22 | Start; arrows/WASD move the marble; P pauses, R restarts, H shows colliders. Collect five gems and enter the gate. Falling costs a life. |
+| 3D Asset Workshop | 20 | Change the robot body's color, orbit the view, and export your own GLB file. |
 
 Click the game canvas before using keys. Movement controls are intentionally world-relative in the 3D games: W/up moves toward negative Z even if you rotate the exploration camera. The lab also supplies large onscreen controls where movement is needed. These are useful alternatives, not a claim that every canvas interaction is fully accessible to every player.
 
@@ -82,7 +82,7 @@ Click the game canvas before using keys. Movement controls are intentionally wor
 
 ```text
 chapters/               The textbook's Quarto chapters
-figures/                Original diagrams with editable SVGs used by Chapters 13-20
+figures/                Original diagrams with editable SVGs used by Chapters 15-22
 games/
   index.html            Game Lab menu
   collision-lab/        Shape detection and wall-response experiment

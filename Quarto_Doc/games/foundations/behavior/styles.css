@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 1rem;
+  background: #eef2ff;
+  color: #203654;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+.card {
+  max-width: 38rem;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 2px solid #d8dff0;
+  border-radius: 1rem;
+  background: white;
+}
+h1 {
+  margin-top: 0;
+  font-size: 2rem;
+}
+.instructions {
+  font-style: italic;
+}
+.arena {
+  padding: 1rem;
+  border: 2px solid #d8dff0;
+  border-radius: .75rem;
+  text-align: center;
+}
+.monster {
+  min-width: 10rem;
+  padding: .8rem 1.2rem;
+  border: 2px solid #50329c;
+  border-radius: .75rem;
+  background: #7046cf;
+  color: white;
+  font: inherit;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+.monster:hover {
+  background: #50329c;
+}
+.monster:focus-visible {
+  outline: 3px solid #203654;
+  outline-offset: 3px;
+}
+#message {
+  min-height: 1.5em;
+}

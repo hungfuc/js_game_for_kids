@@ -12,7 +12,7 @@
 
 Build a game. Understand the code. Make it your own.
 
-[20 chapters]{.hero-chip} [Visual explanations]{.hero-chip} [Advanced Study]{.hero-chip}
+[22 chapters]{.hero-chip} [Visual explanations]{.hero-chip} [Advanced Study]{.hero-chip}
 
 :::
 
@@ -26,29 +26,7 @@ First decide what belongs in the game. Next make those parts readable and recogn
 
 :::
 
-## Your three-step game-making guide {.unnumbered #sec-development-guide}
-
-Remember **Structure → Style → Behavior**. The full names tell you what to do:
-
-| Step | Ask yourself | What you produce | How to check it |
-| --- | --- | --- | --- |
-| **1. Build the scene structure** | What needs to exist, and how do its parts fit together? | A page or world plan: controls, player, objects, score/status, groups, and starting positions | Point to each required part and explain its job. |
-| **2. Style the scene** | How will the player recognize and understand those parts? | Readable layout, colors, shapes, artwork, materials, lighting, and visible feedback | Check visibility, labels, spacing, contrast, and the view of the play area. |
-| **3. Program game behavior** | What happens on a player action, a timer tick, or a collision? | Data, operations, actions, rules, and their connections | Predict a result, run or trace the action, and compare the result with your prediction. |
-
-The full names turn the three responsibilities into instructions: **build the structure**, **style**, and **program game behavior**. In the first projects, HTML builds the page, CSS styles it, and JavaScript gives it game actions. In canvas and 3D projects, JavaScript also creates and draws world objects. The steps describe **your design decisions**, not exclusive ownership by a programming language.
-
-A **scene** includes what the player sees and uses: the surrounding page and the game world inside it. A 3D scene object is one part of that larger player-facing scene. **Program game behavior** includes memory, input, movement, rules, timing, and reset—not only animation. **Style** includes readable placeholder shapes; you do not need finished artwork before testing an action.
-
-### Use the guide for every exercise {.unnumbered}
-
-1. **Structure:** identify the parts the task uses. Reuse the current scene, or sketch one for a paper exercise. Add parts only when they are needed.
-2. **Style:** check that those parts and their feedback are understandable. Keep the current style when the task changes only a rule.
-3. **Behavior:** state the operation or expected result. Write code, trace code, or explain the result, depending on the exercise.
-
-Short reading and prediction exercises can focus on one step. Their **Flow focus** tells you which responsibility you are investigating; it does not ask you to rebuild a game. For challenges, use the concrete **Structure**, **Style**, and **Program game behavior** prompts. Finish with a small check: what did you expect, what happened, and what would you change next?
-
-Repeat the flow for each new feature. A new action may need a new control; return to Structure, style that control, and connect the action. These steps are a development strategy, not the browser's loading order or the game's repeating update-and-draw loop.
+Chapter 1 prepares your computer and project files. Build one small scene in three gradual lessons: [Chapter 2: Structure](chapters/02-scene-structure.qmd), [Chapter 3: Style](chapters/03-scene-style.qmd), and [Chapter 4: Behavior](chapters/04-game-behavior.qmd). Try each chapter’s examples and short practices before continuing to JavaScript in Chapter 5. The [HTML/CSS reference](appendices/f-html-css-reference.qmd) keeps the detailed catalog available for later lookup.
 
 ## Your computer toolkit {.unnumbered}
 
@@ -84,7 +62,7 @@ The extension is important. `index.html` and `index.html.txt` are different file
 
 Follow the main explanations and code examples first. Use the diagrams to trace what the program is doing. Then try a challenge and explain your result in your own words.
 
-Chapters 1-12 establish the web and JavaScript foundations. Chapters 13-16 build a complete 2D adventure. Chapters 17-20 introduce Three.js, custom 3D models, and Rapier physics. The later projects take more time and combine earlier ideas; work through them in small experiments.
+Chapters 1-14 establish the web and JavaScript foundations. Chapters 15-18 build a complete 2D adventure. Chapters 19-22 introduce Three.js, custom 3D models, and Rapier physics. The later projects take more time and combine earlier ideas; work through them in small experiments.
 
 Purple **Advanced Study** blocks are optional deeper dives into HTML, CSS, JavaScript, and game systems. They start open; you can collapse them while following the main path and return later.
 
@@ -120,7 +98,7 @@ Rose blocks help you check your understanding.
 
 - A modern web browser such as Chrome, Edge, Firefox, or Safari.
 - A plain-text code editor available on your computer.
-- A folder for each website or game containing its files. Chapter 2 begins with separate HTML and CSS files; early JavaScript examples keep their code close to the page so you can focus on the programming ideas.
+- A folder for each website or game containing its files. Chapter 3 begins with separate HTML and CSS files; early JavaScript examples keep their code close to the page so you can focus on the programming ideas.
 
 ::: {.callout-tip .setup title="Start with one file" icon="false"}
 
@@ -138,7 +116,7 @@ Your web browser is the program that turns your game files into a page you can p
 | **CSS** | Chooses how those parts look. | A purple button or a large play area. |
 | **JavaScript** | Makes the page react and change. | Add a point when the player clicks. |
 
-Use **Build the scene structure → Style the scene → Program game behavior**: HTML describes the first pages, CSS makes their parts readable, and JavaScript adds game operations and actions. Chapter 2 uses linked HTML and CSS files; Chapter 3 combines a styled scene and JavaScript data in one starter file.
+Use **Build the scene structure → Style the scene → Program game behavior**: HTML describes the first pages, CSS makes their parts readable, and JavaScript adds game operations and actions. Chapter 3 uses linked HTML and CSS files; Chapter 5 combines a styled scene and JavaScript data in one starter file.
 
 ### What “client-side JavaScript” means {.unnumbered}
 
@@ -169,7 +147,7 @@ For a one-file beginner game, `file:///` is enough. For a project that uses Java
 
 A **complete example** includes the setup for that small project. A **code fragment** illustrates one part of a game and relies on the variables or functions discussed nearby. Do not paste every fragment into one file without checking where it belongs: some examples replace earlier versions.
 
-Chapters 9–11 use Pong, Breakout, and Snake to explain larger game-building patterns. Each chapter includes a complete small browser example alongside fragments explaining individual rules. Locate its scene, its style, and its actions before changing a fragment. Chapters 13-20 add complete companion projects in the Game Lab. Their chapter snippets explain selected parts; the linked project folders contain the complete runnable source.
+Chapters 11–13 use Pong, Breakout, and Snake to explain larger game-building patterns. Each chapter includes a complete small browser example alongside fragments explaining individual rules. Locate its scene, its style, and its actions before changing a fragment. Chapters 15-22 add complete companion projects in the Game Lab. Their chapter snippets explain selected parts; the linked project folders contain the complete runnable source.
 
 ## A safe learning habit {.unnumbered}
 
@@ -180,25 +158,27 @@ When a program does not work, do not immediately replace it with someone else's 
 | Chapter | Game | Coding ideas | Your new ability |
 | --- | --- | --- | --- |
 | 1 | [Computer and web basics](chapters/01-computer-and-web-basics.qmd) | Client, browser, files, servers | Explain where a web page comes from |
-| 2 | [Game Maker HQ](chapters/02-static-website.qmd) | HTML, CSS, input elements | Build a static website ready for JavaScript |
-| 3 | [Monster Clicker Starter](chapters/03-variables-monster-starter.qmd) | Variables, arrays, objects | Prepare memory for game actions |
-| 4 | [Make the Page React](chapters/04-dom-and-event-driven-programming.qmd) | DOM, events, functions | Connect player actions to page updates |
-| 5 | [Monster Decisions](chapters/05-monster-decisions.qmd) | Conditions, branches | Enforce game rules |
-| 6 | [Monster Swarm](chapters/06-monster-loops.qmd) | Arrays, loops | Process a collection of monsters |
-| 7 | [Catch the Star](chapters/07-catch-the-star.qmd) | Timers, coordinates, DOM | Change the page over time |
-| 8 | [Bouncing Ball](chapters/08-bouncing-ball.qmd) | Canvas, animation | Draw every frame yourself |
-| 9 | [Pong](chapters/09-pong.qmd) | Keyboard, game loop | Read keys while the game keeps running |
-| 10 | [Breakout](chapters/10-breakout.qmd) | Arrays, collision | Manage many objects |
-| 11 | [Snake](chapters/11-snake.qmd) | Grid logic, state | Update a world one step at a time |
-| 12 | [Game Studio](chapters/12-game-studio.qmd) | Planning, polish, final project | Design your own rules |
-| 13 | [Collision Playground](chapters/13-real-time-2d.qmd) | Input, velocity, fixed steps | Build a predictable real-time loop |
-| 14 | [Platforms and jumping](chapters/14-collision-and-platforms.qmd) | Hitboxes, collision response, gravity | Stop at walls and land on platforms |
-| 15 | [Your own 2D artwork](chapters/15-custom-2d-assets.qmd) | Sprite sheets, loading, JSON levels | Make the game look like your design |
-| 16 | [Robot Orchard](chapters/16-robot-orchard.qmd) | Scrolling, enemies, goals, restart | Finish a complete 2D adventure |
-| 17 | [Robot Island Explorer](chapters/17-first-threejs-world.qmd) | Scene, camera, renderer, 3D movement | Build and explore a 3D world |
-| 18 | [3D Asset Workshop](chapters/18-custom-3d-assets.qmd) | GLB models, origins, materials | Customize and import 3D artwork |
-| 19 | [Rapier Drop Lab](chapters/19-rapier-physics.qmd) | Bodies, colliders, bounce, fixed steps | Connect physics to the picture |
-| 20 | [Marble Quest](chapters/20-marble-quest.qmd) | Forces, sensors, scoring, respawn | Finish a 3D physics game |
+| 2 | [Structure: Monster Clicker page](chapters/02-scene-structure.qmd) | Small idea, sketch, HTML elements, attributes, nesting | Build and check the parts of a scene |
+| 3 | [Style: Monster Clicker appearance](chapters/03-scene-style.qmd) | CSS rules, selectors, text, boxes, focus | Make the existing scene readable |
+| 4 | [Behavior: Monster Clicker action plan](chapters/04-game-behavior.qmd) | Input controls, state, rules, feedback, tests | Predict actions and plan game behavior |
+| 5 | [Monster Clicker Starter](chapters/05-variables-monster-starter.qmd) | Variables, arrays, objects | Prepare memory for game actions |
+| 6 | [Make the Page React](chapters/06-dom-and-event-driven-programming.qmd) | DOM, events, functions | Connect player actions to page updates |
+| 7 | [Monster Decisions](chapters/07-monster-decisions.qmd) | Conditions, branches | Enforce game rules |
+| 8 | [Monster Swarm](chapters/08-monster-loops.qmd) | Arrays, loops | Process a collection of monsters |
+| 9 | [Catch the Star](chapters/09-catch-the-star.qmd) | Timers, coordinates, DOM | Change the page over time |
+| 10 | [Bouncing Ball](chapters/10-bouncing-ball.qmd) | Canvas, animation | Draw every frame yourself |
+| 11 | [Pong](chapters/11-pong.qmd) | Keyboard, game loop | Read keys while the game keeps running |
+| 12 | [Breakout](chapters/12-breakout.qmd) | Arrays, collision | Manage many objects |
+| 13 | [Snake](chapters/13-snake.qmd) | Grid logic, state | Update a world one step at a time |
+| 14 | [Game Studio](chapters/14-game-studio.qmd) | Planning, polish, final project | Design your own rules |
+| 15 | [Collision Playground](chapters/15-real-time-2d.qmd) | Input, velocity, fixed steps | Build a predictable real-time loop |
+| 16 | [Platforms and jumping](chapters/16-collision-and-platforms.qmd) | Hitboxes, collision response, gravity | Stop at walls and land on platforms |
+| 17 | [Your own 2D artwork](chapters/17-custom-2d-assets.qmd) | Sprite sheets, loading, JSON levels | Make the game look like your design |
+| 18 | [Robot Orchard](chapters/18-robot-orchard.qmd) | Scrolling, enemies, goals, restart | Finish a complete 2D adventure |
+| 19 | [Robot Island Explorer](chapters/19-first-threejs-world.qmd) | Scene, camera, renderer, 3D movement | Build and explore a 3D world |
+| 20 | [3D Asset Workshop](chapters/20-custom-3d-assets.qmd) | GLB models, origins, materials | Customize and import 3D artwork |
+| 21 | [Rapier Drop Lab](chapters/21-rapier-physics.qmd) | Bodies, colliders, bounce, fixed steps | Connect physics to the picture |
+| 22 | [Marble Quest](chapters/22-marble-quest.qmd) | Forces, sensors, scoring, respawn | Finish a 3D physics game |
 
 ## Open the Game Lab {.unnumbered}
 

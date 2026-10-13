@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Monster Clicker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="card">
+    <h1>Monster Clicker</h1>
+    <p class="instructions">Click the monster to collect points.</p>
+    <p>
+  <label for="player-name">Player nickname</label>
+  <input id="player-name" name="player-name" type="text" value="Game Maker">
+</p>
+<p>
+  <label for="difficulty">Choose a mode</label>
+  <select id="difficulty" name="difficulty">
+    <option value="easy">Easy</option>
+    <option value="hard">Hard</option>
+  </select>
+</p>
+<p>
+  <label><input id="sound" type="checkbox" checked> Sound on</label>
+</p>
+    <section class="arena" aria-labelledby="arena-title">
+      <h2 id="arena-title">Meet your monster</h2>
+      <button id="monster" class="monster" type="button">👾 Monster</button>
+      <p>Score: <span id="score">0</span></p>
+      <p id="message">Your adventure is ready.</p>
+      <button id="restart" type="button">Restart</button>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,265 @@
+# Control a Real-Time Game {#sec-ch11}
+
+::: {.chapter-banner}
+
+[GAME 11 | Pong]{.game-title}
+
+[Keyboard input]{.skill-chip} [State]{.skill-chip} [Collision]{.skill-chip}
+
+:::
+
+## Overview {.unnumbered}
+
+In a real-time game, a key press should change what happens during the next frames. Instead of moving once per key event, we remember which keys are held down.
+
+## Learning Objectives {.unnumbered}
+
+By the end of this chapter, you can:
+
+- track pressed keys
+- move a paddle every frame
+- detect simple rectangle/ball collisions
+
+::: {.callout-note .big-idea title="Structure → Style → Behavior" icon="false"}
+
+**Build the scene structure → Style the scene → Program game behavior.**
+
+- **Build the scene structure:** Place the canvas, paddles, ball, instructions, and score display.
+- **Style the scene:** Draw distinguishable paddles and ball and make the controls and score legible.
+- **Behavior:** Read held keys, update movement, resolve paddle hits, and test scoring and misses.
+
+Use this plan for the examples and exercises below. Reuse parts that already work; change only what the task needs. After each step, predict one result and check it.
+
+:::
+
+
+::: {.callout-note .code-guide title="How to use the code pieces" icon="false"}
+
+The short snippets below explain individual rules. The complete browser example later in this chapter combines them into a playable page.
+
+:::
+
+## Remember key state
+
+`keydown` sets a state to `true`. `keyup` changes it back to `false`.
+
+![Keyboard events update state; the game loop uses that state.](../figures/chapter_07/keyboard-state.png){#fig-ch11 fig-alt="Keydown sets a pressed flag to true, keyup sets it to false, and the game loop uses the flag." width="100%"}
+
+**Read the picture:** An event changes a remembered value. The loop can then read that value on many frames. The picture uses a right-arrow flag; Pong uses the same idea for the up and down arrows.
+
+```javascript
+const keys = {};
+
+window.addEventListener("keydown", e => {
+  keys[e.key] = true;
+});
+window.addEventListener("keyup", e => {
+  keys[e.key] = false;
+});
+```
+
+## Move during the update
+
+The game loop checks the state every frame.
+
+```javascript
+if (keys["ArrowUp"]) paddleY -= 5;
+if (keys["ArrowDown"]) paddleY += 5;
+```
+
+## Keep the paddle on the screen
+
+`Math.max` and `Math.min` can clamp a value inside a range.
+
+```javascript
+paddleY = Math.max(0, paddleY);
+paddleY = Math.min(canvas.height - paddleH, paddleY);
+```
+
+## Paddle collision idea
+
+For a first Pong game, place a vertical paddle on the right. Here, paddleX and paddleY are its top-left coordinates, paddleW and paddleH are its size, and positive dx means the ball is moving right. Test the ball bounding box against the paddle before reversing direction.
+
+```javascript
+const overlapsPaddle = (
+  ballX + radius >= paddleX &&
+  ballX - radius <= paddleX + paddleW &&
+  ballY + radius >= paddleY &&
+  ballY - radius <= paddleY + paddleH
+);
+if (dx > 0 && overlapsPaddle) {
+  ballX = paddleX - radius;
+  dx = -Math.abs(dx);
+}
+```
+
+## Play Pong in your browser {.unnumbered}
+
+Save this page as `index.html`, or open `workspace/chapter9-pong/index.html`. Hold the up or down arrow to move the right paddle. The game loop reads the remembered key state every frame and checks whether the ball overlaps the paddle.
+
+[COMPLETE EXAMPLE | `index.html`]{.code-label}
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pong Practice</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #eaf4ff; font-family: system-ui, sans-serif; color: #17243b; }
+    main { padding: 24px; border: 3px solid #17243b; border-radius: 18px; background: white; }
+    h1 { margin: 0 0 8px; color: #5d35d5; }
+    canvas { display: block; border: 2px solid #17243b; background: #102342; }
+    #status { min-height: 1.5em; margin-bottom: 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Pong Practice</h1>
+    <p>Hold ↑ or ↓ to move the paddle.</p>
+    <canvas id="game" width="560" height="320"></canvas>
+    <p id="status">Paddle hits: 0</p>
+  </main>
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+    const status = document.getElementById("status");
+    const keys = {};
+    window.addEventListener("keydown", e => {
+      if (e.key === "ArrowUp" || e.key === "ArrowDown") e.preventDefault();
+      keys[e.key] = true;
+    });
+    window.addEventListener("keyup", e => { keys[e.key] = false; });
+    window.addEventListener("blur", () => {
+      keys.ArrowUp = false;
+      keys.ArrowDown = false;
+    });
+
+    const paddleX = 530, paddleW = 12, paddleH = 70;
+    let paddleY = 125;
+    let ballX = 100, ballY = 160;
+    let dx = 3, dy = 2;
+    const radius = 10;
+    let hits = 0;
+
+    function update() {
+      if (keys["ArrowUp"]) paddleY -= 5;
+      if (keys["ArrowDown"]) paddleY += 5;
+      paddleY = Math.max(0, paddleY);
+      paddleY = Math.min(canvas.height - paddleH, paddleY);
+
+      ballX += dx;
+      ballY += dy;
+      if (ballX < radius) dx = Math.abs(dx);
+      if (ballY < radius || ballY > canvas.height - radius) dy = -dy;
+
+      const overlapsPaddle = (
+        ballX + radius >= paddleX &&
+        ballX - radius <= paddleX + paddleW &&
+        ballY + radius >= paddleY &&
+        ballY - radius <= paddleY + paddleH
+      );
+      if (dx > 0 && overlapsPaddle) {
+        ballX = paddleX - radius;
+        dx = -Math.abs(dx);
+        hits++;
+        status.textContent = "Paddle hits: " + hits;
+      }
+      if (ballX > canvas.width + radius) {
+        ballX = 100;
+        ballY = canvas.height / 2;
+        dx = Math.abs(dx);
+        status.textContent = "Missed! Paddle hits: " + hits;
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#102342";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#86d8ff";
+      ctx.fillRect(paddleX, paddleY, paddleW, paddleH);
+      ctx.beginPath();
+      ctx.arc(ballX, ballY, radius, 0, Math.PI * 2);
+      ctx.fillStyle = "#ffe48a";
+      ctx.fill();
+    }
+
+    function loop() {
+      update();
+      draw();
+      requestAnimationFrame(loop);
+    }
+    draw();
+    requestAnimationFrame(loop);
+  </script>
+</body>
+</html>
+```
+
+The demonstration pages pause automatic animation, then make a known number of updates or one paddle collision. The playable page keeps animating normally.
+
+![Pong Practice in Chrome before the paddle moves.](../figures/chapter_09/pong-start.png){#fig-ch11-pong-start fig-alt="A dark Pong canvas shows a yellow ball, a blue paddle on the right, and Paddle hits: 0." width="100%"}
+![Pong Practice in Chrome after holding the up arrow for twelve updates.](../figures/chapter_09/pong-paddle-up.png){#fig-ch11-pong-up fig-alt="The blue paddle has moved upward after held-key updates while the ball moves across the canvas." width="100%"}
+![Pong Practice in Chrome after a ball and paddle collision.](../figures/chapter_09/pong-paddle-hit.png){#fig-ch11-pong-hit fig-alt="The yellow ball touches the right paddle and the page says Paddle hits: 1." width="100%"}
+
+**Read the pictures:** A held key keeps `keys["ArrowUp"]` true, so the paddle moves through several updates. When the ball reaches the paddle, the overlap test becomes true and `dx` changes sign. The hit count confirms that the collision response ran once.
+
+::: {.callout-note .advanced-study title="Advanced Study | Input state versus input events" icon="false" collapse="false"}
+
+[OPTIONAL DEEPER DIVE]{.study-badge}
+
+An event tells you that something happened once. A state variable remembers whether a key is currently held down. Real-time games usually update state in `keydown`/`keyup` handlers and let the game loop decide how far to move the player each frame.
+
+```javascript
+let rightPressed = false;
+window.addEventListener("keydown", e => {
+  if (e.key === "ArrowRight") rightPressed = true;
+});
+window.addEventListener("keyup", e => {
+  if (e.key === "ArrowRight") rightPressed = false;
+});
+```
+
+**Events are messages; state is memory.** Holding a key may produce repeated `keydown` events, but we do not use those repeats as a movement clock. A true flag means the loop should keep moving the paddle.
+
+**Focus matters.** A finished game should clear remembered keys when it loses focus, because a key-up event may not arrive where expected. Prevent arrow-key scrolling only while the player is controlling the game, rather than blocking page navigation everywhere.
+
+:::
+
+## Level-up challenges
+
+::: {.callout-tip .challenge title="Challenge 1" icon="false"}
+
+Add a second paddle controlled by W and S.
+
+1. **Build the scene structure:** Add a second paddle and identify its starting position.
+2. **Style the scene:** Distinguish the paddles and add clear W/S instructions.
+3. **Behavior:** Track W/S input, constrain movement, and test ball contact with both paddles.
+
+:::
+
+::: {.callout-tip .challenge title="Challenge 2" icon="false"}
+
+Add a score when the ball passes a paddle.
+
+1. **Build the scene structure:** Identify the score display and which side earns each point.
+2. **Style the scene:** Keep the score and any reset feedback readable.
+3. **Behavior:** Award one point on a miss, reset the ball, and check that the same miss is not counted again.
+
+:::
+
+::: {.callout-tip .challenge title="Challenge 3" icon="false"}
+
+Make the ball slightly faster after each paddle hit.
+
+1. **Build the scene structure:** Reuse the ball, paddles, and collision test.
+2. **Style the scene:** Keep the current drawing while comparing speeds.
+3. **Behavior:** Increase speed once per hit and test successive hits and misses.
+
+:::
+
+## Check your development flow {.unnumbered}
+
+After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.
