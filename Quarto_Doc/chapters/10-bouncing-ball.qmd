@@ -172,7 +172,7 @@ Further reading: [MDN: requestAnimationFrame](https://developer.mozilla.org/en-U
 
 :::
 
-## Level-up challenges
+## Level-up challenges {.unnumbered}
 
 ::: {.callout-tip .challenge title="Challenge 1" icon="false"}
 

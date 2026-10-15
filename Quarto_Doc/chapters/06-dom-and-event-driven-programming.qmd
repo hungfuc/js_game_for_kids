@@ -744,11 +744,11 @@ This can happen when:
 For now, keep the `<script>` near the bottom of `<body>`, after the elements your JavaScript needs. That way, the browser creates those DOM elements before JavaScript searches for them.
 :::
 
-## Exercises
+## Exercises {.unnumbered}
 
 Use **Structure → Style → Behavior** as a check before each task. The focus below identifies the stage you are practicing. For reading or prediction tasks, trace or explain the result; you do not need a new page or visual redesign.
 
-### Exercise 1: Element or Event?
+### Exercise 1: Element or Event? {.unnumbered}
 
 **Flow focus:** Structure + Behavior: separate a scene part from the event that can act on it.
 
@@ -760,7 +760,7 @@ For each item, write **element** or **event**.
 4. an image
 5. a key press
 
-### Exercise 2: Match the HTML and JavaScript
+### Exercise 2: Match the HTML and JavaScript {.unnumbered}
 
 **Flow focus:** Structure + Behavior: match the existing scene IDs to the code that finds them.
 
@@ -778,7 +778,7 @@ const dragon = document.getElementById("________");
 const status = document.getElementById("________");
 ```
 
-### Exercise 3: Read the DOM Lookup
+### Exercise 3: Read the DOM Lookup {.unnumbered}
 
 **Flow focus:** Program game behavior: explain how this operation selects one existing scene part.
 
@@ -788,7 +788,7 @@ Explain this line in plain English:
 const treasure = document.getElementById("treasure");
 ```
 
-### Exercise 4: Predict Before You Run
+### Exercise 4: Predict Before You Run {.unnumbered}
 
 **Flow focus:** Program game behavior: predict the response on the existing button and message; keep their style.
 
@@ -810,7 +810,7 @@ What will the player see after clicking the button?
 </script>
 ```
 
-### Exercise 5: Find the Bug
+### Exercise 5: Find the Bug {.unnumbered}
 
 **Flow focus:** Structure + Behavior: check the element identity before changing the event code.
 
@@ -826,7 +826,7 @@ const monster = document.getElementById("Monster");
 
 Fix the JavaScript.
 
-### Exercise 6: Trace the Event Flow
+### Exercise 6: Trace the Event Flow {.unnumbered}
 
 **Flow focus:** Program game behavior: trace one action from input to visible feedback.
 
@@ -839,7 +839,7 @@ Put these steps in the correct order:
 - The player sees the changed message.
 
 
-### Exercise 7: Follow the ID Connection
+### Exercise 7: Follow the ID Connection {.unnumbered}
 
 **Flow focus:** Structure + Behavior: verify each scene identity and its exact lookup spelling.
 
@@ -877,7 +877,7 @@ document.getElementById("score")
 
 Explain why each one does or does not match.
 
-### Exercise 8: Sequential or Event-Driven?
+### Exercise 8: Sequential or Event-Driven? {.unnumbered}
 
 **Flow focus:** Program game behavior: distinguish setting up an action from performing it later.
 
@@ -889,7 +889,7 @@ For each statement, decide whether it belongs to the **setup phase** or happens 
 4. `addEventListener()` connects the click to `hitMonster`.
 5. The browser waits for another event.
 
-### Exercise 9: Same Pattern, New Event
+### Exercise 9: Same Pattern, New Event {.unnumbered}
 
 **Flow focus:** Program game behavior: identify the input event and the operation it will trigger.
 
@@ -906,9 +906,9 @@ Identify:
 3. the handler function;
 4. when `movePlayer` runs.
 
-## Challenges
+## Challenges {.unnumbered}
 
-### Challenge 1: Change the Character
+### Challenge 1: Change the Character {.unnumbered}
 
 **Structure:** Replace the visible character and give it the intended ID. **Style:** Keep or choose a recognizable character appearance. **Behavior:** Update the matching lookup and response, then perform one click.
 
@@ -921,7 +921,7 @@ You must change:
 - the matching `getElementById()` call;
 - the response message.
 
-### Challenge 2: Two Clickable Game Objects
+### Challenge 2: Two Clickable Game Objects {.unnumbered}
 
 **Structure:** Add two distinct objects and their message area, each object with its own ID. **Style:** Make the objects recognizable and their targets easy to use. **Behavior:** Connect separate responses and test each object.
 
@@ -934,7 +934,7 @@ For example:
 
 Give each element its own ID, event listener, and response function.
 
-### Challenge 3: Build a Choice Game
+### Challenge 3: Build a Choice Game {.unnumbered}
 
 **Structure:** Create both door choices and one message area. **Style:** Make the choice labels and red/blue identity clear. **Behavior:** Connect each choice to its response and test both paths.
 
@@ -951,7 +951,7 @@ Use the same four-part pattern:
 Get element → Listen for click → Run function → Change DOM
 ```
 
-### Challenge 4: Explain Your Game Like a Programmer
+### Challenge 4: Explain Your Game Like a Programmer {.unnumbered}
 
 **Structure:** Identify the object, its element, and its ID. **Style:** Describe the visual cue that helps the player recognize it. **Behavior:** Explain the lookup, event, handler, and visible result in order.
 

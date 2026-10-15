@@ -223,7 +223,7 @@ Further reading: [MDN: JavaScript modules](https://developer.mozilla.org/en-US/d
 
 :::
 
-## Level-up challenges
+## Level-up challenges {.unnumbered}
 
 ::: {.callout-tip .challenge title="Challenge 1" icon="false"}
 

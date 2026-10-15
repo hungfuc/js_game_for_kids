@@ -704,11 +704,11 @@ for (const monsterId of monsterIds) {
 Both are useful. The best choice depends on what information your code needs.
 :::
 
-## Exercises
+## Exercises {.unnumbered}
 
 Use **Structure → Style → Behavior** as a check before each task. The focus below identifies the stage you are practicing. For reading or prediction tasks, trace or explain the result; you do not need a new page or visual redesign.
 
-### Exercise 1: Name the Three Parts
+### Exercise 1: Name the Three Parts {.unnumbered}
 
 **Flow focus:** Program game behavior: identify how repeated operations begin, continue, and stop.
 
@@ -726,7 +726,7 @@ Identify:
 2. the keep-going condition;
 3. the code that changes the loop variable.
 
-### Exercise 2: Predict the Output
+### Exercise 2: Predict the Output {.unnumbered}
 
 **Flow focus:** Program game behavior: trace each repeated operation before running it.
 
@@ -740,7 +740,7 @@ for (let i = 0; i < 3; i++) {
 
 Write the output before running it.
 
-### Exercise 3: Trace the Array
+### Exercise 3: Trace the Array {.unnumbered}
 
 **Flow focus:** Program game behavior: inspect the collection describing the monsters already in the scene.
 
@@ -757,7 +757,7 @@ Answer these questions:
 3. What is `monsters.length`?
 4. What is the index of `"dragon"`?
 
-### Exercise 4: Complete the Loop
+### Exercise 4: Complete the Loop {.unnumbered}
 
 **Flow focus:** Program game behavior: visit each collection item once without changing the page layout.
 
@@ -771,7 +771,7 @@ for (let i = ___; i < monsters.______; i____) {
 }
 ```
 
-### Exercise 5: Loop or Branch?
+### Exercise 5: Loop or Branch? {.unnumbered}
 
 **Flow focus:** Program game behavior: choose between deciding a rule and repeating an operation.
 
@@ -782,7 +782,7 @@ Choose **loop** or **branch** for each job.
 3. Show one message for beginners and another for high scores.
 4. Print every monster name in an array.
 
-### Exercise 6: Find the Bug
+### Exercise 6: Find the Bug {.unnumbered}
 
 **Flow focus:** Program game behavior: check the first and last valid collection positions.
 
@@ -798,21 +798,21 @@ for (let i = 0; i <= monsters.length; i++) {
 
 Why does it try to read one position too far? Change one symbol to fix it.
 
-### Exercise 7: Add a Monster
+### Exercise 7: Add a Monster {.unnumbered}
 
 **Flow focus:** Structure → Style → Behavior: add a uniquely named button, reuse the monster class, and include its ID in the loop.
 
 Start with the complete Monster Swarm game. Add a fourth monster button and update the array so the loop connects it automatically.
 
-## Challenges
+## Challenges {.unnumbered}
 
-### Challenge 1: Different Monster Names
+### Challenge 1: Different Monster Names {.unnumbered}
 
 **Structure:** Create five uniquely identified monster buttons and list their IDs. **Style:** Reuse the shared monster class and wrapping layout. **Behavior:** Let the existing loop connect them and click the first, last, and newly added monsters.
 
 Create at least five monsters of your own. Put their IDs in the `monsterIds` array and confirm that the same loop connects every monster.
 
-### Challenge 2: Show the Monster List
+### Challenge 2: Show the Monster List {.unnumbered}
 
 **Structure:** Keep the monster scene and identify the area that will show the list. **Style:** Keep that list readable within the message area. **Behavior:** Build one list message with a loop and compare it with the collection.
 
@@ -826,7 +826,7 @@ Use a loop to build a message that lists all monsters in the game.
 
 Do not write three separate `message.textContent` statements.
 
-### Challenge 3: Count Down a Power Move
+### Challenge 3: Count Down a Power Move {.unnumbered}
 
 **Structure:** Reuse the current scene and identify the Power Hit operation being rehearsed. **Style:** Keep the scene style; console lines are sufficient for this practice task. **Behavior:** Trace the descending counter and check that POWER HIT prints once at the end.
 
@@ -841,13 +841,13 @@ POWER HIT!
 
 Decide how your loop should start, when it should stop, and how its counter should change.
 
-### Challenge 4: Create a Monster Wave
+### Challenge 4: Create a Monster Wave {.unnumbered}
 
 **Structure:** Add the new wave with unique monster IDs and a second collection. **Style:** Reuse the monster style so both waves are recognizable. **Behavior:** Connect the new collection with a loop and test every new button.
 
 Add a second array for another wave of monsters. Use the same loop idea to connect each monster in the new wave. Try to avoid copying the event-listener code for every button.
 
-### Challenge 5: Explain Your Design
+### Challenge 5: Explain Your Design {.unnumbered}
 
 **Structure:** Identify the button collection and the IDs linking it to the scene. **Style:** Explain how the shared class preserves one style as the collection grows. **Behavior:** Compare the repeated setup code with the loop and describe the change needed for one more monster.
 

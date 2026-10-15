@@ -204,19 +204,19 @@ Later games need Flexbox, Grid, positioning, responsive rules, and canvas sizing
 
 ## Exercises {.unnumbered}
 
-### Exercise 1: Read a rule
+### Exercise 1: Read a rule {.unnumbered}
 
 **Flow focus:** Style: identify how an existing part’s appearance changes.
 
 In `.monster { color: white; }`, name the selector, property, and value. Predict what changes and what stays the same.
 
-### Exercise 2: Make room for feedback
+### Exercise 2: Make room for feedback {.unnumbered}
 
 **Flow focus:** Style: keep a changing message readable.
 
 Give `#message` a pale background and some padding. Check that it is still easy to distinguish from the monster button.
 
-### Exercise 3: Investigate a broken style
+### Exercise 3: Investigate a broken style {.unnumbered}
 
 **Flow focus:** Structure + Style: check the connection between an element and its rule.
 

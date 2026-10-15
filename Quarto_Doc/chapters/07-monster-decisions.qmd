@@ -480,11 +480,11 @@ You do not need these operators for the main Monster Clicker yet, but you will s
 
 :::
 
-## Exercises
+## Exercises {.unnumbered}
 
 Use **Structure → Style → Behavior** as a check before each task. The focus below identifies the stage you are practicing. For reading or prediction tasks, trace or explain the result; you do not need a new page or visual redesign.
 
-### Exercise 1: `true` or `false`?
+### Exercise 1: `true` or `false`? {.unnumbered}
 
 **Flow focus:** Program game behavior: evaluate the rule using the current score; no scene or style change is needed.
 
@@ -502,7 +502,7 @@ Write `true` or `false` for each condition.
 4. `score > 10`
 5. `score !== 2`
 
-### Exercise 2: Assignment or comparison?
+### Exercise 2: Assignment or comparison? {.unnumbered}
 
 **Flow focus:** Program game behavior: separate changing game memory from testing a rule.
 
@@ -515,7 +515,7 @@ score = score + 1;
 score >= 5;
 ```
 
-### Exercise 3: Predict the branch
+### Exercise 3: Predict the branch {.unnumbered}
 
 **Flow focus:** Program game behavior: trace which rule changes the existing message.
 
@@ -533,7 +533,7 @@ if (score < 5) {
 
 Which letter appears? Explain why.
 
-### Exercise 4: Complete the rule
+### Exercise 4: Complete the rule {.unnumbered}
 
 **Flow focus:** Program game behavior: define the action threshold and check an affordable and an unaffordable case.
 
@@ -547,15 +547,15 @@ if (________________) {
 }
 ```
 
-### Exercise 5: Add a milestone
+### Exercise 5: Add a milestone {.unnumbered}
 
 **Flow focus:** Program game behavior: reuse the score and message, then test the milestone and its neighboring scores.
 
 Modify the Monster Clicker so the message says **"Halfway there!"** when the score is exactly 5.
 
-## Challenges
+## Challenges {.unnumbered}
 
-### Challenge 1: Add More Monster Levels
+### Challenge 1: Add More Monster Levels {.unnumbered}
 
 **Structure:** Reuse the monster, score, and message areas. **Style:** Make each level message distinguishable while keeping the existing layout. **Behavior:** Define the four ranges and test each boundary and a value between boundaries.
 
@@ -568,7 +568,7 @@ Create at least four score ranges instead of three. For example:
 
 Choose your own messages.
 
-### Challenge 2: Create a Healing Rule
+### Challenge 2: Create a Healing Rule {.unnumbered}
 
 **Structure:** Add a Heal button and reuse the score/message areas. **Style:** Label its cost clearly and make success/refusal feedback readable. **Behavior:** Implement the spending rule and test scores below, at, and above the cost.
 
@@ -580,7 +580,7 @@ The button should:
 - never let the score become negative;
 - show a different message when the player cannot afford the action.
 
-### Challenge 3: Design Your Own Rule
+### Challenge 3: Design Your Own Rule {.unnumbered}
 
 **Structure:** Identify which existing parts your new rule uses; add a part only if needed. **Style:** Plan the visible feedback that tells the player the rule occurred. **Behavior:** Write the rule in words, implement its branch, and test both permitted and refused cases.
 

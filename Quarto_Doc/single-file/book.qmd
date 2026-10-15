@@ -452,6 +452,8 @@ You can think of a URL as directions that help a browser locate something. That 
 
 Here is a simple example:
 
+![An annotated browser view: the URL appears in the address bar, and the web page appears below it. The browser frame is simplified; the page is a rendered example.](../figures/chapter_01/browser-url-page.png){fig-alt="A browser view with arrows labeling the URL in the address bar and the web page in the content area." width=90%}
+
 ```text
 https://example.com/games/space-quest
 ```
@@ -527,6 +529,8 @@ flowchart TB
 **Read the picture:** A local file can go directly from storage on your computer to your browser. A web resource takes another route: the browser sends a request through the network and receives a response.
 
 ## Client and server describe jobs
+
+![The browser acts as a client: it requests a file, the web server sends a response, and the browser uses the file to display the page.](../figures/chapter_01/browser-request-response.svg){fig-alt="A browser wireframe on the left sends a request arrow to a server on the right. A response arrow returns HTML, CSS, JavaScript, or pictures to the browser." width=100%}
 
 When computers communicate, we often describe them by the job they are doing.
 
@@ -654,7 +658,7 @@ For now, you only need to recognize the idea. Later chapters will tell you when 
 
 Practice the computer and file skills you will need for later projects. These are explanation and file-operation tasks; no game code is required.
 
-### Exercise 1: Hardware or software?
+### Exercise 1: Hardware or software? {.unnumbered}
 
 Classify each item as **hardware** or **software**.
 
@@ -665,7 +669,7 @@ Classify each item as **hardware** or **software**.
 5. Speakers
 6. A browser game
 
-### Exercise 2: File, folder, or program?
+### Exercise 2: File, folder, or program? {.unnumbered}
 
 For each item, choose **file**, **folder**, or **program**.
 
@@ -676,7 +680,7 @@ For each item, choose **file**, **folder**, or **program**.
 5. A text editor
 6. `images/`
 
-### Exercise 3: Internet or Web?
+### Exercise 3: Internet or Web? {.unnumbered}
 
 Complete each sentence with **Internet** or **Web**.
 
@@ -684,7 +688,7 @@ Complete each sentence with **Internet** or **Web**.
 2. The __________ includes pages and resources that a browser can access.
 3. A browser normally uses the __________ to reach a website on another computer.
 
-### Exercise 4: Page, site, or game?
+### Exercise 4: Page, site, or game? {.unnumbered}
 
 Choose **web page**, **website**, or **web game**.
 
@@ -692,7 +696,7 @@ Choose **web page**, **website**, or **web game**.
 2. A collection containing a home page, help page, and several games
 3. An interactive browser program where the player catches falling stars
 
-### Exercise 5: Read a URL
+### Exercise 5: Read a URL {.unnumbered}
 
 Look at this URL:
 
@@ -707,7 +711,7 @@ Answer the questions.
 3. What is the path?
 4. Does this look like a local file address or a web address?
 
-### Exercise 6: Local or remote?
+### Exercise 6: Local or remote? {.unnumbered}
 
 For each address, decide whether the browser is most likely opening a **local file** or requesting a **web resource**.
 
@@ -718,7 +722,7 @@ file:///C:/Games/maze/start.html
 http://school.example.org/game-lab
 ```
 
-### Exercise 7: Trace the request
+### Exercise 7: Trace the request {.unnumbered}
 
 Put these actions in a sensible order:
 
@@ -727,7 +731,7 @@ Put these actions in a sensible order:
 - The browser sends a request.
 - The player enters a web address.
 
-### Exercise 8: Who is doing the job?
+### Exercise 8: Who is doing the job? {.unnumbered}
 
 A player opens a browser and visits an online game. The browser asks another computer for the game files.
 
@@ -738,13 +742,13 @@ Answer these questions:
 3. Which part is hardware: the laptop or the browser?
 4. After the files arrive, where can much of the game logic run?
 
-### Exercise 9: Explain the picture
+### Exercise 9: Explain the picture {.unnumbered}
 
 Draw four boxes labeled **Player**, **Browser**, **Internet**, and **Server**. Add arrows to show how a player can request a web game. Label at least one arrow **request** and one arrow **response**.
 
 ## Challenges {.unnumbered}
 
-### Challenge 1: Explain a web game to a beginner
+### Challenge 1: Explain a web game to a beginner {.unnumbered}
 
 Imagine a friend says, "A web game is stored inside Chrome."
 
@@ -752,7 +756,7 @@ Write a short explanation that uses at least four of these words correctly:
 
 **hardware, software, browser, file, Internet, Web, server, client**
 
-### Challenge 2: Draw the journey of a game
+### Challenge 2: Draw the journey of a game {.unnumbered}
 
 Draw a diagram showing two ways a browser can get game files:
 
@@ -763,7 +767,7 @@ Your diagram must include **browser**, **local file**, **request**, **response**
 
 Then write two or three sentences explaining the difference between the two routes.
 
-### Challenge 3: Plan a future game project
+### Challenge 3: Plan a future game project {.unnumbered}
 
 Imagine you will keep the files for a game called **Robot Rescue**. Sketch a folder for the project. Include folders or files for at least:
 
@@ -776,7 +780,7 @@ Use `index.html`, `styles.css`, and `game.js` for the three web-code files, then
 
 Then answer: **Why is keeping related game files in one project folder useful?**
 
-### Challenge 4: Local game or online game?
+### Challenge 4: Local game or online game? {.unnumbered}
 
 You are designing two games:
 
@@ -901,6 +905,8 @@ Create `monster-scene/` inside your project folder. Save this as `index.html` wi
 </html>
 ```
 
+![The complete Monster Clicker HTML rendered in a browser with default styling.](../figures/chapter_02/monster-scene-default.png){fig-alt="An unstyled page with the heading Monster Clicker, instructions, a Meet your monster heading, a Monster button, Score: 0, and Your adventure is ready." width=85%}
+
 The page uses the browser’s default appearance. Clicking the button does not increase the score. For this stage, success means the planned parts exist and appear in a useful reading order.
 
 | Document piece | Job |
@@ -950,13 +956,13 @@ Add a third item. Check that it appears inside the same list. For a numbered seq
 
 ## Exercises {.unnumbered}
 
-### Exercise 1: Find the relationships
+### Exercise 1: Find the relationships {.unnumbered}
 
 **Flow focus:** Structure: explain the parts and their nesting.
 
 Draw a tree showing `main`, `section`, the monster button, and the score paragraph. Which element contains the score span? Which elements are siblings?
 
-### Exercise 2: Fix the grouping
+### Exercise 2: Fix the grouping {.unnumbered}
 
 **Flow focus:** Structure: close inner elements before outer ones.
 
@@ -966,7 +972,7 @@ Correct this fragment, then explain the problem:
 <section><p>Ready!</section></p>
 ```
 
-### Exercise 3: Add one visible part
+### Exercise 3: Add one visible part {.unnumbered}
 
 **Flow focus:** Structure: extend the page without adding appearance rules or game code.
 
@@ -1186,19 +1192,19 @@ Later games need Flexbox, Grid, positioning, responsive rules, and canvas sizing
 
 ## Exercises {.unnumbered}
 
-### Exercise 1: Read a rule
+### Exercise 1: Read a rule {.unnumbered}
 
 **Flow focus:** Style: identify how an existing part’s appearance changes.
 
 In `.monster { color: white; }`, name the selector, property, and value. Predict what changes and what stays the same.
 
-### Exercise 2: Make room for feedback
+### Exercise 2: Make room for feedback {.unnumbered}
 
 **Flow focus:** Style: keep a changing message readable.
 
 Give `#message` a pale background and some padding. Check that it is still easy to distinguish from the monster button.
 
-### Exercise 3: Investigate a broken style
+### Exercise 3: Investigate a broken style {.unnumbered}
 
 **Flow focus:** Structure + Style: check the connection between an element and its rule.
 
@@ -1370,19 +1376,19 @@ Use simple shapes and readable labels first; finished artwork can wait. A new be
 
 ## Exercises {.unnumbered}
 
-### Exercise 1: Predict a sequence
+### Exercise 1: Predict a sequence {.unnumbered}
 
 **Flow focus:** Behavior: apply a rule to remembered state.
 
 Start at zero and add two points for each hit. Predict the score after four hits. Then simulate the actions on paper and compare the results.
 
-### Exercise 2: Choice or game rule?
+### Exercise 2: Choice or game rule? {.unnumbered}
 
 **Flow focus:** Structure + Behavior: distinguish a control’s value from the rule that uses it.
 
 A player chooses Hard, but the game still awards one point per hit. Explain why adding a menu is not enough to change that rule. Write one possible rule for Hard mode.
 
-### Exercise 3: Test restart
+### Exercise 3: Test restart {.unnumbered}
 
 **Flow focus:** Behavior: restore a known starting state.
 
@@ -2043,7 +2049,7 @@ Sketch the title, monster, message, and score first. Create a file such as `mons
 </html>
 ```
 
-You already know the HTML pieces from Chapter 2.
+![The Monster Clicker starter after Step 1: the HTML provides the page content with the browser’s default styling.](../figures/chapter_05/monster-starter-html.png){fig-alt="An unstyled Monster Clicker page with a Monster button, the message The monster is waiting..., and Score: 0." width=90%}
 
 Notice these IDs:
 
@@ -2104,6 +2110,9 @@ body {
 }
 #message { min-height: 1.5em; }
 ```
+
+![The same starter after Step 2: CSS centers a white card on a pale blue background and styles the monster button.](../figures/chapter_05/monster-starter-styled.png){fig-alt="A centered white card with a dark rounded border on a pale blue background. It contains the Monster Clicker heading, a purple Monster button, The monster is waiting..., and Score: 0." width=90%}
+
 
 Save and refresh. Check the card, monster, message, and score before adding JavaScript. If you continued your styled scene, you can instead keep its linked `styles.css`; the development step is the same. This chapter embeds CSS only to keep the complete example in one file.
 
@@ -2355,11 +2364,11 @@ The next version will reuse:
 You will add only the new DOM and event code needed to make the project interactive.
 :::
 
-## Exercises
+## Exercises {.unnumbered}
 
 Use **Structure → Style → Behavior** as a check before each task. The focus below identifies the stage you are practicing. For reading or prediction tasks, trace or explain the result; you do not need a new page or visual redesign.
 
-### Exercise 1: Name the parts of a declaration
+### Exercise 1: Name the parts of a declaration {.unnumbered}
 
 **Flow focus:** Program game behavior: identify the memory a future score action will change; keep the existing scene and style.
 
@@ -2376,7 +2385,7 @@ Identify:
 3. the assignment operator;
 4. the starting value.
 
-### Exercise 2: Choose `let` or `const`
+### Exercise 2: Choose `let` or `const` {.unnumbered}
 
 **Flow focus:** Program game behavior: decide which values future actions can replace and which bindings stay fixed.
 
@@ -2388,7 +2397,7 @@ Choose the better declaration for each value.
 4. An array named `treasures` that will remain the same array.
 5. The maximum number of lives, which does not change.
 
-### Exercise 3: Recognize `var`
+### Exercise 3: Recognize `var` {.unnumbered}
 
 **Flow focus:** Program game behavior: change the declaration style while preserving the value the game will remember.
 
@@ -2400,7 +2409,7 @@ var score = 0;
 
 Rewrite it using the declaration style used for a changing value in this book.
 
-### Exercise 4: Identify the data type
+### Exercise 4: Identify the data type {.unnumbered}
 
 **Flow focus:** Program game behavior: identify the kinds of data available to game operations.
 
@@ -2415,7 +2424,7 @@ true
 false
 ```
 
-### Exercise 5: Predict the score
+### Exercise 5: Predict the score {.unnumbered}
 
 **Flow focus:** Program game behavior: predict successive updates to memory before checking the output.
 
@@ -2431,7 +2440,7 @@ console.log(score);
 
 Explain why.
 
-### Exercise 6: Read an array
+### Exercise 6: Read an array {.unnumbered}
 
 **Flow focus:** Program game behavior: identify which treasure a collection index selects.
 
@@ -2449,7 +2458,7 @@ treasures[1]
 treasures[2]
 ```
 
-### Exercise 7: Read an object
+### Exercise 7: Read an object {.unnumbered}
 
 **Flow focus:** Program game behavior: read related player values without changing the player scene or its style.
 
@@ -2471,7 +2480,7 @@ player.score
 player.lives
 ```
 
-### Exercise 8: Memory versus page display
+### Exercise 8: Memory versus page display {.unnumbered}
 
 **Flow focus:** Structure + Behavior: distinguish the visible score element from score memory; styling cannot connect them.
 
@@ -2492,9 +2501,9 @@ Does the paragraph automatically change to `Score: 1`?
 
 Explain your answer using the ideas of **JavaScript memory** and **HTML display**.
 
-## Challenges
+## Challenges {.unnumbered}
 
-### Challenge 1: Customize Your Monster
+### Challenge 1: Customize Your Monster {.unnumbered}
 
 **Structure:** Change the visible title and monster label. **Style:** Choose one readable button color or spacing change. **Behavior:** Customize the starting data and inspect it in the console; the hit action still waits for Chapter 6.
 
@@ -2507,7 +2516,7 @@ Use **Build the scene structure → Style the scene → Program game behavior**.
 
 Choose `let` or `const` for each variable and explain one of your choices.
 
-### Challenge 2: Build a Better Player Object
+### Challenge 2: Build a Better Player Object {.unnumbered}
 
 **Structure:** Keep the existing player page and identify the player information it represents. **Style:** Keep the current page style; no new display is required for this exercise. **Behavior:** Add the player properties and print their values.
 
@@ -2522,7 +2531,7 @@ monsterHits
 
 Print the new properties in the console.
 
-### Challenge 3: Grow the Inventory
+### Challenge 3: Grow the Inventory {.unnumbered}
 
 **Structure:** Keep the monster scene and identify the collection of gathered treasures. **Style:** Keep the current scene style; use the console to inspect this small operation. **Behavior:** Add the inventory items, predict its length, and check the result.
 
@@ -2541,7 +2550,7 @@ inventory.length
 
 Predict the length before you run the code.
 
-### Challenge 4: Prepare One More Value for Chapter 6
+### Challenge 4: Prepare One More Value for Chapter 6 {.unnumbered}
 
 **Structure:** Keep the monster and the feedback areas. **Style:** Keep their current readable style. **Behavior:** Describe the future hit action and prepare one value it will change.
 
@@ -3311,11 +3320,11 @@ This can happen when:
 For now, keep the `<script>` near the bottom of `<body>`, after the elements your JavaScript needs. That way, the browser creates those DOM elements before JavaScript searches for them.
 :::
 
-## Exercises
+## Exercises {.unnumbered}
 
 Use **Structure → Style → Behavior** as a check before each task. The focus below identifies the stage you are practicing. For reading or prediction tasks, trace or explain the result; you do not need a new page or visual redesign.
 
-### Exercise 1: Element or Event?
+### Exercise 1: Element or Event? {.unnumbered}
 
 **Flow focus:** Structure + Behavior: separate a scene part from the event that can act on it.
 
@@ -3327,7 +3336,7 @@ For each item, write **element** or **event**.
 4. an image
 5. a key press
 
-### Exercise 2: Match the HTML and JavaScript
+### Exercise 2: Match the HTML and JavaScript {.unnumbered}
 
 **Flow focus:** Structure + Behavior: match the existing scene IDs to the code that finds them.
 
@@ -3345,7 +3354,7 @@ const dragon = document.getElementById("________");
 const status = document.getElementById("________");
 ```
 
-### Exercise 3: Read the DOM Lookup
+### Exercise 3: Read the DOM Lookup {.unnumbered}
 
 **Flow focus:** Program game behavior: explain how this operation selects one existing scene part.
 
@@ -3355,7 +3364,7 @@ Explain this line in plain English:
 const treasure = document.getElementById("treasure");
 ```
 
-### Exercise 4: Predict Before You Run
+### Exercise 4: Predict Before You Run {.unnumbered}
 
 **Flow focus:** Program game behavior: predict the response on the existing button and message; keep their style.
 
@@ -3377,7 +3386,7 @@ What will the player see after clicking the button?
 </script>
 ```
 
-### Exercise 5: Find the Bug
+### Exercise 5: Find the Bug {.unnumbered}
 
 **Flow focus:** Structure + Behavior: check the element identity before changing the event code.
 
@@ -3393,7 +3402,7 @@ const monster = document.getElementById("Monster");
 
 Fix the JavaScript.
 
-### Exercise 6: Trace the Event Flow
+### Exercise 6: Trace the Event Flow {.unnumbered}
 
 **Flow focus:** Program game behavior: trace one action from input to visible feedback.
 
@@ -3406,7 +3415,7 @@ Put these steps in the correct order:
 - The player sees the changed message.
 
 
-### Exercise 7: Follow the ID Connection
+### Exercise 7: Follow the ID Connection {.unnumbered}
 
 **Flow focus:** Structure + Behavior: verify each scene identity and its exact lookup spelling.
 
@@ -3444,7 +3453,7 @@ document.getElementById("score")
 
 Explain why each one does or does not match.
 
-### Exercise 8: Sequential or Event-Driven?
+### Exercise 8: Sequential or Event-Driven? {.unnumbered}
 
 **Flow focus:** Program game behavior: distinguish setting up an action from performing it later.
 
@@ -3456,7 +3465,7 @@ For each statement, decide whether it belongs to the **setup phase** or happens 
 4. `addEventListener()` connects the click to `hitMonster`.
 5. The browser waits for another event.
 
-### Exercise 9: Same Pattern, New Event
+### Exercise 9: Same Pattern, New Event {.unnumbered}
 
 **Flow focus:** Program game behavior: identify the input event and the operation it will trigger.
 
@@ -3473,9 +3482,9 @@ Identify:
 3. the handler function;
 4. when `movePlayer` runs.
 
-## Challenges
+## Challenges {.unnumbered}
 
-### Challenge 1: Change the Character
+### Challenge 1: Change the Character {.unnumbered}
 
 **Structure:** Replace the visible character and give it the intended ID. **Style:** Keep or choose a recognizable character appearance. **Behavior:** Update the matching lookup and response, then perform one click.
 
@@ -3488,7 +3497,7 @@ You must change:
 - the matching `getElementById()` call;
 - the response message.
 
-### Challenge 2: Two Clickable Game Objects
+### Challenge 2: Two Clickable Game Objects {.unnumbered}
 
 **Structure:** Add two distinct objects and their message area, each object with its own ID. **Style:** Make the objects recognizable and their targets easy to use. **Behavior:** Connect separate responses and test each object.
 
@@ -3501,7 +3510,7 @@ For example:
 
 Give each element its own ID, event listener, and response function.
 
-### Challenge 3: Build a Choice Game
+### Challenge 3: Build a Choice Game {.unnumbered}
 
 **Structure:** Create both door choices and one message area. **Style:** Make the choice labels and red/blue identity clear. **Behavior:** Connect each choice to its response and test both paths.
 
@@ -3518,7 +3527,7 @@ Use the same four-part pattern:
 Get element → Listen for click → Run function → Change DOM
 ```
 
-### Challenge 4: Explain Your Game Like a Programmer
+### Challenge 4: Explain Your Game Like a Programmer {.unnumbered}
 
 **Structure:** Identify the object, its element, and its ID. **Style:** Describe the visual cue that helps the player recognize it. **Behavior:** Explain the lookup, event, handler, and visible result in order.
 
@@ -4013,11 +4022,11 @@ You do not need these operators for the main Monster Clicker yet, but you will s
 
 :::
 
-## Exercises
+## Exercises {.unnumbered}
 
 Use **Structure → Style → Behavior** as a check before each task. The focus below identifies the stage you are practicing. For reading or prediction tasks, trace or explain the result; you do not need a new page or visual redesign.
 
-### Exercise 1: `true` or `false`?
+### Exercise 1: `true` or `false`? {.unnumbered}
 
 **Flow focus:** Program game behavior: evaluate the rule using the current score; no scene or style change is needed.
 
@@ -4035,7 +4044,7 @@ Write `true` or `false` for each condition.
 4. `score > 10`
 5. `score !== 2`
 
-### Exercise 2: Assignment or comparison?
+### Exercise 2: Assignment or comparison? {.unnumbered}
 
 **Flow focus:** Program game behavior: separate changing game memory from testing a rule.
 
@@ -4048,7 +4057,7 @@ score = score + 1;
 score >= 5;
 ```
 
-### Exercise 3: Predict the branch
+### Exercise 3: Predict the branch {.unnumbered}
 
 **Flow focus:** Program game behavior: trace which rule changes the existing message.
 
@@ -4066,7 +4075,7 @@ if (score < 5) {
 
 Which letter appears? Explain why.
 
-### Exercise 4: Complete the rule
+### Exercise 4: Complete the rule {.unnumbered}
 
 **Flow focus:** Program game behavior: define the action threshold and check an affordable and an unaffordable case.
 
@@ -4080,15 +4089,15 @@ if (________________) {
 }
 ```
 
-### Exercise 5: Add a milestone
+### Exercise 5: Add a milestone {.unnumbered}
 
 **Flow focus:** Program game behavior: reuse the score and message, then test the milestone and its neighboring scores.
 
 Modify the Monster Clicker so the message says **"Halfway there!"** when the score is exactly 5.
 
-## Challenges
+## Challenges {.unnumbered}
 
-### Challenge 1: Add More Monster Levels
+### Challenge 1: Add More Monster Levels {.unnumbered}
 
 **Structure:** Reuse the monster, score, and message areas. **Style:** Make each level message distinguishable while keeping the existing layout. **Behavior:** Define the four ranges and test each boundary and a value between boundaries.
 
@@ -4101,7 +4110,7 @@ Create at least four score ranges instead of three. For example:
 
 Choose your own messages.
 
-### Challenge 2: Create a Healing Rule
+### Challenge 2: Create a Healing Rule {.unnumbered}
 
 **Structure:** Add a Heal button and reuse the score/message areas. **Style:** Label its cost clearly and make success/refusal feedback readable. **Behavior:** Implement the spending rule and test scores below, at, and above the cost.
 
@@ -4113,7 +4122,7 @@ The button should:
 - never let the score become negative;
 - show a different message when the player cannot afford the action.
 
-### Challenge 3: Design Your Own Rule
+### Challenge 3: Design Your Own Rule {.unnumbered}
 
 **Structure:** Identify which existing parts your new rule uses; add a part only if needed. **Style:** Plan the visible feedback that tells the player the rule occurred. **Behavior:** Write the rule in words, implement its branch, and test both permitted and refused cases.
 
@@ -4835,11 +4844,11 @@ for (const monsterId of monsterIds) {
 Both are useful. The best choice depends on what information your code needs.
 :::
 
-## Exercises
+## Exercises {.unnumbered}
 
 Use **Structure → Style → Behavior** as a check before each task. The focus below identifies the stage you are practicing. For reading or prediction tasks, trace or explain the result; you do not need a new page or visual redesign.
 
-### Exercise 1: Name the Three Parts
+### Exercise 1: Name the Three Parts {.unnumbered}
 
 **Flow focus:** Program game behavior: identify how repeated operations begin, continue, and stop.
 
@@ -4857,7 +4866,7 @@ Identify:
 2. the keep-going condition;
 3. the code that changes the loop variable.
 
-### Exercise 2: Predict the Output
+### Exercise 2: Predict the Output {.unnumbered}
 
 **Flow focus:** Program game behavior: trace each repeated operation before running it.
 
@@ -4871,7 +4880,7 @@ for (let i = 0; i < 3; i++) {
 
 Write the output before running it.
 
-### Exercise 3: Trace the Array
+### Exercise 3: Trace the Array {.unnumbered}
 
 **Flow focus:** Program game behavior: inspect the collection describing the monsters already in the scene.
 
@@ -4888,7 +4897,7 @@ Answer these questions:
 3. What is `monsters.length`?
 4. What is the index of `"dragon"`?
 
-### Exercise 4: Complete the Loop
+### Exercise 4: Complete the Loop {.unnumbered}
 
 **Flow focus:** Program game behavior: visit each collection item once without changing the page layout.
 
@@ -4902,7 +4911,7 @@ for (let i = ___; i < monsters.______; i____) {
 }
 ```
 
-### Exercise 5: Loop or Branch?
+### Exercise 5: Loop or Branch? {.unnumbered}
 
 **Flow focus:** Program game behavior: choose between deciding a rule and repeating an operation.
 
@@ -4913,7 +4922,7 @@ Choose **loop** or **branch** for each job.
 3. Show one message for beginners and another for high scores.
 4. Print every monster name in an array.
 
-### Exercise 6: Find the Bug
+### Exercise 6: Find the Bug {.unnumbered}
 
 **Flow focus:** Program game behavior: check the first and last valid collection positions.
 
@@ -4929,21 +4938,21 @@ for (let i = 0; i <= monsters.length; i++) {
 
 Why does it try to read one position too far? Change one symbol to fix it.
 
-### Exercise 7: Add a Monster
+### Exercise 7: Add a Monster {.unnumbered}
 
 **Flow focus:** Structure → Style → Behavior: add a uniquely named button, reuse the monster class, and include its ID in the loop.
 
 Start with the complete Monster Swarm game. Add a fourth monster button and update the array so the loop connects it automatically.
 
-## Challenges
+## Challenges {.unnumbered}
 
-### Challenge 1: Different Monster Names
+### Challenge 1: Different Monster Names {.unnumbered}
 
 **Structure:** Create five uniquely identified monster buttons and list their IDs. **Style:** Reuse the shared monster class and wrapping layout. **Behavior:** Let the existing loop connect them and click the first, last, and newly added monsters.
 
 Create at least five monsters of your own. Put their IDs in the `monsterIds` array and confirm that the same loop connects every monster.
 
-### Challenge 2: Show the Monster List
+### Challenge 2: Show the Monster List {.unnumbered}
 
 **Structure:** Keep the monster scene and identify the area that will show the list. **Style:** Keep that list readable within the message area. **Behavior:** Build one list message with a loop and compare it with the collection.
 
@@ -4957,7 +4966,7 @@ Use a loop to build a message that lists all monsters in the game.
 
 Do not write three separate `message.textContent` statements.
 
-### Challenge 3: Count Down a Power Move
+### Challenge 3: Count Down a Power Move {.unnumbered}
 
 **Structure:** Reuse the current scene and identify the Power Hit operation being rehearsed. **Style:** Keep the scene style; console lines are sufficient for this practice task. **Behavior:** Trace the descending counter and check that POWER HIT prints once at the end.
 
@@ -4972,13 +4981,13 @@ POWER HIT!
 
 Decide how your loop should start, when it should stop, and how its counter should change.
 
-### Challenge 4: Create a Monster Wave
+### Challenge 4: Create a Monster Wave {.unnumbered}
 
 **Structure:** Add the new wave with unique monster IDs and a second collection. **Style:** Reuse the monster style so both waves are recognizable. **Behavior:** Connect the new collection with a loop and test every new button.
 
 Add a second array for another wave of monsters. Use the same loop idea to connect each monster in the new wave. Try to avoid copying the event-listener code for every button.
 
-### Challenge 5: Explain Your Design
+### Challenge 5: Explain Your Design {.unnumbered}
 
 **Structure:** Identify the button collection and the IDs linking it to the scene. **Style:** Explain how the shared class preserves one style as the collection grows. **Behavior:** Compare the repeated setup code with the loop and describe the change needed for one more monster.
 
@@ -5137,7 +5146,7 @@ star.style.top = y + 'px';
 
 :::
 
-## Level-up challenges
+## Level-up challenges {.unnumbered}
 
 ::: {.callout-tip .challenge title="Challenge 1" icon="false"}
 
@@ -5337,7 +5346,7 @@ Further reading: [MDN: requestAnimationFrame](https://developer.mozilla.org/en-U
 
 :::
 
-## Level-up challenges
+## Level-up challenges {.unnumbered}
 
 ::: {.callout-tip .challenge title="Challenge 1" icon="false"}
 
@@ -5593,7 +5602,7 @@ window.addEventListener("keyup", e => {
 
 :::
 
-## Level-up challenges
+## Level-up challenges {.unnumbered}
 
 ::: {.callout-tip .challenge title="Challenge 1" icon="false"}
 
@@ -5881,7 +5890,7 @@ bricks.push(brick);
 
 :::
 
-## Level-up challenges
+## Level-up challenges {.unnumbered}
 
 ::: {.callout-tip .challenge title="Challenge 1" icon="false"}
 
@@ -6149,7 +6158,7 @@ const snake = [
 
 :::
 
-## Level-up challenges
+## Level-up challenges {.unnumbered}
 
 ::: {.callout-tip .challenge title="Challenge 1" icon="false"}
 
@@ -6410,7 +6419,7 @@ Further reading: [MDN: JavaScript modules](https://developer.mozilla.org/en-US/d
 
 :::
 
-## Level-up challenges
+## Level-up challenges {.unnumbered}
 
 ::: {.callout-tip .challenge title="Challenge 1" icon="false"}
 
@@ -7786,7 +7795,7 @@ Putting an object in the wrong lifetime can produce bugs. A new listener per fra
 The same design applies to a future walking character, vehicle, or multiplayer game, even though their controls and simulation details will be different.
 :::
 
-## Design your own 3D physics challenge
+## Design your own 3D physics challenge {.unnumbered}
 
 Start with a small change that has a clear test: move one wall, reposition a crystal, change a crate's density, or change the marble's damping. Then try a visual remix by replacing a model while keeping its physical dimensions.
 

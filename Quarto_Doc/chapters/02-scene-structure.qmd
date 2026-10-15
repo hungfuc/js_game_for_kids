@@ -89,7 +89,7 @@ Create `monster-scene/` inside your project folder. Save this as `index.html` wi
 
 ```html
 <!doctype html>
-<html lang="en">
+<html lang="en">s
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -109,6 +109,8 @@ Create `monster-scene/` inside your project folder. Save this as `index.html` wi
 </body>
 </html>
 ```
+
+![The complete Monster Clicker HTML rendered in a browser with default styling.](../figures/chapter_02/monster-scene-default.png){fig-alt="An unstyled page with the heading Monster Clicker, instructions, a Meet your monster heading, a Monster button, Score: 0, and Your adventure is ready." width=85%}
 
 The page uses the browser’s default appearance. Clicking the button does not increase the score. For this stage, success means the planned parts exist and appear in a useful reading order.
 
@@ -159,13 +161,13 @@ Add a third item. Check that it appears inside the same list. For a numbered seq
 
 ## Exercises {.unnumbered}
 
-### Exercise 1: Find the relationships
+### Exercise 1: Find the relationships {.unnumbered}
 
 **Flow focus:** Structure: explain the parts and their nesting.
 
 Draw a tree showing `main`, `section`, the monster button, and the score paragraph. Which element contains the score span? Which elements are siblings?
 
-### Exercise 2: Fix the grouping
+### Exercise 2: Fix the grouping {.unnumbered}
 
 **Flow focus:** Structure: close inner elements before outer ones.
 
@@ -175,7 +177,7 @@ Correct this fragment, then explain the problem:
 <section><p>Ready!</section></p>
 ```
 
-### Exercise 3: Add one visible part
+### Exercise 3: Add one visible part {.unnumbered}
 
 **Flow focus:** Structure: extend the page without adding appearance rules or game code.
 

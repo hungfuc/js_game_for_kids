@@ -175,7 +175,7 @@ Putting an object in the wrong lifetime can produce bugs. A new listener per fra
 The same design applies to a future walking character, vehicle, or multiplayer game, even though their controls and simulation details will be different.
 :::
 
-## Design your own 3D physics challenge
+## Design your own 3D physics challenge {.unnumbered}
 
 Start with a small change that has a clear test: move one wall, reposition a crystal, change a crate's density, or change the marble's damping. Then try a visual remix by replacing a model while keeping its physical dimensions.
 

@@ -645,7 +645,7 @@ Sketch the title, monster, message, and score first. Create a file such as `mons
 </html>
 ```
 
-You already know the HTML pieces from Chapter 2.
+![The Monster Clicker starter after Step 1: the HTML provides the page content with the browser’s default styling.](../figures/chapter_05/monster-starter-html.png){fig-alt="An unstyled Monster Clicker page with a Monster button, the message The monster is waiting..., and Score: 0." width=90%}
 
 Notice these IDs:
 
@@ -706,6 +706,9 @@ body {
 }
 #message { min-height: 1.5em; }
 ```
+
+![The same starter after Step 2: CSS centers a white card on a pale blue background and styles the monster button.](../figures/chapter_05/monster-starter-styled.png){fig-alt="A centered white card with a dark rounded border on a pale blue background. It contains the Monster Clicker heading, a purple Monster button, The monster is waiting..., and Score: 0." width=90%}
+
 
 Save and refresh. Check the card, monster, message, and score before adding JavaScript. If you continued your styled scene, you can instead keep its linked `styles.css`; the development step is the same. This chapter embeds CSS only to keep the complete example in one file.
 
@@ -957,11 +960,11 @@ The next version will reuse:
 You will add only the new DOM and event code needed to make the project interactive.
 :::
 
-## Exercises
+## Exercises {.unnumbered}
 
 Use **Structure → Style → Behavior** as a check before each task. The focus below identifies the stage you are practicing. For reading or prediction tasks, trace or explain the result; you do not need a new page or visual redesign.
 
-### Exercise 1: Name the parts of a declaration
+### Exercise 1: Name the parts of a declaration {.unnumbered}
 
 **Flow focus:** Program game behavior: identify the memory a future score action will change; keep the existing scene and style.
 
@@ -978,7 +981,7 @@ Identify:
 3. the assignment operator;
 4. the starting value.
 
-### Exercise 2: Choose `let` or `const`
+### Exercise 2: Choose `let` or `const` {.unnumbered}
 
 **Flow focus:** Program game behavior: decide which values future actions can replace and which bindings stay fixed.
 
@@ -990,7 +993,7 @@ Choose the better declaration for each value.
 4. An array named `treasures` that will remain the same array.
 5. The maximum number of lives, which does not change.
 
-### Exercise 3: Recognize `var`
+### Exercise 3: Recognize `var` {.unnumbered}
 
 **Flow focus:** Program game behavior: change the declaration style while preserving the value the game will remember.
 
@@ -1002,7 +1005,7 @@ var score = 0;
 
 Rewrite it using the declaration style used for a changing value in this book.
 
-### Exercise 4: Identify the data type
+### Exercise 4: Identify the data type {.unnumbered}
 
 **Flow focus:** Program game behavior: identify the kinds of data available to game operations.
 
@@ -1017,7 +1020,7 @@ true
 false
 ```
 
-### Exercise 5: Predict the score
+### Exercise 5: Predict the score {.unnumbered}
 
 **Flow focus:** Program game behavior: predict successive updates to memory before checking the output.
 
@@ -1033,7 +1036,7 @@ console.log(score);
 
 Explain why.
 
-### Exercise 6: Read an array
+### Exercise 6: Read an array {.unnumbered}
 
 **Flow focus:** Program game behavior: identify which treasure a collection index selects.
 
@@ -1051,7 +1054,7 @@ treasures[1]
 treasures[2]
 ```
 
-### Exercise 7: Read an object
+### Exercise 7: Read an object {.unnumbered}
 
 **Flow focus:** Program game behavior: read related player values without changing the player scene or its style.
 
@@ -1073,7 +1076,7 @@ player.score
 player.lives
 ```
 
-### Exercise 8: Memory versus page display
+### Exercise 8: Memory versus page display {.unnumbered}
 
 **Flow focus:** Structure + Behavior: distinguish the visible score element from score memory; styling cannot connect them.
 
@@ -1094,9 +1097,9 @@ Does the paragraph automatically change to `Score: 1`?
 
 Explain your answer using the ideas of **JavaScript memory** and **HTML display**.
 
-## Challenges
+## Challenges {.unnumbered}
 
-### Challenge 1: Customize Your Monster
+### Challenge 1: Customize Your Monster {.unnumbered}
 
 **Structure:** Change the visible title and monster label. **Style:** Choose one readable button color or spacing change. **Behavior:** Customize the starting data and inspect it in the console; the hit action still waits for Chapter 6.
 
@@ -1109,7 +1112,7 @@ Use **Build the scene structure → Style the scene → Program game behavior**.
 
 Choose `let` or `const` for each variable and explain one of your choices.
 
-### Challenge 2: Build a Better Player Object
+### Challenge 2: Build a Better Player Object {.unnumbered}
 
 **Structure:** Keep the existing player page and identify the player information it represents. **Style:** Keep the current page style; no new display is required for this exercise. **Behavior:** Add the player properties and print their values.
 
@@ -1124,7 +1127,7 @@ monsterHits
 
 Print the new properties in the console.
 
-### Challenge 3: Grow the Inventory
+### Challenge 3: Grow the Inventory {.unnumbered}
 
 **Structure:** Keep the monster scene and identify the collection of gathered treasures. **Style:** Keep the current scene style; use the console to inspect this small operation. **Behavior:** Add the inventory items, predict its length, and check the result.
 
@@ -1143,7 +1146,7 @@ inventory.length
 
 Predict the length before you run the code.
 
-### Challenge 4: Prepare One More Value for Chapter 6
+### Challenge 4: Prepare One More Value for Chapter 6 {.unnumbered}
 
 **Structure:** Keep the monster and the feedback areas. **Style:** Keep their current readable style. **Behavior:** Describe the future hit action and prepare one value it will change.
 

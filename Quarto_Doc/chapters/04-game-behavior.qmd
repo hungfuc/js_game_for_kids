@@ -156,19 +156,19 @@ Use simple shapes and readable labels first; finished artwork can wait. A new be
 
 ## Exercises {.unnumbered}
 
-### Exercise 1: Predict a sequence
+### Exercise 1: Predict a sequence {.unnumbered}
 
 **Flow focus:** Behavior: apply a rule to remembered state.
 
 Start at zero and add two points for each hit. Predict the score after four hits. Then simulate the actions on paper and compare the results.
 
-### Exercise 2: Choice or game rule?
+### Exercise 2: Choice or game rule? {.unnumbered}
 
 **Flow focus:** Structure + Behavior: distinguish a control’s value from the rule that uses it.
 
 A player chooses Hard, but the game still awards one point per hit. Explain why adding a menu is not enough to change that rule. Write one possible rule for Hard mode.
 
-### Exercise 3: Test restart
+### Exercise 3: Test restart {.unnumbered}
 
 **Flow focus:** Behavior: restore a known starting state.
 

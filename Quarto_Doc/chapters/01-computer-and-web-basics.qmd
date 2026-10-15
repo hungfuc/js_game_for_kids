@@ -254,6 +254,8 @@ You can think of a URL as directions that help a browser locate something. That 
 
 Here is a simple example:
 
+![An annotated browser view: the URL appears in the address bar, and the web page appears below it. The browser frame is simplified; the page is a rendered example.](../figures/chapter_01/browser-url-page.png){fig-alt="A browser view with arrows labeling the URL in the address bar and the web page in the content area." width=90%}
+
 ```text
 https://example.com/games/space-quest
 ```
@@ -329,6 +331,8 @@ flowchart TB
 **Read the picture:** A local file can go directly from storage on your computer to your browser. A web resource takes another route: the browser sends a request through the network and receives a response.
 
 ## Client and server describe jobs
+
+![The browser acts as a client: it requests a file, the web server sends a response, and the browser uses the file to display the page.](../figures/chapter_01/browser-request-response.svg){fig-alt="A browser wireframe on the left sends a request arrow to a server on the right. A response arrow returns HTML, CSS, JavaScript, or pictures to the browser." width=100%}
 
 When computers communicate, we often describe them by the job they are doing.
 
@@ -456,7 +460,7 @@ For now, you only need to recognize the idea. Later chapters will tell you when 
 
 Practice the computer and file skills you will need for later projects. These are explanation and file-operation tasks; no game code is required.
 
-### Exercise 1: Hardware or software?
+### Exercise 1: Hardware or software? {.unnumbered}
 
 Classify each item as **hardware** or **software**.
 
@@ -467,7 +471,7 @@ Classify each item as **hardware** or **software**.
 5. Speakers
 6. A browser game
 
-### Exercise 2: File, folder, or program?
+### Exercise 2: File, folder, or program? {.unnumbered}
 
 For each item, choose **file**, **folder**, or **program**.
 
@@ -478,7 +482,7 @@ For each item, choose **file**, **folder**, or **program**.
 5. A text editor
 6. `images/`
 
-### Exercise 3: Internet or Web?
+### Exercise 3: Internet or Web? {.unnumbered}
 
 Complete each sentence with **Internet** or **Web**.
 
@@ -486,7 +490,7 @@ Complete each sentence with **Internet** or **Web**.
 2. The __________ includes pages and resources that a browser can access.
 3. A browser normally uses the __________ to reach a website on another computer.
 
-### Exercise 4: Page, site, or game?
+### Exercise 4: Page, site, or game? {.unnumbered}
 
 Choose **web page**, **website**, or **web game**.
 
@@ -494,7 +498,7 @@ Choose **web page**, **website**, or **web game**.
 2. A collection containing a home page, help page, and several games
 3. An interactive browser program where the player catches falling stars
 
-### Exercise 5: Read a URL
+### Exercise 5: Read a URL {.unnumbered}
 
 Look at this URL:
 
@@ -509,7 +513,7 @@ Answer the questions.
 3. What is the path?
 4. Does this look like a local file address or a web address?
 
-### Exercise 6: Local or remote?
+### Exercise 6: Local or remote? {.unnumbered}
 
 For each address, decide whether the browser is most likely opening a **local file** or requesting a **web resource**.
 
@@ -520,7 +524,7 @@ file:///C:/Games/maze/start.html
 http://school.example.org/game-lab
 ```
 
-### Exercise 7: Trace the request
+### Exercise 7: Trace the request {.unnumbered}
 
 Put these actions in a sensible order:
 
@@ -529,7 +533,7 @@ Put these actions in a sensible order:
 - The browser sends a request.
 - The player enters a web address.
 
-### Exercise 8: Who is doing the job?
+### Exercise 8: Who is doing the job? {.unnumbered}
 
 A player opens a browser and visits an online game. The browser asks another computer for the game files.
 
@@ -540,13 +544,13 @@ Answer these questions:
 3. Which part is hardware: the laptop or the browser?
 4. After the files arrive, where can much of the game logic run?
 
-### Exercise 9: Explain the picture
+### Exercise 9: Explain the picture {.unnumbered}
 
 Draw four boxes labeled **Player**, **Browser**, **Internet**, and **Server**. Add arrows to show how a player can request a web game. Label at least one arrow **request** and one arrow **response**.
 
 ## Challenges {.unnumbered}
 
-### Challenge 1: Explain a web game to a beginner
+### Challenge 1: Explain a web game to a beginner {.unnumbered}
 
 Imagine a friend says, "A web game is stored inside Chrome."
 
@@ -554,7 +558,7 @@ Write a short explanation that uses at least four of these words correctly:
 
 **hardware, software, browser, file, Internet, Web, server, client**
 
-### Challenge 2: Draw the journey of a game
+### Challenge 2: Draw the journey of a game {.unnumbered}
 
 Draw a diagram showing two ways a browser can get game files:
 
@@ -565,7 +569,7 @@ Your diagram must include **browser**, **local file**, **request**, **response**
 
 Then write two or three sentences explaining the difference between the two routes.
 
-### Challenge 3: Plan a future game project
+### Challenge 3: Plan a future game project {.unnumbered}
 
 Imagine you will keep the files for a game called **Robot Rescue**. Sketch a folder for the project. Include folders or files for at least:
 
@@ -578,7 +582,7 @@ Use `index.html`, `styles.css`, and `game.js` for the three web-code files, then
 
 Then answer: **Why is keeping related game files in one project folder useful?**
 
-### Challenge 4: Local game or online game?
+### Challenge 4: Local game or online game? {.unnumbered}
 
 You are designing two games:
 
