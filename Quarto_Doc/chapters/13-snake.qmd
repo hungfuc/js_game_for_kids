@@ -201,6 +201,16 @@ Save this page as `index.html`, or open `workspace/chapter9-snake/index.html`. T
 </html>
 ```
 
+<!-- game-stage-figures:complete -->
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_13/stage-html.png){#fig-ch13-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_13/stage-style.png){#fig-ch13-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+The empty canvas is expected in these first two stages. JavaScript draws the game objects and runs the behavior shown in the following screenshots.
+
+<!-- /game-stage-figures:complete -->
+
 The demonstration pages pause the timer and make known steps. The playable page advances every 150 milliseconds.
 
 ![Snake Grid in Chrome before the snake reaches the food.](../figures/chapter_09/snake-start.png){#fig-ch13-snake-start fig-alt="A three-cell green snake faces red food on a square grid, with Score: 0." width="100%"}

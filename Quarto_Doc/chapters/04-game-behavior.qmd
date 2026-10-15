@@ -107,6 +107,20 @@ Click the label, type a nickname, and use Tab to move away. Check that the text 
 </p>
 ```
 
+<!-- game-stage-figures:controls -->
+
+These views show all three controls together in the companion scene. Typing and selecting use built-in browser behavior; the game’s scoring rules are still a plan.
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_04/stage-html.png){#fig-ch04-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_04/stage-style.png){#fig-ch04-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+![Native controls: the nickname, mode, and sound choices before editing. The game rules are still a plan.](../figures/chapter_04/behavior-controls-default.png){#fig-ch04-behavior-controls-default fig-alt="Native controls: the nickname, mode, and sound choices before editing. The game rules are still a plan." width="100%"}
+
+![Native controls after typing Maya, choosing Hard, and turning Sound off. These controls do not yet change the score.](../figures/chapter_04/behavior-controls-changed.png){#fig-ch04-behavior-controls-changed fig-alt="Native controls after typing Maya, choosing Hard, and turning Sound off. These controls do not yet change the score." width="100%"}
+
+<!-- /game-stage-figures:controls -->
+
 A checkbox toggles on or off. Putting it inside its label also connects the label and control. `checked` is a Boolean attribute: its presence sets the initial checked state. Write it without `="false"`; that text would still leave the attribute present.
 
 | Control | Native browser response | Game behavior to program later |

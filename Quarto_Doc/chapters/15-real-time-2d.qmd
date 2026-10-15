@@ -56,6 +56,16 @@ const player = {
 };
 ```
 
+<!-- game-stage-figures:shell -->
+
+These stage views use the complete [companion page](../games/collision-lab/index.html). With its scripts disabled, HTML supplies the controls and CSS styles the page. The game world appears when JavaScript loads and draws it; the loading text in these static views is the HTML placeholder.
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_15/stage-html.png){#fig-ch15-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_15/stage-style.png){#fig-ch15-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+<!-- /game-stage-figures:shell -->
+
 The picture is drawn from those values. Do not use the picture itself as the only place where the game remembers its position. That would make collision tests and restarting much harder.
 
 ## Measure speed in seconds
@@ -105,6 +115,18 @@ fixedLoop(
   1 / 120
 );
 ```
+
+<!-- game-stage-figures:behavior -->
+
+The following captures run the complete companion project and exercise its controls.
+
+![Behavior: JavaScript draws the player, wall, and circular target in Collision Playground.](../figures/chapter_15/behavior-start.png){#fig-ch15-behavior-start fig-alt="Behavior: JavaScript draws the player, wall, and circular target in Collision Playground." width="100%"}
+
+![After holding Right for one second, the rectangle has moved toward the wall.](../figures/chapter_15/behavior-moved.png){#fig-ch15-behavior-moved fig-alt="After holding Right for one second, the rectangle has moved toward the wall." width="100%"}
+
+![Switching to a circle and dragging it onto the wall reports Wall overlap: YES; detection alone does not block movement.](../figures/chapter_15/behavior-overlap.png){#fig-ch15-behavior-overlap fig-alt="Switching to a circle and dragging it onto the wall reports Wall overlap: YES; detection alone does not block movement." width="100%"}
+
+<!-- /game-stage-figures:behavior -->
 
 This is a connection fragment: `update` and `draw` are your game's functions. Open `games/collision-lab/main.js` to see them connected to the canvas, input, and collision helpers. Start the loop once. A Restart button should reset game data, not start another loop on top of the first one.
 

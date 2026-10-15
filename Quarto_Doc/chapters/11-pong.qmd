@@ -198,6 +198,16 @@ Save this page as `index.html`, or open `workspace/chapter9-pong/index.html`. Ho
 </html>
 ```
 
+<!-- game-stage-figures:complete -->
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_11/stage-html.png){#fig-ch11-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_11/stage-style.png){#fig-ch11-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+The empty canvas is expected in these first two stages. JavaScript draws the game objects and runs the behavior shown in the following screenshots.
+
+<!-- /game-stage-figures:complete -->
+
 The demonstration pages pause automatic animation, then make a known number of updates or one paddle collision. The playable page keeps animating normally.
 
 ![Pong Practice in Chrome before the paddle moves.](../figures/chapter_09/pong-start.png){#fig-ch11-pong-start fig-alt="A dark Pong canvas shows a yellow ball, a blue paddle on the right, and Paddle hits: 0." width="100%"}

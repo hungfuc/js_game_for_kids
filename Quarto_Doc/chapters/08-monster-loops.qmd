@@ -560,6 +560,24 @@ Here is the complete version. It continues the ideas from Chapters 5, 6, and 5, 
 </html>
 ```
 
+<!-- game-stage-figures:complete -->
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_08/stage-html.png){#fig-ch08-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_08/stage-style.png){#fig-ch08-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+![Behavior at the start: the score is zero and the controls are ready.](../figures/chapter_08/behavior-start.png){#fig-ch08-behavior-start fig-alt="Behavior at the start: the score is zero and the controls are ready." width="100%"}
+
+![A Power Hit at score zero is refused because five points are required.](../figures/chapter_08/behavior-power-blocked.png){#fig-ch08-behavior-power-blocked fig-alt="A Power Hit at score zero is refused because five points are required." width="100%"}
+
+![After five monster clicks, the score reaches five and the level message changes.](../figures/chapter_08/behavior-level-five.png){#fig-ch08-behavior-level-five fig-alt="After five monster clicks, the score reaches five and the level message changes." width="100%"}
+
+![A Power Hit now succeeds and spends the five points.](../figures/chapter_08/behavior-power-hit.png){#fig-ch08-behavior-power-hit fig-alt="A Power Hit now succeeds and spends the five points." width="100%"}
+
+![After building the score to ten, the game displays its master-level message.](../figures/chapter_08/behavior-master.png){#fig-ch08-behavior-master fig-alt="After building the score to ten, the game displays its master-level message." width="100%"}
+
+<!-- /game-stage-figures:complete -->
+
 ### What is new in this version?
 
 The important new code is the array:

@@ -64,6 +64,16 @@ function loadImage(url) {
 const robotImage = await loadImage("../assets/2d/robot-strip.svg");
 ```
 
+<!-- game-stage-figures:shell -->
+
+These stage views use the complete [companion page](../games/robot-orchard/index.html). With its scripts disabled, HTML supplies the controls and CSS styles the page. The game world appears when JavaScript loads and draws it; the loading text in these static views is the HTML placeholder.
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_17/stage-html.png){#fig-ch17-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_17/stage-style.png){#fig-ch17-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+<!-- /game-stage-figures:shell -->
+
 The `await` pauses this module's startup until that Promise resolves; it does not freeze the browser interface. Robot Orchard uses `Promise.all` to load several images before starting its loop. If an asset fails, the page displays an error instead of silently showing a broken game.
 
 These paths are relative to the project HTML page. In reusable modules, `new URL("./picture.svg", import.meta.url)` instead makes a path relative to that module file. Decide which base you need instead of guessing.
@@ -80,6 +90,20 @@ ctx.drawImage(
   player.x - 10, player.y - 18, 48, 64 // destination on canvas
 );
 ```
+
+<!-- game-stage-figures:behavior -->
+
+The following captures run the complete companion project and exercise its controls.
+
+![After Start, the ready overlay is removed and the robot stands on the ground.](../figures/chapter_17/behavior-playing.png){#fig-ch17-behavior-playing fig-alt="After Start, the ready overlay is removed and the robot stands on the ground." width="100%"}
+
+![Show hitboxes adds outlines for the robot, terrain, hazards, and gems over the artwork.](../figures/chapter_17/behavior-hitboxes.png){#fig-ch17-behavior-hitboxes fig-alt="Show hitboxes adds outlines for the robot, terrain, hazards, and gems over the artwork." width="100%"}
+
+![Pressing Jump and Right launches the robot above the ground while moving it forward.](../figures/chapter_17/behavior-jump.png){#fig-ch17-behavior-jump fig-alt="Pressing Jump and Right launches the robot above the ground while moving it forward." width="100%"}
+
+![The sprite-frame task draws four different crops from one sheet, with the collision body outlined separately from the artwork.](../figures/chapter_17/behavior-sprite-frames.png){#fig-ch17-behavior-sprite-frames fig-alt="The sprite-frame task draws four different crops from one sheet, with the collision body outlined separately from the artwork." width="100%"}
+
+<!-- /game-stage-figures:behavior -->
 
 The first four numbers after the image select the crop. The next four choose where and how large to draw it. Eight frames per second means the animation advances eight frame selections per second, even if the game draws more often. `% 4` wraps the index through 0, 1, 2, and 3.
 

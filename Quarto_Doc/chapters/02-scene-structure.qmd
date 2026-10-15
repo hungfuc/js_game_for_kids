@@ -89,7 +89,7 @@ Create `monster-scene/` inside your project folder. Save this as `index.html` wi
 
 ```html
 <!doctype html>
-<html lang="en">s
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -110,7 +110,7 @@ Create `monster-scene/` inside your project folder. Save this as `index.html` wi
 </html>
 ```
 
-![The complete Monster Clicker HTML rendered in a browser with default styling.](../figures/chapter_02/monster-scene-default.png){fig-alt="An unstyled page with the heading Monster Clicker, instructions, a Meet your monster heading, a Monster button, Score: 0, and Your adventure is ready." width=85%}
+![The complete Monster Clicker HTML rendered in a browser with default styling.](../figures/chapter_02/stage-html.png){fig-alt="An unstyled page with the heading Monster Clicker, instructions, a Meet your monster heading, a Monster button, Score: 0, and Your adventure is ready." width=85%}
 
 The page uses the browser’s default appearance. Clicking the button does not increase the score. For this stage, success means the planned parts exist and appear in a useful reading order.
 

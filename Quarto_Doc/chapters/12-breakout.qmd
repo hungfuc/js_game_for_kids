@@ -223,6 +223,16 @@ Save this page as `index.html`, or open `workspace/chapter10-breakout/index.html
 </html>
 ```
 
+<!-- game-stage-figures:complete -->
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_12/stage-html.png){#fig-ch12-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_12/stage-style.png){#fig-ch12-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+The empty canvas is expected in these first two stages. JavaScript draws the game objects and runs the behavior shown in the following screenshots.
+
+<!-- /game-stage-figures:complete -->
+
 The demonstration pages pause automatic animation and place the ball for one or three known brick collisions. The playable page keeps animating normally.
 
 ![Breakout Practice in Chrome before a brick is hit.](../figures/chapter_10/breakout-start.png){#fig-ch12-breakout-start fig-alt="A Breakout canvas shows eight colored bricks, a ball, a paddle, and Bricks cleared: 0." width="100%"}

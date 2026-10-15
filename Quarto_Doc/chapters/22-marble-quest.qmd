@@ -53,6 +53,16 @@ const mesh = crateFile.scene.clone(true);
 links.push({ body, mesh });
 ```
 
+<!-- game-stage-figures:shell -->
+
+These stage views use the complete [companion page](../games/marble-quest/index.html). With its scripts disabled, HTML supplies the controls and CSS styles the page. The game world appears when JavaScript loads and draws it; the loading text in these static views is the HTML placeholder.
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_22/stage-html.png){#fig-ch22-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_22/stage-style.png){#fig-ch22-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+<!-- /game-stage-figures:shell -->
+
 The complete code also adds the visual to the scene group and applies material and friction settings. `links` remembers which visual follows which body. Each draw copies body transforms into these visible objects.
 
 Walls and the ramp instead use fixed bodies. The ramp's visual and collider receive the same quaternion. Rotating only the visible ramp would create a convincing picture of a slope with the physics of a flat box.
@@ -164,6 +174,22 @@ group.clear();
 links = [];
 gems = new Map();
 ```
+
+<!-- game-stage-figures:behavior -->
+
+The following captures run the complete companion project and exercise its controls.
+
+![Behavior: the marble, crates, gems, and gate are loaded on the ready screen.](../figures/chapter_22/behavior-start.png){#fig-ch22-behavior-start fig-alt="Behavior: the marble, crates, gems, and gate are loaded on the ready screen." width="100%"}
+
+![Start creates a playing world with five gems and three lives.](../figures/chapter_22/behavior-playing.png){#fig-ch22-behavior-playing fig-alt="Start creates a playing world with five gems and three lives." width="100%"}
+
+![Show colliders reveals the marble, solid obstacles, and collectible sensor shapes.](../figures/chapter_22/behavior-colliders.png){#fig-ch22-behavior-colliders fig-alt="Show colliders reveals the marble, solid obstacles, and collectible sensor shapes." width="100%"}
+
+![Holding Left and Up rolls the marble into a gem sensor. The gem disappears and the counter becomes Gems: 1/5.](../figures/chapter_22/behavior-moved.png){#fig-ch22-behavior-moved fig-alt="Holding Left and Up rolls the marble into a gem sensor. The gem disappears and the counter becomes Gems: 1/5." width="100%"}
+
+![Pause suspends the physics game and shows the paused status.](../figures/chapter_22/behavior-paused.png){#fig-ch22-behavior-paused fig-alt="Pause suspends the physics game and shows the paused status." width="100%"}
+
+<!-- /game-stage-figures:behavior -->
 
 The project reuses shared visual geometry, materials, and loaded GLB templates. Shared resources should not be disposed of while new clones still use them. Debug wireframe buffers, which are replaced as the display changes, are disposed when replaced.
 

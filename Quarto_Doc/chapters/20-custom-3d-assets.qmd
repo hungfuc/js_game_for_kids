@@ -40,14 +40,6 @@ These models have no skeletal rig or animation clips. The robot can move and tur
 
 Open **3D Asset Workshop** in the Game Lab. Change the robot's body color, inspect it from several angles, and choose **Export robot.glb**. The workshop produces `my-robot.glb`; it does not overwrite your original asset automatically.
 
-The workshop was run in Chrome for both views below. The first uses the material stored in the included GLB. The second sends a new color through the page's real color input and redraws the same loaded model.
-
-![The 3D Asset Workshop displaying the original turquoise robot.](../figures/chapter_18/workshop-original.png){#fig-ch20-workshop-original fig-alt="The 3D Asset Workshop shows a turquoise block-style robot standing on a perspective grid." width="100%"}
-
-![The same robot after its body material has been changed to pink.](../figures/chapter_18/workshop-recolored.png){#fig-ch20-workshop-recolored fig-alt="The 3D Asset Workshop shows the same robot and grid, with the robot body changed from turquoise to pink." width="100%"}
-
-**Read the screenshots:** Geometry, camera, scale, and origin stay fixed while the body material changes. The arms, head, and legs keep their original materials because the code finds the mesh named `body`, clones only that material, and edits its color. That separation lets one visual property change without rebuilding the model or moving its foot-level origin.
-
 ## Load a GLB with GLTFLoader
 
 GLB is a binary container for glTF content. Three.js provides `GLTFLoader` as an addon. It returns a loaded object containing the scene and, when present, animations.
@@ -60,6 +52,16 @@ const gltf = await loader.loadAsync("../assets/3d/robot.glb");
 const robot = gltf.scene;
 scene.add(robot);
 ```
+
+<!-- game-stage-figures:shell -->
+
+These stage views use the complete [companion page](../games/asset-workshop/index.html). With its scripts disabled, HTML supplies the controls and CSS styles the page. The game world appears when JavaScript loads and draws it; the loading text in these static views is the HTML placeholder.
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_20/stage-html.png){#fig-ch20-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_20/stage-style.png){#fig-ch20-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+<!-- /game-stage-figures:shell -->
 
 This is the model-loading part of the complete Explorer. The surrounding program has already created `scene`, `camera`, and `renderer`. Loading is asynchronous, so keep the loading message visible until required assets finish. See the [official GLTFLoader reference](https://threejs.org/docs/pages/GLTFLoader.html).
 
@@ -115,6 +117,18 @@ robot.traverse(object => {
   }
 });
 ```
+
+<!-- game-stage-figures:behavior -->
+
+The following captures run the complete companion project and exercise its controls.
+
+![Behavior: the original turquoise robot model is loaded into the 3D Asset Workshop.](../figures/chapter_20/behavior-start.png){#fig-ch20-behavior-start fig-alt="Behavior: the original turquoise robot model is loaded into the 3D Asset Workshop." width="100%"}
+
+![Changing Robot color updates the body material to pink while keeping the model geometry.](../figures/chapter_20/behavior-recolored.png){#fig-ch20-behavior-recolored fig-alt="Changing Robot color updates the body material to pink while keeping the model geometry." width="100%"}
+
+![Export robot.glb saves the customized model and shows the export confirmation.](../figures/chapter_20/behavior-exported.png){#fig-ch20-behavior-exported fig-alt="Export robot.glb saves the customized model and shows the export confirmation." width="100%"}
+
+<!-- /game-stage-figures:behavior -->
 
 This example is written for the included robot's single-material body mesh. Other models may have arrays of materials or different part names. Inspect the model hierarchy instead of assuming every model has a mesh called `body`.
 

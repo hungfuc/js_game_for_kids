@@ -115,6 +115,20 @@ quarto render book.qmd
 
 To regenerate the supplied reading edition without Quarto, install Pandoc and run `python3 scripts/build-preview.py` from the project root. This preview generator implements the textbook's callouts and embeds the figures; it is not a general-purpose replacement for Quarto.
 
+## Regenerate the chapter screenshots
+
+`figures/game-stage-captures.json` records the source and caption for each captured stage. `scripts/capture-game-stages.cjs` renders the chapter code and companion projects in Chrome, removes scripts for the HTML/CSS stages, and operates the actual controls for behavior captures. Animation callbacks advance in fixed frames so movement and physics states are repeatable. Chapters 9–14 retain their existing behavior galleries alongside the new HTML/CSS captures.
+
+With Node.js, Playwright, and Chrome available, run from this directory:
+
+```bash
+node scripts/capture-game-stages.cjs
+python3 scripts/insert-game-stage-figures.py
+python3 scripts/build-single-file.py
+```
+
+Pass chapter numbers to recapture a selection, such as `node scripts/capture-game-stages.cjs 8 18`. Set `PLAYWRIGHT_MODULE` to an existing Playwright package path if needed, and `CHROME_PATH` if Chrome is outside its default macOS location. The 3D captures use the companion pages' pinned CDN dependencies. The insertion script can be run repeatedly without duplicating figures.
+
 ## Test and review
 
 ```bash

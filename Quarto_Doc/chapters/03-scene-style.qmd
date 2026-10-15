@@ -155,6 +155,18 @@ h1 {
 }
 ```
 
+<!-- game-stage-figures:style -->
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_03/stage-html.png){#fig-ch03-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_03/stage-style.png){#fig-ch03-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+![CSS feedback: hovering over the monster darkens its button. The score stays at zero.](../figures/chapter_03/style-hover.png){#fig-ch03-style-hover fig-alt="CSS feedback: hovering over the monster darkens its button. The score stays at zero." width="100%"}
+
+![CSS feedback: keyboard focus outlines the monster button. No click rule has been added.](../figures/chapter_03/style-focus.png){#fig-ch03-style-focus fig-alt="CSS feedback: keyboard focus outlines the monster button. No click rule has been added." width="100%"}
+
+<!-- /game-stage-figures:style -->
+
 `*` selects all elements. `line-height` gives lines of text breathing room. Many text settings pass from a parent to its children through **inheritance**; `font: inherit` explicitly tells the button to use its parent’s font settings.
 
 `:hover` selects the button while a pointer is over it. `:focus-visible` provides a visible outline when focus should be shown, such as during keyboard navigation. The color change and outline are CSS responses. They do not count points or run a game rule.

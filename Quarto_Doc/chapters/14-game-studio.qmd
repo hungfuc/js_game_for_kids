@@ -191,6 +191,16 @@ The planning sketch becomes **Catch the Fruit** in this complete page. Save it a
 </html>
 ```
 
+<!-- game-stage-figures:complete -->
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_14/stage-html.png){#fig-ch14-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_14/stage-style.png){#fig-ch14-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+The empty canvas is expected in these first two stages. JavaScript draws the game objects and runs the behavior shown in the following screenshots.
+
+<!-- /game-stage-figures:complete -->
+
 The screenshot demonstration pages pause automatic frames and arrange one catch or three misses. The playable page uses `requestAnimationFrame()`.
 
 ![Catch the Fruit in Chrome at the beginning of a game.](../figures/chapter_10/fruit-start.png){#fig-ch14-fruit-start fig-alt="Catch the Fruit shows a falling red fruit, a brown basket, Score: 0, and Lives: 3." width="100%"}

@@ -134,6 +134,16 @@ Put the pieces together. Type the code yourself if you can; typing helps your br
 </html>
 ```
 
+<!-- game-stage-figures:complete -->
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_10/stage-html.png){#fig-ch10-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_10/stage-style.png){#fig-ch10-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+The empty canvas is expected in these first two stages. JavaScript draws the game objects and runs the behavior shown in the following screenshots.
+
+<!-- /game-stage-figures:complete -->
+
 Open `workspace/chapter6-bouncing-ball/index.html` to watch the complete example. The browser redraws the purple ball on every animation frame. The screenshot pages pause automatic frames and call the same `loop()` function a known number of times.
 
 ![Bouncing Ball in Chrome near its starting position inside the canvas.](../figures/chapter_06/ball-start.png){#fig-ch10-ball-start fig-alt="A purple ball appears near the upper-left of a light blue bordered canvas." width="100%"}

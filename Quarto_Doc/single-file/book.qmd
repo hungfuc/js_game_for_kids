@@ -905,7 +905,7 @@ Create `monster-scene/` inside your project folder. Save this as `index.html` wi
 </html>
 ```
 
-![The complete Monster Clicker HTML rendered in a browser with default styling.](../figures/chapter_02/monster-scene-default.png){fig-alt="An unstyled page with the heading Monster Clicker, instructions, a Meet your monster heading, a Monster button, Score: 0, and Your adventure is ready." width=85%}
+![The complete Monster Clicker HTML rendered in a browser with default styling.](../figures/chapter_02/stage-html.png){fig-alt="An unstyled page with the heading Monster Clicker, instructions, a Meet your monster heading, a Monster button, Score: 0, and Your adventure is ready." width=85%}
 
 The page uses the browser’s default appearance. Clicking the button does not increase the score. For this stage, success means the planned parts exist and appear in a useful reading order.
 
@@ -1143,6 +1143,18 @@ h1 {
 }
 ```
 
+<!-- game-stage-figures:style -->
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_03/stage-html.png){#fig-ch03-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_03/stage-style.png){#fig-ch03-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+![CSS feedback: hovering over the monster darkens its button. The score stays at zero.](../figures/chapter_03/style-hover.png){#fig-ch03-style-hover fig-alt="CSS feedback: hovering over the monster darkens its button. The score stays at zero." width="100%"}
+
+![CSS feedback: keyboard focus outlines the monster button. No click rule has been added.](../figures/chapter_03/style-focus.png){#fig-ch03-style-focus fig-alt="CSS feedback: keyboard focus outlines the monster button. No click rule has been added." width="100%"}
+
+<!-- /game-stage-figures:style -->
+
 `*` selects all elements. `line-height` gives lines of text breathing room. Many text settings pass from a parent to its children through **inheritance**; `font: inherit` explicitly tells the button to use its parent’s font settings.
 
 `:hover` selects the button while a pointer is over it. `:focus-visible` provides a visible outline when focus should be shown, such as during keyboard navigation. The color change and outline are CSS responses. They do not count points or run a game rule.
@@ -1326,6 +1338,20 @@ Click the label, type a nickname, and use Tab to move away. Check that the text 
   <label><input id="sound" type="checkbox" checked> Sound on</label>
 </p>
 ```
+
+<!-- game-stage-figures:controls -->
+
+These views show all three controls together in the companion scene. Typing and selecting use built-in browser behavior; the game’s scoring rules are still a plan.
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_04/stage-html.png){#fig-ch04-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_04/stage-style.png){#fig-ch04-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+![Native controls: the nickname, mode, and sound choices before editing. The game rules are still a plan.](../figures/chapter_04/behavior-controls-default.png){#fig-ch04-behavior-controls-default fig-alt="Native controls: the nickname, mode, and sound choices before editing. The game rules are still a plan." width="100%"}
+
+![Native controls after typing Maya, choosing Hard, and turning Sound off. These controls do not yet change the score.](../figures/chapter_04/behavior-controls-changed.png){#fig-ch04-behavior-controls-changed fig-alt="Native controls after typing Maya, choosing Hard, and turning Sound off. These controls do not yet change the score." width="100%"}
+
+<!-- /game-stage-figures:controls -->
 
 A checkbox toggles on or off. Putting it inside its label also connects the label and control. `checked` is a Boolean attribute: its presence sets the initial checked state. Write it without `="false"`; that text would still leave the attribute present.
 
@@ -2049,7 +2075,7 @@ Sketch the title, monster, message, and score first. Create a file such as `mons
 </html>
 ```
 
-![The Monster Clicker starter after Step 1: the HTML provides the page content with the browser’s default styling.](../figures/chapter_05/monster-starter-html.png){fig-alt="An unstyled Monster Clicker page with a Monster button, the message The monster is waiting..., and Score: 0." width=90%}
+![The Monster Clicker starter after Step 1: the HTML provides the page content with the browser’s default styling.](../figures/chapter_05/stage-html.png){fig-alt="An unstyled Monster Clicker page with a Monster button, the message The monster is waiting..., and Score: 0." width=90%}
 
 Notice these IDs:
 
@@ -2111,7 +2137,7 @@ body {
 #message { min-height: 1.5em; }
 ```
 
-![The same starter after Step 2: CSS centers a white card on a pale blue background and styles the monster button.](../figures/chapter_05/monster-starter-styled.png){fig-alt="A centered white card with a dark rounded border on a pale blue background. It contains the Monster Clicker heading, a purple Monster button, The monster is waiting..., and Score: 0." width=90%}
+![The same starter after Step 2: CSS centers a white card on a pale blue background and styles the monster button.](../figures/chapter_05/stage-style.png){fig-alt="A centered white card with a dark rounded border on a pale blue background. It contains the Monster Clicker heading, a purple Monster button, The monster is waiting..., and Score: 0." width=90%}
 
 
 Save and refresh. Check the card, monster, message, and score before adding JavaScript. If you continued your styled scene, you can instead keep its linked `styles.css`; the development step is the same. This chapter embeds CSS only to keep the complete example in one file.
@@ -2331,6 +2357,14 @@ Read this complete example in our development order: locate the **scene structur
 </body>
 </html>
 ```
+
+<!-- game-stage-figures:data -->
+
+![Behavior preparation: JavaScript has initialized the game data; the page still shows Score: 0.](../figures/chapter_05/behavior-data-ready.png){#fig-ch05-behavior-data-ready fig-alt="Behavior preparation: JavaScript has initialized the game data; the page still shows Score: 0." width="100%"}
+
+![After a test click, Score: 0 and the waiting message remain unchanged. Chapter 6 adds the click listener.](../figures/chapter_05/behavior-click-check.png){#fig-ch05-behavior-click-check fig-alt="After a test click, Score: 0 and the waiting message remain unchanged. Chapter 6 adds the click listener." width="100%"}
+
+<!-- /game-stage-figures:data -->
 
 When you open the page:
 
@@ -3222,6 +3256,18 @@ Now put everything into one page.
 </html>
 ```
 
+<!-- game-stage-figures:complete -->
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_06/stage-html.png){#fig-ch06-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style check: this example has no custom CSS, so its appearance still uses browser defaults.](../figures/chapter_06/stage-style.png){#fig-ch06-stage-style fig-alt="Style check: this example has no custom CSS, so its appearance still uses browser defaults." width="100%"}
+
+![Behavior before input: the message asks Can you catch it?](../figures/chapter_06/behavior-waiting.png){#fig-ch06-behavior-waiting fig-alt="Behavior before input: the message asks Can you catch it?" width="100%"}
+
+![After clicking the monster, the event handler changes the message to Great hit!](../figures/chapter_06/behavior-hit.png){#fig-ch06-behavior-hit fig-alt="After clicking the monster, the event handler changes the message to Great hit!" width="100%"}
+
+<!-- /game-stage-figures:complete -->
+
 ### What happens when the page opens? {.unnumbered}
 
 The browser:
@@ -3951,6 +3997,24 @@ Now combine what you built across three chapters.
 </body>
 </html>
 ```
+
+<!-- game-stage-figures:complete -->
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_07/stage-html.png){#fig-ch07-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style check: this example has no custom CSS, so its appearance still uses browser defaults.](../figures/chapter_07/stage-style.png){#fig-ch07-stage-style fig-alt="Style check: this example has no custom CSS, so its appearance still uses browser defaults." width="100%"}
+
+![Behavior at the start: the score is zero and the controls are ready.](../figures/chapter_07/behavior-start.png){#fig-ch07-behavior-start fig-alt="Behavior at the start: the score is zero and the controls are ready." width="100%"}
+
+![A Power Hit at score zero is refused because five points are required.](../figures/chapter_07/behavior-power-blocked.png){#fig-ch07-behavior-power-blocked fig-alt="A Power Hit at score zero is refused because five points are required." width="100%"}
+
+![After five monster clicks, the score reaches five and the level message changes.](../figures/chapter_07/behavior-level-five.png){#fig-ch07-behavior-level-five fig-alt="After five monster clicks, the score reaches five and the level message changes." width="100%"}
+
+![A Power Hit now succeeds and spends the five points.](../figures/chapter_07/behavior-power-hit.png){#fig-ch07-behavior-power-hit fig-alt="A Power Hit now succeeds and spends the five points." width="100%"}
+
+![After building the score to ten, the game displays its master-level message.](../figures/chapter_07/behavior-master.png){#fig-ch07-behavior-master fig-alt="After building the score to ten, the game displays its master-level message." width="100%"}
+
+<!-- /game-stage-figures:complete -->
 
 Open `workspace/chapter5-monster-decisions/index.html` to try the complete example, or save the code above as `index.html`.
 
@@ -4700,6 +4764,24 @@ Here is the complete version. It continues the ideas from Chapters 5, 6, and 5, 
 </html>
 ```
 
+<!-- game-stage-figures:complete -->
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_08/stage-html.png){#fig-ch08-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_08/stage-style.png){#fig-ch08-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+![Behavior at the start: the score is zero and the controls are ready.](../figures/chapter_08/behavior-start.png){#fig-ch08-behavior-start fig-alt="Behavior at the start: the score is zero and the controls are ready." width="100%"}
+
+![A Power Hit at score zero is refused because five points are required.](../figures/chapter_08/behavior-power-blocked.png){#fig-ch08-behavior-power-blocked fig-alt="A Power Hit at score zero is refused because five points are required." width="100%"}
+
+![After five monster clicks, the score reaches five and the level message changes.](../figures/chapter_08/behavior-level-five.png){#fig-ch08-behavior-level-five fig-alt="After five monster clicks, the score reaches five and the level message changes." width="100%"}
+
+![A Power Hit now succeeds and spends the five points.](../figures/chapter_08/behavior-power-hit.png){#fig-ch08-behavior-power-hit fig-alt="A Power Hit now succeeds and spends the five points." width="100%"}
+
+![After building the score to ten, the game displays its master-level message.](../figures/chapter_08/behavior-master.png){#fig-ch08-behavior-master fig-alt="After building the score to ten, the game displays its master-level message." width="100%"}
+
+<!-- /game-stage-figures:complete -->
+
 ### What is new in this version?
 
 The important new code is the array:
@@ -5117,6 +5199,14 @@ Put the pieces together. Type the code yourself if you can; typing helps your br
 </html>
 ```
 
+<!-- game-stage-figures:complete -->
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_09/stage-html.png){#fig-ch09-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_09/stage-style.png){#fig-ch09-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+<!-- /game-stage-figures:complete -->
+
 Open `workspace/chapter7-catch-the-star/index.html` to watch the complete example. The star moves once per second, and a click raises the score and moves it immediately. The screenshot pages use known positions and control one timer callback so their states are reproducible.
 
 ![Catch the Star in Chrome at score zero, with the star near the upper left of the game area.](../figures/chapter_07/star-start.png){#fig-ch09-star-start fig-alt="The Catch the Star page shows Score: 0 and a yellow star near the upper-left corner of a bordered game area." width="100%"}
@@ -5307,6 +5397,16 @@ Put the pieces together. Type the code yourself if you can; typing helps your br
 </body>
 </html>
 ```
+
+<!-- game-stage-figures:complete -->
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_10/stage-html.png){#fig-ch10-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_10/stage-style.png){#fig-ch10-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+The empty canvas is expected in these first two stages. JavaScript draws the game objects and runs the behavior shown in the following screenshots.
+
+<!-- /game-stage-figures:complete -->
 
 Open `workspace/chapter6-bouncing-ball/index.html` to watch the complete example. The browser redraws the purple ball on every animation frame. The screenshot pages pause automatic frames and call the same `loop()` function a known number of times.
 
@@ -5571,6 +5671,16 @@ Save this page as `index.html`, or open `workspace/chapter9-pong/index.html`. Ho
 </body>
 </html>
 ```
+
+<!-- game-stage-figures:complete -->
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_11/stage-html.png){#fig-ch11-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_11/stage-style.png){#fig-ch11-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+The empty canvas is expected in these first two stages. JavaScript draws the game objects and runs the behavior shown in the following screenshots.
+
+<!-- /game-stage-figures:complete -->
 
 The demonstration pages pause automatic animation, then make a known number of updates or one paddle collision. The playable page keeps animating normally.
 
@@ -5863,6 +5973,16 @@ Save this page as `index.html`, or open `workspace/chapter10-breakout/index.html
 </html>
 ```
 
+<!-- game-stage-figures:complete -->
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_12/stage-html.png){#fig-ch12-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_12/stage-style.png){#fig-ch12-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+The empty canvas is expected in these first two stages. JavaScript draws the game objects and runs the behavior shown in the following screenshots.
+
+<!-- /game-stage-figures:complete -->
+
 The demonstration pages pause automatic animation and place the ball for one or three known brick collisions. The playable page keeps animating normally.
 
 ![Breakout Practice in Chrome before a brick is hit.](../figures/chapter_10/breakout-start.png){#fig-ch12-breakout-start fig-alt="A Breakout canvas shows eight colored bricks, a ball, a paddle, and Bricks cleared: 0." width="100%"}
@@ -6129,6 +6249,16 @@ Save this page as `index.html`, or open `workspace/chapter9-snake/index.html`. T
 </html>
 ```
 
+<!-- game-stage-figures:complete -->
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_13/stage-html.png){#fig-ch13-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_13/stage-style.png){#fig-ch13-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+The empty canvas is expected in these first two stages. JavaScript draws the game objects and runs the behavior shown in the following screenshots.
+
+<!-- /game-stage-figures:complete -->
+
 The demonstration pages pause the timer and make known steps. The playable page advances every 150 milliseconds.
 
 ![Snake Grid in Chrome before the snake reaches the food.](../figures/chapter_09/snake-start.png){#fig-ch13-snake-start fig-alt="A three-cell green snake faces red food on a square grid, with Score: 0." width="100%"}
@@ -6387,6 +6517,16 @@ The planning sketch becomes **Catch the Fruit** in this complete page. Save it a
 </html>
 ```
 
+<!-- game-stage-figures:complete -->
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_14/stage-html.png){#fig-ch14-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_14/stage-style.png){#fig-ch14-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+The empty canvas is expected in these first two stages. JavaScript draws the game objects and runs the behavior shown in the following screenshots.
+
+<!-- /game-stage-figures:complete -->
+
 The screenshot demonstration pages pause automatic frames and arrange one catch or three misses. The playable page uses `requestAnimationFrame()`.
 
 ![Catch the Fruit in Chrome at the beginning of a game.](../figures/chapter_10/fruit-start.png){#fig-ch14-fruit-start fig-alt="Catch the Fruit shows a falling red fruit, a brown basket, Score: 0, and Lives: 3." width="100%"}
@@ -6513,6 +6653,16 @@ const player = {
 };
 ```
 
+<!-- game-stage-figures:shell -->
+
+These stage views use the complete [companion page](../games/collision-lab/index.html). With its scripts disabled, HTML supplies the controls and CSS styles the page. The game world appears when JavaScript loads and draws it; the loading text in these static views is the HTML placeholder.
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_15/stage-html.png){#fig-ch15-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_15/stage-style.png){#fig-ch15-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+<!-- /game-stage-figures:shell -->
+
 The picture is drawn from those values. Do not use the picture itself as the only place where the game remembers its position. That would make collision tests and restarting much harder.
 
 ## Measure speed in seconds
@@ -6562,6 +6712,18 @@ fixedLoop(
   1 / 120
 );
 ```
+
+<!-- game-stage-figures:behavior -->
+
+The following captures run the complete companion project and exercise its controls.
+
+![Behavior: JavaScript draws the player, wall, and circular target in Collision Playground.](../figures/chapter_15/behavior-start.png){#fig-ch15-behavior-start fig-alt="Behavior: JavaScript draws the player, wall, and circular target in Collision Playground." width="100%"}
+
+![After holding Right for one second, the rectangle has moved toward the wall.](../figures/chapter_15/behavior-moved.png){#fig-ch15-behavior-moved fig-alt="After holding Right for one second, the rectangle has moved toward the wall." width="100%"}
+
+![Switching to a circle and dragging it onto the wall reports Wall overlap: YES; detection alone does not block movement.](../figures/chapter_15/behavior-overlap.png){#fig-ch15-behavior-overlap fig-alt="Switching to a circle and dragging it onto the wall reports Wall overlap: YES; detection alone does not block movement." width="100%"}
+
+<!-- /game-stage-figures:behavior -->
 
 This is a connection fragment: `update` and `draw` are your game's functions. Open `games/collision-lab/main.js` to see them connected to the canvas, input, and collision helpers. Start the loop once. A Restart button should reset game data, not start another loop on top of the first one.
 
@@ -6662,6 +6824,16 @@ function overlaps(a, b) {
 }
 ```
 
+<!-- game-stage-figures:shell -->
+
+These stage views use the complete [companion page](../games/robot-orchard/index.html). With its scripts disabled, HTML supplies the controls and CSS styles the page. The game world appears when JavaScript loads and draws it; the loading text in these static views is the HTML placeholder.
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_16/stage-html.png){#fig-ch16-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_16/stage-style.png){#fig-ch16-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+<!-- /game-stage-figures:shell -->
+
 Imagine `a.x` is 10 and `a.w` is 20. Its right edge is 30. If `b.x` is 35, there is a gap, so the horizontal test fails regardless of the rectangles' heights. This function uses strict comparisons: edges that merely touch are not considered penetrating. This convention helps the character rest exactly on a platform.
 
 AABB is one of the simple shape tests described in [MDN's 2D collision guide](https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection). Our response and game rules are built separately from the overlap test.
@@ -6724,6 +6896,18 @@ for (const wall of solids) {
   player.vx = 0;
 }
 ```
+
+<!-- game-stage-figures:behavior -->
+
+The following captures run the complete companion project and exercise its controls.
+
+![After Start, the ready overlay is removed and the robot stands on the ground.](../figures/chapter_16/behavior-playing.png){#fig-ch16-behavior-playing fig-alt="After Start, the ready overlay is removed and the robot stands on the ground." width="100%"}
+
+![Show hitboxes adds outlines for the robot, terrain, hazards, and gems over the artwork.](../figures/chapter_16/behavior-hitboxes.png){#fig-ch16-behavior-hitboxes fig-alt="Show hitboxes adds outlines for the robot, terrain, hazards, and gems over the artwork." width="100%"}
+
+![Pressing Jump and Right launches the robot above the ground while moving it forward.](../figures/chapter_16/behavior-jump.png){#fig-ch16-behavior-jump fig-alt="Pressing Jump and Right launches the robot above the ground while moving it forward." width="100%"}
+
+<!-- /game-stage-figures:behavior -->
 
 The vertical part begins by clearing `grounded`. When downward motion produces an overlap, it sets `player.y = wall.y - player.h`, clears `vy`, and sets `grounded` to `true`. An upward collision instead places the player below the ceiling and does **not** mark it grounded.
 
@@ -6831,6 +7015,16 @@ function loadImage(url) {
 const robotImage = await loadImage("../assets/2d/robot-strip.svg");
 ```
 
+<!-- game-stage-figures:shell -->
+
+These stage views use the complete [companion page](../games/robot-orchard/index.html). With its scripts disabled, HTML supplies the controls and CSS styles the page. The game world appears when JavaScript loads and draws it; the loading text in these static views is the HTML placeholder.
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_17/stage-html.png){#fig-ch17-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_17/stage-style.png){#fig-ch17-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+<!-- /game-stage-figures:shell -->
+
 The `await` pauses this module's startup until that Promise resolves; it does not freeze the browser interface. Robot Orchard uses `Promise.all` to load several images before starting its loop. If an asset fails, the page displays an error instead of silently showing a broken game.
 
 These paths are relative to the project HTML page. In reusable modules, `new URL("./picture.svg", import.meta.url)` instead makes a path relative to that module file. Decide which base you need instead of guessing.
@@ -6847,6 +7041,20 @@ ctx.drawImage(
   player.x - 10, player.y - 18, 48, 64 // destination on canvas
 );
 ```
+
+<!-- game-stage-figures:behavior -->
+
+The following captures run the complete companion project and exercise its controls.
+
+![After Start, the ready overlay is removed and the robot stands on the ground.](../figures/chapter_17/behavior-playing.png){#fig-ch17-behavior-playing fig-alt="After Start, the ready overlay is removed and the robot stands on the ground." width="100%"}
+
+![Show hitboxes adds outlines for the robot, terrain, hazards, and gems over the artwork.](../figures/chapter_17/behavior-hitboxes.png){#fig-ch17-behavior-hitboxes fig-alt="Show hitboxes adds outlines for the robot, terrain, hazards, and gems over the artwork." width="100%"}
+
+![Pressing Jump and Right launches the robot above the ground while moving it forward.](../figures/chapter_17/behavior-jump.png){#fig-ch17-behavior-jump fig-alt="Pressing Jump and Right launches the robot above the ground while moving it forward." width="100%"}
+
+![The sprite-frame task draws four different crops from one sheet, with the collision body outlined separately from the artwork.](../figures/chapter_17/behavior-sprite-frames.png){#fig-ch17-behavior-sprite-frames fig-alt="The sprite-frame task draws four different crops from one sheet, with the collision body outlined separately from the artwork." width="100%"}
+
+<!-- /game-stage-figures:behavior -->
 
 The first four numbers after the image select the crop. The next four choose where and how large to draw it. Eight frames per second means the animation advances eight frame selections per second, even if the game draws more often. `% 4` wraps the index through 0, 1, 2, and 3.
 
@@ -6977,6 +7185,16 @@ const cameraX = clamp(
 );
 ```
 
+<!-- game-stage-figures:shell -->
+
+These stage views use the complete [companion page](../games/robot-orchard/index.html). With its scripts disabled, HTML supplies the controls and CSS styles the page. The game world appears when JavaScript loads and draws it; the loading text in these static views is the HTML placeholder.
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_18/stage-html.png){#fig-ch18-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_18/stage-style.png){#fig-ch18-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+<!-- /game-stage-figures:shell -->
+
 Subtract `cameraX` while drawing. Do not subtract it from the player's stored position or from collision rectangles.
 
 ```javascript
@@ -7072,6 +7290,24 @@ function start() {
 }
 ```
 
+<!-- game-stage-figures:behavior -->
+
+The following captures run the complete companion project and exercise its controls.
+
+![Behavior: Robot Orchard has loaded its assets and displays its ready screen.](../figures/chapter_18/behavior-start.png){#fig-ch18-behavior-start fig-alt="Behavior: Robot Orchard has loaded its assets and displays its ready screen." width="100%"}
+
+![After Start, the ready overlay is removed and the robot stands on the ground.](../figures/chapter_18/behavior-playing.png){#fig-ch18-behavior-playing fig-alt="After Start, the ready overlay is removed and the robot stands on the ground." width="100%"}
+
+![Show hitboxes adds outlines for the robot, terrain, hazards, and gems over the artwork.](../figures/chapter_18/behavior-hitboxes.png){#fig-ch18-behavior-hitboxes fig-alt="Show hitboxes adds outlines for the robot, terrain, hazards, and gems over the artwork." width="100%"}
+
+![Pressing Jump and Right launches the robot above the ground while moving it forward.](../figures/chapter_18/behavior-jump.png){#fig-ch18-behavior-jump fig-alt="Pressing Jump and Right launches the robot above the ground while moving it forward." width="100%"}
+
+![Pause freezes play and displays the PAUSED state.](../figures/chapter_18/behavior-paused.png){#fig-ch18-behavior-paused fig-alt="Pause freezes play and displays the PAUSED state." width="100%"}
+
+![After moving Right and collecting the first gem, the camera scrolls along the wider level; the counter shows Gems: 1/10.](../figures/chapter_18/behavior-scrolling.png){#fig-ch18-behavior-scrolling fig-alt="After moving Right and collecting the first gem, the camera scrolls along the wider level; the counter shows Gems: 1/10." width="100%"}
+
+<!-- /game-stage-figures:behavior -->
+
 A restart is a useful test of your architecture. If the game gets faster after each restart, look for duplicate loops or listeners. If collected gems remain missing, look for reused mutable arrays.
 
 ::: {.callout-note .advanced-study title="Advanced Study | Polish includes focus and feedback" icon="false" collapse="false"}
@@ -7142,14 +7378,6 @@ You already know that a game needs state, input, rules, and drawing. Those ideas
 
 Open **Robot Island Explorer** in the Game Lab. Move with WASD or the arrow keys and collect four crystals. Drag to orbit the camera and scroll to zoom. The decorative crates are intentionally not solid in this pre-physics project. We will give objects real physical behavior with Rapier later.
 
-These Chrome screenshots show the supplied Three.js project after its scene, camera, lights, local GLB models, and controls have loaded. The second state places the robot on a crystal so the ordinary collection rule removes it and updates the score.
-
-![Robot Island Explorer in Chrome at its starting position.](../figures/chapter_17/explorer-start.png){#fig-ch19-explorer-start fig-alt="Robot Island Explorer shows a small robot, two wooden crates, and four purple crystals on a green gridded island." width="100%"}
-
-![Robot Island Explorer after one crystal has been collected.](../figures/chapter_17/explorer-crystal.png){#fig-ch19-explorer-crystal fig-alt="Robot Island Explorer shows the robot at the far-right corner, three remaining crystals, and a status of Crystals: 1/4." width="100%"}
-
-**Read the screenshots:** The camera turns the same flat browser canvas into a view of an `x-z` floor with height along `y`. The robot's changed world position changes where the camera sees it; the island itself does not move. One crystal disappears because the update loop measured the robot-to-crystal distance and marked that collectible as collected.
-
 ::: {.callout-tip .setup title="Set up the 3D projects" icon="false"}
 Use the same local server from Chapter 15. The supplied 3D pages load **Three.js 0.180.0** and, where needed, **Rapier 0.17.3** from a CDN. These are pinned lesson dependencies, not a claim that they are the newest releases.
 
@@ -7178,6 +7406,16 @@ robot.position.y = 0.5;
 scene.add(robot);
 scene.add(new THREE.HemisphereLight(0xffffff, 0x456b55, 2));
 ```
+
+<!-- game-stage-figures:shell -->
+
+These stage views use the complete [companion page](../games/three-explorer/index.html). With its scripts disabled, HTML supplies the controls and CSS styles the page. The game world appears when JavaScript loads and draws it; the loading text in these static views is the HTML placeholder.
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_19/stage-html.png){#fig-ch19-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_19/stage-style.png){#fig-ch19-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+<!-- /game-stage-figures:shell -->
 
 This fragment creates the scene objects. `games/shared/three-scene.js` completes the browser setup by creating `WebGLRenderer`, attaching its canvas, sizing it, and adding lights. The complete Explorer project connects that helper to controls, models, and the loop.
 
@@ -7216,6 +7454,18 @@ const direction = normalize2(horizontalInput, forwardInput);
 robot.position.x += direction.x * speed * dt;
 robot.position.z += direction.y * speed * dt;
 ```
+
+<!-- game-stage-figures:behavior -->
+
+The following captures run the complete companion project and exercise its controls.
+
+![Behavior: JavaScript loads the robot and crystals and renders the 3D island.](../figures/chapter_19/behavior-start.png){#fig-ch19-behavior-start fig-alt="Behavior: JavaScript loads the robot and crystals and renders the 3D island." width="100%"}
+
+![Moving Up and Right to the first crystal removes it and updates the counter to Crystals: 1/4.](../figures/chapter_19/behavior-collected.png){#fig-ch19-behavior-collected fig-alt="Moving Up and Right to the first crystal removes it and updates the counter to Crystals: 1/4." width="100%"}
+
+![Restart collection restores all four crystals and resets the counter to zero.](../figures/chapter_19/behavior-restarted.png){#fig-ch19-behavior-restarted fig-alt="Restart collection restores all four crystals and resets the counter to zero." width="100%"}
+
+<!-- /game-stage-figures:behavior -->
 
 Our two-dimensional helper calls its second component `y`, but here that component is used for the world's `z` coordinate. A helper's field name does not automatically change the coordinate system of your game.
 
@@ -7320,14 +7570,6 @@ These models have no skeletal rig or animation clips. The robot can move and tur
 
 Open **3D Asset Workshop** in the Game Lab. Change the robot's body color, inspect it from several angles, and choose **Export robot.glb**. The workshop produces `my-robot.glb`; it does not overwrite your original asset automatically.
 
-The workshop was run in Chrome for both views below. The first uses the material stored in the included GLB. The second sends a new color through the page's real color input and redraws the same loaded model.
-
-![The 3D Asset Workshop displaying the original turquoise robot.](../figures/chapter_18/workshop-original.png){#fig-ch20-workshop-original fig-alt="The 3D Asset Workshop shows a turquoise block-style robot standing on a perspective grid." width="100%"}
-
-![The same robot after its body material has been changed to pink.](../figures/chapter_18/workshop-recolored.png){#fig-ch20-workshop-recolored fig-alt="The 3D Asset Workshop shows the same robot and grid, with the robot body changed from turquoise to pink." width="100%"}
-
-**Read the screenshots:** Geometry, camera, scale, and origin stay fixed while the body material changes. The arms, head, and legs keep their original materials because the code finds the mesh named `body`, clones only that material, and edits its color. That separation lets one visual property change without rebuilding the model or moving its foot-level origin.
-
 ## Load a GLB with GLTFLoader
 
 GLB is a binary container for glTF content. Three.js provides `GLTFLoader` as an addon. It returns a loaded object containing the scene and, when present, animations.
@@ -7340,6 +7582,16 @@ const gltf = await loader.loadAsync("../assets/3d/robot.glb");
 const robot = gltf.scene;
 scene.add(robot);
 ```
+
+<!-- game-stage-figures:shell -->
+
+These stage views use the complete [companion page](../games/asset-workshop/index.html). With its scripts disabled, HTML supplies the controls and CSS styles the page. The game world appears when JavaScript loads and draws it; the loading text in these static views is the HTML placeholder.
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_20/stage-html.png){#fig-ch20-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_20/stage-style.png){#fig-ch20-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+<!-- /game-stage-figures:shell -->
 
 This is the model-loading part of the complete Explorer. The surrounding program has already created `scene`, `camera`, and `renderer`. Loading is asynchronous, so keep the loading message visible until required assets finish. See the [official GLTFLoader reference](https://threejs.org/docs/pages/GLTFLoader.html).
 
@@ -7395,6 +7647,18 @@ robot.traverse(object => {
   }
 });
 ```
+
+<!-- game-stage-figures:behavior -->
+
+The following captures run the complete companion project and exercise its controls.
+
+![Behavior: the original turquoise robot model is loaded into the 3D Asset Workshop.](../figures/chapter_20/behavior-start.png){#fig-ch20-behavior-start fig-alt="Behavior: the original turquoise robot model is loaded into the 3D Asset Workshop." width="100%"}
+
+![Changing Robot color updates the body material to pink while keeping the model geometry.](../figures/chapter_20/behavior-recolored.png){#fig-ch20-behavior-recolored fig-alt="Changing Robot color updates the body material to pink while keeping the model geometry." width="100%"}
+
+![Export robot.glb saves the customized model and shows the export confirmation.](../figures/chapter_20/behavior-exported.png){#fig-ch20-behavior-exported fig-alt="Export robot.glb saves the customized model and shows the export confirmation." width="100%"}
+
+<!-- /game-stage-figures:behavior -->
 
 This example is written for the included robot's single-material body mesh. Other models may have arrays of materials or different part names. Inspect the model hierarchy instead of assuming every model has a mesh called `body`.
 
@@ -7503,6 +7767,16 @@ const world = new RAPIER.World({ x: 0, y: -9.81, z: 0 });
 world.timestep = 1 / 60;
 ```
 
+<!-- game-stage-figures:shell -->
+
+These stage views use the complete [companion page](../games/physics-lab/index.html). With its scripts disabled, HTML supplies the controls and CSS styles the page. The game world appears when JavaScript loads and draws it; the loading text in these static views is the HTML placeholder.
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_21/stage-html.png){#fig-ch21-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_21/stage-style.png){#fig-ch21-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+<!-- /game-stage-figures:shell -->
+
 The HTML import map supplies the pinned compatibility-module URL. `await RAPIER.init()` must finish before constructing the world. In our convention, `y` is up and gravity points down. We use meter-like world units consistently; do not mix pixel distances from the 2D game with the 3D world's dimensions.
 
 ## Separate a rigid body from its collider
@@ -7577,6 +7851,20 @@ RAPIER.ColliderDesc.ball(0.5)
   .setRestitution(0.85)
   .setRestitutionCombineRule(RAPIER.CoefficientCombineRule.Max);
 ```
+
+<!-- game-stage-figures:behavior -->
+
+The following captures run the complete companion project and exercise its controls.
+
+![Behavior: three balls begin the drop at the same height.](../figures/chapter_21/behavior-start.png){#fig-ch21-behavior-start fig-alt="Behavior: three balls begin the drop at the same height." width="100%"}
+
+![After the same elapsed simulation time, the balls reach different heights because their restitution values differ.](../figures/chapter_21/behavior-bounce.png){#fig-ch21-behavior-bounce fig-alt="After the same elapsed simulation time, the balls reach different heights because their restitution values differ." width="100%"}
+
+![Show colliders overlays the physics shapes on the visible balls and floor.](../figures/chapter_21/behavior-colliders.png){#fig-ch21-behavior-colliders fig-alt="Show colliders overlays the physics shapes on the visible balls and floor." width="100%"}
+
+![Drop again resets all three balls to their common starting height.](../figures/chapter_21/behavior-reset.png){#fig-ch21-behavior-reset fig-alt="Drop again resets all three balls to their common starting height." width="100%"}
+
+<!-- /game-stage-figures:behavior -->
 
 Keep the starting height and other conditions the same while comparing the bounces. A higher bounce setting is not automatically more fun; it depends on the control and game goal you want.
 
@@ -7672,6 +7960,16 @@ world.createCollider(
 const mesh = crateFile.scene.clone(true);
 links.push({ body, mesh });
 ```
+
+<!-- game-stage-figures:shell -->
+
+These stage views use the complete [companion page](../games/marble-quest/index.html). With its scripts disabled, HTML supplies the controls and CSS styles the page. The game world appears when JavaScript loads and draws it; the loading text in these static views is the HTML placeholder.
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_22/stage-html.png){#fig-ch22-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_22/stage-style.png){#fig-ch22-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+<!-- /game-stage-figures:shell -->
 
 The complete code also adds the visual to the scene group and applies material and friction settings. `links` remembers which visual follows which body. Each draw copies body transforms into these visible objects.
 
@@ -7784,6 +8082,22 @@ group.clear();
 links = [];
 gems = new Map();
 ```
+
+<!-- game-stage-figures:behavior -->
+
+The following captures run the complete companion project and exercise its controls.
+
+![Behavior: the marble, crates, gems, and gate are loaded on the ready screen.](../figures/chapter_22/behavior-start.png){#fig-ch22-behavior-start fig-alt="Behavior: the marble, crates, gems, and gate are loaded on the ready screen." width="100%"}
+
+![Start creates a playing world with five gems and three lives.](../figures/chapter_22/behavior-playing.png){#fig-ch22-behavior-playing fig-alt="Start creates a playing world with five gems and three lives." width="100%"}
+
+![Show colliders reveals the marble, solid obstacles, and collectible sensor shapes.](../figures/chapter_22/behavior-colliders.png){#fig-ch22-behavior-colliders fig-alt="Show colliders reveals the marble, solid obstacles, and collectible sensor shapes." width="100%"}
+
+![Holding Left and Up rolls the marble into a gem sensor. The gem disappears and the counter becomes Gems: 1/5.](../figures/chapter_22/behavior-moved.png){#fig-ch22-behavior-moved fig-alt="Holding Left and Up rolls the marble into a gem sensor. The gem disappears and the counter becomes Gems: 1/5." width="100%"}
+
+![Pause suspends the physics game and shows the paused status.](../figures/chapter_22/behavior-paused.png){#fig-ch22-behavior-paused fig-alt="Pause suspends the physics game and shows the paused status." width="100%"}
+
+<!-- /game-stage-figures:behavior -->
 
 The project reuses shared visual geometry, materials, and loaded GLB templates. Shared resources should not be disposed of while new clones still use them. Debug wireframe buffers, which are replaced as the display changes, are disposed when replaced.
 

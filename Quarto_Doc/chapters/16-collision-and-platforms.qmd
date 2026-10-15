@@ -51,6 +51,16 @@ function overlaps(a, b) {
 }
 ```
 
+<!-- game-stage-figures:shell -->
+
+These stage views use the complete [companion page](../games/robot-orchard/index.html). With its scripts disabled, HTML supplies the controls and CSS styles the page. The game world appears when JavaScript loads and draws it; the loading text in these static views is the HTML placeholder.
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_16/stage-html.png){#fig-ch16-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_16/stage-style.png){#fig-ch16-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+<!-- /game-stage-figures:shell -->
+
 Imagine `a.x` is 10 and `a.w` is 20. Its right edge is 30. If `b.x` is 35, there is a gap, so the horizontal test fails regardless of the rectangles' heights. This function uses strict comparisons: edges that merely touch are not considered penetrating. This convention helps the character rest exactly on a platform.
 
 AABB is one of the simple shape tests described in [MDN's 2D collision guide](https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection). Our response and game rules are built separately from the overlap test.
@@ -113,6 +123,18 @@ for (const wall of solids) {
   player.vx = 0;
 }
 ```
+
+<!-- game-stage-figures:behavior -->
+
+The following captures run the complete companion project and exercise its controls.
+
+![After Start, the ready overlay is removed and the robot stands on the ground.](../figures/chapter_16/behavior-playing.png){#fig-ch16-behavior-playing fig-alt="After Start, the ready overlay is removed and the robot stands on the ground." width="100%"}
+
+![Show hitboxes adds outlines for the robot, terrain, hazards, and gems over the artwork.](../figures/chapter_16/behavior-hitboxes.png){#fig-ch16-behavior-hitboxes fig-alt="Show hitboxes adds outlines for the robot, terrain, hazards, and gems over the artwork." width="100%"}
+
+![Pressing Jump and Right launches the robot above the ground while moving it forward.](../figures/chapter_16/behavior-jump.png){#fig-ch16-behavior-jump fig-alt="Pressing Jump and Right launches the robot above the ground while moving it forward." width="100%"}
+
+<!-- /game-stage-figures:behavior -->
 
 The vertical part begins by clearing `grounded`. When downward motion produces an overlap, it sets `player.y = wall.y - player.h`, clears `vy`, and sets `grounded` to `true`. An upward collision instead places the player below the ceiling and does **not** mark it grounded.
 

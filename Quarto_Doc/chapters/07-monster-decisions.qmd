@@ -410,6 +410,24 @@ Now combine what you built across three chapters.
 </html>
 ```
 
+<!-- game-stage-figures:complete -->
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_07/stage-html.png){#fig-ch07-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style check: this example has no custom CSS, so its appearance still uses browser defaults.](../figures/chapter_07/stage-style.png){#fig-ch07-stage-style fig-alt="Style check: this example has no custom CSS, so its appearance still uses browser defaults." width="100%"}
+
+![Behavior at the start: the score is zero and the controls are ready.](../figures/chapter_07/behavior-start.png){#fig-ch07-behavior-start fig-alt="Behavior at the start: the score is zero and the controls are ready." width="100%"}
+
+![A Power Hit at score zero is refused because five points are required.](../figures/chapter_07/behavior-power-blocked.png){#fig-ch07-behavior-power-blocked fig-alt="A Power Hit at score zero is refused because five points are required." width="100%"}
+
+![After five monster clicks, the score reaches five and the level message changes.](../figures/chapter_07/behavior-level-five.png){#fig-ch07-behavior-level-five fig-alt="After five monster clicks, the score reaches five and the level message changes." width="100%"}
+
+![A Power Hit now succeeds and spends the five points.](../figures/chapter_07/behavior-power-hit.png){#fig-ch07-behavior-power-hit fig-alt="A Power Hit now succeeds and spends the five points." width="100%"}
+
+![After building the score to ten, the game displays its master-level message.](../figures/chapter_07/behavior-master.png){#fig-ch07-behavior-master fig-alt="After building the score to ten, the game displays its master-level message." width="100%"}
+
+<!-- /game-stage-figures:complete -->
+
 Open `workspace/chapter5-monster-decisions/index.html` to try the complete example, or save the code above as `index.html`.
 
 ### Trace one game

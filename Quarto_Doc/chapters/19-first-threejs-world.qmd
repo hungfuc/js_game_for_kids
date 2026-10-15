@@ -38,14 +38,6 @@ You already know that a game needs state, input, rules, and drawing. Those ideas
 
 Open **Robot Island Explorer** in the Game Lab. Move with WASD or the arrow keys and collect four crystals. Drag to orbit the camera and scroll to zoom. The decorative crates are intentionally not solid in this pre-physics project. We will give objects real physical behavior with Rapier later.
 
-These Chrome screenshots show the supplied Three.js project after its scene, camera, lights, local GLB models, and controls have loaded. The second state places the robot on a crystal so the ordinary collection rule removes it and updates the score.
-
-![Robot Island Explorer in Chrome at its starting position.](../figures/chapter_17/explorer-start.png){#fig-ch19-explorer-start fig-alt="Robot Island Explorer shows a small robot, two wooden crates, and four purple crystals on a green gridded island." width="100%"}
-
-![Robot Island Explorer after one crystal has been collected.](../figures/chapter_17/explorer-crystal.png){#fig-ch19-explorer-crystal fig-alt="Robot Island Explorer shows the robot at the far-right corner, three remaining crystals, and a status of Crystals: 1/4." width="100%"}
-
-**Read the screenshots:** The camera turns the same flat browser canvas into a view of an `x-z` floor with height along `y`. The robot's changed world position changes where the camera sees it; the island itself does not move. One crystal disappears because the update loop measured the robot-to-crystal distance and marked that collectible as collected.
-
 ::: {.callout-tip .setup title="Set up the 3D projects" icon="false"}
 Use the same local server from Chapter 15. The supplied 3D pages load **Three.js 0.180.0** and, where needed, **Rapier 0.17.3** from a CDN. These are pinned lesson dependencies, not a claim that they are the newest releases.
 
@@ -74,6 +66,16 @@ robot.position.y = 0.5;
 scene.add(robot);
 scene.add(new THREE.HemisphereLight(0xffffff, 0x456b55, 2));
 ```
+
+<!-- game-stage-figures:shell -->
+
+These stage views use the complete [companion page](../games/three-explorer/index.html). With its scripts disabled, HTML supplies the controls and CSS styles the page. The game world appears when JavaScript loads and draws it; the loading text in these static views is the HTML placeholder.
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_19/stage-html.png){#fig-ch19-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_19/stage-style.png){#fig-ch19-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+<!-- /game-stage-figures:shell -->
 
 This fragment creates the scene objects. `games/shared/three-scene.js` completes the browser setup by creating `WebGLRenderer`, attaching its canvas, sizing it, and adding lights. The complete Explorer project connects that helper to controls, models, and the loop.
 
@@ -112,6 +114,18 @@ const direction = normalize2(horizontalInput, forwardInput);
 robot.position.x += direction.x * speed * dt;
 robot.position.z += direction.y * speed * dt;
 ```
+
+<!-- game-stage-figures:behavior -->
+
+The following captures run the complete companion project and exercise its controls.
+
+![Behavior: JavaScript loads the robot and crystals and renders the 3D island.](../figures/chapter_19/behavior-start.png){#fig-ch19-behavior-start fig-alt="Behavior: JavaScript loads the robot and crystals and renders the 3D island." width="100%"}
+
+![Moving Up and Right to the first crystal removes it and updates the counter to Crystals: 1/4.](../figures/chapter_19/behavior-collected.png){#fig-ch19-behavior-collected fig-alt="Moving Up and Right to the first crystal removes it and updates the counter to Crystals: 1/4." width="100%"}
+
+![Restart collection restores all four crystals and resets the counter to zero.](../figures/chapter_19/behavior-restarted.png){#fig-ch19-behavior-restarted fig-alt="Restart collection restores all four crystals and resets the counter to zero." width="100%"}
+
+<!-- /game-stage-figures:behavior -->
 
 Our two-dimensional helper calls its second component `y`, but here that component is used for the world's `z` coordinate. A helper's field name does not automatically change the coordinate system of your game.
 

@@ -645,7 +645,7 @@ Sketch the title, monster, message, and score first. Create a file such as `mons
 </html>
 ```
 
-![The Monster Clicker starter after Step 1: the HTML provides the page content with the browser’s default styling.](../figures/chapter_05/monster-starter-html.png){fig-alt="An unstyled Monster Clicker page with a Monster button, the message The monster is waiting..., and Score: 0." width=90%}
+![The Monster Clicker starter after Step 1: the HTML provides the page content with the browser’s default styling.](../figures/chapter_05/stage-html.png){fig-alt="An unstyled Monster Clicker page with a Monster button, the message The monster is waiting..., and Score: 0." width=90%}
 
 Notice these IDs:
 
@@ -707,7 +707,7 @@ body {
 #message { min-height: 1.5em; }
 ```
 
-![The same starter after Step 2: CSS centers a white card on a pale blue background and styles the monster button.](../figures/chapter_05/monster-starter-styled.png){fig-alt="A centered white card with a dark rounded border on a pale blue background. It contains the Monster Clicker heading, a purple Monster button, The monster is waiting..., and Score: 0." width=90%}
+![The same starter after Step 2: CSS centers a white card on a pale blue background and styles the monster button.](../figures/chapter_05/stage-style.png){fig-alt="A centered white card with a dark rounded border on a pale blue background. It contains the Monster Clicker heading, a purple Monster button, The monster is waiting..., and Score: 0." width=90%}
 
 
 Save and refresh. Check the card, monster, message, and score before adding JavaScript. If you continued your styled scene, you can instead keep its linked `styles.css`; the development step is the same. This chapter embeds CSS only to keep the complete example in one file.
@@ -927,6 +927,14 @@ Read this complete example in our development order: locate the **scene structur
 </body>
 </html>
 ```
+
+<!-- game-stage-figures:data -->
+
+![Behavior preparation: JavaScript has initialized the game data; the page still shows Score: 0.](../figures/chapter_05/behavior-data-ready.png){#fig-ch05-behavior-data-ready fig-alt="Behavior preparation: JavaScript has initialized the game data; the page still shows Score: 0." width="100%"}
+
+![After a test click, Score: 0 and the waiting message remain unchanged. Chapter 6 adds the click listener.](../figures/chapter_05/behavior-click-check.png){#fig-ch05-behavior-click-check fig-alt="After a test click, Score: 0 and the waiting message remain unchanged. Chapter 6 adds the click listener." width="100%"}
+
+<!-- /game-stage-figures:data -->
 
 When you open the page:
 

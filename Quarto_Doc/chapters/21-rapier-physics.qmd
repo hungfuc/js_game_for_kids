@@ -48,6 +48,16 @@ const world = new RAPIER.World({ x: 0, y: -9.81, z: 0 });
 world.timestep = 1 / 60;
 ```
 
+<!-- game-stage-figures:shell -->
+
+These stage views use the complete [companion page](../games/physics-lab/index.html). With its scripts disabled, HTML supplies the controls and CSS styles the page. The game world appears when JavaScript loads and draws it; the loading text in these static views is the HTML placeholder.
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_21/stage-html.png){#fig-ch21-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_21/stage-style.png){#fig-ch21-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+<!-- /game-stage-figures:shell -->
+
 The HTML import map supplies the pinned compatibility-module URL. `await RAPIER.init()` must finish before constructing the world. In our convention, `y` is up and gravity points down. We use meter-like world units consistently; do not mix pixel distances from the 2D game with the 3D world's dimensions.
 
 ## Separate a rigid body from its collider
@@ -122,6 +132,20 @@ RAPIER.ColliderDesc.ball(0.5)
   .setRestitution(0.85)
   .setRestitutionCombineRule(RAPIER.CoefficientCombineRule.Max);
 ```
+
+<!-- game-stage-figures:behavior -->
+
+The following captures run the complete companion project and exercise its controls.
+
+![Behavior: three balls begin the drop at the same height.](../figures/chapter_21/behavior-start.png){#fig-ch21-behavior-start fig-alt="Behavior: three balls begin the drop at the same height." width="100%"}
+
+![After the same elapsed simulation time, the balls reach different heights because their restitution values differ.](../figures/chapter_21/behavior-bounce.png){#fig-ch21-behavior-bounce fig-alt="After the same elapsed simulation time, the balls reach different heights because their restitution values differ." width="100%"}
+
+![Show colliders overlays the physics shapes on the visible balls and floor.](../figures/chapter_21/behavior-colliders.png){#fig-ch21-behavior-colliders fig-alt="Show colliders overlays the physics shapes on the visible balls and floor." width="100%"}
+
+![Drop again resets all three balls to their common starting height.](../figures/chapter_21/behavior-reset.png){#fig-ch21-behavior-reset fig-alt="Drop again resets all three balls to their common starting height." width="100%"}
+
+<!-- /game-stage-figures:behavior -->
 
 Keep the starting height and other conditions the same while comparing the bounces. A higher bounce setting is not automatically more fun; it depends on the control and game goal you want.
 

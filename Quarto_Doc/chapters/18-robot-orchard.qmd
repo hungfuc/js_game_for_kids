@@ -50,6 +50,16 @@ const cameraX = clamp(
 );
 ```
 
+<!-- game-stage-figures:shell -->
+
+These stage views use the complete [companion page](../games/robot-orchard/index.html). With its scripts disabled, HTML supplies the controls and CSS styles the page. The game world appears when JavaScript loads and draws it; the loading text in these static views is the HTML placeholder.
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_18/stage-html.png){#fig-ch18-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_18/stage-style.png){#fig-ch18-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+<!-- /game-stage-figures:shell -->
+
 Subtract `cameraX` while drawing. Do not subtract it from the player's stored position or from collision rectangles.
 
 ```javascript
@@ -144,6 +154,24 @@ function start() {
   canvas.focus();
 }
 ```
+
+<!-- game-stage-figures:behavior -->
+
+The following captures run the complete companion project and exercise its controls.
+
+![Behavior: Robot Orchard has loaded its assets and displays its ready screen.](../figures/chapter_18/behavior-start.png){#fig-ch18-behavior-start fig-alt="Behavior: Robot Orchard has loaded its assets and displays its ready screen." width="100%"}
+
+![After Start, the ready overlay is removed and the robot stands on the ground.](../figures/chapter_18/behavior-playing.png){#fig-ch18-behavior-playing fig-alt="After Start, the ready overlay is removed and the robot stands on the ground." width="100%"}
+
+![Show hitboxes adds outlines for the robot, terrain, hazards, and gems over the artwork.](../figures/chapter_18/behavior-hitboxes.png){#fig-ch18-behavior-hitboxes fig-alt="Show hitboxes adds outlines for the robot, terrain, hazards, and gems over the artwork." width="100%"}
+
+![Pressing Jump and Right launches the robot above the ground while moving it forward.](../figures/chapter_18/behavior-jump.png){#fig-ch18-behavior-jump fig-alt="Pressing Jump and Right launches the robot above the ground while moving it forward." width="100%"}
+
+![Pause freezes play and displays the PAUSED state.](../figures/chapter_18/behavior-paused.png){#fig-ch18-behavior-paused fig-alt="Pause freezes play and displays the PAUSED state." width="100%"}
+
+![After moving Right and collecting the first gem, the camera scrolls along the wider level; the counter shows Gems: 1/10.](../figures/chapter_18/behavior-scrolling.png){#fig-ch18-behavior-scrolling fig-alt="After moving Right and collecting the first gem, the camera scrolls along the wider level; the counter shows Gems: 1/10." width="100%"}
+
+<!-- /game-stage-figures:behavior -->
 
 A restart is a useful test of your architecture. If the game gets faster after each restart, look for duplicate loops or listeners. If collected gems remain missing, look for reused mutable arrays.
 

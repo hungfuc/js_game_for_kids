@@ -113,6 +113,14 @@ Put the pieces together. Type the code yourself if you can; typing helps your br
 </html>
 ```
 
+<!-- game-stage-figures:complete -->
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_09/stage-html.png){#fig-ch09-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_09/stage-style.png){#fig-ch09-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+
+<!-- /game-stage-figures:complete -->
+
 Open `workspace/chapter7-catch-the-star/index.html` to watch the complete example. The star moves once per second, and a click raises the score and moves it immediately. The screenshot pages use known positions and control one timer callback so their states are reproducible.
 
 ![Catch the Star in Chrome at score zero, with the star near the upper left of the game area.](../figures/chapter_07/star-start.png){#fig-ch09-star-start fig-alt="The Catch the Star page shows Score: 0 and a yellow star near the upper-left corner of a bordered game area." width="100%"}

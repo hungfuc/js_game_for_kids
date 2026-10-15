@@ -646,6 +646,18 @@ Now put everything into one page.
 </html>
 ```
 
+<!-- game-stage-figures:complete -->
+
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_06/stage-html.png){#fig-ch06-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+
+![Style check: this example has no custom CSS, so its appearance still uses browser defaults.](../figures/chapter_06/stage-style.png){#fig-ch06-stage-style fig-alt="Style check: this example has no custom CSS, so its appearance still uses browser defaults." width="100%"}
+
+![Behavior before input: the message asks Can you catch it?](../figures/chapter_06/behavior-waiting.png){#fig-ch06-behavior-waiting fig-alt="Behavior before input: the message asks Can you catch it?" width="100%"}
+
+![After clicking the monster, the event handler changes the message to Great hit!](../figures/chapter_06/behavior-hit.png){#fig-ch06-behavior-hit fig-alt="After clicking the monster, the event handler changes the message to Great hit!" width="100%"}
+
+<!-- /game-stage-figures:complete -->
+
 ### What happens when the page opens? {.unnumbered}
 
 The browser:
