@@ -1,5 +1,13 @@
 # Validation and known boundaries
 
+## Local-server setup review (October 16, 2026)
+
+- Inspected the six Game Lab entry pages and their imports/loaders: all require HTTP because they use JavaScript modules. Robot Orchard also fetches JSON; the 3D projects import CDN libraries and/or load models and textures. The supplied early one-file examples and `workspace/` pages do not use module imports or fetch requests.
+- Verified the official Node.js download page at `https://nodejs.org/en/download`; documented LTS installer steps for Windows and macOS without pinning a changing installer URL.
+- Rebuilt `single-file/book.qmd` and `preview.html` with the existing build scripts. Checked the preview's internal anchor targets, including the Game Lab setup links.
+- Started the supplied Node.js server on loopback port 8765 for a short smoke check. The menu, preview, six game entry pages, JSON level, shared JavaScript, and sample GLB all returned HTTP 200. All six game pages contained the server requirement notice. Stopped the server afterward.
+- Set the macOS launcher executable and checked its zsh syntax. Windows/macOS installer dialogs and Finder/Explorer double-click behavior were not exercised; these checks do not establish a complete gameplay test.
+
 ## Checks completed
 
 - All 16 JavaScript/module files in the companion games, local server, and test suite passed Node's syntax check.

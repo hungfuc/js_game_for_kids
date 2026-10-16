@@ -11,6 +11,12 @@ A dynamic game keeps changing while you play. The keyboard tells it what you wan
 
 Move a character smoothly, measure movement in seconds, and separate input, simulation, and drawing. You will use these same ideas in both 2D and 3D games.
 
+::: {.callout-important .setup title="Local HTTP server required" icon="false"}
+
+**Start the Game Lab server before opening this chapter's companion project.** Install Node.js LTS once, then double-click `start-game-lab.bat` (Windows) or `start-game-lab.command` (macOS) in `Quarto_Doc`. Open **[http://127.0.0.1:8000/games/](http://127.0.0.1:8000/games/)** and choose the project. Opening the game's HTML file directly with `file://` will not work. Follow the [step-by-step installation guide](../appendices/e-game-lab.qmd) if this is your first visit. This 2D project can run without internet after setup.
+
+:::
+
 ## Learning Objectives {.unnumbered}
 
 By the end of this chapter, you will be able to:

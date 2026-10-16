@@ -15,6 +15,19 @@ The three foundation chapters reuse one Monster Clicker scene and place short pr
 
 The included `preview.html` is a self-contained HTML reading edition generated from the Quarto manuscript with Pandoc. It includes the diagrams and styling; it is **not a native Quarto build**. The project links inside it work when the complete folder is served locally.
 
+**Server requirements:** the one-file games in Chapters 2–14 and `workspace/` open directly. **All six Game Lab projects in Chapters 15–22 require local HTTP:** Collision Playground, Robot Orchard, Robot Island Explorer, 3D Asset Workshop, Rapier Drop Lab, and Marble Quest. Their module-based demonstration pages also require HTTP.
+
+### Simple setup: install once, double-click to play
+
+1. Download **Node.js LTS** from the official page: [https://nodejs.org/en/download](https://nodejs.org/en/download).
+2. On **Windows**, select Windows and download the **.msi** installer (x64 for most computers; ARM64 for ARM computers). Open it, accept the license if you agree, keep the defaults including **Add to PATH**, and choose **Install → Finish**. Skip optional native-module build tools.
+3. On **macOS**, select macOS and download the **.pkg** installer. Open it, choose **Continue**, accept the license if you agree, then **Install → Close**; enter your password if requested.
+4. Open a new Command Prompt (Windows) or Terminal (macOS), run `node --version`, and check that it prints a version number. Restart the computer if Node.js is still not found.
+5. Extract the book ZIP, then open `Quarto_Doc`. Keep `games/`, `scripts/`, and the launchers together.
+6. Double-click the launcher below. Leave its window open while playing. Choose **Collision Playground** and check that an arrow key moves the shape. Close the window or press Ctrl+C to stop.
+
+See the [Game Lab setup guide](appendices/e-game-lab.qmd) for detailed steps and troubleshooting. It is also in the reading edition's **Your Game Lab** appendix. Linux users can install Node.js using the Linux instructions on the official download page, then use the terminal command below.
+
 For students, the easiest option is to double-click `start-game-lab.command` on macOS or `start-game-lab.bat` on Windows. The launchers check for Node.js, start the server, and open the Game Lab.
 
 For a terminal, with Node.js installed, run from this folder:
@@ -30,7 +43,7 @@ Then visit:
 
 No `npm install` is required. The server is local-only and is not a production web server. For a port conflict, choose a different port with the `PORT` environment variable, or stop the process already using port 8000.
 
-The two 2D projects work from local files once the server is running. The four 3D projects use pinned CDN imports and need internet access by default. Their renderer requires WebGL2. A blocked library request produces a visible startup error rather than silently leaving a blank screen.
+The two 2D projects run offline through the local HTTP server; opening their HTML files directly with `file://` will not work. The four 3D projects use pinned CDN imports and need internet access by default. Their renderer requires WebGL2. A blocked library request produces a visible startup error rather than silently leaving a blank screen.
 
 ## New chapter progression
 

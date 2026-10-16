@@ -32,6 +32,12 @@ Chapter 1 prepares your computer and project files. Build one small scene in thr
 
 Before you make a game, meet the tools you will use. A **computer** runs programs: sets of instructions that tell it what to do. A web browser is one program. A text editor is another. You are about to write instructions that a browser can follow.
 
+::: {.callout-important title="When do I need to install a local web server?" icon="false"}
+
+**Chapters 2–14:** the supplied one-file games open directly in a browser. **Chapters 15–22:** all six Game Lab projects require a local HTTP server. Install **Node.js LTS** once from [nodejs.org/en/download](https://nodejs.org/en/download), then use the included Windows or Mac launcher each time you play. The [Game Lab guide](appendices/e-game-lab.qmd) has the game-by-game requirements and step-by-step installation. The four 3D projects also need internet for library downloads by default.
+
+:::
+
 ### Files and folders {.unnumbered}
 
 A **file** is one named piece of information saved on a computer. A game picture, a sound, and a page of code can each be files. A **folder** is a container that helps you keep related files together. Think of a folder as a game box and the files inside as its cards, pieces, and rule sheet.

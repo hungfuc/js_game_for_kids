@@ -11,6 +11,12 @@ A model needs more than an attractive shape. It needs a predictable size, orient
 
 Load a custom model, understand its size and origin, make your own visual variation, and export a GLB that another Three.js project can load.
 
+::: {.callout-important .setup title="Local HTTP server required" icon="false"}
+
+**Start the Game Lab server before opening this chapter's companion project.** Install Node.js LTS once, then double-click `start-game-lab.bat` (Windows) or `start-game-lab.command` (macOS) in `Quarto_Doc`. Open **[http://127.0.0.1:8000/games/](http://127.0.0.1:8000/games/)** and choose the project. Opening the game's HTML file directly with `file://` will not work. Follow the [step-by-step installation guide](../appendices/e-game-lab.qmd) if this is your first visit. These 3D projects also need internet access for library downloads by default; the guide explains optional offline setup.
+
+:::
+
 ## Learning Objectives {.unnumbered}
 
 By the end of this chapter, you will be able to:

@@ -12,6 +12,28 @@ Use **Build the scene structure → Style the scene → Program game behavior** 
 
 For example, a new collectible needs a place and a stored collected state; a recognizable appearance; and a collection rule that updates the score only once. Add and test one collectible before making a whole new level. A color-only exercise can reuse the existing scene and rules, then check that the new color remains readable during play.
 
+## Which games need a local web server?
+
+::: {.callout-important title="Chapters 15–22: local HTTP server required" icon="false"}
+
+**All six Game Lab projects require a web server.** Start the included launcher, then open the game through `http://127.0.0.1:8000/games/`. Double-clicking the game's `index.html` is not enough. Install Node.js once using the steps below; after that, double-click the launcher each time you play.
+
+:::
+
+| Game or example | Chapters | Local HTTP server? | Internet while playing? | Why? |
+| --- | --- | --- | --- | --- |
+| Structure, Style, and Behavior scene examples; Monster Clicker; Catch the Star; Bouncing Ball; Pong; Breakout; Snake; your one-file Game Studio project | 2–14 | **No** for the supplied one-file examples | No | The game code is in the HTML file. Open that file in a browser. Keep any supplied images beside it. |
+| Collision Playground | 15–16 | **Required** | No | Imports shared JavaScript modules. |
+| Robot Orchard, including its sprite and level examples | 15–18 | **Required** | No | Imports modules and requests `level.json` and local artwork. |
+| Robot Island Explorer | 19–20 | **Required** | **Yes, by default** | Imports Three.js and loads local GLB models. |
+| 3D Asset Workshop | 20 | **Required** | **Yes, by default** | Imports Three.js and its addons, and loads a local GLB model. |
+| Rapier Drop Lab | 21 | **Required** | **Yes, by default** | Imports Three.js and Rapier, then initializes physics. |
+| Marble Quest | 22 | **Required** | **Yes, by default** | Imports Three.js and Rapier, and loads local models and textures. |
+
+The six projects' extra demonstration and screenshot pages also use modules and require HTTP. The older one-file games in `workspace/` (including Secret Number, Treasure Clicker, and Rock–Paper–Scissors) can open directly. If you later add module imports or `fetch()` to a one-file game, use a server for that version too.
+
+**Local HTTP and internet access are separate requirements.** The two 2D projects run offline after Node.js is installed. The four 3D projects need internet for their CDN libraries unless an adult has completed the optional offline setup later in this guide. They still need a local server after that setup. If the book and games are already on a working hosted website, open that site's game links; its web server supplies the files, so you do not need Node.js just to play online.
+
 ## Start a local server
 
 The first one-file games can open directly from your drive. The Game Lab projects are different: their HTML pages load JavaScript modules, shared code, artwork, level data, or 3D models. A local web server gives the browser a safe way to ask for those files.
@@ -29,25 +51,63 @@ The Game Lab's server is included in this textbook. It uses **Node.js**, a free 
 
 Because installing software can require a password or school permission, do this step with a parent, teacher, or other adult:
 
-1. Visit [the official Node.js download page](https://nodejs.org/en/download).
-2. Choose the **LTS** installer for your computer. LTS means “long-term support,” a version chosen to stay dependable for longer.
-3. Open the downloaded installer and follow its instructions. Keep the normal choices unless your school gives different instructions.
-4. Close and reopen any Terminal, PowerShell, or Command Prompt windows. Type `node --version` and press Enter. A version number means Node.js is ready.
+Use the official download page: **[https://nodejs.org/en/download](https://nodejs.org/en/download)**. Choose the version marked **LTS** (long-term support). Use the installer download; you can skip the command-line installation instructions on that page. The version number changes over time.
+
+#### Windows: install once
+
+1. Open the download page above and select **Windows** and **LTS**.
+2. Download the **Windows Installer (.msi)**. Choose **x64** for most Intel/AMD computers, or **ARM64** if **Settings → System → About → System type** says ARM-based processor.
+3. Open your **Downloads** folder and double-click the `.msi` file.
+4. Choose **Next**, read and accept the license if you agree, and keep the default installation folder and features, including **Add to PATH**. You do not need the optional extra tools for compiling native modules.
+5. Choose **Install**, allow the installation if Windows asks, then choose **Finish**.
+6. Open a **new** Command Prompt from the Start menu. Type `node --version` and press Enter. A result such as `v24.x.x` (with actual numbers in place of the x's) means installation succeeded. If the command is not recognized, restart Windows and try again.
+
+#### macOS: install once
+
+1. Open the download page above and select **macOS** and **LTS**.
+2. Download the **macOS Installer (.pkg)**.
+3. Open **Downloads** in Finder and double-click the `.pkg` file.
+4. Choose **Continue**, read the license and choose **Agree** if you accept it, then choose **Install**. Keep the default location and enter your Mac password if requested.
+5. Choose **Close** when installation finishes.
+6. Open a **new** Terminal window using Spotlight (Command+Space, type `Terminal`, press Return). Type `node --version` and press Return. A version number means installation succeeded. If the command is not found, restart Terminal and check that the installer finished.
+
+**Setup is complete when `node --version` prints a version number.** npm comes with the installer, but you do not need to run it. You do not need Python, Quarto, an editor extension, or another server application to play these games.
+
+On Linux, use the Linux instructions on the same official Node.js download page, confirm `node --version`, and follow the terminal method below. The included double-click launchers are for Windows and macOS.
 
 ### Easiest way: double-click the Game Lab launcher
 
-Keep this textbook's folder structure intact. Open the extracted `Quarto_Doc` folder.
+1. If the book arrived as a ZIP file, extract it first: on Windows, right-click it and choose **Extract All**; on macOS, double-click the ZIP.
+2. Open the extracted `Quarto_Doc` folder. You should see `games`, `scripts`, and both `start-game-lab` launcher files together. Keep them together; do not move just the launcher or a single game out of this folder.
+3. Start the launcher for your computer:
 
 - On **macOS**, double-click `start-game-lab.command`.
 - On **Windows**, double-click `start-game-lab.bat`.
 
-The launcher starts the local server and opens the Game Lab in your usual browser. Leave its window open while you play. To stop the server, close that window or press Ctrl+C in it.
+The launcher starts the local server and opens the Game Lab in your usual browser at **[http://127.0.0.1:8000/games/](http://127.0.0.1:8000/games/)**. Choose **Collision Playground** and press an arrow key to check that it responds. Seeing the menu and a moving shape confirms the local setup works. Leave its window open while you play. To stop the server, close that window or press Ctrl+C in it.
 
 If your computer asks for permission to run the launcher, do not ignore the warning. Ask an adult or teacher to check that the file came from this textbook folder. If school rules block launcher files, use the terminal method below.
 
+### If setup does not work
+
+| What you see | What to do |
+| --- | --- |
+| `node` is not recognized / command not found | Close old terminal windows after installing Node.js; open a new one and check `node --version`. Restart the computer if needed. |
+| Mac says the `.command` file cannot run or lacks permission | Use the terminal method below; it runs the same server without the launcher. |
+| The launcher is blocked by school policy | Ask your teacher for an approved setup or hosted copy. |
+| Browser does not open automatically | Leave the server window open and enter `http://127.0.0.1:8000/games/` in the browser's address bar. |
+| Browser says it cannot connect | Start the launcher again and keep its window open. The local URL works only while the server is running on this computer. |
+| Address begins with `file:///` or the game stays on “Loading” | Open the HTTP menu address above and choose the game there. |
+| `EADDRINUSE` / port 8000 already in use | Use an already-running Game Lab window, or stop your earlier Game Lab with Ctrl+C and start it again. |
+| 2D works, but a 3D game fails | Check internet access to `cdn.jsdelivr.net`, the visible game error, and WebGL2/hardware acceleration. Reinstalling Node.js will not fix a blocked CDN request. |
+
 ### Terminal method
 
-Open a terminal in the extracted `Quarto_Doc` folder. On macOS, use **Terminal**; on Windows, use **PowerShell** or **Command Prompt**. If your terminal is somewhere else, use `cd` to move into that folder first:
+On Windows, open the extracted `Quarto_Doc` folder in File Explorer, click its address bar, type `cmd`, and press Enter. A Command Prompt opens in that folder.
+
+On macOS, open Terminal, type `cd` followed by a space, drag the extracted `Quarto_Doc` folder from Finder into Terminal, and press Return. This fills in the correct path even if it contains spaces.
+
+You can also type the path yourself:
 
 ```bash
 cd "/path/to/your/Quarto_Doc"
