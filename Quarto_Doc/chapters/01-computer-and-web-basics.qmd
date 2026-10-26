@@ -33,7 +33,6 @@ flowchart LR
 
 By the end of this chapter, you will be able to:
 
-- distinguish **hardware** from **software**;
 - explain the difference between a **program**, a **file**, and a **folder**;
 - create, name, copy, and organize project files, then save and reopen them;
 - explain what a **browser** does;
@@ -45,50 +44,7 @@ By the end of this chapter, you will be able to:
 - explain the difference between opening a **local file** and visiting a web address;
 - describe, at a high level, where a web game can do its work.
 
-## Hardware and software work together
 
-Look at the computer in front of you. You may see a screen, keyboard, mouse, trackpad, and perhaps a desktop computer or laptop case. These are examples of **hardware**.
-
-**Hardware** means the physical parts of a computer system---the parts that are built from electronic or mechanical components. You can usually touch hardware.
-
-Examples include:
-
-- a screen;
-- a keyboard;
-- a mouse or trackpad;
-- a processor;
-- memory;
-- a storage drive;
-- speakers.
-
-Hardware by itself does not know how to open a website or run a game. It needs instructions. Those instructions are provided by **software**.
-
-**Software** is a program, or a collection of programs and data, that tells computer hardware what work to do.
-
-Examples include:
-
-- a web browser such as Chrome, Edge, Firefox, or Safari;
-- a text editor used to write code;
-- a drawing program;
-- a music player;
-- a web game running in a browser.
-
-```{mermaid}
-flowchart TB
-    C[Computer system]
-    C --> H[Hardware<br/>physical parts]
-    C --> S[Software<br/>programs and instructions]
-    H --> H1[Screen]
-    H --> H2[Keyboard]
-    H --> H3[Storage]
-    S --> S1[Browser]
-    S --> S2[Text editor]
-    S --> S3[Games]
-```
-
-::: {.callout-warning title="Watch Out: A browser is not hardware" icon="false"}
-Chrome, Edge, Firefox, and Safari are **software**. The screen that shows the browser is hardware.
-:::
 
 ### What is a program? {.unnumbered}
 
@@ -216,9 +172,9 @@ flowchart LR
     W[Files from a web server] -->|receive| B
 ```
 
-::: {.callout-warning title="Watch Out: The browser is not the Internet" icon="false"}
-A browser is a program on your device. The Internet is the network connecting devices. You can even use a browser to open some local files when your computer is not connected to the Internet.
-:::
+![An annotated browser view showing its address bar above the displayed web page.](../figures/chapter_01/browser-url-page.png){fig-alt="A browser window with arrows pointing to the URL in the address bar and to the page content below it." width=90%}
+
+**Read the picture:** The address bar belongs to the browser. The heading, words, and button below it belong to the web page the browser displays.
 
 ### What happens when you type something in the address bar? {.unnumbered}
 
@@ -226,25 +182,6 @@ The long box near the top of a browser is usually called the **address bar**. Yo
 
 When you enter a web address, the browser tries to find the resource at that address. If the resource is on another computer, the browser sends a request for it.
 
-## Web pages, websites, and web games
-
-These three terms are connected, but they do not mean exactly the same thing.
-
-A **web page** is one page or view that a browser can display. A page might show instructions, a menu, a story, a score screen, or part of a game.
-
-A **website** is a collection of related web pages and other files that belong together. A school website, news website, and game website may each contain many pages, images, and other resources.
-
-A **web game** is a game designed to run through a web browser. It may use one page or several files. The browser may draw graphics, play sounds, read keyboard or mouse input, update scores, and run the rules of the game.
-
-| Term | Simple meaning | Example |
-| --- | --- | --- |
-| Web page | one page shown by a browser | a game's start screen |
-| Website | related pages and resources | a game site with a home page, instructions, and games |
-| Web game | a game that runs in a browser | a game where you move a character and collect stars |
-
-::: {.callout-note title="Why this matters for our book" icon="false"}
-The games in this book are **web games**. That means the browser is not just showing information. It will eventually run instructions that let the game react to clicks, keys, timers, collisions, and other events.
-:::
 
 ## A URL tells a browser where to look
 
@@ -253,8 +190,6 @@ A **URL** is an address for a resource. URL stands for **Uniform Resource Locato
 You can think of a URL as directions that help a browser locate something. That "something" might be a web page, an image, a game file, or another resource.
 
 Here is a simple example:
-
-![An annotated browser view: the URL appears in the address bar, and the web page appears below it. The browser frame is simplified; the page is a rendered example.](../figures/chapter_01/browser-url-page.png){fig-alt="A browser view with arrows labeling the URL in the address bar and the web page in the content area." width=90%}
 
 ```text
 https://example.com/games/space-quest
@@ -290,6 +225,44 @@ You will not need most of these pieces to begin making games. Return to them whe
 :::
 
 ## Local files and web addresses
+
+## Your computer toolkit {.unnumbered}
+
+Before you make a game, meet the tools you will use. A **computer** runs programs: sets of instructions that tell it what to do. A web browser is one program. A text editor is another. You are about to write instructions that a browser can follow.
+
+::: {.callout-important title="When do I need to install a local web server?" icon="false"}
+
+**Chapters 2–14:** the supplied one-file games open directly in a browser. **Chapters 15–22:** all six Game Lab projects require a local HTTP server. Install **Node.js LTS** once from [nodejs.org/en/download](https://nodejs.org/en/download), then use the included Windows or Mac launcher each time you play. The [Game Lab guide](../appendices/e-game-lab.qmd) has the game-by-game requirements and step-by-step installation. The four 3D projects also need internet for library downloads by default.
+
+:::
+
+### Files and folders {.unnumbered}
+
+A **file** is one named piece of information saved on a computer. A game picture, a sound, and a page of code can each be files. A **folder** is a container that helps you keep related files together. Think of a folder as a game box and the files inside as its cards, pieces, and rule sheet.
+
+Give each game its own folder. For example, your `my-first-game` folder can hold its HTML page now and later hold pictures, sounds, and more JavaScript files. Keep those files together when you copy or move your game.
+
+### A text editor is for code {.unnumbered}
+
+You write code in a **plain-text editor**. It saves exactly the letters, numbers, spaces, and punctuation that you type. Many editors color code and point out mistakes; that can be helpful, but the colors are not part of the code.
+
+A word processor is great for essays, but it may add special quotation marks, hidden formatting, or page layouts. Those extras can confuse code. Use a plain-text editor for your game files. Ask your teacher which editor is available on your computer.
+
+### File names and extensions {.unnumbered}
+
+The end of a file name after the final dot is its **file extension**. It helps people and programs recognize the file's job.
+
+| File name | Extension | What it usually contains |
+| --- | --- | --- |
+| `index.html` | `.html` | The page structure a browser opens. |
+| `main.js` | `.js` | JavaScript instructions for the browser. |
+| `style.css` | `.css` | Colors, sizes, and other visual choices. |
+| `level.json` | `.json` | Organized game data, such as a level layout. |
+| `robot.svg` | `.svg` | A picture made from shapes and lines. |
+
+The extension is important. `index.html` and `index.html.txt` are different files: the first is a web page, while the second is usually treated as ordinary text. Some computers hide extensions, so check the full name when you save a file. Do not rename a file just to give it a new extension; save it in the right kind of file from the start.
+
+
 
 A browser does not always need to get a page from the Internet. It can also open a file stored directly on your computer.
 
@@ -329,6 +302,56 @@ flowchart TB
 ```
 
 **Read the picture:** A local file can go directly from storage on your computer to your browser. A web resource takes another route: the browser sends a request through the network and receives a response.
+
+## What you need {.unnumbered}
+
+- A modern web browser such as Chrome, Edge, Firefox, or Safari.
+- A plain-text code editor available on your computer.
+- A folder for each website or game containing its files. Chapter 3 begins with separate HTML and CSS files; early JavaScript examples keep their code close to the page so you can focus on the programming ideas.
+
+::: {.callout-tip .setup title="Start with one file" icon="false"}
+
+Create a folder named `my-game-site`. Save your first HTML page as `index.html`, not `index.html.txt`. Open it in your browser. After editing, save the file and refresh the browser. Later, module-based projects need a local development server.
+
+:::
+
+## Meet the browser team {.unnumbered}
+
+Your web browser is the program that turns your game files into a page you can play. Three kinds of code often work together:
+
+| Part | Its job | A game example |
+| --- | --- | --- |
+| **HTML** | Builds the page and names its parts. | A heading, a button, and a canvas. |
+| **CSS** | Chooses how those parts look. | A purple button or a large play area. |
+| **JavaScript** | Makes the page react and change. | Add a point when the player clicks. |
+
+Use **Build the scene structure → Style the scene → Program game behavior**: HTML describes the first pages, CSS makes their parts readable, and JavaScript adds game operations and actions. Chapter 3 uses linked HTML and CSS files; Chapter 5 combines a styled scene and JavaScript data in one starter file.
+
+### What “client-side JavaScript” means {.unnumbered}
+
+The **client** is the player's browser. Client-side JavaScript runs on the same computer, tablet, or Chromebook that displays the game. When a player presses a key, the browser can run your JavaScript right there and update the picture right away.
+
+That is different from code on a **server**—another computer that can store shared scores, accounts, or messages. Our first games do not need a server on the internet. Their rules and scores stay in the browser while the page is open.
+
+## Run a one-file game from your drive {.unnumbered}
+
+For the complete examples in the first chapters, you can run your game directly from your computer's drive.
+
+1. Make a folder called `my-first-game` somewhere you can find again, such as Documents.
+2. In a plain-text code editor, save the complete example as `index.html` inside that folder. Check that the name ends in `.html`, not `.html.txt`.
+3. Open the folder and double-click `index.html`. Your browser should open it. You may see an address beginning with `file:///`; that means the browser opened a file from your own drive.
+4. Return to the editor, make one small change, save, and refresh the browser page. On many computers, refresh is `Ctrl+R` or `Command+R`.
+
+If double-clicking opens an editor instead of a browser, right-click the file and choose **Open with**, then choose your browser. If you cannot see the `.html` ending, ask an adult or teacher to turn on file-name extensions. A file named `index.html.txt` is a text document, not a web page.
+
+## When a local web server helps {.unnumbered}
+
+Some later games use several JavaScript files, images, level-data files, or 3D models. A **web server** is a small program that hands files to a browser when the browser asks for them. It is like a careful librarian: the browser asks for a particular file, and the server gives back that file.
+
+For a one-file beginner game, `file:///` is enough. For a project that uses JavaScript `import`, JSON data, or files loaded by the game, start a **local web server** instead. A local server runs only on your own computer and gives the page an address such as `http://127.0.0.1:8000/`. Modern browsers use extra safety rules for those multi-file requests, so opening the HTML by double-clicking may not work.
+
+`127.0.0.1` means “this same computer.” Starting this book's local server does not put your game on the internet or let classmates visit it. The Game Lab instructions in [Appendix E](../appendices/e-game-lab.qmd) show exactly how to start it.
+
 
 ## Client and server describe jobs
 
@@ -373,32 +396,25 @@ For a web game, a simplified conversation might look like this:
 
 Real web communication contains more details, but this request-and-response idea is the foundation.
 
-## Where does a web game do its work?
+## The game development process
 
-A web game can do a lot of work directly inside the browser. For example, the browser can respond when a player presses a key, move an object, update a score, draw graphics, and play sounds.
+Build one small feature in three passes. For **Monster Clicker**, the feature is a button that gives the player a point.
 
-Some web games also communicate with servers. A server might help with jobs such as:
-
-- saving an online account;
-- storing a high score;
-- loading shared game data;
-- connecting several players.
-
-A beginner game does not need all of those features. Many of the first games in this book can run mostly on your own computer in the browser.
+| Pass | Question to answer | Monster Clicker example |
+| --- | --- | --- |
+| **Structure** | What parts belong on the page? | Add a monster button and a score display with HTML. |
+| **Style** | How should players recognize those parts? | Use CSS to make the button easy to see and press. |
+| **Behavior** | What should happen when the player acts? | Use JavaScript to add a point when the button is pressed. |
 
 ```{mermaid}
 flowchart LR
-    P[Player] -->|clicks and keys| B[Browser game]
-    B -->|updates| G[Game screen]
-    B -. optional requests .-> S[Server]
-    S -. optional data .-> B
+    S[Structure<br/>HTML: parts] --> T[Style<br/>CSS: appearance]
+    T --> B[Behavior<br/>JavaScript: actions]
+    B --> P[Play and check the result]
+    P -. improve one pass .-> S
 ```
 
-::: {.callout-note title="Client-side and server-side" icon="false"}
-When work happens in the browser on the player's device, programmers often call it **client-side** work. When work happens in a server program, they call it **server-side** work.
-
-You only need the basic idea now. Most of our early attention will stay on the browser side.
-:::
+Chapter 2 builds the structure, Chapter 3 adds style, and Chapter 4 plans behavior. Keep the same small scene as you move from one pass to the next.
 
 ## How HTML, CSS, and JavaScript fit together
 
@@ -442,19 +458,79 @@ flowchart LR
 
 The browser keeps a working representation of the page called the **Document Object Model**, or **DOM**. A heading, a button, and a score paragraph become elements in that representation. Chapter 2 gives some elements unique labels called **IDs**. Chapter 6 teaches JavaScript to find those elements and change them. Changing the page in the browser does not automatically change the saved HTML file.
 
-::: {.callout-important collapse="true" title="Advanced Study: What is a local web server?" icon="false"}
-Later games in this book will use several JavaScript files, data files, or 3D models. For those projects, we will sometimes run a **local web server**.
+### A first look at HTML {.unnumbered}
 
-A local server is server software running on your own computer. It may give your browser an address such as:
+This tiny page contains a heading, a button, and a score. Save it as `index.html` if you want to see the unstyled parts in a browser. Chapter 2 explains how the elements fit together.
 
-```text
-http://127.0.0.1:8000/
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Monster Clicker</title>
+</head>
+<body>
+  <h1 id="game-title">Monster Clicker</h1>
+  <button id="monster" type="button">Click the monster</button>
+  <p id="score">Score: 0</p>
+</body>
+</html>
 ```
 
-`127.0.0.1` is a special address that refers back to the same computer. Starting a local server for a project does **not** automatically publish that project to the Internet.
+An **ID** is a name for one element on the page. Each ID in this example is unique.
 
-For now, you only need to recognize the idea. Later chapters will tell you when to use the local server and how to start it.
-:::
+| HTML tag | Simple job | Example above |
+| --- | --- | --- |
+| `<html>` | Hold the whole page. | Contains the head and body. |
+| `<head>` | Hold page information. | Contains the title. |
+| `<title>` | Name the browser tab. | `Monster Clicker` |
+| `<body>` | Hold the visible page content. | Contains the heading, button, and score. |
+| `<h1>` | Show the main heading. | `Monster Clicker` |
+| `<button>` | Give the player a control to press. | `Click the monster` |
+| `<p>` | Show a paragraph or short status. | `Score: 0` |
+
+### A first look at CSS {.unnumbered}
+
+CSS changes how the same elements look. The `#` symbol selects an element by its ID; these rules use only the IDs from the HTML example. Chapter 3 shows where to place CSS and how to connect a stylesheet.
+
+```css
+#game-title {
+  color: #245d88;
+}
+
+#monster {
+  background-color: #e6f6f2;
+  font-size: 1.25rem;
+  padding: 0.75rem;
+}
+
+#score {
+  font-weight: bold;
+}
+```
+
+| CSS piece | What it does | Example |
+| --- | --- | --- |
+| `#game-title` | Selects the element with `id="game-title"`. | The heading. |
+| `#monster` | Selects the element with `id="monster"`. | The button. |
+| `color` | Changes text color. | `#245d88` is a blue color. |
+| `background-color` | Changes the color behind an element. | A pale green button. |
+| `font-size` | Changes text size. | Larger button text. |
+| `padding` | Adds space inside an element. | More room around button text. |
+| `font-weight` | Changes how heavy text looks. | A bold score. |
+
+### A first look at JavaScript {.unnumbered}
+
+JavaScript lets the browser respond to the player. You will use these browser tools in later chapters; you do not need to memorize them now.
+
+| Browser tool | Simple job | Monster Clicker example |
+| --- | --- | --- |
+| `document.getElementById("monster")` | Find one element by its ID. | Find the monster button. |
+| `addEventListener("click", ...)` | Run instructions when an event happens. | Notice a button click. |
+| `textContent` | Read or change an element's text. | Show an updated score. |
+| `console.log(...)` | Print a message for the developer. | Check that a click was detected. |
+
+Chapter 6 combines the first three tools so the score can change when the player clicks.
 
 ## Exercises {.unnumbered}
 

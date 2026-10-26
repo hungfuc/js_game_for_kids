@@ -17,6 +17,7 @@ Open the [companion structure example](../games/foundations/structure/index.html
 
 By the end of this chapter, you will be able to:
 
+- build a simple HTML page;
 - describe a small game idea, story, and player goal;
 - sketch a scene with instructions, controls, and a progress display;
 - distinguish an HTML tag, element, and attribute;
@@ -38,6 +39,10 @@ Write: “You are ___, and your goal is to ___ by ___.” Circle the objects you
 ## Sketch the scene structure
 
 A **scene** includes the page and the game world the player sees and uses. List each required part and its job before thinking about colors.
+
+![A wireframe for Monster Clicker showing the title and instructions above a play section with a monster button, score, and message.](../figures/chapter_02/monster-clicker-wireframe.svg){fig-alt="A grayscale page sketch. A main content box contains a title and instructions. Inside its play section are a section heading, monster button, score display, and feedback message in reading order." width=85%}
+
+**Read the sketch:** The boxes show placement and reading order, not final colors or artwork. The monster button, score, and message stay together inside the play section.
 
 | Part | Purpose | Relationship |
 | --- | --- | --- |

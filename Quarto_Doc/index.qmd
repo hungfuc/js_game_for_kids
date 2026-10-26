@@ -1,68 +1,17 @@
-# Welcome, game maker! {.unnumbered #welcome}
+# How to read this book {.unnumbered #how-to}
 
 ::: {.book-hero}
 
-[LEARN BY MAKING]{.eyebrow}
-
-[Web Game Coding for Kids]{.hero-title}
-
-*Learn JavaScript by Building 2D and 3D Games*
-
 **Hung-Fu Chang, Ph.D. and Wenhui Zhu, Ph.D.**
-
-Build a game. Understand the code. Make it your own.
-
-[22 chapters]{.hero-chip} [Visual explanations]{.hero-chip} [Advanced Study]{.hero-chip}
 
 :::
 
 This book teaches JavaScript in the order a young game designer needs it. Instead of memorizing programming rules first, you will meet a problem inside a game and learn the programming idea that solves it.
 
-::: {.callout-tip .big-idea title="The rule of this book" icon="false"}
-
-**Build the scene structure → Style the scene → Program game behavior.**
-
-First decide what belongs in the game. Next make those parts readable and recognizable. Then give them actions and rules. Use the same thinking strategy for every example, exercise, and challenge.
-
-:::
+Each part is a milestone of your understanding of using JavaScript to build a game.
 
 Chapter 1 prepares your computer and project files. Build one small scene in three gradual lessons: [Chapter 2: Structure](chapters/02-scene-structure.qmd), [Chapter 3: Style](chapters/03-scene-style.qmd), and [Chapter 4: Behavior](chapters/04-game-behavior.qmd). Try each chapter’s examples and short practices before continuing to JavaScript in Chapter 5. The [HTML/CSS reference](appendices/f-html-css-reference.qmd) keeps the detailed catalog available for later lookup.
 
-## Your computer toolkit {.unnumbered}
-
-Before you make a game, meet the tools you will use. A **computer** runs programs: sets of instructions that tell it what to do. A web browser is one program. A text editor is another. You are about to write instructions that a browser can follow.
-
-::: {.callout-important title="When do I need to install a local web server?" icon="false"}
-
-**Chapters 2–14:** the supplied one-file games open directly in a browser. **Chapters 15–22:** all six Game Lab projects require a local HTTP server. Install **Node.js LTS** once from [nodejs.org/en/download](https://nodejs.org/en/download), then use the included Windows or Mac launcher each time you play. The [Game Lab guide](appendices/e-game-lab.qmd) has the game-by-game requirements and step-by-step installation. The four 3D projects also need internet for library downloads by default.
-
-:::
-
-### Files and folders {.unnumbered}
-
-A **file** is one named piece of information saved on a computer. A game picture, a sound, and a page of code can each be files. A **folder** is a container that helps you keep related files together. Think of a folder as a game box and the files inside as its cards, pieces, and rule sheet.
-
-Give each game its own folder. For example, your `my-first-game` folder can hold its HTML page now and later hold pictures, sounds, and more JavaScript files. Keep those files together when you copy or move your game.
-
-### A text editor is for code {.unnumbered}
-
-You write code in a **plain-text editor**. It saves exactly the letters, numbers, spaces, and punctuation that you type. Many editors color code and point out mistakes; that can be helpful, but the colors are not part of the code.
-
-A word processor is great for essays, but it may add special quotation marks, hidden formatting, or page layouts. Those extras can confuse code. Use a plain-text editor for your game files. Ask your teacher which editor is available on your computer.
-
-### File names and extensions {.unnumbered}
-
-The end of a file name after the final dot is its **file extension**. It helps people and programs recognize the file's job.
-
-| File name | Extension | What it usually contains |
-| --- | --- | --- |
-| `index.html` | `.html` | The page structure a browser opens. |
-| `main.js` | `.js` | JavaScript instructions for the browser. |
-| `style.css` | `.css` | Colors, sizes, and other visual choices. |
-| `level.json` | `.json` | Organized game data, such as a level layout. |
-| `robot.svg` | `.svg` | A picture made from shapes and lines. |
-
-The extension is important. `index.html` and `index.html.txt` are different files: the first is a web page, while the second is usually treated as ordinary text. Some computers hide extensions, so check the full name when you save a file. Do not rename a file just to give it a new extension; save it in the right kind of file from the start.
 
 ## Choose your reading path {.unnumbered}
 
@@ -100,54 +49,6 @@ Rose blocks help you check your understanding.
 
 ::::
 
-## What you need {.unnumbered}
-
-- A modern web browser such as Chrome, Edge, Firefox, or Safari.
-- A plain-text code editor available on your computer.
-- A folder for each website or game containing its files. Chapter 3 begins with separate HTML and CSS files; early JavaScript examples keep their code close to the page so you can focus on the programming ideas.
-
-::: {.callout-tip .setup title="Start with one file" icon="false"}
-
-Create a folder named `my-game-site`. Save your first HTML page as `index.html`, not `index.html.txt`. Open it in your browser. After editing, save the file and refresh the browser. Later, module-based projects need a local development server.
-
-:::
-
-## Meet the browser team {.unnumbered}
-
-Your web browser is the program that turns your game files into a page you can play. Three kinds of code often work together:
-
-| Part | Its job | A game example |
-| --- | --- | --- |
-| **HTML** | Builds the page and names its parts. | A heading, a button, and a canvas. |
-| **CSS** | Chooses how those parts look. | A purple button or a large play area. |
-| **JavaScript** | Makes the page react and change. | Add a point when the player clicks. |
-
-Use **Build the scene structure → Style the scene → Program game behavior**: HTML describes the first pages, CSS makes their parts readable, and JavaScript adds game operations and actions. Chapter 3 uses linked HTML and CSS files; Chapter 5 combines a styled scene and JavaScript data in one starter file.
-
-### What “client-side JavaScript” means {.unnumbered}
-
-The **client** is the player's browser. Client-side JavaScript runs on the same computer, tablet, or Chromebook that displays the game. When a player presses a key, the browser can run your JavaScript right there and update the picture right away.
-
-That is different from code on a **server**—another computer that can store shared scores, accounts, or messages. Our first games do not need a server on the internet. Their rules and scores stay in the browser while the page is open.
-
-## Run a one-file game from your drive {.unnumbered}
-
-For the complete examples in the first chapters, you can run your game directly from your computer's drive.
-
-1. Make a folder called `my-first-game` somewhere you can find again, such as Documents.
-2. In a plain-text code editor, save the complete example as `index.html` inside that folder. Check that the name ends in `.html`, not `.html.txt`.
-3. Open the folder and double-click `index.html`. Your browser should open it. You may see an address beginning with `file:///`; that means the browser opened a file from your own drive.
-4. Return to the editor, make one small change, save, and refresh the browser page. On many computers, refresh is `Ctrl+R` or `Command+R`.
-
-If double-clicking opens an editor instead of a browser, right-click the file and choose **Open with**, then choose your browser. If you cannot see the `.html` ending, ask an adult or teacher to turn on file-name extensions. A file named `index.html.txt` is a text document, not a web page.
-
-## When a local web server helps {.unnumbered}
-
-Some later games use several JavaScript files, images, level-data files, or 3D models. A **web server** is a small program that hands files to a browser when the browser asks for them. It is like a careful librarian: the browser asks for a particular file, and the server gives back that file.
-
-For a one-file beginner game, `file:///` is enough. For a project that uses JavaScript `import`, JSON data, or files loaded by the game, start a **local web server** instead. A local server runs only on your own computer and gives the page an address such as `http://127.0.0.1:8000/`. Modern browsers use extra safety rules for those multi-file requests, so opening the HTML by double-clicking may not work.
-
-`127.0.0.1` means “this same computer.” Starting this book's local server does not put your game on the internet or let classmates visit it. The Game Lab instructions in [Appendix E](appendices/e-game-lab.qmd) show exactly how to start it.
 
 ## Read examples carefully {.unnumbered}
 
