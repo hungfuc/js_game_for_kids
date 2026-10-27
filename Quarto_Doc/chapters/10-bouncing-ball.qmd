@@ -75,6 +75,10 @@ function loop() {
 
 Reverse a velocity when the ball reaches a wall.
 
+The ball's position, `(x, y)`, marks its **center**. Its edge is one `radius` away. At the left wall, the ball touches when `x = radius`; at the right wall, it touches when `x = canvas.width - radius`. The same idea gives the top and bottom limits for `y`.
+
+![Check the ball's edge, then reverse the velocity that points through the wall.](../figures/chapter_10/edge-bounce.svg){#fig-ch10-edge-bounce fig-alt="Four panels show left and right wall checks reversing dx, and top and bottom wall checks reversing dy. Incoming and outgoing arrows show the change of direction." width="100%"}
+
 ```javascript
 if (x < radius || x > canvas.width - radius) {
   dx = -dx;
@@ -83,6 +87,10 @@ if (y < radius || y > canvas.height - radius) {
   dy = -dy;
 }
 ```
+
+**Read the picture and code:** `||` means **or**, so either horizontal limit reverses `dx`, and either vertical limit reverses `dy`. Negating a velocity changes its direction while keeping its speed: `3` becomes `-3`, and `-3` becomes `3`. A side-wall bounce keeps `dy` unchanged; a top or bottom bounce keeps `dx` unchanged. At a corner, both `if` statements can run.
+
+The code checks **after moving**. Its strict `<` and `>` comparisons reverse direction on the first frame past a contact limit; equality alone does not trigger a bounce. The diagram shows this small crossing. For example, with a width of `500` and a radius of `15`, the right contact limit is `485`. If a frame moves `x` to `487`, the check reverses `dx` so the next frame moves left.
 
 ## Build the complete game
 

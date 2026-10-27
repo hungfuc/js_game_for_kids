@@ -80,6 +80,8 @@ paddleY = Math.min(canvas.height - paddleH, paddleY);
 
 For a first Pong game, place a vertical paddle on the right. Here, paddleX and paddleY are its top-left coordinates, paddleW and paddleH are its size, and positive dx means the ball is moving right. Test the ball bounding box against the paddle before reversing direction.
 
+![A paddle bounce needs overlap on both axes and a ball moving toward the paddle.](../figures/chapter_11/paddle-bounce.svg){#fig-ch11-paddle-bounce fig-alt="A dashed bounding square around the ball overlaps the right paddle. Four comparisons test overlap on x and y. Before-and-after pictures show the center moved one radius left of the paddle and dx changed from positive to negative." width="100%"}
+
 ```javascript
 const overlapsPaddle = (
   ballX + radius >= paddleX &&
@@ -92,6 +94,16 @@ if (dx > 0 && overlapsPaddle) {
   dx = -Math.abs(dx);
 }
 ```
+
+**Read the picture and code:** The first two comparisons test horizontal overlap; the last two test vertical overlap. `&&` means **and**, so all four must be true. For example, a ball above the paddle fails the vertical test even if it has reached the paddle's x position. The `>=` and `<=` comparisons include touching edges. This beginner version uses the square around the circle, so it can also count a near-corner overlap where the drawn circle does not quite touch.
+
+The response has two jobs. First, `ballX = paddleX - radius` places the ball just outside the paddle, with its right edge at `paddleX`. Then `dx = -Math.abs(dx)` sends it left, keeping the same horizontal speed. `dy` stays unchanged. The `dx > 0` guard allows a hit only while moving right, so a ball already moving away does not bounce again or add another hit.
+
+**Wall bounces and a miss:** The complete example below also checks the left, top, and bottom edges after moving the ball. Follow each rule in the next diagram, then find its matching `if` statement inside `update()`.
+
+![Pong bounces at three walls and resets after a miss on the right.](../figures/chapter_11/wall-bounces.svg){#fig-ch11-wall-bounces fig-alt="Four panels show the left wall setting dx positive, the top and bottom walls negating dy, and a ball fully past the right edge resetting to its starting position." width="100%"}
+
+**Read the wall rules:** At the left wall, `Math.abs(dx)` makes horizontal velocity positive, so the ball travels right. At the top or bottom, `dy = -dy` reverses vertical direction. As in Chapter 10, these strict wall comparisons trigger just past the contact limit. A right-side miss uses a different limit: `ballX > canvas.width + radius`. Only then has the whole ball left the canvas. The game resets its center to `(100, canvas.height / 2)` and makes `dx` positive; it keeps the current `dy` and hit count. The paddle's overlap check runs before this miss check.
 
 ## Play Pong in your browser {.unnumbered}
 
