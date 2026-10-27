@@ -9,7 +9,7 @@ A 22-chapter, student-facing textbook with diagrams, playable companion projects
 
 From Chapter 2 onward, exercises identify the stage they practice; challenges give a concrete route through the three steps. Every chapter opens with an unnumbered overview and learning objectives, followed by its topics. Reuse an unchanged stage rather than rebuilding it, predict a result, and check it. This is a development strategy, not the browser’s loading order or the game’s update loop.
 
-The three foundation chapters reuse one Monster Clicker scene and place short practice tasks beside each concept. Linked runnable stage copies are in `games/foundations/`, with matching practice copies in `../workspace/foundations/`. The full HTML/CSS explanations and summary tables are preserved in Appendix F as an optional lookup reference, including the older Game Maker HQ project. Advanced layout techniques are introduced when later games need them.
+The three foundation chapters reuse one Monster Clicker scene and collect short tasks in each chapter's Exercises section. Linked runnable stage copies are in `games/foundations/`, with matching workspace copies in `../workspace/foundations/`. The full HTML/CSS explanations and summary tables are preserved in Appendix F as an optional lookup reference, including the older Game Maker HQ project. Advanced layout techniques are introduced when later games need them.
 
 ## Read and play
 
@@ -63,7 +63,7 @@ The two 2D projects run offline through the local HTTP server; opening their HTM
 | 21 | Rapier worlds, bodies, colliders, synchronization, bounce experiment |
 | 22 | Marble Quest: dynamic obstacles, sensors, scoring, respawn, win rules |
 
-Each new chapter includes an original explanatory SVG diagram, two optional Advanced Study blocks, a challenge, a checkpoint, and links to complete companion source. The original chapters retain their existing visual explanations and callouts.
+Each new chapter includes an original explanatory SVG diagram, two optional Advanced Study blocks, a challenge and links to complete companion source. The original chapters retain their existing visual explanations and callouts.
 
 ## Complete companion projects
 

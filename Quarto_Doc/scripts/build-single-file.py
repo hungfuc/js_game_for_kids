@@ -19,6 +19,12 @@ def main() -> None:
              'subtitle: "From browser games to dynamic 2D and 3D worlds"\nauthor: "Hung-Fu Chang, Ph.D. and Wenhui Zhu, Ph.D."\n---']
     for path in files:
         text = path.read_text(encoding="utf-8")
+        if path.parent == root / "chapters":
+            text = re.sub(
+                r"(!\[[^]]*\]\()((?!/|\.\./|https?://|data:)[^)]+)(\))",
+                lambda match: match.group(1) + "../chapters/" + match.group(2) + match.group(3),
+                text,
+            )
         if path.name == "index.qmd":
             for chapter in [*chapters, *appendices]:
                 match = re.search(r"^# .*?\{#([^}]+)\}",

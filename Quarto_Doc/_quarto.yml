@@ -14,30 +14,28 @@ book:
     collapse-level: 2
   chapters:
   - index.qmd
-  - part: Build your web foundation
+  - part: Web Foundation
     chapters:
     - chapters/01-computer-and-web-basics.qmd
     - chapters/02-scene-structure.qmd
     - chapters/03-scene-style.qmd
     - chapters/04-game-behavior.qmd
-  - part: Make the browser react
+  - part: Dynamic Web
     chapters:
     - chapters/05-variables-monster-starter.qmd
     - chapters/06-dom-and-event-driven-programming.qmd
     - chapters/07-monster-decisions.qmd
     - chapters/08-monster-loops.qmd
     - chapters/09-catch-the-star.qmd
-  - part: Build a moving game world
+  - part: Build a Local 2D Game
     chapters:
     - chapters/10-bouncing-ball.qmd
     - chapters/11-pong.qmd
     - chapters/12-breakout.qmd
     - chapters/13-snake.qmd
-  - part: Create your own game
+  - part: 2D Games in Server 
     chapters:
     - chapters/14-game-studio.qmd
-  - part: Build a complete 2D adventure
-    chapters:
     - chapters/15-real-time-2d.qmd
     - chapters/16-collision-and-platforms.qmd
     - chapters/17-custom-2d-assets.qmd

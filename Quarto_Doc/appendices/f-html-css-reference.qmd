@@ -457,7 +457,7 @@ h1 {
 
 `width` keeps the image at a friendly size. `padding` adds breathing room inside its frame. `border` draws the edge, `border-radius` rounds the corners, and `box-shadow` makes the gem look as if it is resting above the card. Try changing `border-radius` to `50%`; the square frame becomes a circle.
 
-::: {.callout-note .advanced-study title="Practice CSS one property at a time" icon="false" collapse="false"}
+::: {.callout-note .advanced-study title="Experiment with one CSS property at a time" icon="false" collapse="false"}
 
 [OPTIONAL DEEPER DIVE]{.study-badge}
 

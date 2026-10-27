@@ -246,14 +246,6 @@ Add a second button with a different function and message.
 
 :::
 
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-What new JavaScript idea made the Click the Monster game possible? Point to one line of code and explain what would change if you removed it.
-
-:::
-
 # Teach the Game to Remember {#sec-ch02}
 
 ::: {.chapter-banner}
@@ -385,14 +377,6 @@ Make each treasure worth 5 points.
 ::: {.callout-tip .challenge title="Challenge 2" icon="false"}
 
 Add a “spend 10 points” button. Only worry about subtracting for now; Chapter 3 will teach you how to prevent negative scores.
-
-:::
-
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-What new JavaScript idea made the Treasure Clicker game possible? Point to one line of code and explain what would change if you removed it.
 
 :::
 
@@ -547,14 +531,6 @@ Count how many guesses the player uses.
 ::: {.callout-tip .challenge title="Challenge 2" icon="false"}
 
 Add a rule: after 5 guesses, show the secret number.
-
-:::
-
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-What new JavaScript idea made the Secret Number game possible? Point to one line of code and explain what would change if you removed it.
 
 :::
 
@@ -787,14 +763,6 @@ Invent a fourth move and decide what it beats. Notice how the rule logic becomes
 
 :::
 
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-What new JavaScript idea made the Rock Paper Scissors game possible? Point to one line of code and explain what would change if you removed it.
-
-:::
-
 # Make Things Change Over Time {#sec-ch05}
 
 ::: {.chapter-banner}
@@ -944,14 +912,6 @@ Make the star move faster after the player reaches 5 points.
 ::: {.callout-tip .challenge title="Challenge 2" icon="false"}
 
 Add a 20-second countdown and stop the game when time reaches zero.
-
-:::
-
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-What new JavaScript idea made the Catch the Star game possible? Point to one line of code and explain what would change if you removed it.
 
 :::
 
@@ -1132,14 +1092,6 @@ Change the ball speed. What values feel playable?
 ::: {.callout-tip .challenge title="Challenge 2" icon="false"}
 
 Add a second ball with its own position and velocity.
-
-:::
-
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-What new JavaScript idea made the Bouncing Ball game possible? Point to one line of code and explain what would change if you removed it.
 
 :::
 
@@ -1383,14 +1335,6 @@ Add a score when the ball passes a paddle.
 ::: {.callout-tip .challenge title="Challenge 3" icon="false"}
 
 Make the ball slightly faster after each paddle hit.
-
-:::
-
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-What new JavaScript idea made the Pong game possible? Point to one line of code and explain what would change if you removed it.
 
 :::
 
@@ -1659,14 +1603,6 @@ Add a win condition when every brick is gone.
 
 :::
 
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-What new JavaScript idea made the Breakout game possible? Point to one line of code and explain what would change if you removed it.
-
-:::
-
 # Build a World on a Grid {#sec-ch09}
 
 ::: {.chapter-banner}
@@ -1910,14 +1846,6 @@ Add a start screen and a restart key.
 
 :::
 
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-What new JavaScript idea made the Snake game possible? Point to one line of code and explain what would change if you removed it.
-
-:::
-
 # Game Studio {#sec-ch10}
 
 ::: {.chapter-banner}
@@ -2154,14 +2082,6 @@ Ask two players to test it and record one change you made because of their feedb
 
 :::
 
-## Checkpoint
-
-::: {.callout-important .checkpoint title="Explain it in your own words" icon="false"}
-
-Which programming ideas did you combine in your own game? Point to one important line, explain what it does, and predict what would change if you removed it.
-
-:::
-
 # Build a Real-Time 2D Game {#sec-ch11}
 
 ::: {.chapter-banner}
@@ -2291,10 +2211,6 @@ The lab uses this conversion when you drag a shape. Without it, the shape would 
 
 ::: {.callout-tip .challenge title="Level up" icon="false"}
 Change the speed from 240 to 120 and predict the distance traveled in one second. Next, make a diagonal move and compare it with a straight move. Finally, add a second wall by putting another rectangle in an array and checking each wall.
-:::
-
-::: {.callout-important .checkpoint title="Explain the system" icon="false"}
-Why should a Restart button not call `fixedLoop` again? Explain why "the collision test worked" does not necessarily mean "the player stopped at the wall."
 :::
 
 **Complete companion source:** [Collision Playground](../games/collision-lab/index.html), [main.js](../games/collision-lab/main.js), [fixed-step loop](../games/shared/loop.js), and [input helper](../games/shared/input.js).
@@ -2432,10 +2348,6 @@ The package includes `tests/game-logic.test.mjs`. Run `node --test tests/*.test.
 Create a platform that the robot can just reach. Predict how a stronger jump or stronger gravity changes that result, then test it. Add a new gem beside a platform corner and check whether collecting it feels fair with the hitbox display on.
 :::
 
-::: {.callout-important .checkpoint title="Explain the collision" icon="false"}
-A robot stops falling but remains halfway inside the floor. Which part of collision response is missing? Why must hitting a ceiling not set `grounded = true`?
-:::
-
 **Complete companion source:** [Robot Orchard](../games/robot-orchard/index.html), [simulation rules](../games/robot-orchard/world.js), [collision helpers](../games/shared/math.js), and [level data](../games/robot-orchard/level.json).
 
 # Give Your 2D Game Its Own Artwork {#sec-ch13}
@@ -2565,10 +2477,6 @@ Repeatedly creating `new Image()` inside `draw()` is not an asset-loading strate
 
 ::: {.callout-tip .challenge title="Level up" icon="false"}
 Make a space-station version of Robot Orchard. Change the robot color, turn gems into energy crystals, and redraw the ground as metal panels. Keep the movement and colliders unchanged first. Then design one new platform route in `level.json` and test it separately.
-:::
-
-::: {.callout-important .checkpoint title="Explain the asset pipeline" icon="false"}
-Why should the game wait for an image before drawing it? Your sprite sheet now has six frames instead of four. Which frame-selection number must change, and what source dimensions must you check?
 :::
 
 **Editable assets:** [robot sheet](../games/assets/2d/robot-strip.svg), [gem](../games/assets/2d/gem.svg), [background](../games/assets/2d/background.svg), and [asset permissions](../games/assets/ASSET_LICENSE.md). **Complete renderer:** [Robot Orchard main.js](../games/robot-orchard/main.js).
@@ -2719,10 +2627,6 @@ Test a normal win, a loss, a pause during a jump, a restart after losing, and a 
 Add a checkpoint after the first gap, create an optional high route with extra rewards, or make an alternate level with the same code. Change one system first, write what you expect to happen, and test that expectation before adding the next feature.
 :::
 
-::: {.callout-important .checkpoint title="Explain your finished game" icon="false"}
-Why does moving the camera not change whether the player hits a bug? Name three pieces of state that must reset for a new game. Explain why a gem flag is safer than awarding points whenever two shapes overlap.
-:::
-
 **Complete project:** [Play Robot Orchard](../games/robot-orchard/index.html). Source: [main.js](../games/robot-orchard/main.js), [world.js](../games/robot-orchard/world.js), and [level.json](../games/robot-orchard/level.json).
 
 # Step into a 3D World with Three.js {#sec-ch15}
@@ -2862,10 +2766,6 @@ The camera's near and far distances bound what it can see. A model outside that 
 Move the starting camera higher, change the island material, and place one extra crystal. Then orbit the camera halfway around and explain why the movement keys now look different. Keep the world controls unchanged while you investigate.
 :::
 
-::: {.callout-important .checkpoint title="Explain the 3D scene" icon="false"}
-Which object decides the viewpoint, and which object draws the image? Why does adding a crate mesh not automatically make the crate solid? What changes when you add `z` to the player's position?
-:::
-
 **Complete companion source:** [Robot Island Explorer](../games/three-explorer/index.html), [main.js](../games/three-explorer/main.js), and [shared Three.js setup](../games/shared/three-scene.js).
 
 # Build and Import Your Own 3D Assets {#sec-ch16}
@@ -3002,10 +2902,6 @@ A visual walk cycle changes the pose; a movement controller changes the player's
 
 ::: {.callout-tip .challenge title="Level up" icon="false"}
 Export a different-colored robot and load it into the Explorer. Next, change the gem's displayed scale and inspect whether the collection distance still feels fair. Finally, write a tiny asset specification with the model's size, forward direction, origin, and intended collider.
-:::
-
-::: {.callout-important .checkpoint title="Explain your model" icon="false"}
-Your crate looks twice as wide, but the player passes through its outer half. What probably stayed unchanged? Why might recoloring one cloned robot recolor all of them?
 :::
 
 **Companion workshop:** [3D Asset Workshop](../games/asset-workshop/index.html), [workshop source](../games/asset-workshop/main.js), and [model specifications](../games/assets/3d/model-specifications.json). **Included models:** [robot.glb](../games/assets/3d/robot.glb), [crate.glb](../games/assets/3d/crate.glb), and [gem.glb](../games/assets/3d/gem.glb).
@@ -3150,10 +3046,6 @@ Our next game deliberately uses a marble so you can focus on dynamic bodies, con
 
 ::: {.callout-tip .challenge title="Level up" icon="false"}
 Change one ball's bounce coefficient and predict the result. Next, deliberately mismatch a sphere's visible radius and collider radius, turn on the debug display, and explain the strange contact. Restore matching sizes before building a game.
-:::
-
-::: {.callout-important .checkpoint title="Explain the simulation" icon="false"}
-Why can a visible object fall through the floor when it has a rigid body but no collider? What half-extents match a crate whose full size is 2 by 1 by 3? Why must the game not apply gravity both to the body and separately to the mesh?
 :::
 
 **Complete companion source:** [Rapier Drop Lab](../games/physics-lab/index.html), [main.js](../games/physics-lab/main.js), and [physics debug display](../games/shared/physics-debug.js).
@@ -3334,10 +3226,6 @@ A more ambitious extension is a capsule-controlled character with a matching vis
 Make a delivery game: push a crate into a target sensor to unlock the exit. Decide which collider may trigger the target, whether the crate must remain inside, and what happens after a restart. Draw the event-to-rule flow before changing the code.
 :::
 
-::: {.callout-important .checkpoint title="Explain your complete 3D game" icon="false"}
-Why should a collectible use a sensor? Why does the event handler check the player's collider handle? Explain why removing the picture of a crate is different from removing its physics body. Name one rule that belongs to your game rather than to the physics engine.
-:::
-
 **Complete companion source:** [Marble Quest](../games/marble-quest/index.html), [main.js](../games/marble-quest/main.js), [testable rules](../games/marble-quest/rules.js), and [shared debug display](../games/shared/physics-debug.js).
 
 # Appendix A | JavaScript Game Maker Cheat Sheet {.unnumbered #sec-cheat-sheet}
@@ -3367,12 +3255,6 @@ Keep these patterns nearby while you build. Examples with `...` are sketches, no
 - [ ] Change one thing at a time, then test again.
 - [ ] If you copied code, type the suspicious line yourself and explain each part.
 
-::: {.callout-important .checkpoint title="A useful debugging sentence" icon="false"}
-
-"I expected ______ to happen, but instead ______ happened. The last value I know is correct is ______."
-
-:::
-
 # Appendix C | Optional Next Step: Phaser {.unnumbered #sec-phaser}
 
 Once you understand variables, functions, state, animation, and collision in plain JavaScript, you can explore a game framework such as Phaser. A framework provides tools for game tasks so you can spend less time on low-level drawing code.
@@ -3394,12 +3276,6 @@ function update() {
 }
 ```
 
-::: {.callout-important .checkpoint title="Before you move on" icon="false"}
-
-Explain the difference between game state and its picture on the screen. Then describe what happens during one update. A framework is most useful when you can still explain the game underneath it.
-
-:::
-
 Explore the [official Phaser website](https://phaser.io/) for its documentation and examples.
 
 # Appendix D | Check Your Game-Making Skills {.unnumbered #sec-self-check}
@@ -3413,12 +3289,6 @@ A working game is only part of what you have learned. Use this checklist to coll
 | Debugging | I can describe a bug and how I investigated it. | A before-and-after debugging note. |
 | Modification | I can make a small change without replacing the whole program. | One change and its test result. |
 | Game design | Another player can understand the goal and feedback. | A playtest observation and improvement. |
-
-::: {.callout-important .checkpoint title="Your game-maker reflection" icon="false"}
-
-Choose one skill that feels strong and one you are still building. Explain each choice using something that happened while you worked on a game.
-
-:::
 
 # Appendix E | Your Game Lab {.unnumbered #sec-game-lab}
 

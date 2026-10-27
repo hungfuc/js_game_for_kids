@@ -45,10 +45,6 @@ body {
 
 `body` is the **selector**: it chooses the element to style. The braces hold **declarations**. In `color: #203654;`, `color` is the property, `#203654` is its value, and the colon separates them. End each declaration with a semicolon.
 
-### Practice: test the connection {.unnumbered}
-
-Change the color to `purple`, save, and refresh. The page text should change. If it does not, check the file name, folder, and `href` spelling. Return to the original color after the test.
-
 ## Choose the parts to style
 
 | Selector | Meaning | Match in our page |
@@ -68,10 +64,6 @@ h1 { font-size: 2rem; }
 
 `rem` measures size relative to the root font size. `em` relates to a font size; here it reserves space based on the message’s own font. You can begin with these values without memorizing every CSS unit.
 
-### Practice: choose the right selector {.unnumbered}
-
-Make every `h2` heading purple. Then make only the instructions italic. Explain why one selector has a dot and the other does not.
-
 ## Give each box room
 
 Every element takes up space. Its **content** sits inside **padding**, then a **border**. **Margin** separates that box from neighboring content.
@@ -90,10 +82,6 @@ Every element takes up space. Its **content** sits inside **padding**, then a **
 `max-width` limits the card’s width. `margin: 2rem auto` gives it space above and below and shares remaining horizontal space between its sides, centering the card. Padding keeps the text away from the border. `border-radius` rounds the corners.
 
 We will use `box-sizing: border-box` so a stated width includes padding and border. Otherwise, those are added to the content width.
-
-### Practice: padding or margin? {.unnumbered}
-
-Increase the card’s padding, save, and observe the gap between text and border. Restore it, then increase the top/bottom margin. Explain which gap changed each time.
 
 ## Build the complete style in small steps
 
@@ -171,10 +159,6 @@ h1 {
 
 `:hover` selects the button while a pointer is over it. `:focus-visible` provides a visible outline when focus should be shown, such as during keyboard navigation. The color change and outline are CSS responses. They do not count points or run a game rule.
 
-### Practice: check the player’s view {.unnumbered}
-
-Open the page. Find the instructions, monster, score, and message. Move the pointer over the monster, then press Tab until the button receives focus. Check that you can tell which control is selected. Make the browser narrower and check that the card stays within the page.
-
 ## Add a local picture when it helps
 
 For an optional picture, copy the supplied [gem.svg](../games/assets/2d/gem.svg) into your `monster-scene/` folder. Add this below the instructions:
@@ -197,10 +181,6 @@ For an optional picture, copy the supplied [gem.svg](../games/assets/2d/gem.svg)
 ```
 
 `height: auto` keeps the image’s proportions. A picture of a gem does not automatically make it collectible. Chapter 4 will help you describe the rule you would need.
-
-### Practice: predict an image change {.unnumbered}
-
-Change only the width. Predict whether the image will stretch or keep its proportions, then check. Add a background color and explain whether you changed the picture file or the CSS box around it.
 
 ## Read the basic CSS summary
 
@@ -234,10 +214,26 @@ Give `#message` a pale background and some padding. Check that it is still easy 
 
 A friend writes `monster { background: purple; }`, but their button has `class="monster"`. Explain the mismatch, fix it, and verify the result.
 
+### Exercise 4: Test the connection {.unnumbered}
+
+Change the color to `purple`, save, and refresh. The page text should change. If it does not, check the file name, folder, and `href` spelling. Return to the original color after the test.
+
+### Exercise 5: Choose the right selector {.unnumbered}
+
+Make every `h2` heading purple. Then make only the instructions italic. Explain why one selector has a dot and the other does not.
+
+### Exercise 6: Padding or margin? {.unnumbered}
+
+Increase the card’s padding, save, and observe the gap between text and border. Restore it, then increase the top/bottom margin. Explain which gap changed each time.
+
+### Exercise 7: Check the player’s view {.unnumbered}
+
+Open the page. Find the instructions, monster, score, and message. Move the pointer over the monster, then press Tab until the button receives focus. Check that you can tell which control is selected. Make the browser narrower and check that the card stays within the page.
+
+### Exercise 8: Predict an image change {.unnumbered}
+
+In the `.game-art` CSS rule, change only the width. Predict whether the image will stretch or keep its proportions, then check. Add a background color and explain whether you changed the picture file or the CSS box around it.
+
 ## Challenge: Style your own scene {.unnumbered}
 
 **Structure:** Reuse your Chapter 2 page. **Style:** Choose a readable palette, a clear target, and useful spacing. Check narrow-screen layout and keyboard focus. **Behavior:** Confirm that pressing the target still does not change the score; style has not created that rule.
-
-## Checkpoint {.unnumbered}
-
-Show one rule for text, one for spacing, and one for the target. Explain how the stylesheet connects to the page. Your scene is ready for Chapter 4 when its parts are both present and understandable.

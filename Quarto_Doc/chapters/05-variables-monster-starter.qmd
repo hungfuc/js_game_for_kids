@@ -796,9 +796,7 @@ let score = 0;
 
 That keeps the first event example easy to follow. The `player` object gives you a preview of how larger games can organize several related values together.
 
-#### Practice changing the score in memory {.unnumbered}
-
-Before a click can change the score automatically, practice changing it yourself:
+Before a click can change the score automatically, you can change the variable yourself:
 
 ```javascript
 console.log(score); // 0
@@ -1105,6 +1103,10 @@ Does the paragraph automatically change to `Score: 1`?
 
 Explain your answer using the ideas of **JavaScript memory** and **HTML display**.
 
+### Exercise 9: Change the score in memory {.unnumbered}
+
+Run the score changes shown earlier in this chapter. Predict the value after each change and compare it with the web page's `Score: 0` display. Explain why the displayed score stays at zero.
+
 ## Challenges {.unnumbered}
 
 ### Challenge 1: Customize Your Monster {.unnumbered}
@@ -1167,13 +1169,3 @@ let hits = 0;
 ```
 
 Write one sentence explaining how a click event could change your variable later.
-
-## Development-flow checkpoint
-
-Explain your starter in this order:
-
-1. **Build the scene structure:** Which HTML parts form the game scene? Which IDs identify the monster, message, and score?
-2. **Style the scene:** Which CSS rules make those parts readable and recognizable? Change one visual value and check that the game data stays the same.
-3. **Behavior:** What should one hit do? Which variables prepare memory for that operation, and which connection is still waiting for Chapter 6?
-
-For a new example, begin with the same questions. Build and check the structure, style it, then prepare and connect one game action at a time.

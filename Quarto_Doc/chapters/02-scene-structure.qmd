@@ -32,9 +32,6 @@ We will use **Monster Clicker**: “Click a friendly monster to collect points.�
 
 Keep the first version small. One monster, one score, and one message are enough. Save extra monsters and levels for later.
 
-### Practice: make a tiny pitch {.unnumbered}
-
-Write: “You are ___, and your goal is to ___ by ___.” Circle the objects your page will need to show. If your sentence needs several kinds of controls or many levels, choose just one action for the first version.
 
 ## Sketch the scene structure
 
@@ -54,6 +51,10 @@ A **scene** includes the page and the game world the player sees and uses. List 
 
 Draw these parts as labeled boxes. The diagram does not need artwork. Put the instructions before the control and keep feedback nearby.
 
+
+![Structure](02-scene-structure_files/figure-latex/mermaid-figure-1.png){fig-alt="" width=50% fig-align="center"}
+
+
 ```{mermaid}
 flowchart LR
     S[Structure<br/>What parts belong?] --> T[Style<br/>How can players recognize them?]
@@ -61,10 +62,6 @@ flowchart LR
 ```
 
 **Read the picture:** This chapter builds the parts. Chapter 3 makes them readable and recognizable. Chapter 4 plans the actions and results. You will reuse your work instead of rebuilding the page at every stage.
-
-### Practice: test your sketch {.unnumbered}
-
-Ask a partner to point to the game name, the target, and the place where progress will appear. If a part is missing, add it. A paper sketch checks the arrangement; it does not test browser code.
 
 ## Read an HTML element
 
@@ -79,14 +76,10 @@ Ask a partner to point to the game name, the target, and the place where progres
 An **attribute** adds information inside the opening tag:
 
 ```html
-<button id="monster" class="monster" type="button">Monster</button>
+<button id="monster" type="button">Monster</button>
 ```
 
-`id`, `class`, and `type` are attribute names. The quoted text supplies their values. An `id` identifies one element and should be unique on the page. A `class` can group several elements for shared styling. `type="button"` makes this an ordinary action button. It does not yet connect a game rule to the button.
-
-### Practice: read before editing {.unnumbered}
-
-Point to the opening tag, closing tag, content, attribute names, and values in the button above. Change only its visible text to `Sleepy Monster`. Predict which part of the page will change.
+`id` and `type` are attribute names. The quoted text supplies their values. An `id` identifies one element and should be unique on the page. A `class` can group several elements for shared styling. `type="button"` makes this an ordinary action button. It does not yet connect a game rule to the button.
 
 ## Build a complete page
 
@@ -131,10 +124,6 @@ The page uses the browser’s default appearance. Clicking the button does not i
 
 `<meta>` is a **void element**: it has no closing tag. The other elements here need closing tags. HTML comments, such as `<!-- My scene plan -->`, are notes for the code reader and do not appear as page text.
 
-### Practice: compare title and heading {.unnumbered}
-
-Change `<title>` to `My First Game`. Save and refresh. Then change `<h1>` to `Sleepy Monster`. Explain why these changes appear in different places.
-
 ## Group and nest the parts
 
 **Nesting** means putting one element inside another. `<main>` contains the main page content. `<section>` groups a related topic. The heading, button, score paragraph, and message are children of the section. `aria-labelledby="arena-title"` gives that section the name supplied by its heading.
@@ -150,19 +139,6 @@ Inside the score paragraph, `<span id="score">0</span>` marks just the number. A
 | `<span>` | A small part within a line | The score number |
 | `<button>` | A control the player can press | The monster target |
 | `id`, `class` | Identify one part; group parts for styling | `id="score"`, `class="card"` |
-
-### Practice: add an instruction list {.unnumbered}
-
-Place this list after the instructions paragraph. `<ul>` creates a bulleted list; each `<li>` creates one item.
-
-```html
-<ul>
-  <li>Find the monster.</li>
-  <li>Watch the score.</li>
-</ul>
-```
-
-Add a third item. Check that it appears inside the same list. For a numbered sequence, use `<ol>` in place of `<ul>`.
 
 ## Exercises {.unnumbered}
 
@@ -188,10 +164,35 @@ Correct this fragment, then explain the problem:
 
 Add a paragraph showing `Lives: 3`. Give just the number a unique ID. Save, refresh, and verify that the score still has its own ID.
 
+### Exercise 4: Make a tiny pitch {.unnumbered}
+
+Write: “You are ___, and your goal is to ___ by ___.” Circle the objects your page will need to show. If your sentence needs several kinds of controls or many levels, choose just one action for the first version.
+
+### Exercise 5: Test your sketch {.unnumbered}
+
+Ask a partner to point to the game name, the target, and the place where progress will appear. If a part is missing, add it. A paper sketch checks the arrangement; it does not test browser code.
+
+### Exercise 6: Read before editing {.unnumbered}
+
+Find the monster button in the HTML example earlier in this chapter. Point to its opening tag, closing tag, content, attribute names, and values. Change only its visible text to `Sleepy Monster`. Predict which part of the page will change.
+
+### Exercise 7: Compare title and heading {.unnumbered}
+
+Change `<title>` to `My First Game`. Save and refresh. Then change `<h1>` to `Sleepy Monster`. Explain why these changes appear in different places.
+
+### Exercise 8: Add an instruction list {.unnumbered}
+
+Place this list after the instructions paragraph. `<ul>` creates a bulleted list; each `<li>` creates one item.
+
+```html
+<ul>
+  <li>Find the monster.</li>
+  <li>Watch the score.</li>
+</ul>
+```
+
+Add a third item. Check that it appears inside the same list. For a numbered sequence, use `<ol>` in place of `<ul>`.
+
 ## Challenge: Your own game scene {.unnumbered}
 
 **Structure:** Change the title, instructions, and target to fit your tiny pitch. Add one useful display. **Style:** Keep browser defaults for now and check the reading order. **Behavior:** Write one future action and expected result in your notes.
-
-## Checkpoint {.unnumbered}
-
-Point to every planned part in the browser and explain its HTML element. Show where the page is saved. Your structure is ready for Chapter 3 when the target, score, and message all exist. Use the [HTML/CSS reference](../appendices/f-html-css-reference.qmd) for extra tags and attributes when you need them.

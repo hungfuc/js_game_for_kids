@@ -93,20 +93,6 @@ These are real web-project file names. `index.html` describes the page, `styles.
 | Data | `.json` | Read organized information, such as a level layout. |
 | 3D model | `.glb` | Supply model data to the later 3D game code. |
 
-The book itself is written in `.qmd` files. **Quarto** turns that manuscript into web pages for reading. When you build a game, you work with the game files above. A browser does not open a `.qmd` chapter as a playable game.
-
-```{mermaid}
-flowchart TB
-    A[space-game folder] --> B[Page file]
-    A --> C[Style file]
-    A --> D[Game program file]
-    A --> E[images folder]
-    A --> F[sounds folder]
-    E --> G[spaceship.png]
-    E --> H[planet.png]
-    F --> I[launch.mp3]
-```
-
 ::: {.callout-tip title="Try It: Find a file and its folder" icon="false"}
 Open a folder on your computer. Pick one file and answer these questions:
 
@@ -116,15 +102,6 @@ Open a folder on your computer. Pick one file and answer these questions:
 4. Which program would you use to open it?
 :::
 
-### Practice basic file operations {.unnumbered}
-
-1. **Create a folder.** Use your computer’s file manager to make `my-game-site` in a place you can find again. A file manager may be called File Explorer or Finder.
-2. **Create and save a file.** Open a plain-text editor, type `My game notes`, and save it as `notes.txt` inside that folder. Check the full file name, including its extension.
-3. **Close and reopen it.** Find `notes.txt` in the file manager and open it with your editor. Its contents should still be there.
-4. **Copy before experimenting.** Duplicate the file as `notes-backup.txt`. Copying keeps the original; moving changes where a file is stored. Renaming changes its name, not its contents or file format.
-5. **Edit, save, and check.** Change the original notes, save, and reopen them. The backup should still contain the earlier text. When you later edit an HTML page, save in the editor and refresh in the browser to see the change.
-
-Keep linked project files together. Moving only an HTML page can break its links to pictures or stylesheets. Use meaningful names and keep a backup before a large change.
 
 ## The Internet and the Web are related, but they are not the same thing
 
@@ -262,8 +239,6 @@ The end of a file name after the final dot is its **file extension**. It helps p
 
 The extension is important. `index.html` and `index.html.txt` are different files: the first is a web page, while the second is usually treated as ordinary text. Some computers hide extensions, so check the full name when you save a file. Do not rename a file just to give it a new extension; save it in the right kind of file from the start.
 
-
-
 A browser does not always need to get a page from the Internet. It can also open a file stored directly on your computer.
 
 A local file address may begin with `file:///`. For example:
@@ -369,14 +344,6 @@ For example, your laptop is hardware. Chrome is software. When Chrome asks a web
 
 A server also involves software. In everyday conversation, people sometimes use the word *server* for both the server program and the computer running that program. For now, remember the job: **a server responds to requests**.
 
-```{mermaid}
-sequenceDiagram
-    participant B as Browser (client)
-    participant S as Web server
-    B->>S: Request a game file
-    S-->>B: Send a response
-    B->>B: Use the file
-```
 
 ### Request and response {.unnumbered}
 
@@ -406,13 +373,6 @@ Build one small feature in three passes. For **Monster Clicker**, the feature is
 | **Style** | How should players recognize those parts? | Use CSS to make the button easy to see and press. |
 | **Behavior** | What should happen when the player acts? | Use JavaScript to add a point when the button is pressed. |
 
-```{mermaid}
-flowchart LR
-    S[Structure<br/>HTML: parts] --> T[Style<br/>CSS: appearance]
-    T --> B[Behavior<br/>JavaScript: actions]
-    B --> P[Play and check the result]
-    P -. improve one pass .-> S
-```
 
 Chapter 2 builds the structure, Chapter 3 adds style, and Chapter 4 plans behavior. Keep the same small scene as you move from one pass to the next.
 
@@ -432,29 +392,12 @@ These are file types you will recognize in a project folder. Chapter 2 introduce
 | CSS | how it looks | size, spacing, color, position |
 | JavaScript | what it does | increase the score after an action |
 
-```{mermaid}
-flowchart LR
-    H[HTML<br/>Page content] --> C[CSS<br/>Appearance]
-    C --> J[JavaScript<br/>Game instructions]
-    J --> G[Web game]
-```
 
 Do not worry about the code yet. Chapter 2 begins with HTML and shows how a browser turns page structure into something you can see.
 
 ### The browser builds a page from connected files {.unnumbered}
 
 The page file is the starting point. It can point to a stylesheet, pictures, and JavaScript files. The browser loads those resources, builds the page's structure, applies its styles, and runs its scripts. Loading a picture or a program may take time, so later games wait until their resources are ready.
-
-```{mermaid}
-flowchart LR
-    H[index.html] --> B[Browser builds page elements]
-    C[styles.css] --> S[Browser styles the elements]
-    B --> S
-    S --> P[Page on the screen]
-    J[game.js] --> R[Browser runs game instructions]
-    R --> P
-    A[Pictures, sounds, and models] --> P
-```
 
 The browser keeps a working representation of the page called the **Document Object Model**, or **DOM**. A heading, a button, and a score paragraph become elements in that representation. Chapter 2 gives some elements unique labels called **IDs**. Chapter 6 teaches JavaScript to find those elements and change them. Changing the page in the browser does not automatically change the saved HTML file.
 
@@ -523,20 +466,31 @@ CSS changes how the same elements look. The `#` symbol selects an element by its
 
 JavaScript lets the browser respond to the player. You will use these browser tools in later chapters; you do not need to memorize them now.
 
-| Browser tool | Simple job | Monster Clicker example |
+| Browser Tool | Simple Job | Monster Clicker Example |
 | --- | --- | --- |
-| `document.getElementById("monster")` | Find one element by its ID. | Find the monster button. |
+| `document.getElementById("...")` | Find one element by its ID. | Find the monster button. |
 | `addEventListener("click", ...)` | Run instructions when an event happens. | Notice a button click. |
 | `textContent` | Read or change an element's text. | Show an updated score. |
 | `console.log(...)` | Print a message for the developer. | Check that a click was detected. |
 
-Chapter 6 combines the first three tools so the score can change when the player clicks.
 
 ## Exercises {.unnumbered}
 
 Practice the computer and file skills you will need for later projects. These are explanation and file-operation tasks; no game code is required.
 
-### Exercise 1: Hardware or software? {.unnumbered}
+### Exercise 1: Basic file operations {.unnumbered}
+
+1. **Create a folder.** Use your computer’s file manager to make `my-game-site` in a place you can find again. A file manager may be called File Explorer or Finder.
+2. **Create and save a file.** Open a plain-text editor, type `My game notes`, and save it as `notes.txt` inside that folder. Check the full file name, including its extension.
+3. **Close and reopen it.** Find `notes.txt` in the file manager and open it with your editor. Its contents should still be there.
+4. **Copy before experimenting.** Duplicate the file as `notes-backup.txt`. Copying keeps the original; moving changes where a file is stored. Renaming changes its name, not its contents or file format.
+5. **Edit, save, and check.** Change the original notes, save, and reopen them. The backup should still contain the earlier text. When you later edit an HTML page, save in the editor and refresh in the browser to see the change.
+
+Keep linked project files together. Moving only an HTML page can break its links to pictures or stylesheets. Use meaningful names and keep a backup before a large change.
+
+
+
+### Exercise 2: Hardware or software? {.unnumbered}
 
 Classify each item as **hardware** or **software**.
 
@@ -547,7 +501,7 @@ Classify each item as **hardware** or **software**.
 5. Speakers
 6. A browser game
 
-### Exercise 2: File, folder, or program? {.unnumbered}
+### Exercise 3: File, folder, or program? {.unnumbered}
 
 For each item, choose **file**, **folder**, or **program**.
 
@@ -558,7 +512,7 @@ For each item, choose **file**, **folder**, or **program**.
 5. A text editor
 6. `images/`
 
-### Exercise 3: Internet or Web? {.unnumbered}
+### Exercise 4: Internet or Web? {.unnumbered}
 
 Complete each sentence with **Internet** or **Web**.
 
@@ -566,7 +520,7 @@ Complete each sentence with **Internet** or **Web**.
 2. The __________ includes pages and resources that a browser can access.
 3. A browser normally uses the __________ to reach a website on another computer.
 
-### Exercise 4: Page, site, or game? {.unnumbered}
+### Exercise 5: Page, site, or game? {.unnumbered}
 
 Choose **web page**, **website**, or **web game**.
 
@@ -574,7 +528,7 @@ Choose **web page**, **website**, or **web game**.
 2. A collection containing a home page, help page, and several games
 3. An interactive browser program where the player catches falling stars
 
-### Exercise 5: Read a URL {.unnumbered}
+### Exercise 6: Read a URL {.unnumbered}
 
 Look at this URL:
 
@@ -589,7 +543,7 @@ Answer the questions.
 3. What is the path?
 4. Does this look like a local file address or a web address?
 
-### Exercise 6: Local or remote? {.unnumbered}
+### Exercise 7: Local or remote? {.unnumbered}
 
 For each address, decide whether the browser is most likely opening a **local file** or requesting a **web resource**.
 
@@ -600,7 +554,7 @@ file:///C:/Games/maze/start.html
 http://school.example.org/game-lab
 ```
 
-### Exercise 7: Trace the request {.unnumbered}
+### Exercise 8: Trace the request {.unnumbered}
 
 Put these actions in a sensible order:
 
@@ -609,7 +563,7 @@ Put these actions in a sensible order:
 - The browser sends a request.
 - The player enters a web address.
 
-### Exercise 8: Who is doing the job? {.unnumbered}
+### Exercise 9: Who is doing the job? {.unnumbered}
 
 A player opens a browser and visits an online game. The browser asks another computer for the game files.
 
@@ -620,7 +574,7 @@ Answer these questions:
 3. Which part is hardware: the laptop or the browser?
 4. After the files arrive, where can much of the game logic run?
 
-### Exercise 9: Explain the picture {.unnumbered}
+### Exercise 10: Explain the picture {.unnumbered}
 
 Draw four boxes labeled **Player**, **Browser**, **Internet**, and **Server**. Add arrows to show how a player can request a web game. Label at least one arrow **request** and one arrow **response**.
 
@@ -666,7 +620,3 @@ You are designing two games:
 - **Game B** lets students on different computers compare high scores online.
 
 For each game, explain which work could happen in the browser and whether a server would be useful. You do not need to design the server; explain only the jobs it might perform.
-
-## Checkpoint {.unnumbered}
-
-Show your project folder, original notes, and backup. Explain how to save a change, reopen a file in an editor, and open a local page in a browser. Describe where files come from when you visit a web address. Chapter 2 uses this foundation to begin designing a game.

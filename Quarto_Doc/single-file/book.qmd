@@ -4,71 +4,20 @@ subtitle: "From browser games to dynamic 2D and 3D worlds"
 author: "Hung-Fu Chang, Ph.D. and Wenhui Zhu, Ph.D."
 ---
 
-# Welcome, game maker! {.unnumbered #welcome}
+# How to read this book {.unnumbered #how-to}
 
 ::: {.book-hero}
 
-[LEARN BY MAKING]{.eyebrow}
-
-[Web Game Coding for Kids]{.hero-title}
-
-*Learn JavaScript by Building 2D and 3D Games*
-
 **Hung-Fu Chang, Ph.D. and Wenhui Zhu, Ph.D.**
-
-Build a game. Understand the code. Make it your own.
-
-[22 chapters]{.hero-chip} [Visual explanations]{.hero-chip} [Advanced Study]{.hero-chip}
 
 :::
 
 This book teaches JavaScript in the order a young game designer needs it. Instead of memorizing programming rules first, you will meet a problem inside a game and learn the programming idea that solves it.
 
-::: {.callout-tip .big-idea title="The rule of this book" icon="false"}
+Each part is a milestone of your understanding of using JavaScript to build a game.
 
-**Build the scene structure → Style the scene → Program game behavior.**
+Chapter 1 prepares your computer and project files. Build one small scene in three gradual lessons: [Chapter 2: Structure](#sec-ch02), [Chapter 3: Style](#sec-ch03), and [Chapter 4: Behavior](#sec-ch04). Try each chapter’s examples and exercises before continuing to JavaScript in Chapter 5. The [HTML/CSS reference](#sec-html-css-reference) keeps the detailed catalog available for later lookup.
 
-First decide what belongs in the game. Next make those parts readable and recognizable. Then give them actions and rules. Use the same thinking strategy for every example, exercise, and challenge.
-
-:::
-
-Chapter 1 prepares your computer and project files. Build one small scene in three gradual lessons: [Chapter 2: Structure](#sec-ch02), [Chapter 3: Style](#sec-ch03), and [Chapter 4: Behavior](#sec-ch04). Try each chapter’s examples and short practices before continuing to JavaScript in Chapter 5. The [HTML/CSS reference](#sec-html-css-reference) keeps the detailed catalog available for later lookup.
-
-## Your computer toolkit {.unnumbered}
-
-Before you make a game, meet the tools you will use. A **computer** runs programs: sets of instructions that tell it what to do. A web browser is one program. A text editor is another. You are about to write instructions that a browser can follow.
-
-::: {.callout-important title="When do I need to install a local web server?" icon="false"}
-
-**Chapters 2–14:** the supplied one-file games open directly in a browser. **Chapters 15–22:** all six Game Lab projects require a local HTTP server. Install **Node.js LTS** once from [nodejs.org/en/download](https://nodejs.org/en/download), then use the included Windows or Mac launcher each time you play. The [Game Lab guide](#sec-game-lab) has the game-by-game requirements and step-by-step installation. The four 3D projects also need internet for library downloads by default.
-
-:::
-
-### Files and folders {.unnumbered}
-
-A **file** is one named piece of information saved on a computer. A game picture, a sound, and a page of code can each be files. A **folder** is a container that helps you keep related files together. Think of a folder as a game box and the files inside as its cards, pieces, and rule sheet.
-
-Give each game its own folder. For example, your `my-first-game` folder can hold its HTML page now and later hold pictures, sounds, and more JavaScript files. Keep those files together when you copy or move your game.
-
-### A text editor is for code {.unnumbered}
-
-You write code in a **plain-text editor**. It saves exactly the letters, numbers, spaces, and punctuation that you type. Many editors color code and point out mistakes; that can be helpful, but the colors are not part of the code.
-
-A word processor is great for essays, but it may add special quotation marks, hidden formatting, or page layouts. Those extras can confuse code. Use a plain-text editor for your game files. Ask your teacher which editor is available on your computer.
-
-### File names and extensions {.unnumbered}
-
-The end of a file name after the final dot is its **file extension**. It helps people and programs recognize the file's job.
-
-| File name | Extension | What it usually contains |
-| --- | --- | --- |
-| `index.html` | `.html` | The page structure a browser opens. |
-| `main.js` | `.js` | JavaScript instructions for the browser. |
-| `style.css` | `.css` | Colors, sizes, and other visual choices. |
-| `level.json` | `.json` | Organized game data, such as a level layout. |
-| `robot.svg` | `.svg` | A picture made from shapes and lines. |
-
-The extension is important. `index.html` and `index.html.txt` are different files: the first is a web page, while the second is usually treated as ordinary text. Some computers hide extensions, so check the full name when you save a file. Do not rename a file just to give it a new extension; save it in the right kind of file from the start.
 
 ## Choose your reading path {.unnumbered}
 
@@ -106,54 +55,6 @@ Rose blocks help you check your understanding.
 
 ::::
 
-## What you need {.unnumbered}
-
-- A modern web browser such as Chrome, Edge, Firefox, or Safari.
-- A plain-text code editor available on your computer.
-- A folder for each website or game containing its files. Chapter 3 begins with separate HTML and CSS files; early JavaScript examples keep their code close to the page so you can focus on the programming ideas.
-
-::: {.callout-tip .setup title="Start with one file" icon="false"}
-
-Create a folder named `my-game-site`. Save your first HTML page as `index.html`, not `index.html.txt`. Open it in your browser. After editing, save the file and refresh the browser. Later, module-based projects need a local development server.
-
-:::
-
-## Meet the browser team {.unnumbered}
-
-Your web browser is the program that turns your game files into a page you can play. Three kinds of code often work together:
-
-| Part | Its job | A game example |
-| --- | --- | --- |
-| **HTML** | Builds the page and names its parts. | A heading, a button, and a canvas. |
-| **CSS** | Chooses how those parts look. | A purple button or a large play area. |
-| **JavaScript** | Makes the page react and change. | Add a point when the player clicks. |
-
-Use **Build the scene structure → Style the scene → Program game behavior**: HTML describes the first pages, CSS makes their parts readable, and JavaScript adds game operations and actions. Chapter 3 uses linked HTML and CSS files; Chapter 5 combines a styled scene and JavaScript data in one starter file.
-
-### What “client-side JavaScript” means {.unnumbered}
-
-The **client** is the player's browser. Client-side JavaScript runs on the same computer, tablet, or Chromebook that displays the game. When a player presses a key, the browser can run your JavaScript right there and update the picture right away.
-
-That is different from code on a **server**—another computer that can store shared scores, accounts, or messages. Our first games do not need a server on the internet. Their rules and scores stay in the browser while the page is open.
-
-## Run a one-file game from your drive {.unnumbered}
-
-For the complete examples in the first chapters, you can run your game directly from your computer's drive.
-
-1. Make a folder called `my-first-game` somewhere you can find again, such as Documents.
-2. In a plain-text code editor, save the complete example as `index.html` inside that folder. Check that the name ends in `.html`, not `.html.txt`.
-3. Open the folder and double-click `index.html`. Your browser should open it. You may see an address beginning with `file:///`; that means the browser opened a file from your own drive.
-4. Return to the editor, make one small change, save, and refresh the browser page. On many computers, refresh is `Ctrl+R` or `Command+R`.
-
-If double-clicking opens an editor instead of a browser, right-click the file and choose **Open with**, then choose your browser. If you cannot see the `.html` ending, ask an adult or teacher to turn on file-name extensions. A file named `index.html.txt` is a text document, not a web page.
-
-## When a local web server helps {.unnumbered}
-
-Some later games use several JavaScript files, images, level-data files, or 3D models. A **web server** is a small program that hands files to a browser when the browser asks for them. It is like a careful librarian: the browser asks for a particular file, and the server gives back that file.
-
-For a one-file beginner game, `file:///` is enough. For a project that uses JavaScript `import`, JSON data, or files loaded by the game, start a **local web server** instead. A local server runs only on your own computer and gives the page an address such as `http://127.0.0.1:8000/`. Modern browsers use extra safety rules for those multi-file requests, so opening the HTML by double-clicking may not work.
-
-`127.0.0.1` means “this same computer.” Starting this book's local server does not put your game on the internet or let classmates visit it. The Game Lab instructions in [Appendix E](#sec-game-lab) show exactly how to start it.
 
 ## Read examples carefully {.unnumbered}
 
@@ -237,7 +138,6 @@ flowchart LR
 
 By the end of this chapter, you will be able to:
 
-- distinguish **hardware** from **software**;
 - explain the difference between a **program**, a **file**, and a **folder**;
 - create, name, copy, and organize project files, then save and reopen them;
 - explain what a **browser** does;
@@ -249,50 +149,7 @@ By the end of this chapter, you will be able to:
 - explain the difference between opening a **local file** and visiting a web address;
 - describe, at a high level, where a web game can do its work.
 
-## Hardware and software work together
 
-Look at the computer in front of you. You may see a screen, keyboard, mouse, trackpad, and perhaps a desktop computer or laptop case. These are examples of **hardware**.
-
-**Hardware** means the physical parts of a computer system---the parts that are built from electronic or mechanical components. You can usually touch hardware.
-
-Examples include:
-
-- a screen;
-- a keyboard;
-- a mouse or trackpad;
-- a processor;
-- memory;
-- a storage drive;
-- speakers.
-
-Hardware by itself does not know how to open a website or run a game. It needs instructions. Those instructions are provided by **software**.
-
-**Software** is a program, or a collection of programs and data, that tells computer hardware what work to do.
-
-Examples include:
-
-- a web browser such as Chrome, Edge, Firefox, or Safari;
-- a text editor used to write code;
-- a drawing program;
-- a music player;
-- a web game running in a browser.
-
-```{mermaid}
-flowchart TB
-    C[Computer system]
-    C --> H[Hardware<br/>physical parts]
-    C --> S[Software<br/>programs and instructions]
-    H --> H1[Screen]
-    H --> H2[Keyboard]
-    H --> H3[Storage]
-    S --> S1[Browser]
-    S --> S2[Text editor]
-    S --> S3[Games]
-```
-
-::: {.callout-warning title="Watch Out: A browser is not hardware" icon="false"}
-Chrome, Edge, Firefox, and Safari are **software**. The screen that shows the browser is hardware.
-:::
 
 ### What is a program? {.unnumbered}
 
@@ -341,20 +198,6 @@ These are real web-project file names. `index.html` describes the page, `styles.
 | Data | `.json` | Read organized information, such as a level layout. |
 | 3D model | `.glb` | Supply model data to the later 3D game code. |
 
-The book itself is written in `.qmd` files. **Quarto** turns that manuscript into web pages for reading. When you build a game, you work with the game files above. A browser does not open a `.qmd` chapter as a playable game.
-
-```{mermaid}
-flowchart TB
-    A[space-game folder] --> B[Page file]
-    A --> C[Style file]
-    A --> D[Game program file]
-    A --> E[images folder]
-    A --> F[sounds folder]
-    E --> G[spaceship.png]
-    E --> H[planet.png]
-    F --> I[launch.mp3]
-```
-
 ::: {.callout-tip title="Try It: Find a file and its folder" icon="false"}
 Open a folder on your computer. Pick one file and answer these questions:
 
@@ -364,15 +207,6 @@ Open a folder on your computer. Pick one file and answer these questions:
 4. Which program would you use to open it?
 :::
 
-### Practice basic file operations {.unnumbered}
-
-1. **Create a folder.** Use your computer’s file manager to make `my-game-site` in a place you can find again. A file manager may be called File Explorer or Finder.
-2. **Create and save a file.** Open a plain-text editor, type `My game notes`, and save it as `notes.txt` inside that folder. Check the full file name, including its extension.
-3. **Close and reopen it.** Find `notes.txt` in the file manager and open it with your editor. Its contents should still be there.
-4. **Copy before experimenting.** Duplicate the file as `notes-backup.txt`. Copying keeps the original; moving changes where a file is stored. Renaming changes its name, not its contents or file format.
-5. **Edit, save, and check.** Change the original notes, save, and reopen them. The backup should still contain the earlier text. When you later edit an HTML page, save in the editor and refresh in the browser to see the change.
-
-Keep linked project files together. Moving only an HTML page can break its links to pictures or stylesheets. Use meaningful names and keep a backup before a large change.
 
 ## The Internet and the Web are related, but they are not the same thing
 
@@ -420,9 +254,9 @@ flowchart LR
     W[Files from a web server] -->|receive| B
 ```
 
-::: {.callout-warning title="Watch Out: The browser is not the Internet" icon="false"}
-A browser is a program on your device. The Internet is the network connecting devices. You can even use a browser to open some local files when your computer is not connected to the Internet.
-:::
+![An annotated browser view showing its address bar above the displayed web page.](../figures/chapter_01/browser-url-page.png){fig-alt="A browser window with arrows pointing to the URL in the address bar and to the page content below it." width=90%}
+
+**Read the picture:** The address bar belongs to the browser. The heading, words, and button below it belong to the web page the browser displays.
 
 ### What happens when you type something in the address bar? {.unnumbered}
 
@@ -430,25 +264,6 @@ The long box near the top of a browser is usually called the **address bar**. Yo
 
 When you enter a web address, the browser tries to find the resource at that address. If the resource is on another computer, the browser sends a request for it.
 
-## Web pages, websites, and web games
-
-These three terms are connected, but they do not mean exactly the same thing.
-
-A **web page** is one page or view that a browser can display. A page might show instructions, a menu, a story, a score screen, or part of a game.
-
-A **website** is a collection of related web pages and other files that belong together. A school website, news website, and game website may each contain many pages, images, and other resources.
-
-A **web game** is a game designed to run through a web browser. It may use one page or several files. The browser may draw graphics, play sounds, read keyboard or mouse input, update scores, and run the rules of the game.
-
-| Term | Simple meaning | Example |
-| --- | --- | --- |
-| Web page | one page shown by a browser | a game's start screen |
-| Website | related pages and resources | a game site with a home page, instructions, and games |
-| Web game | a game that runs in a browser | a game where you move a character and collect stars |
-
-::: {.callout-note title="Why this matters for our book" icon="false"}
-The games in this book are **web games**. That means the browser is not just showing information. It will eventually run instructions that let the game react to clicks, keys, timers, collisions, and other events.
-:::
 
 ## A URL tells a browser where to look
 
@@ -457,8 +272,6 @@ A **URL** is an address for a resource. URL stands for **Uniform Resource Locato
 You can think of a URL as directions that help a browser locate something. That "something" might be a web page, an image, a game file, or another resource.
 
 Here is a simple example:
-
-![An annotated browser view: the URL appears in the address bar, and the web page appears below it. The browser frame is simplified; the page is a rendered example.](../figures/chapter_01/browser-url-page.png){fig-alt="A browser view with arrows labeling the URL in the address bar and the web page in the content area." width=90%}
 
 ```text
 https://example.com/games/space-quest
@@ -494,6 +307,42 @@ You will not need most of these pieces to begin making games. Return to them whe
 :::
 
 ## Local files and web addresses
+
+## Your computer toolkit {.unnumbered}
+
+Before you make a game, meet the tools you will use. A **computer** runs programs: sets of instructions that tell it what to do. A web browser is one program. A text editor is another. You are about to write instructions that a browser can follow.
+
+::: {.callout-important title="When do I need to install a local web server?" icon="false"}
+
+**Chapters 2–14:** the supplied one-file games open directly in a browser. **Chapters 15–22:** all six Game Lab projects require a local HTTP server. Install **Node.js LTS** once from [nodejs.org/en/download](https://nodejs.org/en/download), then use the included Windows or Mac launcher each time you play. The [Game Lab guide](../appendices/e-game-lab.qmd) has the game-by-game requirements and step-by-step installation. The four 3D projects also need internet for library downloads by default.
+
+:::
+
+### Files and folders {.unnumbered}
+
+A **file** is one named piece of information saved on a computer. A game picture, a sound, and a page of code can each be files. A **folder** is a container that helps you keep related files together. Think of a folder as a game box and the files inside as its cards, pieces, and rule sheet.
+
+Give each game its own folder. For example, your `my-first-game` folder can hold its HTML page now and later hold pictures, sounds, and more JavaScript files. Keep those files together when you copy or move your game.
+
+### A text editor is for code {.unnumbered}
+
+You write code in a **plain-text editor**. It saves exactly the letters, numbers, spaces, and punctuation that you type. Many editors color code and point out mistakes; that can be helpful, but the colors are not part of the code.
+
+A word processor is great for essays, but it may add special quotation marks, hidden formatting, or page layouts. Those extras can confuse code. Use a plain-text editor for your game files. Ask your teacher which editor is available on your computer.
+
+### File names and extensions {.unnumbered}
+
+The end of a file name after the final dot is its **file extension**. It helps people and programs recognize the file's job.
+
+| File name | Extension | What it usually contains |
+| --- | --- | --- |
+| `index.html` | `.html` | The page structure a browser opens. |
+| `main.js` | `.js` | JavaScript instructions for the browser. |
+| `style.css` | `.css` | Colors, sizes, and other visual choices. |
+| `level.json` | `.json` | Organized game data, such as a level layout. |
+| `robot.svg` | `.svg` | A picture made from shapes and lines. |
+
+The extension is important. `index.html` and `index.html.txt` are different files: the first is a web page, while the second is usually treated as ordinary text. Some computers hide extensions, so check the full name when you save a file. Do not rename a file just to give it a new extension; save it in the right kind of file from the start.
 
 A browser does not always need to get a page from the Internet. It can also open a file stored directly on your computer.
 
@@ -534,6 +383,56 @@ flowchart TB
 
 **Read the picture:** A local file can go directly from storage on your computer to your browser. A web resource takes another route: the browser sends a request through the network and receives a response.
 
+## What you need {.unnumbered}
+
+- A modern web browser such as Chrome, Edge, Firefox, or Safari.
+- A plain-text code editor available on your computer.
+- A folder for each website or game containing its files. Chapter 3 begins with separate HTML and CSS files; early JavaScript examples keep their code close to the page so you can focus on the programming ideas.
+
+::: {.callout-tip .setup title="Start with one file" icon="false"}
+
+Create a folder named `my-game-site`. Save your first HTML page as `index.html`, not `index.html.txt`. Open it in your browser. After editing, save the file and refresh the browser. Later, module-based projects need a local development server.
+
+:::
+
+## Meet the browser team {.unnumbered}
+
+Your web browser is the program that turns your game files into a page you can play. Three kinds of code often work together:
+
+| Part | Its job | A game example |
+| --- | --- | --- |
+| **HTML** | Builds the page and names its parts. | A heading, a button, and a canvas. |
+| **CSS** | Chooses how those parts look. | A purple button or a large play area. |
+| **JavaScript** | Makes the page react and change. | Add a point when the player clicks. |
+
+Use **Build the scene structure → Style the scene → Program game behavior**: HTML describes the first pages, CSS makes their parts readable, and JavaScript adds game operations and actions. Chapter 3 uses linked HTML and CSS files; Chapter 5 combines a styled scene and JavaScript data in one starter file.
+
+### What “client-side JavaScript” means {.unnumbered}
+
+The **client** is the player's browser. Client-side JavaScript runs on the same computer, tablet, or Chromebook that displays the game. When a player presses a key, the browser can run your JavaScript right there and update the picture right away.
+
+That is different from code on a **server**—another computer that can store shared scores, accounts, or messages. Our first games do not need a server on the internet. Their rules and scores stay in the browser while the page is open.
+
+## Run a one-file game from your drive {.unnumbered}
+
+For the complete examples in the first chapters, you can run your game directly from your computer's drive.
+
+1. Make a folder called `my-first-game` somewhere you can find again, such as Documents.
+2. In a plain-text code editor, save the complete example as `index.html` inside that folder. Check that the name ends in `.html`, not `.html.txt`.
+3. Open the folder and double-click `index.html`. Your browser should open it. You may see an address beginning with `file:///`; that means the browser opened a file from your own drive.
+4. Return to the editor, make one small change, save, and refresh the browser page. On many computers, refresh is `Ctrl+R` or `Command+R`.
+
+If double-clicking opens an editor instead of a browser, right-click the file and choose **Open with**, then choose your browser. If you cannot see the `.html` ending, ask an adult or teacher to turn on file-name extensions. A file named `index.html.txt` is a text document, not a web page.
+
+## When a local web server helps {.unnumbered}
+
+Some later games use several JavaScript files, images, level-data files, or 3D models. A **web server** is a small program that hands files to a browser when the browser asks for them. It is like a careful librarian: the browser asks for a particular file, and the server gives back that file.
+
+For a one-file beginner game, `file:///` is enough. For a project that uses JavaScript `import`, JSON data, or files loaded by the game, start a **local web server** instead. A local server runs only on your own computer and gives the page an address such as `http://127.0.0.1:8000/`. Modern browsers use extra safety rules for those multi-file requests, so opening the HTML by double-clicking may not work.
+
+`127.0.0.1` means “this same computer.” Starting this book's local server does not put your game on the internet or let classmates visit it. The Game Lab instructions in [Appendix E](../appendices/e-game-lab.qmd) show exactly how to start it.
+
+
 ## Client and server describe jobs
 
 ![The browser acts as a client: it requests a file, the web server sends a response, and the browser uses the file to display the page.](../figures/chapter_01/browser-request-response.svg){fig-alt="A browser wireframe on the left sends a request arrow to a server on the right. A response arrow returns HTML, CSS, JavaScript, or pictures to the browser." width=100%}
@@ -550,14 +449,6 @@ For example, your laptop is hardware. Chrome is software. When Chrome asks a web
 
 A server also involves software. In everyday conversation, people sometimes use the word *server* for both the server program and the computer running that program. For now, remember the job: **a server responds to requests**.
 
-```{mermaid}
-sequenceDiagram
-    participant B as Browser (client)
-    participant S as Web server
-    B->>S: Request a game file
-    S-->>B: Send a response
-    B->>B: Use the file
-```
 
 ### Request and response {.unnumbered}
 
@@ -577,32 +468,18 @@ For a web game, a simplified conversation might look like this:
 
 Real web communication contains more details, but this request-and-response idea is the foundation.
 
-## Where does a web game do its work?
+## The game development process
 
-A web game can do a lot of work directly inside the browser. For example, the browser can respond when a player presses a key, move an object, update a score, draw graphics, and play sounds.
+Build one small feature in three passes. For **Monster Clicker**, the feature is a button that gives the player a point.
 
-Some web games also communicate with servers. A server might help with jobs such as:
+| Pass | Question to answer | Monster Clicker example |
+| --- | --- | --- |
+| **Structure** | What parts belong on the page? | Add a monster button and a score display with HTML. |
+| **Style** | How should players recognize those parts? | Use CSS to make the button easy to see and press. |
+| **Behavior** | What should happen when the player acts? | Use JavaScript to add a point when the button is pressed. |
 
-- saving an online account;
-- storing a high score;
-- loading shared game data;
-- connecting several players.
 
-A beginner game does not need all of those features. Many of the first games in this book can run mostly on your own computer in the browser.
-
-```{mermaid}
-flowchart LR
-    P[Player] -->|clicks and keys| B[Browser game]
-    B -->|updates| G[Game screen]
-    B -. optional requests .-> S[Server]
-    S -. optional data .-> B
-```
-
-::: {.callout-note title="Client-side and server-side" icon="false"}
-When work happens in the browser on the player's device, programmers often call it **client-side** work. When work happens in a server program, they call it **server-side** work.
-
-You only need the basic idea now. Most of our early attention will stay on the browser side.
-:::
+Chapter 2 builds the structure, Chapter 3 adds style, and Chapter 4 plans behavior. Keep the same small scene as you move from one pass to the next.
 
 ## How HTML, CSS, and JavaScript fit together
 
@@ -620,12 +497,6 @@ These are file types you will recognize in a project folder. Chapter 2 introduce
 | CSS | how it looks | size, spacing, color, position |
 | JavaScript | what it does | increase the score after an action |
 
-```{mermaid}
-flowchart LR
-    H[HTML<br/>Page content] --> C[CSS<br/>Appearance]
-    C --> J[JavaScript<br/>Game instructions]
-    J --> G[Web game]
-```
 
 Do not worry about the code yet. Chapter 2 begins with HTML and shows how a browser turns page structure into something you can see.
 
@@ -633,38 +504,98 @@ Do not worry about the code yet. Chapter 2 begins with HTML and shows how a brow
 
 The page file is the starting point. It can point to a stylesheet, pictures, and JavaScript files. The browser loads those resources, builds the page's structure, applies its styles, and runs its scripts. Loading a picture or a program may take time, so later games wait until their resources are ready.
 
-```{mermaid}
-flowchart LR
-    H[index.html] --> B[Browser builds page elements]
-    C[styles.css] --> S[Browser styles the elements]
-    B --> S
-    S --> P[Page on the screen]
-    J[game.js] --> R[Browser runs game instructions]
-    R --> P
-    A[Pictures, sounds, and models] --> P
-```
-
 The browser keeps a working representation of the page called the **Document Object Model**, or **DOM**. A heading, a button, and a score paragraph become elements in that representation. Chapter 2 gives some elements unique labels called **IDs**. Chapter 6 teaches JavaScript to find those elements and change them. Changing the page in the browser does not automatically change the saved HTML file.
 
-::: {.callout-important collapse="true" title="Advanced Study: What is a local web server?" icon="false"}
-Later games in this book will use several JavaScript files, data files, or 3D models. For those projects, we will sometimes run a **local web server**.
+### A first look at HTML {.unnumbered}
 
-A local server is server software running on your own computer. It may give your browser an address such as:
+This tiny page contains a heading, a button, and a score. Save it as `index.html` if you want to see the unstyled parts in a browser. Chapter 2 explains how the elements fit together.
 
-```text
-http://127.0.0.1:8000/
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Monster Clicker</title>
+</head>
+<body>
+  <h1 id="game-title">Monster Clicker</h1>
+  <button id="monster" type="button">Click the monster</button>
+  <p id="score">Score: 0</p>
+</body>
+</html>
 ```
 
-`127.0.0.1` is a special address that refers back to the same computer. Starting a local server for a project does **not** automatically publish that project to the Internet.
+An **ID** is a name for one element on the page. Each ID in this example is unique.
 
-For now, you only need to recognize the idea. Later chapters will tell you when to use the local server and how to start it.
-:::
+| HTML tag | Simple job | Example above |
+| --- | --- | --- |
+| `<html>` | Hold the whole page. | Contains the head and body. |
+| `<head>` | Hold page information. | Contains the title. |
+| `<title>` | Name the browser tab. | `Monster Clicker` |
+| `<body>` | Hold the visible page content. | Contains the heading, button, and score. |
+| `<h1>` | Show the main heading. | `Monster Clicker` |
+| `<button>` | Give the player a control to press. | `Click the monster` |
+| `<p>` | Show a paragraph or short status. | `Score: 0` |
+
+### A first look at CSS {.unnumbered}
+
+CSS changes how the same elements look. The `#` symbol selects an element by its ID; these rules use only the IDs from the HTML example. Chapter 3 shows where to place CSS and how to connect a stylesheet.
+
+```css
+#game-title {
+  color: #245d88;
+}
+
+#monster {
+  background-color: #e6f6f2;
+  font-size: 1.25rem;
+  padding: 0.75rem;
+}
+
+#score {
+  font-weight: bold;
+}
+```
+
+| CSS piece | What it does | Example |
+| --- | --- | --- |
+| `#game-title` | Selects the element with `id="game-title"`. | The heading. |
+| `#monster` | Selects the element with `id="monster"`. | The button. |
+| `color` | Changes text color. | `#245d88` is a blue color. |
+| `background-color` | Changes the color behind an element. | A pale green button. |
+| `font-size` | Changes text size. | Larger button text. |
+| `padding` | Adds space inside an element. | More room around button text. |
+| `font-weight` | Changes how heavy text looks. | A bold score. |
+
+### A first look at JavaScript {.unnumbered}
+
+JavaScript lets the browser respond to the player. You will use these browser tools in later chapters; you do not need to memorize them now.
+
+| Browser Tool | Simple Job | Monster Clicker Example |
+| --- | --- | --- |
+| `document.getElementById("...")` | Find one element by its ID. | Find the monster button. |
+| `addEventListener("click", ...)` | Run instructions when an event happens. | Notice a button click. |
+| `textContent` | Read or change an element's text. | Show an updated score. |
+| `console.log(...)` | Print a message for the developer. | Check that a click was detected. |
+
 
 ## Exercises {.unnumbered}
 
 Practice the computer and file skills you will need for later projects. These are explanation and file-operation tasks; no game code is required.
 
-### Exercise 1: Hardware or software? {.unnumbered}
+### Exercise 1: Basic file operations {.unnumbered}
+
+1. **Create a folder.** Use your computer’s file manager to make `my-game-site` in a place you can find again. A file manager may be called File Explorer or Finder.
+2. **Create and save a file.** Open a plain-text editor, type `My game notes`, and save it as `notes.txt` inside that folder. Check the full file name, including its extension.
+3. **Close and reopen it.** Find `notes.txt` in the file manager and open it with your editor. Its contents should still be there.
+4. **Copy before experimenting.** Duplicate the file as `notes-backup.txt`. Copying keeps the original; moving changes where a file is stored. Renaming changes its name, not its contents or file format.
+5. **Edit, save, and check.** Change the original notes, save, and reopen them. The backup should still contain the earlier text. When you later edit an HTML page, save in the editor and refresh in the browser to see the change.
+
+Keep linked project files together. Moving only an HTML page can break its links to pictures or stylesheets. Use meaningful names and keep a backup before a large change.
+
+
+
+### Exercise 2: Hardware or software? {.unnumbered}
 
 Classify each item as **hardware** or **software**.
 
@@ -675,7 +606,7 @@ Classify each item as **hardware** or **software**.
 5. Speakers
 6. A browser game
 
-### Exercise 2: File, folder, or program? {.unnumbered}
+### Exercise 3: File, folder, or program? {.unnumbered}
 
 For each item, choose **file**, **folder**, or **program**.
 
@@ -686,7 +617,7 @@ For each item, choose **file**, **folder**, or **program**.
 5. A text editor
 6. `images/`
 
-### Exercise 3: Internet or Web? {.unnumbered}
+### Exercise 4: Internet or Web? {.unnumbered}
 
 Complete each sentence with **Internet** or **Web**.
 
@@ -694,7 +625,7 @@ Complete each sentence with **Internet** or **Web**.
 2. The __________ includes pages and resources that a browser can access.
 3. A browser normally uses the __________ to reach a website on another computer.
 
-### Exercise 4: Page, site, or game? {.unnumbered}
+### Exercise 5: Page, site, or game? {.unnumbered}
 
 Choose **web page**, **website**, or **web game**.
 
@@ -702,7 +633,7 @@ Choose **web page**, **website**, or **web game**.
 2. A collection containing a home page, help page, and several games
 3. An interactive browser program where the player catches falling stars
 
-### Exercise 5: Read a URL {.unnumbered}
+### Exercise 6: Read a URL {.unnumbered}
 
 Look at this URL:
 
@@ -717,7 +648,7 @@ Answer the questions.
 3. What is the path?
 4. Does this look like a local file address or a web address?
 
-### Exercise 6: Local or remote? {.unnumbered}
+### Exercise 7: Local or remote? {.unnumbered}
 
 For each address, decide whether the browser is most likely opening a **local file** or requesting a **web resource**.
 
@@ -728,7 +659,7 @@ file:///C:/Games/maze/start.html
 http://school.example.org/game-lab
 ```
 
-### Exercise 7: Trace the request {.unnumbered}
+### Exercise 8: Trace the request {.unnumbered}
 
 Put these actions in a sensible order:
 
@@ -737,7 +668,7 @@ Put these actions in a sensible order:
 - The browser sends a request.
 - The player enters a web address.
 
-### Exercise 8: Who is doing the job? {.unnumbered}
+### Exercise 9: Who is doing the job? {.unnumbered}
 
 A player opens a browser and visits an online game. The browser asks another computer for the game files.
 
@@ -748,7 +679,7 @@ Answer these questions:
 3. Which part is hardware: the laptop or the browser?
 4. After the files arrive, where can much of the game logic run?
 
-### Exercise 9: Explain the picture {.unnumbered}
+### Exercise 10: Explain the picture {.unnumbered}
 
 Draw four boxes labeled **Player**, **Browser**, **Internet**, and **Server**. Add arrows to show how a player can request a web game. Label at least one arrow **request** and one arrow **response**.
 
@@ -795,10 +726,6 @@ You are designing two games:
 
 For each game, explain which work could happen in the browser and whether a server would be useful. You do not need to design the server; explain only the jobs it might perform.
 
-## Checkpoint {.unnumbered}
-
-Show your project folder, original notes, and backup. Explain how to save a change, reopen a file in an editor, and open a local page in a browser. Describe where files come from when you visit a web address. Chapter 2 uses this foundation to begin designing a game.
-
 # Structure: Build the Game Scene {#sec-ch02}
 
 ::: {.chapter-banner}
@@ -818,6 +745,7 @@ Open the [companion structure example](../games/foundations/structure/index.html
 
 By the end of this chapter, you will be able to:
 
+- build a simple HTML page;
 - describe a small game idea, story, and player goal;
 - sketch a scene with instructions, controls, and a progress display;
 - distinguish an HTML tag, element, and attribute;
@@ -832,13 +760,14 @@ We will use **Monster Clicker**: “Click a friendly monster to collect points.�
 
 Keep the first version small. One monster, one score, and one message are enough. Save extra monsters and levels for later.
 
-### Practice: make a tiny pitch {.unnumbered}
-
-Write: “You are ___, and your goal is to ___ by ___.” Circle the objects your page will need to show. If your sentence needs several kinds of controls or many levels, choose just one action for the first version.
 
 ## Sketch the scene structure
 
 A **scene** includes the page and the game world the player sees and uses. List each required part and its job before thinking about colors.
+
+![A wireframe for Monster Clicker showing the title and instructions above a play section with a monster button, score, and message.](../figures/chapter_02/monster-clicker-wireframe.svg){fig-alt="A grayscale page sketch. A main content box contains a title and instructions. Inside its play section are a section heading, monster button, score display, and feedback message in reading order." width=85%}
+
+**Read the sketch:** The boxes show placement and reading order, not final colors or artwork. The monster button, score, and message stay together inside the play section.
 
 | Part | Purpose | Relationship |
 | --- | --- | --- |
@@ -850,6 +779,10 @@ A **scene** includes the page and the game world the player sees and uses. List 
 
 Draw these parts as labeled boxes. The diagram does not need artwork. Put the instructions before the control and keep feedback nearby.
 
+
+![Structure](../chapters/02-scene-structure_files/figure-latex/mermaid-figure-1.png){fig-alt="" width=50% fig-align="center"}
+
+
 ```{mermaid}
 flowchart LR
     S[Structure<br/>What parts belong?] --> T[Style<br/>How can players recognize them?]
@@ -857,10 +790,6 @@ flowchart LR
 ```
 
 **Read the picture:** This chapter builds the parts. Chapter 3 makes them readable and recognizable. Chapter 4 plans the actions and results. You will reuse your work instead of rebuilding the page at every stage.
-
-### Practice: test your sketch {.unnumbered}
-
-Ask a partner to point to the game name, the target, and the place where progress will appear. If a part is missing, add it. A paper sketch checks the arrangement; it does not test browser code.
 
 ## Read an HTML element
 
@@ -875,14 +804,10 @@ Ask a partner to point to the game name, the target, and the place where progres
 An **attribute** adds information inside the opening tag:
 
 ```html
-<button id="monster" class="monster" type="button">Monster</button>
+<button id="monster" type="button">Monster</button>
 ```
 
-`id`, `class`, and `type` are attribute names. The quoted text supplies their values. An `id` identifies one element and should be unique on the page. A `class` can group several elements for shared styling. `type="button"` makes this an ordinary action button. It does not yet connect a game rule to the button.
-
-### Practice: read before editing {.unnumbered}
-
-Point to the opening tag, closing tag, content, attribute names, and values in the button above. Change only its visible text to `Sleepy Monster`. Predict which part of the page will change.
+`id` and `type` are attribute names. The quoted text supplies their values. An `id` identifies one element and should be unique on the page. A `class` can group several elements for shared styling. `type="button"` makes this an ordinary action button. It does not yet connect a game rule to the button.
 
 ## Build a complete page
 
@@ -927,10 +852,6 @@ The page uses the browser’s default appearance. Clicking the button does not i
 
 `<meta>` is a **void element**: it has no closing tag. The other elements here need closing tags. HTML comments, such as `<!-- My scene plan -->`, are notes for the code reader and do not appear as page text.
 
-### Practice: compare title and heading {.unnumbered}
-
-Change `<title>` to `My First Game`. Save and refresh. Then change `<h1>` to `Sleepy Monster`. Explain why these changes appear in different places.
-
 ## Group and nest the parts
 
 **Nesting** means putting one element inside another. `<main>` contains the main page content. `<section>` groups a related topic. The heading, button, score paragraph, and message are children of the section. `aria-labelledby="arena-title"` gives that section the name supplied by its heading.
@@ -946,19 +867,6 @@ Inside the score paragraph, `<span id="score">0</span>` marks just the number. A
 | `<span>` | A small part within a line | The score number |
 | `<button>` | A control the player can press | The monster target |
 | `id`, `class` | Identify one part; group parts for styling | `id="score"`, `class="card"` |
-
-### Practice: add an instruction list {.unnumbered}
-
-Place this list after the instructions paragraph. `<ul>` creates a bulleted list; each `<li>` creates one item.
-
-```html
-<ul>
-  <li>Find the monster.</li>
-  <li>Watch the score.</li>
-</ul>
-```
-
-Add a third item. Check that it appears inside the same list. For a numbered sequence, use `<ol>` in place of `<ul>`.
 
 ## Exercises {.unnumbered}
 
@@ -984,13 +892,38 @@ Correct this fragment, then explain the problem:
 
 Add a paragraph showing `Lives: 3`. Give just the number a unique ID. Save, refresh, and verify that the score still has its own ID.
 
+### Exercise 4: Make a tiny pitch {.unnumbered}
+
+Write: “You are ___, and your goal is to ___ by ___.” Circle the objects your page will need to show. If your sentence needs several kinds of controls or many levels, choose just one action for the first version.
+
+### Exercise 5: Test your sketch {.unnumbered}
+
+Ask a partner to point to the game name, the target, and the place where progress will appear. If a part is missing, add it. A paper sketch checks the arrangement; it does not test browser code.
+
+### Exercise 6: Read before editing {.unnumbered}
+
+Find the monster button in the HTML example earlier in this chapter. Point to its opening tag, closing tag, content, attribute names, and values. Change only its visible text to `Sleepy Monster`. Predict which part of the page will change.
+
+### Exercise 7: Compare title and heading {.unnumbered}
+
+Change `<title>` to `My First Game`. Save and refresh. Then change `<h1>` to `Sleepy Monster`. Explain why these changes appear in different places.
+
+### Exercise 8: Add an instruction list {.unnumbered}
+
+Place this list after the instructions paragraph. `<ul>` creates a bulleted list; each `<li>` creates one item.
+
+```html
+<ul>
+  <li>Find the monster.</li>
+  <li>Watch the score.</li>
+</ul>
+```
+
+Add a third item. Check that it appears inside the same list. For a numbered sequence, use `<ol>` in place of `<ul>`.
+
 ## Challenge: Your own game scene {.unnumbered}
 
 **Structure:** Change the title, instructions, and target to fit your tiny pitch. Add one useful display. **Style:** Keep browser defaults for now and check the reading order. **Behavior:** Write one future action and expected result in your notes.
-
-## Checkpoint {.unnumbered}
-
-Point to every planned part in the browser and explain its HTML element. Show where the page is saved. Your structure is ready for Chapter 3 when the target, score, and message all exist. Use the [HTML/CSS reference](../appendices/f-html-css-reference.qmd) for extra tags and attributes when you need them.
 
 # Style: Make the Scene Readable {#sec-ch03}
 
@@ -1039,10 +972,6 @@ body {
 
 `body` is the **selector**: it chooses the element to style. The braces hold **declarations**. In `color: #203654;`, `color` is the property, `#203654` is its value, and the colon separates them. End each declaration with a semicolon.
 
-### Practice: test the connection {.unnumbered}
-
-Change the color to `purple`, save, and refresh. The page text should change. If it does not, check the file name, folder, and `href` spelling. Return to the original color after the test.
-
 ## Choose the parts to style
 
 | Selector | Meaning | Match in our page |
@@ -1062,10 +991,6 @@ h1 { font-size: 2rem; }
 
 `rem` measures size relative to the root font size. `em` relates to a font size; here it reserves space based on the message’s own font. You can begin with these values without memorizing every CSS unit.
 
-### Practice: choose the right selector {.unnumbered}
-
-Make every `h2` heading purple. Then make only the instructions italic. Explain why one selector has a dot and the other does not.
-
 ## Give each box room
 
 Every element takes up space. Its **content** sits inside **padding**, then a **border**. **Margin** separates that box from neighboring content.
@@ -1084,10 +1009,6 @@ Every element takes up space. Its **content** sits inside **padding**, then a **
 `max-width` limits the card’s width. `margin: 2rem auto` gives it space above and below and shares remaining horizontal space between its sides, centering the card. Padding keeps the text away from the border. `border-radius` rounds the corners.
 
 We will use `box-sizing: border-box` so a stated width includes padding and border. Otherwise, those are added to the content width.
-
-### Practice: padding or margin? {.unnumbered}
-
-Increase the card’s padding, save, and observe the gap between text and border. Restore it, then increase the top/bottom margin. Explain which gap changed each time.
 
 ## Build the complete style in small steps
 
@@ -1165,10 +1086,6 @@ h1 {
 
 `:hover` selects the button while a pointer is over it. `:focus-visible` provides a visible outline when focus should be shown, such as during keyboard navigation. The color change and outline are CSS responses. They do not count points or run a game rule.
 
-### Practice: check the player’s view {.unnumbered}
-
-Open the page. Find the instructions, monster, score, and message. Move the pointer over the monster, then press Tab until the button receives focus. Check that you can tell which control is selected. Make the browser narrower and check that the card stays within the page.
-
 ## Add a local picture when it helps
 
 For an optional picture, copy the supplied [gem.svg](../games/assets/2d/gem.svg) into your `monster-scene/` folder. Add this below the instructions:
@@ -1191,10 +1108,6 @@ For an optional picture, copy the supplied [gem.svg](../games/assets/2d/gem.svg)
 ```
 
 `height: auto` keeps the image’s proportions. A picture of a gem does not automatically make it collectible. Chapter 4 will help you describe the rule you would need.
-
-### Practice: predict an image change {.unnumbered}
-
-Change only the width. Predict whether the image will stretch or keep its proportions, then check. Add a background color and explain whether you changed the picture file or the CSS box around it.
 
 ## Read the basic CSS summary
 
@@ -1228,13 +1141,29 @@ Give `#message` a pale background and some padding. Check that it is still easy 
 
 A friend writes `monster { background: purple; }`, but their button has `class="monster"`. Explain the mismatch, fix it, and verify the result.
 
+### Exercise 4: Test the connection {.unnumbered}
+
+Change the color to `purple`, save, and refresh. The page text should change. If it does not, check the file name, folder, and `href` spelling. Return to the original color after the test.
+
+### Exercise 5: Choose the right selector {.unnumbered}
+
+Make every `h2` heading purple. Then make only the instructions italic. Explain why one selector has a dot and the other does not.
+
+### Exercise 6: Padding or margin? {.unnumbered}
+
+Increase the card’s padding, save, and observe the gap between text and border. Restore it, then increase the top/bottom margin. Explain which gap changed each time.
+
+### Exercise 7: Check the player’s view {.unnumbered}
+
+Open the page. Find the instructions, monster, score, and message. Move the pointer over the monster, then press Tab until the button receives focus. Check that you can tell which control is selected. Make the browser narrower and check that the card stays within the page.
+
+### Exercise 8: Predict an image change {.unnumbered}
+
+In the `.game-art` CSS rule, change only the width. Predict whether the image will stretch or keep its proportions, then check. Add a background color and explain whether you changed the picture file or the CSS box around it.
+
 ## Challenge: Style your own scene {.unnumbered}
 
 **Structure:** Reuse your Chapter 2 page. **Style:** Choose a readable palette, a clear target, and useful spacing. Check narrow-screen layout and keyboard focus. **Behavior:** Confirm that pressing the target still does not change the score; style has not created that rule.
-
-## Checkpoint {.unnumbered}
-
-Show one rule for text, one for spacing, and one for the target. Explain how the stylesheet connects to the page. Your scene is ready for Chapter 4 when its parts are both present and understandable.
 
 # Behavior: Plan Actions and Game Rules {#sec-ch04}
 
@@ -1279,10 +1208,6 @@ A **behavior** describes what the game does when something happens. **Input** is
 
 Changing the button’s color is a style change. Changing how many points a hit earns is a behavior change. Adding a new score display is a structure change. One feature may need all three responsibilities.
 
-### Practice: separate the responsibilities {.unnumbered}
-
-Classify these changes: add a lives display; give the display more spacing; reduce lives after a missed action. Name each stage and explain your choice.
-
 ## Run the rule on paper
 
 Draw the monster, score, and message on a sheet of paper. Write `0` in the score area. One person is the player; another carries out the rule exactly as written.
@@ -1300,10 +1225,6 @@ Draw the monster, score, and message on a sheet of paper. Write `0` in the score
 
 This makes the expected results explicit. It does not prove that the browser will receive a click or that future code is correct. It gives you a rule and test cases for that code.
 
-### Practice: change one rule {.unnumbered}
-
-Make each hit earn two points instead. Predict the first three scores before simulating them. Which page elements and CSS rules can remain unchanged?
-
 ## Choose controls for player input
 
 Your monster is already a `<button>`. Add a nickname field above the arena, inside `<main>`:
@@ -1318,10 +1239,6 @@ Your monster is already a `<button>`. Add a nickname field above the arena, insi
 `<label>` names the control. Its `for` value matches the input’s unique `id`. Clicking the label focuses the field. `type="text"` chooses a text box, `value` supplies its initial value, and `name` identifies the field for form data. `<input>` is a void element.
 
 Your future rule could be: “When a round starts, read the nickname and use it in the welcome message.” Typing a name alone does not implement that rule.
-
-### Practice: check the label connection {.unnumbered}
-
-Click the label, type a nickname, and use Tab to move away. Check that the text field received focus. Temporarily misspell the label’s `for` value, observe what changes, and restore it.
 
 ### Add a choice menu {.unnumbered}
 
@@ -1386,10 +1303,6 @@ Choose one clear end rule. If five points ends the round, later hits should not 
 
 The repeated player activity—hit, see progress, decide to hit again—is a **core play loop**. It describes play. The later animation loop describes repeating work in code; the two ideas have different jobs.
 
-### Practice: add a restart control {.unnumbered}
-
-Add `<button id="restart" type="button">Restart</button>` after the message. Give it readable spacing and a visible keyboard focus style using Chapter 3’s approach. Write the values and messages that Restart should restore. Pressing it does not run that plan yet; the event lesson will connect it.
-
 ## Connect and test all three stages {#sec-ch04-development-flow}
 
 Use the full guide now that you have practiced each responsibility separately:
@@ -1426,13 +1339,25 @@ A player chooses Hard, but the game still awards one point per hit. Explain why 
 
 A game restarts with score zero but still says `Awake!`. Describe the missing reset operation and a test that would reveal the problem.
 
+### Exercise 4: Separate the responsibilities {.unnumbered}
+
+Classify these changes: add a lives display; give the display more spacing; reduce lives after a missed action. Name each stage and explain your choice.
+
+### Exercise 5: Change one rule {.unnumbered}
+
+Make each hit earn two points instead. Predict the first three scores before simulating them. Which page elements and CSS rules can remain unchanged?
+
+### Exercise 6: Check the label connection {.unnumbered}
+
+Click the label, type a nickname, and use Tab to move away. Check that the text field received focus. Temporarily misspell the label’s `for` value, observe what changes, and restore it.
+
+### Exercise 7: Add a restart control {.unnumbered}
+
+Add `<button id="restart" type="button">Restart</button>` after the message. Give it readable spacing and a visible keyboard focus style using Chapter 3’s approach. Write the values and messages that Restart should restore. Pressing it does not run that plan yet; the event lesson will connect it.
+
 ## Challenge: Your action plan {.unnumbered}
 
 **Structure:** Reuse your scene and add only the controls or displays your idea needs. **Style:** Make them readable and test their focus. **Behavior:** Write three action/result pairs, an end rule, and a restart rule. Simulate one successful action, one boundary case, and one restart.
-
-## Checkpoint {.unnumbered}
-
-Show your scene, explain its style, and trace one action through input, state, rule, and feedback. Keep your predictions beside your files. Chapter 5 teaches the JavaScript memory for these plans; Chapter 6 connects actions to code.
 
 # Teach the Game to Remember {#sec-ch05}
 
@@ -2232,9 +2157,7 @@ let score = 0;
 
 That keeps the first event example easy to follow. The `player` object gives you a preview of how larger games can organize several related values together.
 
-#### Practice changing the score in memory {.unnumbered}
-
-Before a click can change the score automatically, practice changing it yourself:
+Before a click can change the score automatically, you can change the variable yourself:
 
 ```javascript
 console.log(score); // 0
@@ -2541,6 +2464,10 @@ Does the paragraph automatically change to `Score: 1`?
 
 Explain your answer using the ideas of **JavaScript memory** and **HTML display**.
 
+### Exercise 9: Change the score in memory {.unnumbered}
+
+Run the score changes shown earlier in this chapter. Predict the value after each change and compare it with the web page's `Score: 0` display. Explain why the displayed score stays at zero.
+
 ## Challenges {.unnumbered}
 
 ### Challenge 1: Customize Your Monster {.unnumbered}
@@ -2603,16 +2530,6 @@ let hits = 0;
 ```
 
 Write one sentence explaining how a click event could change your variable later.
-
-## Development-flow checkpoint
-
-Explain your starter in this order:
-
-1. **Build the scene structure:** Which HTML parts form the game scene? Which IDs identify the monster, message, and score?
-2. **Style the scene:** Which CSS rules make those parts readable and recognizable? Change one visual value and check that the game data stays the same.
-3. **Behavior:** What should one hit do? Which variables prepare memory for that operation, and which connection is still waiting for Chapter 6?
-
-For a new example, begin with the same questions. Build and check the structure, style it, then prepare and connect one game action at a time.
 
 # Make the Page React: DOM Elements and Click Events {#sec-ch06}
 
@@ -8977,7 +8894,7 @@ h1 {
 
 `width` keeps the image at a friendly size. `padding` adds breathing room inside its frame. `border` draws the edge, `border-radius` rounds the corners, and `box-shadow` makes the gem look as if it is resting above the card. Try changing `border-radius` to `50%`; the square frame becomes a circle.
 
-::: {.callout-note .advanced-study title="Practice CSS one property at a time" icon="false" collapse="false"}
+::: {.callout-note .advanced-study title="Experiment with one CSS property at a time" icon="false" collapse="false"}
 
 [OPTIONAL DEEPER DIVE]{.study-badge}
 

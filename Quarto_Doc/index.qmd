@@ -10,7 +10,7 @@ This book teaches JavaScript in the order a young game designer needs it. Instea
 
 Each part is a milestone of your understanding of using JavaScript to build a game.
 
-Chapter 1 prepares your computer and project files. Build one small scene in three gradual lessons: [Chapter 2: Structure](chapters/02-scene-structure.qmd), [Chapter 3: Style](chapters/03-scene-style.qmd), and [Chapter 4: Behavior](chapters/04-game-behavior.qmd). Try each chapter’s examples and short practices before continuing to JavaScript in Chapter 5. The [HTML/CSS reference](appendices/f-html-css-reference.qmd) keeps the detailed catalog available for later lookup.
+Chapter 1 prepares your computer and project files. Build one small scene in three gradual lessons: [Chapter 2: Structure](chapters/02-scene-structure.qmd), [Chapter 3: Style](chapters/03-scene-style.qmd), and [Chapter 4: Behavior](chapters/04-game-behavior.qmd). Try each chapter’s examples and exercises before continuing to JavaScript in Chapter 5. The [HTML/CSS reference](appendices/f-html-css-reference.qmd) keeps the detailed catalog available for later lookup.
 
 
 ## Choose your reading path {.unnumbered}

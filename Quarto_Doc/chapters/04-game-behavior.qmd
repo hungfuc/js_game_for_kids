@@ -41,10 +41,6 @@ A **behavior** describes what the game does when something happens. **Input** is
 
 Changing the button’s color is a style change. Changing how many points a hit earns is a behavior change. Adding a new score display is a structure change. One feature may need all three responsibilities.
 
-### Practice: separate the responsibilities {.unnumbered}
-
-Classify these changes: add a lives display; give the display more spacing; reduce lives after a missed action. Name each stage and explain your choice.
-
 ## Run the rule on paper
 
 Draw the monster, score, and message on a sheet of paper. Write `0` in the score area. One person is the player; another carries out the rule exactly as written.
@@ -62,10 +58,6 @@ Draw the monster, score, and message on a sheet of paper. Write `0` in the score
 
 This makes the expected results explicit. It does not prove that the browser will receive a click or that future code is correct. It gives you a rule and test cases for that code.
 
-### Practice: change one rule {.unnumbered}
-
-Make each hit earn two points instead. Predict the first three scores before simulating them. Which page elements and CSS rules can remain unchanged?
-
 ## Choose controls for player input
 
 Your monster is already a `<button>`. Add a nickname field above the arena, inside `<main>`:
@@ -80,10 +72,6 @@ Your monster is already a `<button>`. Add a nickname field above the arena, insi
 `<label>` names the control. Its `for` value matches the input’s unique `id`. Clicking the label focuses the field. `type="text"` chooses a text box, `value` supplies its initial value, and `name` identifies the field for form data. `<input>` is a void element.
 
 Your future rule could be: “When a round starts, read the nickname and use it in the welcome message.” Typing a name alone does not implement that rule.
-
-### Practice: check the label connection {.unnumbered}
-
-Click the label, type a nickname, and use Tab to move away. Check that the text field received focus. Temporarily misspell the label’s `for` value, observe what changes, and restore it.
 
 ### Add a choice menu {.unnumbered}
 
@@ -148,10 +136,6 @@ Choose one clear end rule. If five points ends the round, later hits should not 
 
 The repeated player activity—hit, see progress, decide to hit again—is a **core play loop**. It describes play. The later animation loop describes repeating work in code; the two ideas have different jobs.
 
-### Practice: add a restart control {.unnumbered}
-
-Add `<button id="restart" type="button">Restart</button>` after the message. Give it readable spacing and a visible keyboard focus style using Chapter 3’s approach. Write the values and messages that Restart should restore. Pressing it does not run that plan yet; the event lesson will connect it.
-
 ## Connect and test all three stages {#sec-ch04-development-flow}
 
 Use the full guide now that you have practiced each responsibility separately:
@@ -188,10 +172,22 @@ A player chooses Hard, but the game still awards one point per hit. Explain why 
 
 A game restarts with score zero but still says `Awake!`. Describe the missing reset operation and a test that would reveal the problem.
 
+### Exercise 4: Separate the responsibilities {.unnumbered}
+
+Classify these changes: add a lives display; give the display more spacing; reduce lives after a missed action. Name each stage and explain your choice.
+
+### Exercise 5: Change one rule {.unnumbered}
+
+Make each hit earn two points instead. Predict the first three scores before simulating them. Which page elements and CSS rules can remain unchanged?
+
+### Exercise 6: Check the label connection {.unnumbered}
+
+Click the label, type a nickname, and use Tab to move away. Check that the text field received focus. Temporarily misspell the label’s `for` value, observe what changes, and restore it.
+
+### Exercise 7: Add a restart control {.unnumbered}
+
+Add `<button id="restart" type="button">Restart</button>` after the message. Give it readable spacing and a visible keyboard focus style using Chapter 3’s approach. Write the values and messages that Restart should restore. Pressing it does not run that plan yet; the event lesson will connect it.
+
 ## Challenge: Your action plan {.unnumbered}
 
 **Structure:** Reuse your scene and add only the controls or displays your idea needs. **Style:** Make them readable and test their focus. **Behavior:** Write three action/result pairs, an end rule, and a restart rule. Simulate one successful action, one boundary case, and one restart.
-
-## Checkpoint {.unnumbered}
-
-Show your scene, explain its style, and trace one action through input, state, rule, and feedback. Keep your predictions beside your files. Chapter 5 teaches the JavaScript memory for these plans; Chapter 6 connects actions to code.
