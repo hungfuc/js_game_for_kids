@@ -209,7 +209,7 @@ Before you make a game, meet the tools you will use. A **computer** runs program
 
 ::: {.callout-important title="When do I need to install a local web server?" icon="false"}
 
-**Chapters 2–14:** the supplied one-file games open directly in a browser. **Chapters 15–22:** all six Game Lab projects require a local HTTP server. Install **Node.js LTS** once from [nodejs.org/en/download](https://nodejs.org/en/download), then use the included Windows or Mac launcher each time you play. The [Game Lab guide](../appendices/e-game-lab.qmd) has the game-by-game requirements and step-by-step installation. The four 3D projects also need internet for library downloads by default.
+**Chapters 3–15:** the supplied one-file games open directly in a browser. **Chapters 16–23:** all six Game Lab projects require a local HTTP server. Install **Node.js LTS** once from [nodejs.org/en/download](https://nodejs.org/en/download), then use the included Windows or Mac launcher each time you play. The [Game Lab guide](../appendices/e-game-lab.qmd) has the game-by-game requirements and step-by-step installation. The four 3D projects also need internet for library downloads by default.
 
 :::
 
@@ -282,7 +282,7 @@ flowchart TB
 
 - A modern web browser such as Chrome, Edge, Firefox, or Safari.
 - A plain-text code editor available on your computer.
-- A folder for each website or game containing its files. Chapter 3 begins with separate HTML and CSS files; early JavaScript examples keep their code close to the page so you can focus on the programming ideas.
+- A folder for each website or game containing its files. Chapter 4 begins with separate HTML and CSS files; early JavaScript examples keep their code close to the page so you can focus on the programming ideas.
 
 ::: {.callout-tip .setup title="Start with one file" icon="false"}
 
@@ -300,7 +300,7 @@ Your web browser is the program that turns your game files into a page you can p
 | **CSS** | Chooses how those parts look. | A purple button or a large play area. |
 | **JavaScript** | Makes the page react and change. | Add a point when the player clicks. |
 
-Use **Build the scene structure → Style the scene → Program game behavior**: HTML describes the first pages, CSS makes their parts readable, and JavaScript adds game operations and actions. Chapter 3 uses linked HTML and CSS files; Chapter 5 combines a styled scene and JavaScript data in one starter file.
+Use **Build the scene structure → Style the scene → Program game behavior**: HTML describes the first pages, CSS makes their parts readable, and JavaScript adds game operations and actions. Chapter 4 uses linked HTML and CSS files; Chapter 6 combines a styled scene and JavaScript data in one starter file.
 
 ### What “client-side JavaScript” means {.unnumbered}
 
@@ -374,17 +374,17 @@ Build one small feature in three passes. For **Monster Clicker**, the feature is
 | **Behavior** | What should happen when the player acts? | Use JavaScript to add a point when the button is pressed. |
 
 
-Chapter 2 builds the structure, Chapter 3 adds style, and Chapter 4 plans behavior. Keep the same small scene as you move from one pass to the next.
+Chapter 2 turns a game story into small feature plans. Chapter 3 builds the structure, Chapter 4 adds style, and Chapter 5 plans behavior. Keep the same small scene as you move from one pass to the next.
 
 ## How HTML, CSS, and JavaScript fit together
 
-You will write HTML in Chapter 2 and CSS in Chapter 3. First, recognize the three jobs that work together in our games:
+You will write HTML in Chapter 3 and CSS in Chapter 4. First, recognize the three jobs that work together in our games:
 
 - **HTML** describes the page's structure and content.
 - **CSS** describes much of the page's appearance and layout.
 - **JavaScript** gives the page programmable behavior.
 
-These are file types you will recognize in a project folder. Chapter 2 introduces scene structure and HTML; Chapter 3 teaches CSS style; Chapter 4 plans behavior.
+These are file types you will recognize in a project folder. Chapter 3 introduces scene structure and HTML; Chapter 4 teaches CSS style; Chapter 5 plans behavior.
 
 | Technology | Job in a future web game | Example |
 | --- | --- | --- |
@@ -393,17 +393,17 @@ These are file types you will recognize in a project folder. Chapter 2 introduce
 | JavaScript | what it does | increase the score after an action |
 
 
-Do not worry about the code yet. Chapter 2 begins with HTML and shows how a browser turns page structure into something you can see.
+Do not worry about the code yet. Chapter 3 begins with HTML and shows how a browser turns page structure into something you can see.
 
 ### The browser builds a page from connected files {.unnumbered}
 
 The page file is the starting point. It can point to a stylesheet, pictures, and JavaScript files. The browser loads those resources, builds the page's structure, applies its styles, and runs its scripts. Loading a picture or a program may take time, so later games wait until their resources are ready.
 
-The browser keeps a working representation of the page called the **Document Object Model**, or **DOM**. A heading, a button, and a score paragraph become elements in that representation. Chapter 2 gives some elements unique labels called **IDs**. Chapter 6 teaches JavaScript to find those elements and change them. Changing the page in the browser does not automatically change the saved HTML file.
+The browser keeps a working representation of the page called the **Document Object Model**, or **DOM**. A heading, a button, and a score paragraph become elements in that representation. Chapter 3 gives some elements unique labels called **IDs**. Chapter 7 teaches JavaScript to find those elements and change them. Changing the page in the browser does not automatically change the saved HTML file.
 
 ### A first look at HTML {.unnumbered}
 
-This tiny page contains a heading, a button, and a score. Save it as `index.html` if you want to see the unstyled parts in a browser. Chapter 2 explains how the elements fit together.
+This tiny page contains a heading, a button, and a score. Save it as `index.html` if you want to see the unstyled parts in a browser. Chapter 3 explains how the elements fit together.
 
 ```html
 <!doctype html>
@@ -434,7 +434,7 @@ An **ID** is a name for one element on the page. Each ID in this example is uniq
 
 ### A first look at CSS {.unnumbered}
 
-CSS changes how the same elements look. The `#` symbol selects an element by its ID; these rules use only the IDs from the HTML example. Chapter 3 shows where to place CSS and how to connect a stylesheet.
+CSS changes how the same elements look. The `#` symbol selects an element by its ID; these rules use only the IDs from the HTML example. Chapter 4 shows where to place CSS and how to connect a stylesheet.
 
 ```css
 #game-title {

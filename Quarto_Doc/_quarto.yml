@@ -17,35 +17,36 @@ book:
   - part: Web Foundation
     chapters:
     - chapters/01-computer-and-web-basics.qmd
-    - chapters/02-scene-structure.qmd
-    - chapters/03-scene-style.qmd
-    - chapters/04-game-behavior.qmd
-  - part: Dynamic Web
+    - chapters/02-game-design.qmd
+    - chapters/03-scene-structure.qmd
+    - chapters/04-scene-style.qmd
+    - chapters/05-game-behavior.qmd
+  - part: Dynamic Game Behaviors
     chapters:
-    - chapters/05-variables-monster-starter.qmd
-    - chapters/06-dom-and-event-driven-programming.qmd
-    - chapters/07-monster-decisions.qmd
-    - chapters/08-monster-loops.qmd
-    - chapters/09-catch-the-star.qmd
+    - chapters/06-variables-monster-starter.qmd
+    - chapters/07-dom-and-event-driven-programming.qmd
+    - chapters/08-monster-decisions.qmd
+    - chapters/09-monster-loops.qmd
+    - chapters/10-catch-the-star.qmd
   - part: Build a Local 2D Game
     chapters:
-    - chapters/10-bouncing-ball.qmd
-    - chapters/11-pong.qmd
-    - chapters/12-breakout.qmd
-    - chapters/13-snake.qmd
+    - chapters/11-bouncing-ball.qmd
+    - chapters/12-pong.qmd
+    - chapters/13-breakout.qmd
+    - chapters/14-snake.qmd
   - part: 2D Games in Server 
     chapters:
-    - chapters/14-game-studio.qmd
-    - chapters/15-real-time-2d.qmd
-    - chapters/16-collision-and-platforms.qmd
-    - chapters/17-custom-2d-assets.qmd
-    - chapters/18-robot-orchard.qmd
+    - chapters/15-game-studio.qmd
+    - chapters/16-real-time-2d.qmd
+    - chapters/17-collision-and-platforms.qmd
+    - chapters/18-custom-2d-assets.qmd
+    - chapters/19-robot-orchard.qmd
   - part: Explore 3D with Three.js and Rapier
     chapters:
-    - chapters/19-first-threejs-world.qmd
-    - chapters/20-custom-3d-assets.qmd
-    - chapters/21-rapier-physics.qmd
-    - chapters/22-marble-quest.qmd
+    - chapters/20-first-threejs-world.qmd
+    - chapters/21-custom-3d-assets.qmd
+    - chapters/22-rapier-physics.qmd
+    - chapters/23-marble-quest.qmd
   - references.qmd
   appendices:
   - appendices/a-cheat-sheet.qmd

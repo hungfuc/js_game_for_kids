@@ -16,14 +16,14 @@ This book teaches JavaScript in the order a young game designer needs it. Instea
 
 Each part is a milestone of your understanding of using JavaScript to build a game.
 
-Chapter 1 prepares your computer and project files. Build one small scene in three gradual lessons: [Chapter 2: Structure](#sec-ch02), [Chapter 3: Style](#sec-ch03), and [Chapter 4: Behavior](#sec-ch04). Try each chapter’s examples and exercises before continuing to JavaScript in Chapter 5. The [HTML/CSS reference](#sec-html-css-reference) keeps the detailed catalog available for later lookup.
+Chapter 1 prepares your computer and project files. [Chapter 2: Design and develop a game](#sec-ch02) starts with a game story and plans feature-by-feature iterations of Structure → Style → Behavior. Then build one small scene in three gradual lessons: [Chapter 3: Structure](#sec-ch03), [Chapter 4: Style](#sec-ch04), and [Chapter 5: Behavior](#sec-ch05). Try each chapter’s examples and exercises before continuing to JavaScript in Chapter 6. The [HTML/CSS reference](#sec-html-css-reference) keeps the detailed catalog available for later lookup.
 
 
 ## Choose your reading path {.unnumbered}
 
 Follow the main explanations and code examples first. Use the diagrams to trace what the program is doing. Then try a challenge and explain your result in your own words.
 
-Chapters 1-14 establish the web and JavaScript foundations. Chapters 15-18 build a complete 2D adventure. Chapters 19-22 introduce Three.js, custom 3D models, and Rapier physics. The later projects take more time and combine earlier ideas; work through them in small experiments.
+Chapters 1-15 establish the web and JavaScript foundations. Chapters 16-19 build a complete 2D adventure. Chapters 20-23 introduce Three.js, custom 3D models, and Rapier physics. The later projects take more time and combine earlier ideas; work through them in small experiments.
 
 Purple **Advanced Study** blocks are optional deeper dives into HTML, CSS, JavaScript, and game systems. They start open; you can collapse them while following the main path and return later.
 
@@ -60,7 +60,7 @@ Rose blocks help you check your understanding.
 
 A **complete example** includes the setup for that small project. A **code fragment** illustrates one part of a game and relies on the variables or functions discussed nearby. Do not paste every fragment into one file without checking where it belongs: some examples replace earlier versions.
 
-Chapters 11–13 use Pong, Breakout, and Snake to explain larger game-building patterns. Each chapter includes a complete small browser example alongside fragments explaining individual rules. Locate its scene, its style, and its actions before changing a fragment. Chapters 15-22 add complete companion projects in the Game Lab. Their chapter snippets explain selected parts; the linked project folders contain the complete runnable source.
+Chapters 12–14 use Pong, Breakout, and Snake to explain larger game-building patterns. Each chapter includes a complete small browser example alongside fragments explaining individual rules. Locate its scene, its style, and its actions before changing a fragment. Chapters 16-23 add complete companion projects in the Game Lab. Their chapter snippets explain selected parts; the linked project folders contain the complete runnable source.
 
 ## A safe learning habit {.unnumbered}
 
@@ -71,27 +71,28 @@ When a program does not work, do not immediately replace it with someone else's 
 | Chapter | Game | Coding ideas | Your new ability |
 | --- | --- | --- | --- |
 | 1 | [Computer and web basics](#sec-ch01) | Client, browser, files, servers | Explain where a web page comes from |
-| 2 | [Structure: Monster Clicker page](#sec-ch02) | Small idea, sketch, HTML elements, attributes, nesting | Build and check the parts of a scene |
-| 3 | [Style: Monster Clicker appearance](#sec-ch03) | CSS rules, selectors, text, boxes, focus | Make the existing scene readable |
-| 4 | [Behavior: Monster Clicker action plan](#sec-ch04) | Input controls, state, rules, feedback, tests | Predict actions and plan game behavior |
-| 5 | [Monster Clicker Starter](#sec-ch05) | Variables, arrays, objects | Prepare memory for game actions |
-| 6 | [Make the Page React](#sec-ch06) | DOM, events, functions | Connect player actions to page updates |
-| 7 | [Monster Decisions](#sec-ch07) | Conditions, branches | Enforce game rules |
-| 8 | [Monster Swarm](#sec-ch08) | Arrays, loops | Process a collection of monsters |
-| 9 | [Catch the Star](#sec-ch09) | Timers, coordinates, DOM | Change the page over time |
-| 10 | [Bouncing Ball](#sec-ch10) | Canvas, animation | Draw every frame yourself |
-| 11 | [Pong](#sec-ch11) | Keyboard, game loop | Read keys while the game keeps running |
-| 12 | [Breakout](#sec-ch12) | Arrays, collision | Manage many objects |
-| 13 | [Snake](#sec-ch13) | Grid logic, state | Update a world one step at a time |
-| 14 | [Game Studio](#sec-ch14) | Planning, polish, final project | Design your own rules |
-| 15 | [Collision Playground](#sec-ch15) | Input, velocity, fixed steps | Build a predictable real-time loop |
-| 16 | [Platforms and jumping](#sec-ch16) | Hitboxes, collision response, gravity | Stop at walls and land on platforms |
-| 17 | [Your own 2D artwork](#sec-ch17) | Sprite sheets, loading, JSON levels | Make the game look like your design |
-| 18 | [Robot Orchard](#sec-ch18) | Scrolling, enemies, goals, restart | Finish a complete 2D adventure |
-| 19 | [Robot Island Explorer](#sec-ch19) | Scene, camera, renderer, 3D movement | Build and explore a 3D world |
-| 20 | [3D Asset Workshop](#sec-ch20) | GLB models, origins, materials | Customize and import 3D artwork |
-| 21 | [Rapier Drop Lab](#sec-ch21) | Bodies, colliders, bounce, fixed steps | Connect physics to the picture |
-| 22 | [Marble Quest](#sec-ch22) | Forces, sensors, scoring, respawn | Finish a 3D physics game |
+| 2 | [Design and develop a game](#sec-ch02) | Game story, small features, iterative Structure → Style → Behavior | Plan and test features, then connect the plan to HTML, CSS, and JavaScript |
+| 3 | [Structure: Monster Clicker page](#sec-ch03) | Small idea, sketch, HTML elements, attributes, nesting | Build and check the parts of a scene |
+| 4 | [Style: Monster Clicker appearance](#sec-ch04) | CSS rules, selectors, text, boxes, focus | Make the existing scene readable |
+| 5 | [Behavior: Monster Clicker action plan](#sec-ch05) | Input controls, state, rules, feedback, tests | Predict actions and plan game behavior |
+| 6 | [Monster Clicker Starter](#sec-ch06) | Variables, arrays, objects | Prepare memory for game actions |
+| 7 | [Make the Page React](#sec-ch07) | DOM, events, functions | Connect player actions to page updates |
+| 8 | [Monster Decisions](#sec-ch08) | Conditions, branches | Enforce game rules |
+| 9 | [Monster Swarm](#sec-ch09) | Arrays, loops | Process a collection of monsters |
+| 10 | [Catch the Star](#sec-ch10) | Timers, coordinates, DOM | Change the page over time |
+| 11 | [Bouncing Ball](#sec-ch11) | Canvas, animation | Draw every frame yourself |
+| 12 | [Pong](#sec-ch12) | Keyboard, game loop | Read keys while the game keeps running |
+| 13 | [Breakout](#sec-ch13) | Arrays, collision | Manage many objects |
+| 14 | [Snake](#sec-ch14) | Grid logic, state | Update a world one step at a time |
+| 15 | [Game Studio](#sec-ch15) | Planning, polish, final project | Design your own rules |
+| 16 | [Collision Playground](#sec-ch16) | Input, velocity, fixed steps | Build a predictable real-time loop |
+| 17 | [Platforms and jumping](#sec-ch17) | Hitboxes, collision response, gravity | Stop at walls and land on platforms |
+| 18 | [Your own 2D artwork](#sec-ch18) | Sprite sheets, loading, JSON levels | Make the game look like your design |
+| 19 | [Robot Orchard](#sec-ch19) | Scrolling, enemies, goals, restart | Finish a complete 2D adventure |
+| 20 | [Robot Island Explorer](#sec-ch20) | Scene, camera, renderer, 3D movement | Build and explore a 3D world |
+| 21 | [3D Asset Workshop](#sec-ch21) | GLB models, origins, materials | Customize and import 3D artwork |
+| 22 | [Rapier Drop Lab](#sec-ch22) | Bodies, colliders, bounce, fixed steps | Connect physics to the picture |
+| 23 | [Marble Quest](#sec-ch23) | Forces, sensors, scoring, respawn | Finish a 3D physics game |
 
 ## Open the Game Lab {.unnumbered}
 
@@ -314,7 +315,7 @@ Before you make a game, meet the tools you will use. A **computer** runs program
 
 ::: {.callout-important title="When do I need to install a local web server?" icon="false"}
 
-**Chapters 2–14:** the supplied one-file games open directly in a browser. **Chapters 15–22:** all six Game Lab projects require a local HTTP server. Install **Node.js LTS** once from [nodejs.org/en/download](https://nodejs.org/en/download), then use the included Windows or Mac launcher each time you play. The [Game Lab guide](../appendices/e-game-lab.qmd) has the game-by-game requirements and step-by-step installation. The four 3D projects also need internet for library downloads by default.
+**Chapters 3–15:** the supplied one-file games open directly in a browser. **Chapters 16–23:** all six Game Lab projects require a local HTTP server. Install **Node.js LTS** once from [nodejs.org/en/download](https://nodejs.org/en/download), then use the included Windows or Mac launcher each time you play. The [Game Lab guide](../appendices/e-game-lab.qmd) has the game-by-game requirements and step-by-step installation. The four 3D projects also need internet for library downloads by default.
 
 :::
 
@@ -387,7 +388,7 @@ flowchart TB
 
 - A modern web browser such as Chrome, Edge, Firefox, or Safari.
 - A plain-text code editor available on your computer.
-- A folder for each website or game containing its files. Chapter 3 begins with separate HTML and CSS files; early JavaScript examples keep their code close to the page so you can focus on the programming ideas.
+- A folder for each website or game containing its files. Chapter 4 begins with separate HTML and CSS files; early JavaScript examples keep their code close to the page so you can focus on the programming ideas.
 
 ::: {.callout-tip .setup title="Start with one file" icon="false"}
 
@@ -405,7 +406,7 @@ Your web browser is the program that turns your game files into a page you can p
 | **CSS** | Chooses how those parts look. | A purple button or a large play area. |
 | **JavaScript** | Makes the page react and change. | Add a point when the player clicks. |
 
-Use **Build the scene structure → Style the scene → Program game behavior**: HTML describes the first pages, CSS makes their parts readable, and JavaScript adds game operations and actions. Chapter 3 uses linked HTML and CSS files; Chapter 5 combines a styled scene and JavaScript data in one starter file.
+Use **Build the scene structure → Style the scene → Program game behavior**: HTML describes the first pages, CSS makes their parts readable, and JavaScript adds game operations and actions. Chapter 4 uses linked HTML and CSS files; Chapter 6 combines a styled scene and JavaScript data in one starter file.
 
 ### What “client-side JavaScript” means {.unnumbered}
 
@@ -479,17 +480,17 @@ Build one small feature in three passes. For **Monster Clicker**, the feature is
 | **Behavior** | What should happen when the player acts? | Use JavaScript to add a point when the button is pressed. |
 
 
-Chapter 2 builds the structure, Chapter 3 adds style, and Chapter 4 plans behavior. Keep the same small scene as you move from one pass to the next.
+Chapter 2 turns a game story into small feature plans. Chapter 3 builds the structure, Chapter 4 adds style, and Chapter 5 plans behavior. Keep the same small scene as you move from one pass to the next.
 
 ## How HTML, CSS, and JavaScript fit together
 
-You will write HTML in Chapter 2 and CSS in Chapter 3. First, recognize the three jobs that work together in our games:
+You will write HTML in Chapter 3 and CSS in Chapter 4. First, recognize the three jobs that work together in our games:
 
 - **HTML** describes the page's structure and content.
 - **CSS** describes much of the page's appearance and layout.
 - **JavaScript** gives the page programmable behavior.
 
-These are file types you will recognize in a project folder. Chapter 2 introduces scene structure and HTML; Chapter 3 teaches CSS style; Chapter 4 plans behavior.
+These are file types you will recognize in a project folder. Chapter 3 introduces scene structure and HTML; Chapter 4 teaches CSS style; Chapter 5 plans behavior.
 
 | Technology | Job in a future web game | Example |
 | --- | --- | --- |
@@ -498,17 +499,17 @@ These are file types you will recognize in a project folder. Chapter 2 introduce
 | JavaScript | what it does | increase the score after an action |
 
 
-Do not worry about the code yet. Chapter 2 begins with HTML and shows how a browser turns page structure into something you can see.
+Do not worry about the code yet. Chapter 3 begins with HTML and shows how a browser turns page structure into something you can see.
 
 ### The browser builds a page from connected files {.unnumbered}
 
 The page file is the starting point. It can point to a stylesheet, pictures, and JavaScript files. The browser loads those resources, builds the page's structure, applies its styles, and runs its scripts. Loading a picture or a program may take time, so later games wait until their resources are ready.
 
-The browser keeps a working representation of the page called the **Document Object Model**, or **DOM**. A heading, a button, and a score paragraph become elements in that representation. Chapter 2 gives some elements unique labels called **IDs**. Chapter 6 teaches JavaScript to find those elements and change them. Changing the page in the browser does not automatically change the saved HTML file.
+The browser keeps a working representation of the page called the **Document Object Model**, or **DOM**. A heading, a button, and a score paragraph become elements in that representation. Chapter 3 gives some elements unique labels called **IDs**. Chapter 7 teaches JavaScript to find those elements and change them. Changing the page in the browser does not automatically change the saved HTML file.
 
 ### A first look at HTML {.unnumbered}
 
-This tiny page contains a heading, a button, and a score. Save it as `index.html` if you want to see the unstyled parts in a browser. Chapter 2 explains how the elements fit together.
+This tiny page contains a heading, a button, and a score. Save it as `index.html` if you want to see the unstyled parts in a browser. Chapter 3 explains how the elements fit together.
 
 ```html
 <!doctype html>
@@ -539,7 +540,7 @@ An **ID** is a name for one element on the page. Each ID in this example is uniq
 
 ### A first look at CSS {.unnumbered}
 
-CSS changes how the same elements look. The `#` symbol selects an element by its ID; these rules use only the IDs from the HTML example. Chapter 3 shows where to place CSS and how to connect a stylesheet.
+CSS changes how the same elements look. The `#` symbol selects an element by its ID; these rules use only the IDs from the HTML example. Chapter 4 shows where to place CSS and how to connect a stylesheet.
 
 ```css
 #game-title {
@@ -726,18 +727,146 @@ You are designing two games:
 
 For each game, explain which work could happen in the browser and whether a server would be useful. You do not need to design the server; explain only the jobs it might perform.
 
-# Structure: Build the Game Scene {#sec-ch02}
+# Design and Develop a Game: From Story to Code {#sec-ch02}
 
 ::: {.chapter-banner}
-[STRUCTURE 02 | Monster Clicker: the page]{.game-title}
+[GAME DESIGN 02 | From an idea to small features]{.game-title}
+[Game story]{.skill-chip} [Iterations]{.skill-chip} [Structure]{.skill-chip} [Style]{.skill-chip} [Behavior]{.skill-chip}
+:::
+
+## Overview {.unnumbered}
+
+Designing a game starts with an idea about the player's experience. Who is the player? What are they trying to achieve? What can they do to reach that goal? A **game story** gives these decisions a purpose.
+
+Development turns that story into something people can play. Choose one small feature, work through **Structure → Style → Behavior**, and check the result. Repeat this process as the game grows. This chapter explains that habit before introducing the tools we will use: **HTML → CSS → JavaScript**.
+
+## Learning Objectives {.unnumbered}
+
+By the end of this chapter, you will be able to:
+
+- express a game idea in one sentence;
+- turn the story into small features;
+- explain Structure, Style, and Behavior;
+- plan and test one feature before adding another;
+- connect the design process to HTML, CSS, and JavaScript.
+
+## Start with a one-line game story
+
+> Collect three stars to light a lighthouse, then start a new round.
+
+This one-line example gives us an action (**collect**), a goal (**light the lighthouse**), and a reason to play again (**a new round**). It is enough to start planning. We can decide the exact controls and rules as we develop the idea.
+
+For your own story, try: **“You ___ to ___.”** Choose one main action and one clear goal. Keep extra levels, powers, and characters for later versions.
+
+## Turn the story into features
+
+A **feature** is one useful thing the player can do or experience. Break the story into small pieces that you can build and check:
+
+| Part of the story | Feature to develop |
+| --- | --- |
+| Collect stars. | Select a star and see the collected count increase. |
+| Light the lighthouse. | Show success when all three stars have been collected. |
+| Start a new round. | Restore the stars, count, and lighthouse to their starting state. |
+
+Make each rule precise enough to test. For this plan, selecting an available star collects it once. Selecting an already collected star adds nothing. Collecting the third star lights the lighthouse and ends the round.
+
+## Develop one feature through three steps
+
+For each feature, ask three questions in order:
+
+| Step | Question | What you plan |
+| --- | --- | --- |
+| **Structure** | What parts are needed, and how do they fit together? | Objects, controls, instructions, displays, and groups. |
+| **Style** | How will players recognize and use those parts? | Appearance, spacing, readable text, and clear visual feedback. |
+| **Behavior** | What happens when the player acts? | Input, remembered information, rules, and resulting changes. |
+
+Begin with labeled boxes and ordinary words. Simple shapes are enough to try an idea. Detailed artwork can come later.
+
+![Build and test one feature through Structure, Style, and Behavior, then choose the next feature.](../figures/chapter_03/structure-style-behavior.svg){#fig-ch02-feature-process fig-alt="Start with a small feature from the story. Build its structure, style its parts, and program its behavior. Predict and playtest one action. Revise a stage if needed, or choose the next small feature when the check passes." width="100%"}
+
+**Read the arrows:** Choose one feature, build its parts, make them understandable, connect its rules, and test it. An **iteration** is one small pass of building, checking, and improving. After a successful check, choose the next feature and repeat the three steps.
+
+## Repeat the process as the game grows
+
+The same one-line story can guide several iterations. Each row below is a complete pass through **Structure → Style → Behavior**, followed by a check.
+
+| Iteration | Structure | Style | Behavior | Check |
+| --- | --- | --- | --- | --- |
+| **1. Collect a star** | Add three selectable stars and a collected-count display. | Make the stars easy to find and the count easy to read; distinguish collected stars. | Selecting an available star marks it collected and adds one to the count. | Select one star twice: the count becomes 1 and stays 1. |
+| **2. Reach the goal** | Reuse the stars and count; add a lighthouse and a result message. | Give the lighthouse a clear lit appearance and show the word `Success!`. | When the count reaches 3, light the lighthouse and end the round. | Two collected stars leave it unlit; the third lights it and shows success. |
+| **3. Play again** | Reuse the scene; add a Restart control. | Give Restart a readable label, comfortable spacing, and visible keyboard focus. | Restore all stars, set the count to 0, clear success, and turn off the light. | Restart after success; collect one star again and expect a count of 1. |
+
+Each iteration adds a small piece to a working game. Reuse the structure and style that already serve the next feature. A new rule may need a new display; an unclear display may need a different layout. Return to the step that needs attention and check the whole feature again.
+
+**State** is information the game remembers, such as which stars have been collected. **Feedback** tells the player what happened, such as an updated count or a lit lighthouse. Keep the remembered information and the visible feedback in agreement.
+
+This process organizes development. It is separate from the browser's file-loading order and from the repeated updates inside a running game.
+
+## Predict, try, observe, and improve
+
+Before testing a feature, write what you expect. Then try the action and compare the result with your prediction. You can first simulate it on paper: point to a star, mark it collected, and update the count. Later, repeat the same test in the browser.
+
+Use the result to choose your next change:
+
+| What you notice | Step to revisit |
+| --- | --- |
+| There is nowhere to show progress. | **Structure:** add a progress display. |
+| The display exists but is hard to read. | **Style:** improve its size, spacing, or contrast. |
+| The same star earns credit twice. | **Behavior:** check whether it was already collected. |
+| Restart shows 0, but the next star changes it to 4. | **Behavior:** reset the remembered count as well as the display. |
+
+After improving a feature, test it again. Once it works, return to the story and choose the next small feature.
+
+## Connect the design to HTML → CSS → JavaScript
+
+Now the three web tools have a purpose:
+
+| Design responsibility | Web tool | Connection to our example |
+| --- | --- | --- |
+| **Structure** | **HTML** describes page content, controls, and groups. | Create star controls, a count display, a lighthouse picture, a message, and Restart. |
+| **Style** | **CSS** describes appearance and layout. | Arrange the scene, make the controls readable, and define collected-star and lit-lighthouse appearances. |
+| **Behavior** | **JavaScript** remembers information and carries out rules. | Track collected stars, update the count, detect success, and restart the round. |
+
+For example, HTML provides the lighthouse picture, CSS defines its lit appearance, and JavaScript decides when that appearance should be used. A feature often needs all three tools working together.
+
+We will learn these tools gradually. **Chapter 3** teaches HTML structure using a small practice scene. **Chapter 4** adds CSS style. **Chapter 5** develops action rules. **Chapters 6–8** introduce JavaScript memory, functions, events, and decisions.
+
+As you learn each tool, keep this development habit: **game story → one feature → Structure → Style → Behavior → test → next feature**.
+
+## Exercises {.unnumbered}
+
+### Exercise 1: Write a one-line story {.unnumbered}
+
+Write one sentence with a player action and a goal. Keep it small enough to try on paper.
+
+### Exercise 2: Plan the first feature {.unnumbered}
+
+Choose one feature from your story. List its parts, describe how players will recognize them, and write one action/result rule. Predict one result you can check.
+
+### Exercise 3: Plan the next iteration {.unnumbered}
+
+Choose a second feature. Describe what you will reuse and what you will add or change in Structure, Style, and Behavior. Include a test.
+
+### Exercise 4: Choose a web tool {.unnumbered}
+
+Which tool creates a Restart button? Which makes it easy to see? Which restores the game's starting information when it is pressed? Explain how the three responsibilities work together.
+
+## Challenge: Design before you code {.unnumbered}
+
+Give a partner your one-line story and a sketch of your first feature. Let them try it on paper while you carry out its rule. Compare what happened with your prediction, improve the plan, and repeat for the next feature. Bring your story and feature plans into the HTML chapter.
+
+# Structure: Build the Game Scene {#sec-ch03}
+
+::: {.chapter-banner}
+[STRUCTURE 03 | Monster Clicker: the page]{.game-title}
 [Ideas]{.skill-chip} [HTML]{.skill-chip} [Elements]{.skill-chip} [Nesting]{.skill-chip}
 :::
 
 ## Overview {.unnumbered}
 
-A game needs parts before those parts can look interesting or respond to a player. In this chapter, you will choose a small idea, sketch the parts, and build a simple HTML page. You will leave colors and programmed actions for the next two chapters.
+Chapter 2 turned a game story into small feature plans. Now you will build the HTML structure for the first feature: sketch the parts and create a simple page. Use your own story or try this chapter’s practice game, Monster Clicker. You will leave colors and programmed actions for the next two chapters.
 
-Our guide is **Structure → Style → Behavior**. Start with one question: **What belongs in the scene, and how do its parts fit together?** Keep the page you build; Chapter 3 will style it, and Chapter 4 will plan its game behavior.
+Our guide is **Structure → Style → Behavior**. Start with one question: **What belongs in the scene, and how do its parts fit together?** Keep the page you build; Chapter 4 will style it, and Chapter 5 will plan its game behavior.
 
 Open the [companion structure example](../games/foundations/structure/index.html) to inspect this stage. The chapter shows you how to build your own copy.
 
@@ -756,7 +885,7 @@ By the end of this chapter, you will be able to:
 
 Write three possibilities: a robot collecting gems, an astronaut catching stars, or a player clicking a monster. This is **ideation**: making possible ideas before choosing one. Pick a first version you can explain in one sentence.
 
-We will use **Monster Clicker**: “Click a friendly monster to collect points.” The story might be that each click helps the monster wake up. The **goal** tells the player what to achieve; the story explains why they care. Neither tells us exactly how the score changes—that rule belongs to the behavior lesson.
+We will use **Monster Clicker**: “Click a friendly monster to collect points.” The story might be that each click helps the monster wake up. The **goal** tells the player what to achieve; the story explains why they care. For this practice game, we can plan one point per tap and a five-point goal. Here, focus on the page parts those rules will need; the behavior lessons will develop and implement the rules.
 
 Keep the first version small. One monster, one score, and one message are enough. Save extra monsters and levels for later.
 
@@ -765,7 +894,7 @@ Keep the first version small. One monster, one score, and one message are enough
 
 A **scene** includes the page and the game world the player sees and uses. List each required part and its job before thinking about colors.
 
-![A wireframe for Monster Clicker showing the title and instructions above a play section with a monster button, score, and message.](../figures/chapter_02/monster-clicker-wireframe.svg){fig-alt="A grayscale page sketch. A main content box contains a title and instructions. Inside its play section are a section heading, monster button, score display, and feedback message in reading order." width=85%}
+![A wireframe for Monster Clicker showing the title and instructions above a play section with a monster button, score, and message.](../figures/chapter_03/monster-clicker-wireframe.svg){fig-alt="A grayscale page sketch. A main content box contains a title and instructions. Inside its play section are a section heading, monster button, score display, and feedback message in reading order." width=85%}
 
 **Read the sketch:** The boxes show placement and reading order, not final colors or artwork. The monster button, score, and message stay together inside the play section.
 
@@ -789,7 +918,7 @@ flowchart LR
     T --> B[Behavior<br/>What happens when players act?]
 ```
 
-**Read the picture:** This chapter builds the parts. Chapter 3 makes them readable and recognizable. Chapter 4 plans the actions and results. You will reuse your work instead of rebuilding the page at every stage.
+**Read the picture:** This chapter builds the parts. Chapter 4 makes them readable and recognizable. Chapter 5 plans the actions and results. You will reuse your work instead of rebuilding the page at every stage.
 
 ## Read an HTML element
 
@@ -836,7 +965,7 @@ Create `monster-scene/` inside your project folder. Save this as `index.html` wi
 </html>
 ```
 
-![The complete Monster Clicker HTML rendered in a browser with default styling.](../figures/chapter_02/stage-html.png){fig-alt="An unstyled page with the heading Monster Clicker, instructions, a Meet your monster heading, a Monster button, Score: 0, and Your adventure is ready." width=85%}
+![The complete Monster Clicker HTML rendered in a browser with default styling.](../figures/chapter_03/stage-html.png){fig-alt="An unstyled page with the heading Monster Clicker, instructions, a Meet your monster heading, a Monster button, Score: 0, and Your adventure is ready." width=85%}
 
 The page uses the browser’s default appearance. Clicking the button does not increase the score. For this stage, success means the planned parts exist and appear in a useful reading order.
 
@@ -925,250 +1054,140 @@ Add a third item. Check that it appears inside the same list. For a numbered seq
 
 **Structure:** Change the title, instructions, and target to fit your tiny pitch. Add one useful display. **Style:** Keep browser defaults for now and check the reading order. **Behavior:** Write one future action and expected result in your notes.
 
-# Style: Make the Scene Readable {#sec-ch03}
+# Style: Make the Scene Readable {#sec-ch04}
 
 ::: {.chapter-banner}
-[STYLE 03 | Monster Clicker: the appearance]{.game-title}
-[CSS]{.skill-chip} [Selectors]{.skill-chip} [Box model]{.skill-chip} [Layout]{.skill-chip}
+[STYLE 04 | Monster Clicker: a few simple changes]{.game-title}
+[CSS]{.skill-chip} [Selectors]{.skill-chip} [Box model]{.skill-chip}
 :::
 
 ## Overview {.unnumbered}
 
-Your Monster Clicker page already has a title, instructions, target, score, and message. Now you will use **CSS** to make those parts easier to recognize and use. Keep the same HTML and add style a little at a time.
+Your Chapter 3 page already has the parts of Monster Clicker. Now use **CSS** to change just three of them: the heading, the monster button, and the message. Keep the browser's usual appearance for everything else.
 
-In **Structure → Style → Behavior**, this chapter asks **“How will the player understand what they see?”** Colors and artwork are part of style, but so are readable text, spacing, clear controls, and room for feedback. Game rules come next.
+In **Structure → Style → Behavior**, style helps players recognize the parts and read the page. Making the button purple does not make it count points; the behavior lessons will connect that action.
 
-Open the [companion style example](../games/foundations/style/index.html) to inspect this stage. The chapter shows you how to build your own copy.
+Open the [companion style example](../games/foundations/style/index.html) to see the result.
 
 ## Learning Objectives {.unnumbered}
 
 By the end of this chapter, you will be able to:
 
-- connect an HTML page to a separate stylesheet;
-- read a selector, property, value, and declaration;
-- use element, class, and ID selectors;
-- style text, controls, and boxes;
-- check layout, screen size, and keyboard focus;
-- explain why a style change does not create a score rule.
+- connect a stylesheet to an HTML page;
+- read a simple CSS rule and choose an element to style;
+- explain content, padding, border, and margin;
+- change a few parts of a page and check the result.
 
 ## Connect a stylesheet
 
-Create `styles.css` in the same `monster-scene/` folder as `index.html`. Add this line inside `<head>`, after `<title>`:
+Create `styles.css` beside your Chapter 3 `index.html`. Add this line inside `<head>`, after `<title>`:
 
 ```html
 <link rel="stylesheet" href="styles.css">
 ```
 
-`<link>` is a void element. `rel="stylesheet"` identifies the linked resource’s job; `href="styles.css"` gives its location relative to the page. Save both files and refresh the browser after changes.
+`href` tells the browser where to find the stylesheet. Save both files and refresh the page after a change.
 
-Start `styles.css` with one rule:
-
-```css
-body {
-  color: #203654;
-  font-family: Arial, sans-serif;
-}
-```
-
-`body` is the **selector**: it chooses the element to style. The braces hold **declarations**. In `color: #203654;`, `color` is the property, `#203654` is its value, and the colon separates them. End each declaration with a semicolon.
-
-## Choose the parts to style
-
-| Selector | Meaning | Match in our page |
-| --- | --- | --- |
-| `h1` | Every element with this tag name | Main heading |
-| `.card` | Every element with this class | `<main class="card">` |
-| `.monster` | Every element with this class | Monster button |
-| `#message` | The element with this ID | `<p id="message">` |
-
-A class selector begins with a dot; an ID selector begins with `#`. The symbols belong in CSS, not in the HTML attribute values. Several elements can share a class, while each ID should identify one element.
+Start with one rule in `styles.css`:
 
 ```css
-h1 { font-size: 2rem; }
-.instructions { font-style: italic; }
-#message { min-height: 1.5em; }
-```
-
-`rem` measures size relative to the root font size. `em` relates to a font size; here it reserves space based on the message’s own font. You can begin with these values without memorizing every CSS unit.
-
-## Give each box room
-
-Every element takes up space. Its **content** sits inside **padding**, then a **border**. **Margin** separates that box from neighboring content.
-
-```css
-.card {
-  max-width: 38rem;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  border: 2px solid #d8dff0;
-  border-radius: 1rem;
-  background: white;
-}
-```
-
-`max-width` limits the card’s width. `margin: 2rem auto` gives it space above and below and shares remaining horizontal space between its sides, centering the card. Padding keeps the text away from the border. `border-radius` rounds the corners.
-
-We will use `box-sizing: border-box` so a stated width includes padding and border. Otherwise, those are added to the content width.
-
-## Build the complete style in small steps
-
-Use this complete stylesheet after trying the smaller rules. It styles the page from Chapter 2; it does not change that page’s game rules.
-
-```css
-* {
-  box-sizing: border-box;
-}
-body {
-  margin: 0;
-  padding: 1rem;
-  background: #eef2ff;
-  color: #203654;
-  font-family: Arial, sans-serif;
-  line-height: 1.5;
-}
-.card {
-  max-width: 38rem;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  border: 2px solid #d8dff0;
-  border-radius: 1rem;
-  background: white;
-}
 h1 {
-  margin-top: 0;
-  font-size: 2rem;
+  color: purple;
 }
-.instructions {
-  font-style: italic;
-}
-.arena {
-  padding: 1rem;
-  border: 2px solid #d8dff0;
-  border-radius: .75rem;
-  text-align: center;
+```
+
+`h1` is the **selector**: it chooses the main heading. Inside the braces, `color` is the **property** and `purple` is its **value**. The colon separates them; the semicolon ends the declaration. This rule makes the heading text purple.
+
+## Choose only the parts you want to change
+
+We will use three selectors from the existing HTML:
+
+| Selector | Chooses | HTML it matches |
+| --- | --- | --- |
+| `h1` | Main headings | `<h1>Monster Clicker</h1>` |
+| `.monster` | Elements with the class `monster` | `<button class="monster" ...>` |
+| `#message` | The element with the ID `message` | `<p id="message">...</p>` |
+
+A dot selects a **class**; a `#` selects an **ID**. Write those symbols in CSS, not in the HTML attribute values. A class can be shared by several elements; an ID identifies one element on the page.
+
+## Understand the box model
+
+Think of an element as a box with four layers:
+
+![The CSS box model: content is surrounded by padding, a border, and margin.](../figures/chapter_04/box-model.svg){#fig-ch04-box-model fig-alt="Four nested areas show margin on the outside, a dark border, padding inside the border, and content in the center. Padding separates the content from the border. Margin separates the border from nearby elements." width="100%"}
+
+| Layer | Meaning | On our monster button |
+| --- | --- | --- |
+| **Content** | The text or picture inside the element. | The monster symbol and word Monster. |
+| **Padding** | Space between the content and its border. | Room inside the button around its label. |
+| **Border** | The line around the padded content. | An indigo outline around the button. |
+| **Margin** | Space outside the border. | A gap between the button and nearby parts. |
+
+**Padding makes room inside; margin makes room outside.** The border sits between them. The diagram colors label the layers; margin itself is transparent.
+
+We will use `padding: 16px`, `border: 3px solid indigo`, and `margin: 8px` on the monster button. `px` means pixels. One padding or margin value applies to all four sides. The border declaration gives its thickness, line style, and color.
+
+## Style three parts of the game
+
+Replace the contents of `styles.css` with this complete short stylesheet:
+
+```css
+h1 {
+  color: purple;
 }
 .monster {
-  min-width: 10rem;
-  padding: .8rem 1.2rem;
-  border: 2px solid #50329c;
-  border-radius: .75rem;
-  background: #7046cf;
+  font-size: 32px;
   color: white;
-  font: inherit;
-  font-size: 1.25rem;
-  cursor: pointer;
-}
-.monster:hover {
-  background: #50329c;
-}
-.monster:focus-visible {
-  outline: 3px solid #203654;
-  outline-offset: 3px;
+  background: purple;
+  padding: 16px;
+  border: 3px solid indigo;
+  margin: 8px;
 }
 #message {
-  min-height: 1.5em;
+  color: darkgreen;
 }
 ```
 
 <!-- game-stage-figures:style -->
 
-![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_03/stage-html.png){#fig-ch03-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_04/stage-html.png){#fig-ch04-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
 
-![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_03/stage-style.png){#fig-ch03-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
-
-![CSS feedback: hovering over the monster darkens its button. The score stays at zero.](../figures/chapter_03/style-hover.png){#fig-ch03-style-hover fig-alt="CSS feedback: hovering over the monster darkens its button. The score stays at zero." width="100%"}
-
-![CSS feedback: keyboard focus outlines the monster button. No click rule has been added.](../figures/chapter_03/style-focus.png){#fig-ch03-style-focus fig-alt="CSS feedback: keyboard focus outlines the monster button. No click rule has been added." width="100%"}
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_04/stage-style.png){#fig-ch04-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
 
 <!-- /game-stage-figures:style -->
 
-`*` selects all elements. `line-height` gives lines of text breathing room. Many text settings pass from a parent to its children through **inheritance**; `font: inherit` explicitly tells the button to use its parent’s font settings.
+The heading becomes purple. The monster button gets larger text, white letters on purple, and space inside and outside its border. The message becomes dark green. The instructions, score, and page arrangement keep their browser defaults.
 
-`:hover` selects the button while a pointer is over it. `:focus-visible` provides a visible outline when focus should be shown, such as during keyboard navigation. The color change and outline are CSS responses. They do not count points or run a game rule.
-
-## Add a local picture when it helps
-
-For an optional picture, copy the supplied [gem.svg](../games/assets/2d/gem.svg) into your `monster-scene/` folder. Add this below the instructions:
-
-```html
-<img class="game-art" src="gem.svg" alt="A purple energy gem">
-```
-
-`src` names the file; `alt` gives its text alternative. `<img>` has no closing tag. This is a structure addition, so check that the file loads before styling it.
-
-```css
-.game-art {
-  width: 6rem;
-  max-width: 100%;
-  height: auto;
-  padding: .5rem;
-  border: 2px solid #d8dff0;
-  border-radius: .75rem;
-}
-```
-
-`height: auto` keeps the image’s proportions. A picture of a gem does not automatically make it collectible. Chapter 4 will help you describe the rule you would need.
-
-## Read the basic CSS summary
-
-| Job | Properties in this lesson | Check |
-| --- | --- | --- |
-| Text | `font-family`, `font-size`, `font-style`, `font`, `line-height`, `text-align`, `color` | Labels and instructions are readable. |
-| Box size | `box-sizing`, `width`, `height`, `min-width`, `max-width`, `min-height` | The target and display fit their intended space. |
-| Spacing | `margin`, `margin-top`, `padding` | Parts do not crowd their borders or neighbors. |
-| Appearance | `background`, `border`, `border-radius` | Important parts are easy to distinguish. |
-| Control feedback | `cursor`, `outline`, `outline-offset` | Pointer and keyboard users can recognize the target. |
-
-Later games need Flexbox, Grid, positioning, responsive rules, and canvas sizing. The [HTML/CSS reference](../appendices/f-html-css-reference.qmd#ref-css-reference) explains them with examples. Look up one technique when your project needs it; you do not need to learn the entire property catalog now.
+Save, refresh, and compare the two views. Press Tab to find the monster button: the browser still supplies its normal keyboard focus indicator. Pressing the button leaves the score at zero because this page has no scoring rule yet.
 
 ## Exercises {.unnumbered}
 
 ### Exercise 1: Read a rule {.unnumbered}
 
-**Flow focus:** Style: identify how an existing part’s appearance changes.
+In `h1 { color: purple; }`, name the selector, property, and value. Which part of the page changes?
 
-In `.monster { color: white; }`, name the selector, property, and value. Predict what changes and what stays the same.
+### Exercise 2: Padding or margin? {.unnumbered}
 
-### Exercise 2: Make room for feedback {.unnumbered}
+Change only the button's padding from `16px` to `24px`. Save and refresh. Notice the space inside the border. Restore it, then change only the margin from `8px` to `24px`. Which outside gap changes?
 
-**Flow focus:** Style: keep a changing message readable.
+### Exercise 3: Change the border {.unnumbered}
 
-Give `#message` a pale background and some padding. Check that it is still easy to distinguish from the monster button.
+Change the button's border from `3px solid indigo` to `5px solid darkgreen`. Predict what will change, then check. Does the score rule change too?
 
-### Exercise 3: Investigate a broken style {.unnumbered}
+### Exercise 4: Fix a selector {.unnumbered}
 
-**Flow focus:** Structure + Style: check the connection between an element and its rule.
+A friend writes `monster { background: purple; }`, but the button has `class="monster"`. Fix the selector and explain why the dot matters.
 
-A friend writes `monster { background: purple; }`, but their button has `class="monster"`. Explain the mismatch, fix it, and verify the result.
+## Challenge: Make a few useful changes {.unnumbered}
 
-### Exercise 4: Test the connection {.unnumbered}
+**Structure:** Reuse your Chapter 3 page. **Style:** Change the heading color, button padding, and message color. Keep the text readable and use Tab to find the button. **Behavior:** Check that the score still stays at zero.
 
-Change the color to `purple`, save, and refresh. The page text should change. If it does not, check the file name, folder, and `href` spelling. Return to the original color after the test.
+Use the [HTML/CSS reference](../appendices/f-html-css-reference.qmd#ref-css-reference) when a later game needs more styling tools.
 
-### Exercise 5: Choose the right selector {.unnumbered}
-
-Make every `h2` heading purple. Then make only the instructions italic. Explain why one selector has a dot and the other does not.
-
-### Exercise 6: Padding or margin? {.unnumbered}
-
-Increase the card’s padding, save, and observe the gap between text and border. Restore it, then increase the top/bottom margin. Explain which gap changed each time.
-
-### Exercise 7: Check the player’s view {.unnumbered}
-
-Open the page. Find the instructions, monster, score, and message. Move the pointer over the monster, then press Tab until the button receives focus. Check that you can tell which control is selected. Make the browser narrower and check that the card stays within the page.
-
-### Exercise 8: Predict an image change {.unnumbered}
-
-In the `.game-art` CSS rule, change only the width. Predict whether the image will stretch or keep its proportions, then check. Add a background color and explain whether you changed the picture file or the CSS box around it.
-
-## Challenge: Style your own scene {.unnumbered}
-
-**Structure:** Reuse your Chapter 2 page. **Style:** Choose a readable palette, a clear target, and useful spacing. Check narrow-screen layout and keyboard focus. **Behavior:** Confirm that pressing the target still does not change the score; style has not created that rule.
-
-# Behavior: Plan Actions and Game Rules {#sec-ch04}
+# Behavior: Plan Actions and Game Rules {#sec-ch05}
 
 ::: {.chapter-banner}
-[BEHAVIOR 04 | Monster Clicker: the action plan]{.game-title}
+[BEHAVIOR 05 | Monster Clicker: the action plan]{.game-title}
 [Input]{.skill-chip} [State]{.skill-chip} [Rules]{.skill-chip} [Feedback]{.skill-chip} [Testing]{.skill-chip}
 :::
 
@@ -1176,7 +1195,7 @@ In the `.game-art` CSS rule, change only the width. Predict whether the image wi
 
 Your scene has parts and a readable style. It still needs rules that connect player actions to changes. This chapter introduces **behavior** using small examples, a paper simulation, and browser controls. You will describe what should happen before learning the JavaScript that implements it.
 
-Keep the same Monster Clicker page. In **Structure → Style → Behavior**, your next question is **“What happens when the player acts?”** Chapter 5 will prepare game memory; Chapter 6 will connect clicks to that memory and the page.
+Keep the same Monster Clicker page. In **Structure → Style → Behavior**, your next question is **“What happens when the player acts?”** Chapter 6 will prepare game memory; Chapter 7 will connect clicks to that memory and the page.
 
 Open the [companion behavior example](../games/foundations/behavior/index.html) to inspect this stage. The chapter shows you how to build your own copy.
 
@@ -1266,13 +1285,13 @@ Your future rule could be: “When a round starts, read the nickname and use it 
 
 These views show all three controls together in the companion scene. Typing and selecting use built-in browser behavior; the game’s scoring rules are still a plan.
 
-![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_04/stage-html.png){#fig-ch04-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_05/stage-html.png){#fig-ch05-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
 
-![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_04/stage-style.png){#fig-ch04-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_05/stage-style.png){#fig-ch05-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
 
-![Native controls: the nickname, mode, and sound choices before editing. The game rules are still a plan.](../figures/chapter_04/behavior-controls-default.png){#fig-ch04-behavior-controls-default fig-alt="Native controls: the nickname, mode, and sound choices before editing. The game rules are still a plan." width="100%"}
+![Native controls: the nickname, mode, and sound choices before editing. The game rules are still a plan.](../figures/chapter_05/behavior-controls-default.png){#fig-ch05-behavior-controls-default fig-alt="Native controls: the nickname, mode, and sound choices before editing. The game rules are still a plan." width="100%"}
 
-![Native controls after typing Maya, choosing Hard, and turning Sound off. These controls do not yet change the score.](../figures/chapter_04/behavior-controls-changed.png){#fig-ch04-behavior-controls-changed fig-alt="Native controls after typing Maya, choosing Hard, and turning Sound off. These controls do not yet change the score." width="100%"}
+![Native controls after typing Maya, choosing Hard, and turning Sound off. These controls do not yet change the score.](../figures/chapter_05/behavior-controls-changed.png){#fig-ch05-behavior-controls-changed fig-alt="Native controls after typing Maya, choosing Hard, and turning Sound off. These controls do not yet change the score." width="100%"}
 
 <!-- /game-stage-figures:controls -->
 
@@ -1303,13 +1322,13 @@ Choose one clear end rule. If five points ends the round, later hits should not 
 
 The repeated player activity—hit, see progress, decide to hit again—is a **core play loop**. It describes play. The later animation loop describes repeating work in code; the two ideas have different jobs.
 
-## Connect and test all three stages {#sec-ch04-development-flow}
+## Connect and test all three stages {#sec-ch05-development-flow}
 
 Use the full guide now that you have practiced each responsibility separately:
 
 **Build the scene structure → Style the scene → Program game behavior.**
 
-![Build one feature through Structure, Style, and Behavior, then playtest and improve it.](../figures/chapter_02/structure-style-behavior.svg){#fig-ch04-development-flow fig-alt="Structure produces parts and relationships, Style produces a readable appearance, and Behavior produces actions and rules. Each stage has a check. Playtesting compares predicted and observed results, then leads to revising a stage or choosing the next small feature." width="100%"}
+![Build one feature through Structure, Style, and Behavior, then playtest and improve it.](../figures/chapter_03/structure-style-behavior.svg){#fig-ch05-development-flow fig-alt="Structure produces parts and relationships, Style produces a readable appearance, and Behavior produces actions and rules. Each stage has a check. Playtesting compares predicted and observed results, then leads to revising a stage or choosing the next small feature." width="100%"}
 
 **Read the arrows:** Begin with one small feature based on your idea and rules. Follow the solid arrows and check each stage. The dashed arrow means that a test revealed a needed change. Return to the responsible stage, then recheck the stages that depend on it. Reuse what already meets the task.
 
@@ -1353,17 +1372,17 @@ Click the label, type a nickname, and use Tab to move away. Check that the text 
 
 ### Exercise 7: Add a restart control {.unnumbered}
 
-Add `<button id="restart" type="button">Restart</button>` after the message. Give it readable spacing and a visible keyboard focus style using Chapter 3’s approach. Write the values and messages that Restart should restore. Pressing it does not run that plan yet; the event lesson will connect it.
+Add `<button id="restart" type="button">Restart</button>` after the message. Give it a little margin using Chapter 4’s approach, then use Tab to check the browser’s keyboard focus indicator. Write the values and messages that Restart should restore. Pressing it does not run that plan yet; the event lesson will connect it.
 
 ## Challenge: Your action plan {.unnumbered}
 
 **Structure:** Reuse your scene and add only the controls or displays your idea needs. **Style:** Make them readable and test their focus. **Behavior:** Write three action/result pairs, an end rule, and a restart rule. Simulate one successful action, one boundary case, and one restart.
 
-# Teach the Game to Remember {#sec-ch05}
+# Teach the Game to Remember {#sec-ch06}
 
 ::: {.chapter-banner}
 
-[GAME 05 | Monster Clicker Starter]{.game-title}
+[GAME 06 | Monster Clicker Starter]{.game-title}
 
 [Variables]{.skill-chip} [Data Types]{.skill-chip} [Arrays]{.skill-chip} [Objects]{.skill-chip}
 
@@ -1375,7 +1394,7 @@ Keep using our development flow:
 
 **Build the scene structure → Style the scene → Program game behavior.**
 
-First use HTML to build what the player sees and uses. Next use CSS to make that scene readable. Then use JavaScript to implement the game's operations and actions. This chapter begins the behavior stage by giving those actions **data and memory**; Chapter 6 connects them to clicks.
+First use HTML to build what the player sees and uses. Next use CSS to make that scene readable. Then use JavaScript to implement the game's operations and actions. This chapter begins the behavior stage by giving those actions **data and memory**; Chapter 7 connects them to clicks.
 
 Before a game can react to a player, it needs something very important: **memory**.
 
@@ -1390,21 +1409,21 @@ A game may need to remember:
 
 JavaScript stores these values in **variables**.
 
-In this chapter, you will build the starting version of a **Monster Clicker** project. The monster will appear on the page, and JavaScript will create the data the game needs. The monster will not react to a click yet. In Chapter 6, you will connect this same project to the page and make the monster clickable.
+In this chapter, you will build the starting version of a **Monster Clicker** project. The monster will appear on the page, and JavaScript will create the data the game needs. The monster will not react to a click yet. In Chapter 7, you will connect this same project to the page and make the monster clickable.
 
 ```{mermaid}
 flowchart LR
-    A[Chapter 5<br/>Create game data] --> B[score, name, lives, inventory]
-    B --> C[Chapter 6<br/>Connect JavaScript to the page]
+    A[Chapter 6<br/>Create game data] --> B[score, name, lives, inventory]
+    B --> C[Chapter 7<br/>Connect JavaScript to the page]
     C --> D[Click the monster<br/>and update the game]
 ```
 
 ::: {.callout-note title="The Main Idea"}
-Chapter 5 answers this question:
+Chapter 6 answers this question:
 
 **What information should the game remember?**
 
-Chapter 6 will answer the next question:
+Chapter 7 will answer the next question:
 
 **How does JavaScript react when the player clicks something on the page?**
 :::
@@ -1422,17 +1441,17 @@ By the end of this chapter, you will be able to:
 - create an array to store a list of values;
 - create an object to store related key-value pairs;
 - change the value stored in a variable;
-- build the starting data for the Monster Clicker project that will continue in Chapter 6.
+- build the starting data for the Monster Clicker project that will continue in Chapter 7.
 
 
 
-## Think through the Monster Clicker before coding {#sec-ch05-development-flow}
+## Think through the Monster Clicker before coding {#sec-ch06-development-flow}
 
 | Development step | Decision for our game | Check |
 | --- | --- | --- |
 | 1. Build the scene structure | Show a title, monster button, message, and score inside a main card. | All four parts exist; `monster`, `message`, and `score` have distinct IDs. |
-| 2. Style the scene | Reuse Chapter 3's readable card, button frame, colors, and spacing. | The monster and score are easy to find; the button has a visible keyboard focus ring. |
-| 3. Program game behavior | Plan a hit that raises the score and changes the message. Prepare score, lives, treasures, and player data first. | Inspect the starting values in the console. The hit action is implemented in Chapter 6. |
+| 2. Style the scene | Reuse Chapter 4's button colors, border, and spacing; this example also adds a card around the scene. | The monster and score are easy to find; the button has a visible keyboard focus ring. |
+| 3. Program game behavior | Plan a hit that raises the score and changes the message. Prepare score, lives, treasures, and player data first. | Inspect the starting values in the console. The hit action is implemented in Chapter 7. |
 
 For every JavaScript example in this chapter, ask **which future operation needs this value?** A score supports counting hits. Lives support tracking remaining chances. A Boolean supports a running/not-running decision. An array supports a treasure collection. An object groups player information. These small examples practice the memory part of Step 3; they do not each need a new page or stylesheet.
 
@@ -1960,7 +1979,7 @@ A JavaScript object can be used like a simple key-value collection, but JavaScri
 
 ## Build the Monster Clicker Starter
 
-Now use the ideas from this chapter to start a project that will continue in Chapter 6.
+Now use the ideas from this chapter to start a project that will continue in Chapter 7.
 
 At the end of this chapter, your game will have:
 
@@ -1973,11 +1992,11 @@ At the end of this chapter, your game will have:
 
 The monster will **not respond to clicks yet**. That is intentional.
 
-Chapter 6 will introduce the missing ideas: how JavaScript finds HTML elements and how **events** tell the program that the player clicked something.
+Chapter 7 will introduce the missing ideas: how JavaScript finds HTML elements and how **events** tell the program that the player clicked something.
 
 ### Step 1: Build the scene structure — build the HTML game board {.unnumbered}
 
-Sketch the title, monster, message, and score first. Create a file such as `monster-clicker.html`, or continue the scene from Chapters 2–4. Keep the script as a placeholder while checking this first stage:
+Sketch the title, monster, message, and score first. Create a file such as `monster-clicker.html`, or continue the scene from Chapters 3–5. Keep the script as a placeholder while checking this first stage:
 
 ```html
 <!doctype html>
@@ -2000,13 +2019,13 @@ Sketch the title, monster, message, and score first. Create a file such as `mons
   </main>
 
   <script>
-    // Step 3: Program game behavior — prepare data; click actions come in Chapter 6.
+    // Step 3: Program game behavior — prepare data; click actions come in Chapter 7.
   </script>
 </body>
 </html>
 ```
 
-![The Monster Clicker starter after Step 1: the HTML provides the page content with the browser’s default styling.](../figures/chapter_05/stage-html.png){fig-alt="An unstyled Monster Clicker page with a Monster button, the message The monster is waiting..., and Score: 0." width=90%}
+![The Monster Clicker starter after Step 1: the HTML provides the page content with the browser’s default styling.](../figures/chapter_06/stage-html.png){fig-alt="An unstyled Monster Clicker page with a Monster button, the message The monster is waiting..., and Score: 0." width=90%}
 
 Notice these IDs:
 
@@ -2016,7 +2035,7 @@ id="message"
 id="score"
 ```
 
-Do not write JavaScript to use them yet. Keep them in the page because **Chapter 6 will show how JavaScript uses an element's `id` to find that exact element**.
+Do not write JavaScript to use them yet. Keep them in the page because **Chapter 7 will show how JavaScript uses an element's `id` to find that exact element**.
 
 ```{mermaid}
 flowchart LR
@@ -2025,15 +2044,15 @@ flowchart LR
     E[id="score"] --> F[Score paragraph]
 ```
 
-::: {.callout-note title="A Preview for Chapter 6"}
+::: {.callout-note title="A Preview for Chapter 7"}
 The `id` values are like unique labels attached to HTML elements.
 
-In Chapter 6, JavaScript will use those labels to find the monster, message, and score on the page.
+In Chapter 7, JavaScript will use those labels to find the monster, message, and score on the page.
 :::
 
 ### Step 2: Style the scene — reuse the page design {.unnumbered}
 
-The structure is ready. Put this familiar CSS inside the head's `<style>` element, replacing its placeholder comment. These are Chapter 3's styling ideas; the shared `.monster` class will also work when you add more monsters later.
+The structure is ready. Put this familiar CSS inside the head's `<style>` element, replacing its placeholder comment. This builds on Chapter 4's colors and spacing with a few extra rules for the game card; the shared `.monster` class will also work when you add more monsters later.
 
 ```css
 * { box-sizing: border-box; }
@@ -2068,14 +2087,14 @@ body {
 #message { min-height: 1.5em; }
 ```
 
-![The same starter after Step 2: CSS centers a white card on a pale blue background and styles the monster button.](../figures/chapter_05/stage-style.png){fig-alt="A centered white card with a dark rounded border on a pale blue background. It contains the Monster Clicker heading, a purple Monster button, The monster is waiting..., and Score: 0." width=90%}
+![The same starter after Step 2: CSS centers a white card on a pale blue background and styles the monster button.](../figures/chapter_06/stage-style.png){fig-alt="A centered white card with a dark rounded border on a pale blue background. It contains the Monster Clicker heading, a purple Monster button, The monster is waiting..., and Score: 0." width=90%}
 
 
 Save and refresh. Check the card, monster, message, and score before adding JavaScript. If you continued your styled scene, you can instead keep its linked `styles.css`; the development step is the same. This chapter embeds CSS only to keep the complete example in one file.
 
 ### Step 3: Program game behavior — prepare memory for game actions {.unnumbered}
 
-Write the intended rule first: **When the monster is hit, add one to the score and update the message.** That action needs a score to remember between hits. Prepare the starting data now; Chapter 6 will implement the event and display changes. Styling a button does not connect that operation.
+Write the intended rule first: **When the monster is hit, add one to the score and update the message.** That action needs a score to remember between hits. Prepare the starting data now; Chapter 7 will implement the event and display changes. Styling a button does not connect that operation.
 
 The substeps below all belong to this behavior-preparation stage.
 
@@ -2149,7 +2168,7 @@ console.log(player.lives);
 
 This object shows another way the game could organize related data.
 
-For the first version of Monster Clicker, Chapter 6 will continue to use the simpler variable:
+For the first version of Monster Clicker, Chapter 7 will continue to use the simpler variable:
 
 ```javascript
 let score = 0;
@@ -2184,7 +2203,7 @@ flowchart LR
     A[JavaScript memory<br/>score = 2] -. not connected yet .-> B[HTML display<br/>Score: 0]
 ```
 
-This is the exact problem Chapter 6 will solve.
+This is the exact problem Chapter 7 will solve.
 
 ::: {.callout-note title="Important: Memory and Display Are Different"}
 The variable:
@@ -2203,10 +2222,10 @@ The HTML:
 
 displays text on the page.
 
-Changing one does not automatically change the other. In Chapter 6, you will learn how JavaScript finds the paragraph and updates it.
+Changing one does not automatically change the other. In Chapter 7, you will learn how JavaScript finds the paragraph and updates it.
 :::
 
-## Complete Chapter 5 Starter Code
+## Complete Chapter 6 Starter Code
 
 Read this complete example in our development order: locate the **scene structure** in the body, then its **style** in the head, then the data preparing its **behaviors** in the script. The head comes before the body in HTML file order; that does not change the thinking strategy. A runnable copy is in `workspace/chapter3/starter.html`.
 
@@ -2261,7 +2280,7 @@ Read this complete example in our development order: locate the **scene structur
   </main>
 
   <script>
-    // Step 3: Program game behavior — prepare data; click actions come in Chapter 6.
+    // Step 3: Program game behavior — prepare data; click actions come in Chapter 7.
     const gameTitle = "Monster Clicker";
     const monsterName = "Pixel Beast";
 
@@ -2289,9 +2308,9 @@ Read this complete example in our development order: locate the **scene structur
 
 <!-- game-stage-figures:data -->
 
-![Behavior preparation: JavaScript has initialized the game data; the page still shows Score: 0.](../figures/chapter_05/behavior-data-ready.png){#fig-ch05-behavior-data-ready fig-alt="Behavior preparation: JavaScript has initialized the game data; the page still shows Score: 0." width="100%"}
+![Behavior preparation: JavaScript has initialized the game data; the page still shows Score: 0.](../figures/chapter_06/behavior-data-ready.png){#fig-ch06-behavior-data-ready fig-alt="Behavior preparation: JavaScript has initialized the game data; the page still shows Score: 0." width="100%"}
 
-![After a test click, Score: 0 and the waiting message remain unchanged. Chapter 6 adds the click listener.](../figures/chapter_05/behavior-click-check.png){#fig-ch05-behavior-click-check fig-alt="After a test click, Score: 0 and the waiting message remain unchanged. Chapter 6 adds the click listener." width="100%"}
+![After a test click, Score: 0 and the waiting message remain unchanged. Chapter 7 adds the click listener.](../figures/chapter_06/behavior-click-check.png){#fig-ch06-behavior-click-check fig-alt="After a test click, Score: 0 and the waiting message remain unchanged. Chapter 7 adds the click listener." width="100%"}
 
 <!-- /game-stage-figures:data -->
 
@@ -2307,14 +2326,14 @@ That last point is not a bug. It marks your progress.
 ```{mermaid}
 flowchart TD
     A[Build the scene structure<br/>HTML page elements] --> S[Style the scene<br/>CSS presentation]
-    S --> B[Program game behavior: Chapter 5<br/>Prepare game data and memory]
-    B --> C[Program game behavior: Chapter 6<br/>Find page elements with the DOM]
+    S --> B[Program game behavior: Chapter 6<br/>Prepare game data and memory]
+    B --> C[Program game behavior: Chapter 7<br/>Find page elements with the DOM]
     C --> D[Listen for clicks with events]
     D --> E[Update score and message]
 ```
 
-::: {.callout-tip title="Save This Project for Chapter 6"}
-Keep this exact file. In Chapter 6, you will extend it instead of starting over.
+::: {.callout-tip title="Save This Project for Chapter 7"}
+Keep this exact file. In Chapter 7, you will extend it instead of starting over.
 
 The next version will reuse:
 
@@ -2472,7 +2491,7 @@ Run the score changes shown earlier in this chapter. Predict the value after eac
 
 ### Challenge 1: Customize Your Monster {.unnumbered}
 
-**Structure:** Change the visible title and monster label. **Style:** Choose one readable button color or spacing change. **Behavior:** Customize the starting data and inspect it in the console; the hit action still waits for Chapter 6.
+**Structure:** Change the visible title and monster label. **Style:** Choose one readable button color or spacing change. **Behavior:** Customize the starting data and inspect it in the console; the hit action still waits for Chapter 7.
 
 Use **Build the scene structure → Style the scene → Program game behavior**. First change the visible title and monster label. Next choose one button color or spacing change. Then change the starter data so that it uses your own:
 
@@ -2517,7 +2536,7 @@ inventory.length
 
 Predict the length before you run the code.
 
-### Challenge 4: Prepare One More Value for Chapter 6 {.unnumbered}
+### Challenge 4: Prepare One More Value for Chapter 7 {.unnumbered}
 
 **Structure:** Keep the monster and the feedback areas. **Style:** Keep their current readable style. **Behavior:** Describe the future hit action and prepare one value it will change.
 
@@ -2531,11 +2550,11 @@ let hits = 0;
 
 Write one sentence explaining how a click event could change your variable later.
 
-# Make the Page React: DOM Elements and Click Events {#sec-ch06}
+# Make the Page React: DOM Elements and Click Events {#sec-ch07}
 
 ::: {.chapter-banner}
 
-[GAME 06 | Click the Monster]{.game-title}
+[GAME 07 | Click the Monster]{.game-title}
 
 [DOM]{.skill-chip} [Events]{.skill-chip} [JavaScript]{.skill-chip}
 
@@ -2543,7 +2562,7 @@ Write one sentence explaining how a click event could change your variable later
 
 ## Overview {.unnumbered}
 
-In Chapter 3, you used **HTML** to put things on a page and **CSS** to change how they look. In Chapter 5, you learned how JavaScript stores values using variables such as `const` and `let`.
+In Chapter 4, you used **HTML** to put things on a page and **CSS** to change how they look. In Chapter 6, you learned how JavaScript stores values using variables such as `const` and `let`.
 
 Now we can connect JavaScript to the web page itself. A game needs to know **which thing on the page** JavaScript should work with and **when something happens** to that thing.
 
@@ -2791,7 +2810,7 @@ document.getElementById("message")
 const message = document.getElementById("message");
 ```
 
-Because Chapter 5 introduced variables, you can read this as an assignment:
+Because Chapter 6 introduced variables, you can read this as an assignment:
 
 > Put the DOM element whose ID is `message` into the constant named `message`.
 
@@ -3181,13 +3200,13 @@ Now put everything into one page.
 
 <!-- game-stage-figures:complete -->
 
-![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_06/stage-html.png){#fig-ch06-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_07/stage-html.png){#fig-ch07-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
 
-![Style check: this example has no custom CSS, so its appearance still uses browser defaults.](../figures/chapter_06/stage-style.png){#fig-ch06-stage-style fig-alt="Style check: this example has no custom CSS, so its appearance still uses browser defaults." width="100%"}
+![Style check: this example has no custom CSS, so its appearance still uses browser defaults.](../figures/chapter_07/stage-style.png){#fig-ch07-stage-style fig-alt="Style check: this example has no custom CSS, so its appearance still uses browser defaults." width="100%"}
 
-![Behavior before input: the message asks Can you catch it?](../figures/chapter_06/behavior-waiting.png){#fig-ch06-behavior-waiting fig-alt="Behavior before input: the message asks Can you catch it?" width="100%"}
+![Behavior before input: the message asks Can you catch it?](../figures/chapter_07/behavior-waiting.png){#fig-ch07-behavior-waiting fig-alt="Behavior before input: the message asks Can you catch it?" width="100%"}
 
-![After clicking the monster, the event handler changes the message to Great hit!](../figures/chapter_06/behavior-hit.png){#fig-ch06-behavior-hit fig-alt="After clicking the monster, the event handler changes the message to Great hit!" width="100%"}
+![After clicking the monster, the event handler changes the message to Great hit!](../figures/chapter_07/behavior-hit.png){#fig-ch07-behavior-hit fig-alt="After clicking the monster, the event handler changes the message to Great hit!" width="100%"}
 
 <!-- /game-stage-figures:complete -->
 
@@ -3509,11 +3528,11 @@ Choose one clickable object from your game and explain:
 5. which function runs;
 6. which DOM element changes after the event.
 
-# Let the Monster Clicker Make Decisions {#sec-ch07}
+# Let the Monster Clicker Make Decisions {#sec-ch08}
 
 ::: {.chapter-banner}
 
-[GAME 07 | Monster Clicker: Decisions]{.game-title}
+[GAME 08 | Monster Clicker: Decisions]{.game-title}
 
 [Branches]{.skill-chip} [Comparisons]{.skill-chip} [Game Rules]{.skill-chip}
 
@@ -3521,7 +3540,7 @@ Choose one clickable object from your game and explain:
 
 ## Overview {.unnumbered}
 
-In Chapter 5, you prepared the game’s **memory** with variables such as a score. In Chapter 6, you connected that memory to the page and increased the score when the player clicked the monster.
+In Chapter 6, you prepared the game’s **memory** with variables such as a score. In Chapter 7, you connected that memory to the page and increased the score when the player clicked the monster.
 
 Now the game needs something new: **rules**.
 
@@ -3543,7 +3562,7 @@ flowchart LR
     C -->|10 or more| F[You win!]
 ```
 
-The game is still the same project. We are not throwing away Chapters 5 and 6. We are **upgrading** them.
+The game is still the same project. We are not throwing away Chapters 6 and 7. We are **upgrading** them.
 
 ## Learning Objectives {.unnumbered}
 
@@ -3572,7 +3591,7 @@ Use this plan for the examples and exercises below. Reuse parts that already wor
 
 ## From Memory to Decisions
 
-At the end of Chapter 6, your clicker had code like this:
+At the end of Chapter 7, your clicker had code like this:
 
 ```javascript
 let score = 0;
@@ -3820,7 +3839,7 @@ That is why the middle branch covers 5 through 9.
 
 ## Use a Branch to Enforce a Game Rule
 
-Chapter 6 ended with a challenge about spending points without letting the score become negative. Branches solve that problem.
+Chapter 7 ended with a challenge about spending points without letting the score become negative. Branches solve that problem.
 
 Imagine a **Power Hit** costs 5 points.
 
@@ -3861,9 +3880,9 @@ if (score >= 5) {
 
 Now combine what you built across three chapters.
 
-- Chapter 5: the game remembers a score.
-- Chapter 6: the monster listens for a click and updates the score.
-- Chapter 7: the game makes decisions using that score.
+- Chapter 6: the game remembers a score.
+- Chapter 7: the monster listens for a click and updates the score.
+- Chapter 8: the game makes decisions using that score.
 
 [COMPLETE EXAMPLE]{.code-label}
 
@@ -3923,19 +3942,19 @@ Now combine what you built across three chapters.
 
 <!-- game-stage-figures:complete -->
 
-![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_07/stage-html.png){#fig-ch07-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_08/stage-html.png){#fig-ch08-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
 
-![Style check: this example has no custom CSS, so its appearance still uses browser defaults.](../figures/chapter_07/stage-style.png){#fig-ch07-stage-style fig-alt="Style check: this example has no custom CSS, so its appearance still uses browser defaults." width="100%"}
+![Style check: this example has no custom CSS, so its appearance still uses browser defaults.](../figures/chapter_08/stage-style.png){#fig-ch08-stage-style fig-alt="Style check: this example has no custom CSS, so its appearance still uses browser defaults." width="100%"}
 
-![Behavior at the start: the score is zero and the controls are ready.](../figures/chapter_07/behavior-start.png){#fig-ch07-behavior-start fig-alt="Behavior at the start: the score is zero and the controls are ready." width="100%"}
+![Behavior at the start: the score is zero and the controls are ready.](../figures/chapter_08/behavior-start.png){#fig-ch08-behavior-start fig-alt="Behavior at the start: the score is zero and the controls are ready." width="100%"}
 
-![A Power Hit at score zero is refused because five points are required.](../figures/chapter_07/behavior-power-blocked.png){#fig-ch07-behavior-power-blocked fig-alt="A Power Hit at score zero is refused because five points are required." width="100%"}
+![A Power Hit at score zero is refused because five points are required.](../figures/chapter_08/behavior-power-blocked.png){#fig-ch08-behavior-power-blocked fig-alt="A Power Hit at score zero is refused because five points are required." width="100%"}
 
-![After five monster clicks, the score reaches five and the level message changes.](../figures/chapter_07/behavior-level-five.png){#fig-ch07-behavior-level-five fig-alt="After five monster clicks, the score reaches five and the level message changes." width="100%"}
+![After five monster clicks, the score reaches five and the level message changes.](../figures/chapter_08/behavior-level-five.png){#fig-ch08-behavior-level-five fig-alt="After five monster clicks, the score reaches five and the level message changes." width="100%"}
 
-![A Power Hit now succeeds and spends the five points.](../figures/chapter_07/behavior-power-hit.png){#fig-ch07-behavior-power-hit fig-alt="A Power Hit now succeeds and spends the five points." width="100%"}
+![A Power Hit now succeeds and spends the five points.](../figures/chapter_08/behavior-power-hit.png){#fig-ch08-behavior-power-hit fig-alt="A Power Hit now succeeds and spends the five points." width="100%"}
 
-![After building the score to ten, the game displays its master-level message.](../figures/chapter_07/behavior-master.png){#fig-ch07-behavior-master fig-alt="After building the score to ten, the game displays its master-level message." width="100%"}
+![After building the score to ten, the game displays its master-level message.](../figures/chapter_08/behavior-master.png){#fig-ch08-behavior-master fig-alt="After building the score to ten, the game displays its master-level message." width="100%"}
 
 <!-- /game-stage-figures:complete -->
 
@@ -4125,11 +4144,11 @@ Examples of ideas:
 - a new monster level;
 - a victory condition.
 
-# Repeat Game Actions with Loops {#sec-ch08}
+# Repeat Game Actions with Loops {#sec-ch09}
 
 ::: {.chapter-banner}
 
-[GAME 08 | Monster Swarm]{.game-title}
+[GAME 09 | Monster Swarm]{.game-title}
 
 [Loops]{.skill-chip} [Arrays]{.skill-chip} [Repeated actions]{.skill-chip}
 
@@ -4137,7 +4156,7 @@ Examples of ideas:
 
 ## Overview {.unnumbered}
 
-In Chapter 5, you prepared a `score` variable so the game could remember hits. In Chapter 6, you made one monster react to a click and update that score. In Chapter 7, you added **branches** so the game could make decisions from that score.
+In Chapter 6, you prepared a `score` variable so the game could remember hits. In Chapter 7, you made one monster react to a click and update that score. In Chapter 8, you added **branches** so the game could make decisions from that score.
 
 Now the monster has called for backup.
 
@@ -4146,13 +4165,13 @@ Instead of one monster, the game will have several monsters. We *could* write th
 This chapter grows the same Monster Clicker game one more step:
 
 ```text
-Chapter 5: prepare memory for the score
+Chapter 6: prepare memory for the score
        ↓
-Chapter 6: click a monster and update the score
+Chapter 7: click a monster and update the score
        ↓
-Chapter 7: make decisions from the score
+Chapter 8: make decisions from the score
        ↓
-Chapter 8: repeat actions for many monsters
+Chapter 9: repeat actions for many monsters
 ```
 
 The main idea is simple:
@@ -4363,7 +4382,7 @@ Using `i <= 3` would also include `3`, so the loop would repeat four times.
 
 ## Arrays Store Several Values Together
 
-In Chapter 5, you learned that a variable can store different kinds of values. An **array** is a value that can hold several items in order.
+In Chapter 6, you learned that a variable can store different kinds of values. An **array** is a value that can hold several items in order.
 
 Suppose our game has three monsters:
 
@@ -4517,7 +4536,7 @@ This is an important programming skill: **when several objects need the same set
 
 ## Keep the Score and Branches from Earlier Chapters
 
-The loop is new, but we do not throw away the code from Chapters 6 and 7.
+The loop is new, but we do not throw away the code from Chapters 7 and 8.
 
 We still keep the score:
 
@@ -4569,7 +4588,7 @@ A game often needs both.
 
 ## Build the Complete Monster Swarm Game
 
-Here is the complete version. It continues the ideas from Chapters 5, 6, and 5, but replaces repeated monster setup with a loop.
+Here is the complete version. It continues the ideas from Chapters 6–8, but replaces repeated monster setup with a loop.
 
 [COMPLETE EXAMPLE | `index.html`]{.code-label}
 
@@ -4689,19 +4708,19 @@ Here is the complete version. It continues the ideas from Chapters 5, 6, and 5, 
 
 <!-- game-stage-figures:complete -->
 
-![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_08/stage-html.png){#fig-ch08-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_09/stage-html.png){#fig-ch09-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
 
-![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_08/stage-style.png){#fig-ch08-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_09/stage-style.png){#fig-ch09-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
 
-![Behavior at the start: the score is zero and the controls are ready.](../figures/chapter_08/behavior-start.png){#fig-ch08-behavior-start fig-alt="Behavior at the start: the score is zero and the controls are ready." width="100%"}
+![Behavior at the start: the score is zero and the controls are ready.](../figures/chapter_09/behavior-start.png){#fig-ch09-behavior-start fig-alt="Behavior at the start: the score is zero and the controls are ready." width="100%"}
 
-![A Power Hit at score zero is refused because five points are required.](../figures/chapter_08/behavior-power-blocked.png){#fig-ch08-behavior-power-blocked fig-alt="A Power Hit at score zero is refused because five points are required." width="100%"}
+![A Power Hit at score zero is refused because five points are required.](../figures/chapter_09/behavior-power-blocked.png){#fig-ch09-behavior-power-blocked fig-alt="A Power Hit at score zero is refused because five points are required." width="100%"}
 
-![After five monster clicks, the score reaches five and the level message changes.](../figures/chapter_08/behavior-level-five.png){#fig-ch08-behavior-level-five fig-alt="After five monster clicks, the score reaches five and the level message changes." width="100%"}
+![After five monster clicks, the score reaches five and the level message changes.](../figures/chapter_09/behavior-level-five.png){#fig-ch09-behavior-level-five fig-alt="After five monster clicks, the score reaches five and the level message changes." width="100%"}
 
-![A Power Hit now succeeds and spends the five points.](../figures/chapter_08/behavior-power-hit.png){#fig-ch08-behavior-power-hit fig-alt="A Power Hit now succeeds and spends the five points." width="100%"}
+![A Power Hit now succeeds and spends the five points.](../figures/chapter_09/behavior-power-hit.png){#fig-ch09-behavior-power-hit fig-alt="A Power Hit now succeeds and spends the five points." width="100%"}
 
-![After building the score to ten, the game displays its master-level message.](../figures/chapter_08/behavior-master.png){#fig-ch08-behavior-master fig-alt="After building the score to ten, the game displays its master-level message." width="100%"}
+![After building the score to ten, the game displays its master-level message.](../figures/chapter_09/behavior-master.png){#fig-ch09-behavior-master fig-alt="After building the score to ten, the game displays its master-level message." width="100%"}
 
 <!-- /game-stage-figures:complete -->
 
@@ -4725,11 +4744,11 @@ for (let i = 0; i < monsterIds.length; i++) {
 Everything else builds on ideas you already know:
 
 ```text
-DOM element        → Chapter 6
-click event        → Chapter 6
-score variable     → Chapter 5
-if / else branches → Chapter 7
-array + loop       → Chapter 8
+DOM element        → Chapter 7
+click event        → Chapter 7
+score variable     → Chapter 6
+if / else branches → Chapter 8
+array + loop       → Chapter 9
 ```
 
 This is how larger programs grow: keep useful code, then add one new idea that solves the next problem.
@@ -5007,11 +5026,11 @@ for (let i = 0; i < monsterIds.length; i++) {
 
 Compare it with writing a separate `getElementById()` and `addEventListener()` pair for every monster.
 
-# Make Things Change Over Time {#sec-ch09}
+# Make Things Change Over Time {#sec-ch10}
 
 ::: {.chapter-banner}
 
-[GAME 09 | Catch the Star]{.game-title}
+[GAME 10 | Catch the Star]{.game-title}
 
 [Timers]{.skill-chip} [Coordinates]{.skill-chip} [CSS]{.skill-chip}
 
@@ -5045,7 +5064,7 @@ Use this plan for the examples and exercises below. Reuse parts that already wor
 
 An absolutely positioned element can be moved by changing its left and top CSS properties.
 
-![Game coordinates: x moves right, y moves down.](../figures/chapter_05/browser-coordinates.png){#fig-ch09 fig-alt="A coordinate plane starts at the top left. The x axis increases rightward and y increases downward; the star is at 25,35." width="100%"}
+![Game coordinates: x moves right, y moves down.](../figures/chapter_06/browser-coordinates.png){#fig-ch10 fig-alt="A coordinate plane starts at the top left. The x axis increases rightward and y increases downward; the star is at 25,35." width="100%"}
 
 **Read the picture:** Start at the top-left corner. Move 25 units right and 35 units down to reach the star. These are example coordinates, not fixed limits for your game; use the size of your own game area.
 
@@ -5124,19 +5143,19 @@ Put the pieces together. Type the code yourself if you can; typing helps your br
 
 <!-- game-stage-figures:complete -->
 
-![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_09/stage-html.png){#fig-ch09-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_10/stage-html.png){#fig-ch10-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
 
-![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_09/stage-style.png){#fig-ch09-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_10/stage-style.png){#fig-ch10-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
 
 <!-- /game-stage-figures:complete -->
 
 Open `workspace/chapter7-catch-the-star/index.html` to watch the complete example. The star moves once per second, and a click raises the score and moves it immediately. The screenshot pages use known positions and control one timer callback so their states are reproducible.
 
-![Catch the Star in Chrome at score zero, with the star near the upper left of the game area.](../figures/chapter_07/star-start.png){#fig-ch09-star-start fig-alt="The Catch the Star page shows Score: 0 and a yellow star near the upper-left corner of a bordered game area." width="100%"}
+![Catch the Star in Chrome at score zero, with the star near the upper left of the game area.](../figures/chapter_08/star-start.png){#fig-ch10-star-start fig-alt="The Catch the Star page shows Score: 0 and a yellow star near the upper-left corner of a bordered game area." width="100%"}
 
-![Catch the Star in Chrome after one timer move. The star moves while the score stays zero.](../figures/chapter_07/star-after-timer.png){#fig-ch09-star-timer fig-alt="The same game shows Score: 0 with the yellow star near the middle-right of the game area." width="100%"}
+![Catch the Star in Chrome after one timer move. The star moves while the score stays zero.](../figures/chapter_08/star-after-timer.png){#fig-ch10-star-timer fig-alt="The same game shows Score: 0 with the yellow star near the middle-right of the game area." width="100%"}
 
-![Catch the Star in Chrome after one click. The score is one and the star moves again.](../figures/chapter_07/star-after-click.png){#fig-ch09-star-click fig-alt="The game shows Score: 1 with the yellow star in a new position inside the game area." width="100%"}
+![Catch the Star in Chrome after one click. The score is one and the star moves again.](../figures/chapter_08/star-after-click.png){#fig-ch10-star-click fig-alt="The game shows Score: 1 with the yellow star in a new position inside the game area." width="100%"}
 
 **Read the pictures:** The timer calls `moveStar()` without a player action, changing `left` and `top` while the score remains zero. The click handler also calls `moveStar()`, but first it adds one to `score` and updates the paragraph. The regular page keeps its one-second timer; the demonstration pages control when the callback runs for the screenshots.
 
@@ -5185,11 +5204,11 @@ Add a 20-second countdown and stop the game when time reaches zero.
 
 After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.
 
-# Draw Your Own Game World {#sec-ch10}
+# Draw Your Own Game World {#sec-ch11}
 
 ::: {.chapter-banner}
 
-[GAME 10 | Bouncing Ball]{.game-title}
+[GAME 11 | Bouncing Ball]{.game-title}
 
 [Canvas]{.skill-chip} [Animation]{.skill-chip} [Velocity]{.skill-chip}
 
@@ -5223,7 +5242,7 @@ Use this plan for the examples and exercises below. Reuse parts that already wor
 
 The canvas element is a rectangular drawing surface. JavaScript asks it for a 2D drawing context.
 
-![The animation/game loop repeats update and draw work.](../figures/chapter_06/animation-loop.png){#fig-ch10 fig-alt="A cycle connects read input, update state, draw, and next frame." width="100%"}
+![The animation/game loop repeats update and draw work.](../figures/chapter_07/animation-loop.png){#fig-ch11 fig-alt="A cycle connects read input, update state, draw, and next frame." width="100%"}
 
 **Read the picture:** Each frame is one trip around the cycle. Bouncing Ball has no keyboard input yet, so it begins by updating position. The next chapter adds player input before movement.
 
@@ -5264,7 +5283,7 @@ Reverse a velocity when the ball reaches a wall.
 
 The ball's position, `(x, y)`, marks its **center**. Its edge is one `radius` away. At the left wall, the ball touches when `x = radius`; at the right wall, it touches when `x = canvas.width - radius`. The same idea gives the top and bottom limits for `y`.
 
-![Check the ball's edge, then reverse the velocity that points through the wall.](../figures/chapter_10/edge-bounce.svg){#fig-ch10-edge-bounce fig-alt="Four panels show left and right wall checks reversing dx, and top and bottom wall checks reversing dy. Incoming and outgoing arrows show the change of direction." width="100%"}
+![Check the ball's edge, then reverse the velocity that points through the wall.](../figures/chapter_11/edge-bounce.svg){#fig-ch11-edge-bounce fig-alt="Four panels show left and right wall checks reversing dx, and top and bottom wall checks reversing dy. Incoming and outgoing arrows show the change of direction." width="100%"}
 
 ```javascript
 if (x < radius || x > canvas.width - radius) {
@@ -5331,9 +5350,9 @@ Put the pieces together. Type the code yourself if you can; typing helps your br
 
 <!-- game-stage-figures:complete -->
 
-![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_10/stage-html.png){#fig-ch10-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_11/stage-html.png){#fig-ch11-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
 
-![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_10/stage-style.png){#fig-ch10-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_11/stage-style.png){#fig-ch11-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
 
 The empty canvas is expected in these first two stages. JavaScript draws the game objects and runs the behavior shown in the following screenshots.
 
@@ -5341,11 +5360,11 @@ The empty canvas is expected in these first two stages. JavaScript draws the gam
 
 Open `workspace/chapter6-bouncing-ball/index.html` to watch the complete example. The browser redraws the purple ball on every animation frame. The screenshot pages pause automatic frames and call the same `loop()` function a known number of times.
 
-![Bouncing Ball in Chrome near its starting position inside the canvas.](../figures/chapter_06/ball-start.png){#fig-ch10-ball-start fig-alt="A purple ball appears near the upper-left of a light blue bordered canvas." width="100%"}
+![Bouncing Ball in Chrome near its starting position inside the canvas.](../figures/chapter_07/ball-start.png){#fig-ch11-ball-start fig-alt="A purple ball appears near the upper-left of a light blue bordered canvas." width="100%"}
 
-![Bouncing Ball in Chrome after twenty more animation frames. The ball has moved right and down.](../figures/chapter_06/ball-after-frames.png){#fig-ch10-ball-frames fig-alt="The purple ball is farther right and lower in the same canvas." width="100%"}
+![Bouncing Ball in Chrome after twenty more animation frames. The ball has moved right and down.](../figures/chapter_07/ball-after-frames.png){#fig-ch11-ball-frames fig-alt="The purple ball is farther right and lower in the same canvas." width="100%"}
 
-![Bouncing Ball in Chrome after reaching the right wall and reversing horizontal direction.](../figures/chapter_06/ball-bounce.png){#fig-ch10-ball-bounce fig-alt="The purple ball is next to the right edge of the canvas." width="100%"}
+![Bouncing Ball in Chrome after reaching the right wall and reversing horizontal direction.](../figures/chapter_07/ball-bounce.png){#fig-ch11-ball-bounce fig-alt="The purple ball is next to the right edge of the canvas." width="100%"}
 
 **Read the pictures:** Every `loop()` call changes `x` and `y`, clears the previous drawing, and draws the ball again. At the right wall, `dx` becomes negative, so the next frames move left. The regular page uses `requestAnimationFrame()` to continue automatically.
 
@@ -5403,11 +5422,11 @@ Add a second ball with its own position and velocity.
 
 After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.
 
-# Control a Real-Time Game {#sec-ch11}
+# Control a Real-Time Game {#sec-ch12}
 
 ::: {.chapter-banner}
 
-[GAME 11 | Pong]{.game-title}
+[GAME 12 | Pong]{.game-title}
 
 [Keyboard input]{.skill-chip} [State]{.skill-chip} [Collision]{.skill-chip}
 
@@ -5448,7 +5467,7 @@ The short snippets below explain individual rules. The complete browser example 
 
 `keydown` sets a state to `true`. `keyup` changes it back to `false`.
 
-![Keyboard events update state; the game loop uses that state.](../figures/chapter_07/keyboard-state.png){#fig-ch11 fig-alt="Keydown sets a pressed flag to true, keyup sets it to false, and the game loop uses the flag." width="100%"}
+![Keyboard events update state; the game loop uses that state.](../figures/chapter_08/keyboard-state.png){#fig-ch12 fig-alt="Keydown sets a pressed flag to true, keyup sets it to false, and the game loop uses the flag." width="100%"}
 
 **Read the picture:** An event changes a remembered value. The loop can then read that value on many frames. The picture uses a right-arrow flag; Pong uses the same idea for the up and down arrows.
 
@@ -5485,7 +5504,7 @@ paddleY = Math.min(canvas.height - paddleH, paddleY);
 
 For a first Pong game, place a vertical paddle on the right. Here, paddleX and paddleY are its top-left coordinates, paddleW and paddleH are its size, and positive dx means the ball is moving right. Test the ball bounding box against the paddle before reversing direction.
 
-![A paddle bounce needs overlap on both axes and a ball moving toward the paddle.](../figures/chapter_11/paddle-bounce.svg){#fig-ch11-paddle-bounce fig-alt="A dashed bounding square around the ball overlaps the right paddle. Four comparisons test overlap on x and y. Before-and-after pictures show the center moved one radius left of the paddle and dx changed from positive to negative." width="100%"}
+![A paddle bounce needs overlap on both axes and a ball moving toward the paddle.](../figures/chapter_12/paddle-bounce.svg){#fig-ch12-paddle-bounce fig-alt="A dashed bounding square around the ball overlaps the right paddle. Four comparisons test overlap on x and y. Before-and-after pictures show the center moved one radius left of the paddle and dx changed from positive to negative." width="100%"}
 
 ```javascript
 const overlapsPaddle = (
@@ -5506,9 +5525,9 @@ The response has two jobs. First, `ballX = paddleX - radius` places the ball jus
 
 **Wall bounces and a miss:** The complete example below also checks the left, top, and bottom edges after moving the ball. Follow each rule in the next diagram, then find its matching `if` statement inside `update()`.
 
-![Pong bounces at three walls and resets after a miss on the right.](../figures/chapter_11/wall-bounces.svg){#fig-ch11-wall-bounces fig-alt="Four panels show the left wall setting dx positive, the top and bottom walls negating dy, and a ball fully past the right edge resetting to its starting position." width="100%"}
+![Pong bounces at three walls and resets after a miss on the right.](../figures/chapter_12/wall-bounces.svg){#fig-ch12-wall-bounces fig-alt="Four panels show the left wall setting dx positive, the top and bottom walls negating dy, and a ball fully past the right edge resetting to its starting position." width="100%"}
 
-**Read the wall rules:** At the left wall, `Math.abs(dx)` makes horizontal velocity positive, so the ball travels right. At the top or bottom, `dy = -dy` reverses vertical direction. As in Chapter 10, these strict wall comparisons trigger just past the contact limit. A right-side miss uses a different limit: `ballX > canvas.width + radius`. Only then has the whole ball left the canvas. The game resets its center to `(100, canvas.height / 2)` and makes `dx` positive; it keeps the current `dy` and hit count. The paddle's overlap check runs before this miss check.
+**Read the wall rules:** At the left wall, `Math.abs(dx)` makes horizontal velocity positive, so the ball travels right. At the top or bottom, `dy = -dy` reverses vertical direction. As in Chapter 11, these strict wall comparisons trigger just past the contact limit. A right-side miss uses a different limit: `ballX > canvas.width + radius`. Only then has the whole ball left the canvas. The game resets its center to `(100, canvas.height / 2)` and makes `dx` positive; it keeps the current `dy` and hit count. The paddle's overlap check runs before this miss check.
 
 ## Play Pong in your browser {.unnumbered}
 
@@ -5617,9 +5636,9 @@ Save this page as `index.html`, or open `workspace/chapter9-pong/index.html`. Ho
 
 <!-- game-stage-figures:complete -->
 
-![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_11/stage-html.png){#fig-ch11-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_12/stage-html.png){#fig-ch12-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
 
-![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_11/stage-style.png){#fig-ch11-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_12/stage-style.png){#fig-ch12-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
 
 The empty canvas is expected in these first two stages. JavaScript draws the game objects and runs the behavior shown in the following screenshots.
 
@@ -5627,9 +5646,9 @@ The empty canvas is expected in these first two stages. JavaScript draws the gam
 
 The demonstration pages pause automatic animation, then make a known number of updates or one paddle collision. The playable page keeps animating normally.
 
-![Pong Practice in Chrome before the paddle moves.](../figures/chapter_09/pong-start.png){#fig-ch11-pong-start fig-alt="A dark Pong canvas shows a yellow ball, a blue paddle on the right, and Paddle hits: 0." width="100%"}
-![Pong Practice in Chrome after holding the up arrow for twelve updates.](../figures/chapter_09/pong-paddle-up.png){#fig-ch11-pong-up fig-alt="The blue paddle has moved upward after held-key updates while the ball moves across the canvas." width="100%"}
-![Pong Practice in Chrome after a ball and paddle collision.](../figures/chapter_09/pong-paddle-hit.png){#fig-ch11-pong-hit fig-alt="The yellow ball touches the right paddle and the page says Paddle hits: 1." width="100%"}
+![Pong Practice in Chrome before the paddle moves.](../figures/chapter_10/pong-start.png){#fig-ch12-pong-start fig-alt="A dark Pong canvas shows a yellow ball, a blue paddle on the right, and Paddle hits: 0." width="100%"}
+![Pong Practice in Chrome after holding the up arrow for twelve updates.](../figures/chapter_10/pong-paddle-up.png){#fig-ch12-pong-up fig-alt="The blue paddle has moved upward after held-key updates while the ball moves across the canvas." width="100%"}
+![Pong Practice in Chrome after a ball and paddle collision.](../figures/chapter_10/pong-paddle-hit.png){#fig-ch12-pong-hit fig-alt="The yellow ball touches the right paddle and the page says Paddle hits: 1." width="100%"}
 
 **Read the pictures:** A held key keeps `keys["ArrowUp"]` true, so the paddle moves through several updates. When the ball reaches the paddle, the overlap test becomes true and `dx` changes sign. The hit count confirms that the collision response ran once.
 
@@ -5691,11 +5710,11 @@ Make the ball slightly faster after each paddle hit.
 
 After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.
 
-# Manage Many Game Objects {#sec-ch12}
+# Manage Many Game Objects {#sec-ch13}
 
 ::: {.chapter-banner}
 
-[GAME 12 | Breakout]{.game-title}
+[GAME 13 | Breakout]{.game-title}
 
 [Objects]{.skill-chip} [Arrays]{.skill-chip} [Loops]{.skill-chip}
 
@@ -5737,7 +5756,7 @@ The short snippets below explain individual rules. The complete browser example 
 
 Each brick can be an object with position, size, and whether it is still active.
 
-![Collision detection asks whether game objects overlap.](../figures/chapter_08/collision-overlap.png){#fig-ch12 fig-alt="Two rectangles partially overlap; the shared area illustrates a rectangular collision test." width="100%"}
+![Collision detection asks whether game objects overlap.](../figures/chapter_09/collision-overlap.png){#fig-ch13 fig-alt="Two rectangles partially overlap; the shared area illustrates a rectangular collision test." width="100%"}
 
 **Read the picture:** A collision is not just being close. The shapes overlap horizontally **and** vertically. The picture uses rectangles; the beginner ball test uses a square bounding box around the ball.
 
@@ -5918,9 +5937,9 @@ Save this page as `index.html`, or open `workspace/chapter10-breakout/index.html
 
 <!-- game-stage-figures:complete -->
 
-![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_12/stage-html.png){#fig-ch12-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_13/stage-html.png){#fig-ch13-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
 
-![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_12/stage-style.png){#fig-ch12-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_13/stage-style.png){#fig-ch13-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
 
 The empty canvas is expected in these first two stages. JavaScript draws the game objects and runs the behavior shown in the following screenshots.
 
@@ -5928,9 +5947,9 @@ The empty canvas is expected in these first two stages. JavaScript draws the gam
 
 The demonstration pages pause automatic animation and place the ball for one or three known brick collisions. The playable page keeps animating normally.
 
-![Breakout Practice in Chrome before a brick is hit.](../figures/chapter_10/breakout-start.png){#fig-ch12-breakout-start fig-alt="A Breakout canvas shows eight colored bricks, a ball, a paddle, and Bricks cleared: 0." width="100%"}
-![Breakout Practice in Chrome after one brick collision.](../figures/chapter_10/breakout-one-hit.png){#fig-ch12-breakout-one fig-alt="One top-row brick is missing and the page says Bricks cleared: 1." width="100%"}
-![Breakout Practice in Chrome after three brick collisions.](../figures/chapter_10/breakout-three-hits.png){#fig-ch12-breakout-three fig-alt="Three top-row bricks are missing and the page says Bricks cleared: 3." width="100%"}
+![Breakout Practice in Chrome before a brick is hit.](../figures/chapter_11/breakout-start.png){#fig-ch13-breakout-start fig-alt="A Breakout canvas shows eight colored bricks, a ball, a paddle, and Bricks cleared: 0." width="100%"}
+![Breakout Practice in Chrome after one brick collision.](../figures/chapter_11/breakout-one-hit.png){#fig-ch13-breakout-one fig-alt="One top-row brick is missing and the page says Bricks cleared: 1." width="100%"}
+![Breakout Practice in Chrome after three brick collisions.](../figures/chapter_11/breakout-three-hits.png){#fig-ch13-breakout-three fig-alt="Three top-row bricks are missing and the page says Bricks cleared: 3." width="100%"}
 
 **Read the pictures:** `hitsBrick()` finds an overlap, then the code sets that brick's `alive` property to false. The next draw skips it, so a gap appears in the row. The score rises from zero to one, then three. The brick object stays in the array even though it is no longer drawn or hit.
 
@@ -5989,11 +6008,11 @@ Add a win condition when every brick is gone.
 
 After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.
 
-# Build a World on a Grid {#sec-ch13}
+# Build a World on a Grid {#sec-ch14}
 
 ::: {.chapter-banner}
 
-[GAME 13 | Snake]{.game-title}
+[GAME 14 | Snake]{.game-title}
 
 [Grid cells]{.skill-chip} [Arrays]{.skill-chip} [Game state]{.skill-chip}
 
@@ -6035,7 +6054,7 @@ The short snippets below explain individual rules. The complete browser example 
 
 The first item can be the head. Each cell stores x and y coordinates.
 
-![A grid game stores positions as x/y cells.](../figures/chapter_09/snake-grid.png){#fig-ch13 fig-alt="A snake occupies three adjacent cells in a grid. A food cell is above and to the right of the head." width="100%"}
+![A grid game stores positions as x/y cells.](../figures/chapter_10/snake-grid.png){#fig-ch14 fig-alt="A snake occupies three adjacent cells in a grid. A food cell is above and to the right of the head." width="100%"}
 
 **Read the picture:** Each square is one cell, not one screen pixel. The head is the first item in the body array. The arrow points toward food; it does not allow a diagonal move. Move one horizontal or vertical cell per step.
 
@@ -6194,9 +6213,9 @@ Save this page as `index.html`, or open `workspace/chapter9-snake/index.html`. T
 
 <!-- game-stage-figures:complete -->
 
-![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_13/stage-html.png){#fig-ch13-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_14/stage-html.png){#fig-ch14-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
 
-![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_13/stage-style.png){#fig-ch13-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_14/stage-style.png){#fig-ch14-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
 
 The empty canvas is expected in these first two stages. JavaScript draws the game objects and runs the behavior shown in the following screenshots.
 
@@ -6204,9 +6223,9 @@ The empty canvas is expected in these first two stages. JavaScript draws the gam
 
 The demonstration pages pause the timer and make known steps. The playable page advances every 150 milliseconds.
 
-![Snake Grid in Chrome before the snake reaches the food.](../figures/chapter_09/snake-start.png){#fig-ch13-snake-start fig-alt="A three-cell green snake faces red food on a square grid, with Score: 0." width="100%"}
-![Snake Grid in Chrome after the head reaches food and the snake grows.](../figures/chapter_09/snake-food.png){#fig-ch13-snake-food fig-alt="The green snake is four cells long and the page shows Score: 1." width="100%"}
-![Snake Grid in Chrome after a wall collision ends the game.](../figures/chapter_09/snake-wall.png){#fig-ch13-snake-wall fig-alt="The snake has reached the right wall and the page says Game over! Score: 0. Press Restart." width="100%"}
+![Snake Grid in Chrome before the snake reaches the food.](../figures/chapter_10/snake-start.png){#fig-ch14-snake-start fig-alt="A three-cell green snake faces red food on a square grid, with Score: 0." width="100%"}
+![Snake Grid in Chrome after the head reaches food and the snake grows.](../figures/chapter_10/snake-food.png){#fig-ch14-snake-food fig-alt="The green snake is four cells long and the page shows Score: 1." width="100%"}
+![Snake Grid in Chrome after a wall collision ends the game.](../figures/chapter_10/snake-wall.png){#fig-ch14-snake-wall fig-alt="The snake has reached the right wall and the page says Game over! Score: 0. Press Restart." width="100%"}
 
 **Read the pictures:** The snake starts with three cells. Reaching food raises the score and leaves the tail in place, so it grows to four cells. A move beyond the right edge ends the game. Restart resets the body, direction, food, and score.
 
@@ -6267,11 +6286,11 @@ Add a start screen and a restart key.
 
 After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.
 
-# Game Studio {#sec-ch14}
+# Game Studio {#sec-ch15}
 
 ::: {.chapter-banner}
 
-[GAME 14 | Design Your Own Game]{.game-title}
+[GAME 15 | Design Your Own Game]{.game-title}
 
 [Design]{.skill-chip} [Playtesting]{.skill-chip} [Modules]{.skill-chip}
 
@@ -6462,9 +6481,9 @@ The planning sketch becomes **Catch the Fruit** in this complete page. Save it a
 
 <!-- game-stage-figures:complete -->
 
-![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_14/stage-html.png){#fig-ch14-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_15/stage-html.png){#fig-ch15-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
 
-![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_14/stage-style.png){#fig-ch14-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_15/stage-style.png){#fig-ch15-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
 
 The empty canvas is expected in these first two stages. JavaScript draws the game objects and runs the behavior shown in the following screenshots.
 
@@ -6472,9 +6491,9 @@ The empty canvas is expected in these first two stages. JavaScript draws the gam
 
 The screenshot demonstration pages pause automatic frames and arrange one catch or three misses. The playable page uses `requestAnimationFrame()`.
 
-![Catch the Fruit in Chrome at the beginning of a game.](../figures/chapter_10/fruit-start.png){#fig-ch14-fruit-start fig-alt="Catch the Fruit shows a falling red fruit, a brown basket, Score: 0, and Lives: 3." width="100%"}
-![Catch the Fruit in Chrome after one successful catch.](../figures/chapter_10/fruit-catch.png){#fig-ch14-fruit-catch fig-alt="The Catch the Fruit page shows Score: 1 and Lives: 3 after a fruit lands in the basket." width="100%"}
-![Catch the Fruit in Chrome after three missed fruit end the game.](../figures/chapter_10/fruit-game-over.png){#fig-ch14-fruit-over fig-alt="The Catch the Fruit page shows Game over! Score: 0 and Lives: 0." width="100%"}
+![Catch the Fruit in Chrome at the beginning of a game.](../figures/chapter_11/fruit-start.png){#fig-ch15-fruit-start fig-alt="Catch the Fruit shows a falling red fruit, a brown basket, Score: 0, and Lives: 3." width="100%"}
+![Catch the Fruit in Chrome after one successful catch.](../figures/chapter_11/fruit-catch.png){#fig-ch15-fruit-catch fig-alt="The Catch the Fruit page shows Score: 1 and Lives: 3 after a fruit lands in the basket." width="100%"}
+![Catch the Fruit in Chrome after three missed fruit end the game.](../figures/chapter_11/fruit-game-over.png){#fig-ch15-fruit-over fig-alt="The Catch the Fruit page shows Game over! Score: 0 and Lives: 0." width="100%"}
 
 **Read the pictures:** The six state values from the planning sketch control the game. The loop calls the planned update and draw jobs in order. A catch increases `score`; a miss decreases `lives`. When lives reach zero, `gameOver` stops the loop, and Restart restores the initial state.
 
@@ -6496,7 +6515,7 @@ Serve module-based projects through a local development server. Opening HTML dir
 
 Further reading: [MDN: JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules).
 
-![The DOM is a tree of page elements JavaScript can read and change.](../figures/chapter_10/dom-tree.png){#fig-ch14 fig-alt="The document contains html, which contains head and body. Body contains a start button and a game canvas." width="100%"}
+![The DOM is a tree of page elements JavaScript can read and change.](../figures/chapter_11/dom-tree.png){#fig-ch15 fig-alt="The document contains html, which contains head and body. Body contains a start button and a game canvas." width="100%"}
 
 **Read the picture:** The browser keeps elements in a tree. `button#start` means a button with `id="start"`, while `canvas#game` means a canvas with `id="game"`. JavaScript can find those elements and connect them to game behavior.
 
@@ -6538,10 +6557,10 @@ Ask two players to test it and record one change you made because of their feedb
 
 After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.
 
-# Build a Real-Time 2D Game {#sec-ch15}
+# Build a Real-Time 2D Game {#sec-ch16}
 
 ::: {.chapter-banner}
-[GAME LAB 15 | Collision Playground]{.game-title}
+[GAME LAB 16 | Collision Playground]{.game-title}
 [Time]{.skill-chip} [Velocity]{.skill-chip} [Input state]{.skill-chip} [Game loop]{.skill-chip}
 :::
 
@@ -6606,9 +6625,9 @@ const player = {
 
 These stage views use the complete [companion page](../games/collision-lab/index.html). With its scripts disabled, HTML supplies the controls and CSS styles the page. The game world appears when JavaScript loads and draws it; the loading text in these static views is the HTML placeholder.
 
-![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_15/stage-html.png){#fig-ch15-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_16/stage-html.png){#fig-ch16-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
 
-![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_15/stage-style.png){#fig-ch15-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_16/stage-style.png){#fig-ch16-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
 
 <!-- /game-stage-figures:shell -->
 
@@ -6644,7 +6663,7 @@ player.vx = direction * 240;
 
 For movement in two directions, normalize the direction vector. Otherwise, holding two keys can make diagonal movement faster than straight movement. The helper `normalize2(x, y)` returns a direction with length one, or `(0, 0)` when no key is held.
 
-![Input is remembered, the world advances in small steps, and drawing displays the result.](../figures/chapter_11/fixed-step.svg){#fig-ch15 fig-alt="Input feeds a fixed simulation step, which feeds drawing. A row shows eight equally spaced simulation steps." width="100%"}
+![Input is remembered, the world advances in small steps, and drawing displays the result.](../figures/chapter_12/fixed-step.svg){#fig-ch16 fig-alt="Input feeds a fixed simulation step, which feeds drawing. A row shows eight equally spaced simulation steps." width="100%"}
 
 **Read the picture:** The numbered steps are simulation updates, not necessarily separate screen images. One browser frame may require zero, one, or several updates. The arrows show responsibilities, not three separate programs.
 
@@ -6666,11 +6685,11 @@ fixedLoop(
 
 The following captures run the complete companion project and exercise its controls.
 
-![Behavior: JavaScript draws the player, wall, and circular target in Collision Playground.](../figures/chapter_15/behavior-start.png){#fig-ch15-behavior-start fig-alt="Behavior: JavaScript draws the player, wall, and circular target in Collision Playground." width="100%"}
+![Behavior: JavaScript draws the player, wall, and circular target in Collision Playground.](../figures/chapter_16/behavior-start.png){#fig-ch16-behavior-start fig-alt="Behavior: JavaScript draws the player, wall, and circular target in Collision Playground." width="100%"}
 
-![After holding Right for one second, the rectangle has moved toward the wall.](../figures/chapter_15/behavior-moved.png){#fig-ch15-behavior-moved fig-alt="After holding Right for one second, the rectangle has moved toward the wall." width="100%"}
+![After holding Right for one second, the rectangle has moved toward the wall.](../figures/chapter_16/behavior-moved.png){#fig-ch16-behavior-moved fig-alt="After holding Right for one second, the rectangle has moved toward the wall." width="100%"}
 
-![Switching to a circle and dragging it onto the wall reports Wall overlap: YES; detection alone does not block movement.](../figures/chapter_15/behavior-overlap.png){#fig-ch15-behavior-overlap fig-alt="Switching to a circle and dragging it onto the wall reports Wall overlap: YES; detection alone does not block movement." width="100%"}
+![Switching to a circle and dragging it onto the wall reports Wall overlap: YES; detection alone does not block movement.](../figures/chapter_16/behavior-overlap.png){#fig-ch16-behavior-overlap fig-alt="Switching to a circle and dragging it onto the wall reports Wall overlap: YES; detection alone does not block movement." width="100%"}
 
 <!-- /game-stage-figures:behavior -->
 
@@ -6720,10 +6739,10 @@ Change the speed from 240 to 120 and predict the distance traveled in one second
 
 After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.
 
-# Make Objects Collide, Stop, and Jump {#sec-ch16}
+# Make Objects Collide, Stop, and Jump {#sec-ch17}
 
 ::: {.chapter-banner}
-[GAME LAB 16 | Robot Orchard: movement and platforms]{.game-title}
+[GAME LAB 17 | Robot Orchard: movement and platforms]{.game-title}
 [Hitboxes]{.skill-chip} [Collision response]{.skill-chip} [Gravity]{.skill-chip} [Jumping]{.skill-chip}
 :::
 
@@ -6783,9 +6802,9 @@ function overlaps(a, b) {
 
 These stage views use the complete [companion page](../games/robot-orchard/index.html). With its scripts disabled, HTML supplies the controls and CSS styles the page. The game world appears when JavaScript loads and draws it; the loading text in these static views is the HTML placeholder.
 
-![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_16/stage-html.png){#fig-ch16-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_17/stage-html.png){#fig-ch17-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
 
-![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_16/stage-style.png){#fig-ch16-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_17/stage-style.png){#fig-ch17-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
 
 <!-- /game-stage-figures:shell -->
 
@@ -6833,7 +6852,7 @@ The numbers are game settings, not measurements of a real robot. Gravity has uni
 
 The companion input helper distinguishes **held** input from **just pressed** input. `input.consume("Space")` reads a jump press once. Holding Space should not start a new jump every simulation step.
 
-![Rectangle overlap and the correction needed to place a falling player's feet on a platform.](../figures/chapter_12/collision-response.svg){#fig-ch16 fig-alt="Two boxes share a pink overlap. A separate before-and-after drawing snaps a player's feet to the platform top and clears downward velocity." width="100%"}
+![Rectangle overlap and the correction needed to place a falling player's feet on a platform.](../figures/chapter_13/collision-response.svg){#fig-ch17 fig-alt="Two boxes share a pink overlap. A separate before-and-after drawing snaps a player's feet to the platform top and clears downward velocity." width="100%"}
 
 **Read the picture:** The overlap test notices the problem. Landing requires three changes: correct the position, stop downward velocity, and remember that the player is grounded. Changing only the velocity leaves the character partly inside the platform.
 
@@ -6856,11 +6875,11 @@ for (const wall of solids) {
 
 The following captures run the complete companion project and exercise its controls.
 
-![After Start, the ready overlay is removed and the robot stands on the ground.](../figures/chapter_16/behavior-playing.png){#fig-ch16-behavior-playing fig-alt="After Start, the ready overlay is removed and the robot stands on the ground." width="100%"}
+![After Start, the ready overlay is removed and the robot stands on the ground.](../figures/chapter_17/behavior-playing.png){#fig-ch17-behavior-playing fig-alt="After Start, the ready overlay is removed and the robot stands on the ground." width="100%"}
 
-![Show hitboxes adds outlines for the robot, terrain, hazards, and gems over the artwork.](../figures/chapter_16/behavior-hitboxes.png){#fig-ch16-behavior-hitboxes fig-alt="Show hitboxes adds outlines for the robot, terrain, hazards, and gems over the artwork." width="100%"}
+![Show hitboxes adds outlines for the robot, terrain, hazards, and gems over the artwork.](../figures/chapter_17/behavior-hitboxes.png){#fig-ch17-behavior-hitboxes fig-alt="Show hitboxes adds outlines for the robot, terrain, hazards, and gems over the artwork." width="100%"}
 
-![Pressing Jump and Right launches the robot above the ground while moving it forward.](../figures/chapter_16/behavior-jump.png){#fig-ch16-behavior-jump fig-alt="Pressing Jump and Right launches the robot above the ground while moving it forward." width="100%"}
+![Pressing Jump and Right launches the robot above the ground while moving it forward.](../figures/chapter_17/behavior-jump.png){#fig-ch17-behavior-jump fig-alt="Pressing Jump and Right launches the robot above the ground while moving it forward." width="100%"}
 
 <!-- /game-stage-figures:behavior -->
 
@@ -6904,10 +6923,10 @@ Create a platform that the robot can just reach. Predict how a stronger jump or 
 
 After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.
 
-# Give Your 2D Game Its Own Artwork {#sec-ch17}
+# Give Your 2D Game Its Own Artwork {#sec-ch18}
 
 ::: {.chapter-banner}
-[GAME LAB 17 | Robot Orchard: sprites and assets]{.game-title}
+[GAME LAB 18 | Robot Orchard: sprites and assets]{.game-title}
 [Custom assets]{.skill-chip} [Sprite sheets]{.skill-chip} [Loading]{.skill-chip} [Level data]{.skill-chip}
 :::
 
@@ -6980,9 +6999,9 @@ const robotImage = await loadImage("../assets/2d/robot-strip.svg");
 
 These stage views use the complete [companion page](../games/robot-orchard/index.html). With its scripts disabled, HTML supplies the controls and CSS styles the page. The game world appears when JavaScript loads and draws it; the loading text in these static views is the HTML placeholder.
 
-![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_17/stage-html.png){#fig-ch17-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_18/stage-html.png){#fig-ch18-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
 
-![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_17/stage-style.png){#fig-ch17-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_18/stage-style.png){#fig-ch18-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
 
 <!-- /game-stage-figures:shell -->
 
@@ -7007,13 +7026,13 @@ ctx.drawImage(
 
 The following captures run the complete companion project and exercise its controls.
 
-![After Start, the ready overlay is removed and the robot stands on the ground.](../figures/chapter_17/behavior-playing.png){#fig-ch17-behavior-playing fig-alt="After Start, the ready overlay is removed and the robot stands on the ground." width="100%"}
+![After Start, the ready overlay is removed and the robot stands on the ground.](../figures/chapter_18/behavior-playing.png){#fig-ch18-behavior-playing fig-alt="After Start, the ready overlay is removed and the robot stands on the ground." width="100%"}
 
-![Show hitboxes adds outlines for the robot, terrain, hazards, and gems over the artwork.](../figures/chapter_17/behavior-hitboxes.png){#fig-ch17-behavior-hitboxes fig-alt="Show hitboxes adds outlines for the robot, terrain, hazards, and gems over the artwork." width="100%"}
+![Show hitboxes adds outlines for the robot, terrain, hazards, and gems over the artwork.](../figures/chapter_18/behavior-hitboxes.png){#fig-ch18-behavior-hitboxes fig-alt="Show hitboxes adds outlines for the robot, terrain, hazards, and gems over the artwork." width="100%"}
 
-![Pressing Jump and Right launches the robot above the ground while moving it forward.](../figures/chapter_17/behavior-jump.png){#fig-ch17-behavior-jump fig-alt="Pressing Jump and Right launches the robot above the ground while moving it forward." width="100%"}
+![Pressing Jump and Right launches the robot above the ground while moving it forward.](../figures/chapter_18/behavior-jump.png){#fig-ch18-behavior-jump fig-alt="Pressing Jump and Right launches the robot above the ground while moving it forward." width="100%"}
 
-![The sprite-frame task draws four different crops from one sheet, with the collision body outlined separately from the artwork.](../figures/chapter_17/behavior-sprite-frames.png){#fig-ch17-behavior-sprite-frames fig-alt="The sprite-frame task draws four different crops from one sheet, with the collision body outlined separately from the artwork." width="100%"}
+![The sprite-frame task draws four different crops from one sheet, with the collision body outlined separately from the artwork.](../figures/chapter_18/behavior-sprite-frames.png){#fig-ch18-behavior-sprite-frames fig-alt="The sprite-frame task draws four different crops from one sheet, with the collision body outlined separately from the artwork." width="100%"}
 
 <!-- /game-stage-figures:behavior -->
 
@@ -7021,7 +7040,7 @@ The first four numbers after the image select the crop. The next four choose whe
 
 This is the nine-argument form of [`drawImage`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage). It copies part of an image; it does not modify the original file.
 
-![A four-frame robot sheet feeds a selected drawing while the player's collision rectangle stays fixed.](../figures/chapter_13/sprite-hitbox.svg){#fig-ch17 fig-alt="Four 64-pixel robot frames, a selected crop, and a separate smaller dashed hitbox inside the visible character." width="100%"}
+![A four-frame robot sheet feeds a selected drawing while the player's collision rectangle stays fixed.](../figures/chapter_14/sprite-hitbox.svg){#fig-ch18 fig-alt="Four 64-pixel robot frames, a selected crop, and a separate smaller dashed hitbox inside the visible character." width="100%"}
 
 **Read the picture:** Frame numbers start at zero. The dashed rectangle is the physical body, not the full image. Transparent space, a waving arm, or a decorative antenna should not unexpectedly change where the robot lands.
 
@@ -7094,10 +7113,10 @@ Make a space-station version of Robot Orchard. Change the robot color, turn gems
 
 After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.
 
-# Finish a Scrolling 2D Adventure {#sec-ch18}
+# Finish a Scrolling 2D Adventure {#sec-ch19}
 
 ::: {.chapter-banner}
-[GAME LAB 18 | Robot Orchard: a complete game]{.game-title}
+[GAME LAB 19 | Robot Orchard: a complete game]{.game-title}
 [Camera]{.skill-chip} [Game states]{.skill-chip} [Scoring]{.skill-chip} [Restart]{.skill-chip}
 :::
 
@@ -7156,9 +7175,9 @@ const cameraX = clamp(
 
 These stage views use the complete [companion page](../games/robot-orchard/index.html). With its scripts disabled, HTML supplies the controls and CSS styles the page. The game world appears when JavaScript loads and draws it; the loading text in these static views is the HTML placeholder.
 
-![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_18/stage-html.png){#fig-ch18-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_19/stage-html.png){#fig-ch19-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
 
-![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_18/stage-style.png){#fig-ch18-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_19/stage-style.png){#fig-ch19-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
 
 <!-- /game-stage-figures:shell -->
 
@@ -7175,7 +7194,7 @@ ctx.restore();
 
 The function names here describe drawing responsibilities. The companion `draw()` contains their actual drawing loops. After `restore`, draw interface elements in screen coordinates so a message does not scroll away with the level.
 
-![The camera selects a viewport from a wider world and converts a world x-coordinate to a screen x-coordinate.](../figures/chapter_14/camera-world.svg){#fig-ch18 fig-alt="A long level contains a camera window. A world x of 1500 and camera x of 1020 produce screen x 480." width="100%"}
+![The camera selects a viewport from a wider world and converts a world x-coordinate to a screen x-coordinate.](../figures/chapter_15/camera-world.svg){#fig-ch19 fig-alt="A long level contains a camera window. A world x of 1500 and camera x of 1020 produce screen x 480." width="100%"}
 
 **Read the picture:** The player and terrain keep their world coordinates. Only the drawing position changes. At the left and right ends of the level, clamping stops the camera from showing empty space beyond the level boundary.
 
@@ -7261,17 +7280,17 @@ function start() {
 
 The following captures run the complete companion project and exercise its controls.
 
-![Behavior: Robot Orchard has loaded its assets and displays its ready screen.](../figures/chapter_18/behavior-start.png){#fig-ch18-behavior-start fig-alt="Behavior: Robot Orchard has loaded its assets and displays its ready screen." width="100%"}
+![Behavior: Robot Orchard has loaded its assets and displays its ready screen.](../figures/chapter_19/behavior-start.png){#fig-ch19-behavior-start fig-alt="Behavior: Robot Orchard has loaded its assets and displays its ready screen." width="100%"}
 
-![After Start, the ready overlay is removed and the robot stands on the ground.](../figures/chapter_18/behavior-playing.png){#fig-ch18-behavior-playing fig-alt="After Start, the ready overlay is removed and the robot stands on the ground." width="100%"}
+![After Start, the ready overlay is removed and the robot stands on the ground.](../figures/chapter_19/behavior-playing.png){#fig-ch19-behavior-playing fig-alt="After Start, the ready overlay is removed and the robot stands on the ground." width="100%"}
 
-![Show hitboxes adds outlines for the robot, terrain, hazards, and gems over the artwork.](../figures/chapter_18/behavior-hitboxes.png){#fig-ch18-behavior-hitboxes fig-alt="Show hitboxes adds outlines for the robot, terrain, hazards, and gems over the artwork." width="100%"}
+![Show hitboxes adds outlines for the robot, terrain, hazards, and gems over the artwork.](../figures/chapter_19/behavior-hitboxes.png){#fig-ch19-behavior-hitboxes fig-alt="Show hitboxes adds outlines for the robot, terrain, hazards, and gems over the artwork." width="100%"}
 
-![Pressing Jump and Right launches the robot above the ground while moving it forward.](../figures/chapter_18/behavior-jump.png){#fig-ch18-behavior-jump fig-alt="Pressing Jump and Right launches the robot above the ground while moving it forward." width="100%"}
+![Pressing Jump and Right launches the robot above the ground while moving it forward.](../figures/chapter_19/behavior-jump.png){#fig-ch19-behavior-jump fig-alt="Pressing Jump and Right launches the robot above the ground while moving it forward." width="100%"}
 
-![Pause freezes play and displays the PAUSED state.](../figures/chapter_18/behavior-paused.png){#fig-ch18-behavior-paused fig-alt="Pause freezes play and displays the PAUSED state." width="100%"}
+![Pause freezes play and displays the PAUSED state.](../figures/chapter_19/behavior-paused.png){#fig-ch19-behavior-paused fig-alt="Pause freezes play and displays the PAUSED state." width="100%"}
 
-![After moving Right and collecting the first gem, the camera scrolls along the wider level; the counter shows Gems: 1/10.](../figures/chapter_18/behavior-scrolling.png){#fig-ch18-behavior-scrolling fig-alt="After moving Right and collecting the first gem, the camera scrolls along the wider level; the counter shows Gems: 1/10." width="100%"}
+![After moving Right and collecting the first gem, the camera scrolls along the wider level; the counter shows Gems: 1/10.](../figures/chapter_19/behavior-scrolling.png){#fig-ch19-behavior-scrolling fig-alt="After moving Right and collecting the first gem, the camera scrolls along the wider level; the counter shows Gems: 1/10." width="100%"}
 
 <!-- /game-stage-figures:behavior -->
 
@@ -7305,10 +7324,10 @@ Add a checkpoint after the first gap, create an optional high route with extra r
 
 After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.
 
-# Step into a 3D World with Three.js {#sec-ch19}
+# Step into a 3D World with Three.js {#sec-ch20}
 
 ::: {.chapter-banner}
-[GAME LAB 19 | Robot Island Explorer]{.game-title}
+[GAME LAB 20 | Robot Island Explorer]{.game-title}
 [Three.js]{.skill-chip} [Scene]{.skill-chip} [Camera]{.skill-chip} [3D coordinates]{.skill-chip}
 :::
 
@@ -7352,7 +7371,7 @@ You already know that a game needs state, input, rules, and drawing. Those ideas
 Open **Robot Island Explorer** in the Game Lab. Move with WASD or the arrow keys and collect four crystals. Drag to orbit the camera and scroll to zoom. The decorative crates are intentionally not solid in this pre-physics project. We will give objects real physical behavior with Rapier later.
 
 ::: {.callout-tip .setup title="Set up the 3D projects" icon="false"}
-Use the same local server from Chapter 15. The supplied 3D pages load **Three.js 0.180.0** and, where needed, **Rapier 0.17.3** from a CDN. These are pinned lesson dependencies, not a claim that they are the newest releases.
+Use the same local server from Chapter 16. The supplied 3D pages load **Three.js 0.180.0** and, where needed, **Rapier 0.17.3** from a CDN. These are pinned lesson dependencies, not a claim that they are the newest releases.
 
 Internet access is required for those library downloads unless you run the optional vendoring script described in the Game Lab appendix. Your local images and GLB files are included. A WebGL 2-capable browser and graphics setup are required by this Three.js renderer; see the [renderer documentation](https://threejs.org/docs/pages/WebGLRenderer.html).
 :::
@@ -7384,9 +7403,9 @@ scene.add(new THREE.HemisphereLight(0xffffff, 0x456b55, 2));
 
 These stage views use the complete [companion page](../games/three-explorer/index.html). With its scripts disabled, HTML supplies the controls and CSS styles the page. The game world appears when JavaScript loads and draws it; the loading text in these static views is the HTML placeholder.
 
-![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_19/stage-html.png){#fig-ch19-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_20/stage-html.png){#fig-ch20-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
 
-![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_19/stage-style.png){#fig-ch19-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_20/stage-style.png){#fig-ch20-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
 
 <!-- /game-stage-figures:shell -->
 
@@ -7414,7 +7433,7 @@ Put the map before the module that uses it. Keep Three.js core and its addons on
 
 In this book's 3D worlds, `y` points upward. The floor lies in the `x-z` plane. Positive `x` moves right along the world axis; positive `z` moves toward the near side in the starting camera view. These are world directions, not permanent screen directions.
 
-![A comparison between the downward y-axis of Canvas and the upward y-axis of our 3D world.](../figures/chapter_15/axes.svg){#fig-ch19 fig-alt="Canvas uses x right and y down. The 3D world uses x, y up, and z depth, with floor movement in x and z." width="100%"}
+![A comparison between the downward y-axis of Canvas and the upward y-axis of our 3D world.](../figures/chapter_16/axes.svg){#fig-ch20 fig-alt="Canvas uses x right and y down. The 3D world uses x, y up, and z depth, with floor movement in x and z." width="100%"}
 
 **Read the picture:** Do not carry the 2D gravity sign into the 3D game unchanged. Downward motion increased `y` on the canvas. In this 3D convention, downward motion decreases `y`.
 
@@ -7432,11 +7451,11 @@ robot.position.z += direction.y * speed * dt;
 
 The following captures run the complete companion project and exercise its controls.
 
-![Behavior: JavaScript loads the robot and crystals and renders the 3D island.](../figures/chapter_19/behavior-start.png){#fig-ch19-behavior-start fig-alt="Behavior: JavaScript loads the robot and crystals and renders the 3D island." width="100%"}
+![Behavior: JavaScript loads the robot and crystals and renders the 3D island.](../figures/chapter_20/behavior-start.png){#fig-ch20-behavior-start fig-alt="Behavior: JavaScript loads the robot and crystals and renders the 3D island." width="100%"}
 
-![Moving Up and Right to the first crystal removes it and updates the counter to Crystals: 1/4.](../figures/chapter_19/behavior-collected.png){#fig-ch19-behavior-collected fig-alt="Moving Up and Right to the first crystal removes it and updates the counter to Crystals: 1/4." width="100%"}
+![Moving Up and Right to the first crystal removes it and updates the counter to Crystals: 1/4.](../figures/chapter_20/behavior-collected.png){#fig-ch20-behavior-collected fig-alt="Moving Up and Right to the first crystal removes it and updates the counter to Crystals: 1/4." width="100%"}
 
-![Restart collection restores all four crystals and resets the counter to zero.](../figures/chapter_19/behavior-restarted.png){#fig-ch19-behavior-restarted fig-alt="Restart collection restores all four crystals and resets the counter to zero." width="100%"}
+![Restart collection restores all four crystals and resets the counter to zero.](../figures/chapter_20/behavior-restarted.png){#fig-ch20-behavior-restarted fig-alt="Restart collection restores all four crystals and resets the counter to zero." width="100%"}
 
 <!-- /game-stage-figures:behavior -->
 
@@ -7501,10 +7520,10 @@ Move the starting camera higher, change the island material, and place one extra
 
 After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.
 
-# Build and Import Your Own 3D Assets {#sec-ch20}
+# Build and Import Your Own 3D Assets {#sec-ch21}
 
 ::: {.chapter-banner}
-[GAME LAB 20 | Your own robot, crate, and crystal]{.game-title}
+[GAME LAB 21 | Your own robot, crate, and crystal]{.game-title}
 [GLB]{.skill-chip} [Models]{.skill-chip} [Materials]{.skill-chip} [Scale and origin]{.skill-chip}
 :::
 
@@ -7566,9 +7585,9 @@ scene.add(robot);
 
 These stage views use the complete [companion page](../games/asset-workshop/index.html). With its scripts disabled, HTML supplies the controls and CSS styles the page. The game world appears when JavaScript loads and draws it; the loading text in these static views is the HTML placeholder.
 
-![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_20/stage-html.png){#fig-ch20-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_21/stage-html.png){#fig-ch21-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
 
-![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_20/stage-style.png){#fig-ch20-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_21/stage-style.png){#fig-ch21-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
 
 <!-- /game-stage-figures:shell -->
 
@@ -7580,7 +7599,7 @@ A `.gltf` file may refer to separate buffers or textures. A `.glb` can package t
 
 An origin is the point used as the model's local `(0, 0, 0)`. A character often benefits from an origin at its feet: placing it at world `y = 0` then puts it on the floor. A physical crate often benefits from a center origin: its visual center can match its rigid-body position.
 
-![A three-stage asset pipeline and a comparison between a foot-centered robot and a center-origin crate.](../figures/chapter_16/asset-origins.svg){#fig-ch20 fig-alt="Author a model, load its GLB, then place it. A robot's origin is at the feet, while a unit crate uses a center origin and half-unit collider extents." width="100%"}
+![A three-stage asset pipeline and a comparison between a foot-centered robot and a center-origin crate.](../figures/chapter_17/asset-origins.svg){#fig-ch21 fig-alt="Author a model, load its GLB, then place it. A robot's origin is at the feet, while a unit crate uses a center origin and half-unit collider extents." width="100%"}
 
 **Read the picture:** The two origins are both sensible because the objects have different jobs. Problems happen when your code assumes one origin but the asset was authored with another.
 
@@ -7631,11 +7650,11 @@ robot.traverse(object => {
 
 The following captures run the complete companion project and exercise its controls.
 
-![Behavior: the original turquoise robot model is loaded into the 3D Asset Workshop.](../figures/chapter_20/behavior-start.png){#fig-ch20-behavior-start fig-alt="Behavior: the original turquoise robot model is loaded into the 3D Asset Workshop." width="100%"}
+![Behavior: the original turquoise robot model is loaded into the 3D Asset Workshop.](../figures/chapter_21/behavior-start.png){#fig-ch21-behavior-start fig-alt="Behavior: the original turquoise robot model is loaded into the 3D Asset Workshop." width="100%"}
 
-![Changing Robot color updates the body material to pink while keeping the model geometry.](../figures/chapter_20/behavior-recolored.png){#fig-ch20-behavior-recolored fig-alt="Changing Robot color updates the body material to pink while keeping the model geometry." width="100%"}
+![Changing Robot color updates the body material to pink while keeping the model geometry.](../figures/chapter_21/behavior-recolored.png){#fig-ch21-behavior-recolored fig-alt="Changing Robot color updates the body material to pink while keeping the model geometry." width="100%"}
 
-![Export robot.glb saves the customized model and shows the export confirmation.](../figures/chapter_20/behavior-exported.png){#fig-ch20-behavior-exported fig-alt="Export robot.glb saves the customized model and shows the export confirmation." width="100%"}
+![Export robot.glb saves the customized model and shows the export confirmation.](../figures/chapter_21/behavior-exported.png){#fig-ch21-behavior-exported fig-alt="Export robot.glb saves the customized model and shows the export confirmation." width="100%"}
 
 <!-- /game-stage-figures:behavior -->
 
@@ -7696,10 +7715,10 @@ Export a different-colored robot and load it into the Explorer. Next, change the
 
 After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.
 
-# Add Gravity and Solid Objects with Rapier {#sec-ch21}
+# Add Gravity and Solid Objects with Rapier {#sec-ch22}
 
 ::: {.chapter-banner}
-[GAME LAB 21 | Rapier Drop Lab]{.game-title}
+[GAME LAB 22 | Rapier Drop Lab]{.game-title}
 [Rapier.js]{.skill-chip} [Rigid bodies]{.skill-chip} [Colliders]{.skill-chip} [Physics steps]{.skill-chip}
 :::
 
@@ -7756,9 +7775,9 @@ world.timestep = 1 / 60;
 
 These stage views use the complete [companion page](../games/physics-lab/index.html). With its scripts disabled, HTML supplies the controls and CSS styles the page. The game world appears when JavaScript loads and draws it; the loading text in these static views is the HTML placeholder.
 
-![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_21/stage-html.png){#fig-ch21-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_22/stage-html.png){#fig-ch22-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
 
-![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_21/stage-style.png){#fig-ch21-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_22/stage-style.png){#fig-ch22-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
 
 <!-- /game-stage-figures:shell -->
 
@@ -7806,7 +7825,7 @@ world.createCollider(
 
 Placing the floor's center at `y = -0.5` puts its top surface at `y = 0`. A collider twice as large as its visible model is often a full-size-versus-half-size mistake.
 
-![Rapier advances bodies and colliders, then Three.js copies their transforms and renders the scene.](../figures/chapter_17/physics-render.svg){#fig-ch21 fig-alt="The Rapier physics representation and Three.js visual representation are connected by a one-way transform copy after each fixed physics step." width="100%"}
+![Rapier advances bodies and colliders, then Three.js copies their transforms and renders the scene.](../figures/chapter_18/physics-render.svg){#fig-ch22 fig-alt="The Rapier physics representation and Three.js visual representation are connected by a one-way transform copy after each fixed physics step." width="100%"}
 
 **Read the picture:** The body owns movement. The mesh follows it. Do not also add homemade gravity to the mesh after Rapier has already moved the body.
 
@@ -7841,13 +7860,13 @@ RAPIER.ColliderDesc.ball(0.5)
 
 The following captures run the complete companion project and exercise its controls.
 
-![Behavior: three balls begin the drop at the same height.](../figures/chapter_21/behavior-start.png){#fig-ch21-behavior-start fig-alt="Behavior: three balls begin the drop at the same height." width="100%"}
+![Behavior: three balls begin the drop at the same height.](../figures/chapter_22/behavior-start.png){#fig-ch22-behavior-start fig-alt="Behavior: three balls begin the drop at the same height." width="100%"}
 
-![After the same elapsed simulation time, the balls reach different heights because their restitution values differ.](../figures/chapter_21/behavior-bounce.png){#fig-ch21-behavior-bounce fig-alt="After the same elapsed simulation time, the balls reach different heights because their restitution values differ." width="100%"}
+![After the same elapsed simulation time, the balls reach different heights because their restitution values differ.](../figures/chapter_22/behavior-bounce.png){#fig-ch22-behavior-bounce fig-alt="After the same elapsed simulation time, the balls reach different heights because their restitution values differ." width="100%"}
 
-![Show colliders overlays the physics shapes on the visible balls and floor.](../figures/chapter_21/behavior-colliders.png){#fig-ch21-behavior-colliders fig-alt="Show colliders overlays the physics shapes on the visible balls and floor." width="100%"}
+![Show colliders overlays the physics shapes on the visible balls and floor.](../figures/chapter_22/behavior-colliders.png){#fig-ch22-behavior-colliders fig-alt="Show colliders overlays the physics shapes on the visible balls and floor." width="100%"}
 
-![Drop again resets all three balls to their common starting height.](../figures/chapter_21/behavior-reset.png){#fig-ch21-behavior-reset fig-alt="Drop again resets all three balls to their common starting height." width="100%"}
+![Drop again resets all three balls to their common starting height.](../figures/chapter_22/behavior-reset.png){#fig-ch22-behavior-reset fig-alt="Drop again resets all three balls to their common starting height." width="100%"}
 
 <!-- /game-stage-figures:behavior -->
 
@@ -7891,10 +7910,10 @@ Change one ball's bounce coefficient and predict the result. Next, deliberately 
 
 After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.
 
-# Create a 3D Physics Game: Marble Quest {#sec-ch22}
+# Create a 3D Physics Game: Marble Quest {#sec-ch23}
 
 ::: {.chapter-banner}
-[GAME LAB 22 | Marble Quest]{.game-title}
+[GAME LAB 23 | Marble Quest]{.game-title}
 [Three.js + Rapier]{.skill-chip} [Sensors]{.skill-chip} [Collision events]{.skill-chip} [Custom assets]{.skill-chip}
 :::
 
@@ -7956,9 +7975,9 @@ links.push({ body, mesh });
 
 These stage views use the complete [companion page](../games/marble-quest/index.html). With its scripts disabled, HTML supplies the controls and CSS styles the page. The game world appears when JavaScript loads and draws it; the loading text in these static views is the HTML placeholder.
 
-![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_22/stage-html.png){#fig-ch22-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
+![Structure: HTML only, before CSS or JavaScript.](../figures/chapter_23/stage-html.png){#fig-ch23-stage-html fig-alt="Structure: HTML only, before CSS or JavaScript." width="100%"}
 
-![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_22/stage-style.png){#fig-ch22-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
+![Style: the same HTML with CSS applied; JavaScript is still off.](../figures/chapter_23/stage-style.png){#fig-ch23-stage-style fig-alt="Style: the same HTML with CSS applied; JavaScript is still off." width="100%"}
 
 <!-- /game-stage-figures:shell -->
 
@@ -7996,7 +8015,7 @@ const sensor = world.createCollider(descriptor, gemBody);
 
 The crystal's body is fixed because the collectible stays in place. Its visual can rotate for decoration without rotating a spherical sensor. Rapier distinguishes nonblocking sensors from contact-generating colliders in its [collider guide](https://rapier.rs/docs/user_guides/javascript/colliders/).
 
-![Solid contacts affect motion while sensor events feed one-time scoring and victory rules.](../figures/chapter_18/sensor-rules.svg){#fig-ch22 fig-alt="Solid collisions push bodies apart. Sensor overlaps produce an event, which is checked once before score and win conditions are updated." width="100%"}
+![Solid contacts affect motion while sensor events feed one-time scoring and victory rules.](../figures/chapter_19/sensor-rules.svg){#fig-ch23 fig-alt="Solid collisions push bodies apart. Sensor overlaps produce an event, which is checked once before score and win conditions are updated." width="100%"}
 
 **Read the picture:** The physics response to a solid object and the game response to a collectible take different paths. The sensor itself does not know how many points a crystal is worth.
 
@@ -8078,15 +8097,15 @@ gems = new Map();
 
 The following captures run the complete companion project and exercise its controls.
 
-![Behavior: the marble, crates, gems, and gate are loaded on the ready screen.](../figures/chapter_22/behavior-start.png){#fig-ch22-behavior-start fig-alt="Behavior: the marble, crates, gems, and gate are loaded on the ready screen." width="100%"}
+![Behavior: the marble, crates, gems, and gate are loaded on the ready screen.](../figures/chapter_23/behavior-start.png){#fig-ch23-behavior-start fig-alt="Behavior: the marble, crates, gems, and gate are loaded on the ready screen." width="100%"}
 
-![Start creates a playing world with five gems and three lives.](../figures/chapter_22/behavior-playing.png){#fig-ch22-behavior-playing fig-alt="Start creates a playing world with five gems and three lives." width="100%"}
+![Start creates a playing world with five gems and three lives.](../figures/chapter_23/behavior-playing.png){#fig-ch23-behavior-playing fig-alt="Start creates a playing world with five gems and three lives." width="100%"}
 
-![Show colliders reveals the marble, solid obstacles, and collectible sensor shapes.](../figures/chapter_22/behavior-colliders.png){#fig-ch22-behavior-colliders fig-alt="Show colliders reveals the marble, solid obstacles, and collectible sensor shapes." width="100%"}
+![Show colliders reveals the marble, solid obstacles, and collectible sensor shapes.](../figures/chapter_23/behavior-colliders.png){#fig-ch23-behavior-colliders fig-alt="Show colliders reveals the marble, solid obstacles, and collectible sensor shapes." width="100%"}
 
-![Holding Left and Up rolls the marble into a gem sensor. The gem disappears and the counter becomes Gems: 1/5.](../figures/chapter_22/behavior-moved.png){#fig-ch22-behavior-moved fig-alt="Holding Left and Up rolls the marble into a gem sensor. The gem disappears and the counter becomes Gems: 1/5." width="100%"}
+![Holding Left and Up rolls the marble into a gem sensor. The gem disappears and the counter becomes Gems: 1/5.](../figures/chapter_23/behavior-moved.png){#fig-ch23-behavior-moved fig-alt="Holding Left and Up rolls the marble into a gem sensor. The gem disappears and the counter becomes Gems: 1/5." width="100%"}
 
-![Pause suspends the physics game and shows the paused status.](../figures/chapter_22/behavior-paused.png){#fig-ch22-behavior-paused fig-alt="Pause suspends the physics game and shows the paused status." width="100%"}
+![Pause suspends the physics game and shows the paused status.](../figures/chapter_23/behavior-paused.png){#fig-ch23-behavior-paused fig-alt="Pause suspends the physics game and shows the paused status." width="100%"}
 
 <!-- /game-stage-figures:behavior -->
 
@@ -8104,7 +8123,7 @@ The same design applies to a future walking character, vehicle, or multiplayer g
 
 Start with a small change that has a clear test: move one wall, reposition a crystal, change a crate's density, or change the marble's damping. Then try a visual remix by replacing a model while keeping its physical dimensions.
 
-A more ambitious extension is a capsule-controlled character with a matching visual model. That requires grounded movement, jump handling, and a character-controller policy; changing the sphere mesh into a robot is not enough. Return to the character-controller discussion in Chapter 21 before attempting it.
+A more ambitious extension is a capsule-controlled character with a matching visual model. That requires grounded movement, jump handling, and a character-controller policy; changing the sphere mesh into a robot is not enough. Return to the character-controller discussion in Chapter 22 before attempting it.
 
 ::: {.callout-tip .challenge title="Level up" icon="false"}
 Make a delivery game: push a crate into a target sensor to unlock the exit. Decide which collider may trigger the target, whether the crate must remain inside, and what happens after a restart. Draw the event-to-rule flow before changing the code.
@@ -8241,7 +8260,7 @@ For example, a new collectible needs a place and a stored collected state; a rec
 
 ## Which games need a local web server?
 
-::: {.callout-important title="Chapters 15–22: local HTTP server required" icon="false"}
+::: {.callout-important title="Chapters 16–23: local HTTP server required" icon="false"}
 
 **All six Game Lab projects require a web server.** Start the included launcher, then open the game through `http://127.0.0.1:8000/games/`. Double-clicking the game's `index.html` is not enough. Install Node.js once using the steps below; after that, double-click the launcher each time you play.
 
@@ -8249,13 +8268,13 @@ For example, a new collectible needs a place and a stored collected state; a rec
 
 | Game or example | Chapters | Local HTTP server? | Internet while playing? | Why? |
 | --- | --- | --- | --- | --- |
-| Structure, Style, and Behavior scene examples; Monster Clicker; Catch the Star; Bouncing Ball; Pong; Breakout; Snake; your one-file Game Studio project | 2–14 | **No** for the supplied one-file examples | No | The game code is in the HTML file. Open that file in a browser. Keep any supplied images beside it. |
-| Collision Playground | 15–16 | **Required** | No | Imports shared JavaScript modules. |
-| Robot Orchard, including its sprite and level examples | 15–18 | **Required** | No | Imports modules and requests `level.json` and local artwork. |
-| Robot Island Explorer | 19–20 | **Required** | **Yes, by default** | Imports Three.js and loads local GLB models. |
-| 3D Asset Workshop | 20 | **Required** | **Yes, by default** | Imports Three.js and its addons, and loads a local GLB model. |
-| Rapier Drop Lab | 21 | **Required** | **Yes, by default** | Imports Three.js and Rapier, then initializes physics. |
-| Marble Quest | 22 | **Required** | **Yes, by default** | Imports Three.js and Rapier, and loads local models and textures. |
+| Structure, Style, and Behavior scene examples; Monster Clicker; Catch the Star; Bouncing Ball; Pong; Breakout; Snake; your one-file Game Studio project | 3–15 | **No** for the supplied one-file examples | No | The game code is in the HTML file. Open that file in a browser. Keep any supplied images beside it. |
+| Collision Playground | 16–17 | **Required** | No | Imports shared JavaScript modules. |
+| Robot Orchard, including its sprite and level examples | 16–19 | **Required** | No | Imports modules and requests `level.json` and local artwork. |
+| Robot Island Explorer | 20–21 | **Required** | **Yes, by default** | Imports Three.js and loads local GLB models. |
+| 3D Asset Workshop | 21 | **Required** | **Yes, by default** | Imports Three.js and its addons, and loads a local GLB model. |
+| Rapier Drop Lab | 22 | **Required** | **Yes, by default** | Imports Three.js and Rapier, then initializes physics. |
+| Marble Quest | 23 | **Required** | **Yes, by default** | Imports Three.js and Rapier, and loads local models and textures. |
 
 The six projects' extra demonstration and screenshot pages also use modules and require HTTP. The older one-file games in `workspace/` (including Secret Number, Treasure Clicker, and Rock–Paper–Scissors) can open directly. If you later add module imports or `fetch()` to a one-file game, use a server for that version too.
 
@@ -8356,12 +8375,12 @@ The browser's trip is simple: browser asks for `main.js` or an image, the local 
 
 | Project | Chapter | Controls and purpose |
 | --- | --- | --- |
-| Collision Playground | 15–16 | Move with arrows/WASD or drag the player. Switch shape and turn wall blocking on or off. |
-| Robot Orchard | 15–18 | Start; move with A/D or left/right; jump with Space/up/W; P pauses, R restarts, H shows hitboxes. Collect every gem and enter the portal. |
-| Robot Island Explorer | 19–20 | Move with arrows/WASD; drag to orbit the camera; scroll to zoom. Collect four gems. Crates are decorative in this non-physics project. |
-| Rapier Drop Lab | 21 | Drop again; orbit the camera; show colliders. Compare three bounce coefficients. |
-| Marble Quest | 22 | Start; arrows/WASD move the marble; P pauses, R restarts, H shows colliders. Collect five gems and enter the gate. Falling costs a life. |
-| 3D Asset Workshop | 20 | Change the robot body's color, orbit the view, and export your own GLB file. |
+| Collision Playground | 16–17 | Move with arrows/WASD or drag the player. Switch shape and turn wall blocking on or off. |
+| Robot Orchard | 16–19 | Start; move with A/D or left/right; jump with Space/up/W; P pauses, R restarts, H shows hitboxes. Collect every gem and enter the portal. |
+| Robot Island Explorer | 20–21 | Move with arrows/WASD; drag to orbit the camera; scroll to zoom. Collect four gems. Crates are decorative in this non-physics project. |
+| Rapier Drop Lab | 22 | Drop again; orbit the camera; show colliders. Compare three bounce coefficients. |
+| Marble Quest | 23 | Start; arrows/WASD move the marble; P pauses, R restarts, H shows colliders. Collect five gems and enter the gate. Falling costs a life. |
+| 3D Asset Workshop | 21 | Change the robot body's color, orbit the view, and export your own GLB file. |
 
 Click the game canvas before using keys. Movement controls are intentionally world-relative in the 3D games: W/up moves toward negative Z even if you rotate the exploration camera. The lab also supplies large onscreen controls where movement is needed. These are useful alternatives, not a claim that every canvas interaction is fully accessible to every player.
 
@@ -8369,7 +8388,7 @@ Click the game canvas before using keys. Movement controls are intentionally wor
 
 ```text
 chapters/               The textbook's Quarto chapters
-figures/                Original diagrams with editable SVGs used by Chapters 15-22
+figures/                Original diagrams with editable SVGs used by Chapters 16-23
 games/
   index.html            Game Lab menu
   collision-lab/        Shape detection and wall-response experiment
@@ -8439,7 +8458,7 @@ These tests check reusable collision and game-rule functions. They do not replac
 
 Use this appendix when a later game introduces a tag, attribute, selector, or property you want to revisit. It preserves the detailed explanations, categorized tables, and complete Game Maker HQ examples. You do not need to read the whole appendix before programming.
 
-Start with the smaller lessons in Chapters 2–4. Return here to look up one feature at a time: HTML structure and attributes, CSS appearance and layout, controls, or the page patterns used by canvas and 3D games.
+Start with the smaller lessons in Chapters 3–5. Return here to look up one feature at a time: HTML structure and attributes, CSS appearance and layout, controls, or the page patterns used by canvas and 3D games.
 
 ## Complete Game Maker HQ example {.unnumbered}
 
@@ -8527,7 +8546,7 @@ Start with the **scene structure**: decide which parts belong on the page and pl
 
 Open `index.html` in a browser. If you edit it, save the file and refresh the browser tab. The page will have structure, but it will look plain until you add the CSS. A ready-to-run copy of these files is in `workspace/chapter2/`; open `plain.html` there to see the same page with its stylesheet link removed.
 
-![The Game Maker HQ page in Chrome before its CSS file is linked. The headings, mission list, gem image, and player form appear in the browser's default style.](../figures/chapter_02/game-maker-hq-plain.png){#fig-ch03-plain-page fig-alt="A plain white browser page shows Game Maker HQ, a small gem, three missions, and a player form with default browser controls." width="100%"}
+![The Game Maker HQ page in Chrome before its CSS file is linked. The headings, mission list, gem image, and player form appear in the browser's default style.](../figures/chapter_03/game-maker-hq-plain.png){#fig-ch04-plain-page fig-alt="A plain white browser page shows Game Maker HQ, a small gem, three missions, and a player form with default browser controls." width="100%"}
 
 **Read the picture:** The content is already in a useful order: heading, game preview, missions, then player card. The gem loads because its `<img>` path points to a real local file. Without the stylesheet link, the browser supplies its default fonts, spacing, and control layout.
 
@@ -8569,9 +8588,9 @@ Read the beginning of the complete example from top to bottom:
 | `<link rel="stylesheet" href="styles.css">` | Loads a separate CSS file. | Lets several pages share a visual design. |
 | `<body>` | Contains the page content and controls. | Holds the heading, game area, score, and buttons. |
 | `<style>` | Holds CSS rules inside an HTML file, usually in the head. | Keeps later short game examples in one file. |
-| `<script>` | Holds or loads JavaScript, depending on its attributes. | Provides the place for the game instructions starting in Chapter 5. |
+| `<script>` | Holds or loads JavaScript, depending on its attributes. | Provides the place for the game instructions starting in Chapter 6. |
 
-The browser's reading order also matters. The early games put their ordinary `<script>` after the page elements it will use, just before `</body>`. Those elements exist when the script reaches them. In Chapter 5, you will fill that script with variables; you do not need to write those instructions yet.
+The browser's reading order also matters. The early games put their ordinary `<script>` after the page elements it will use, just before `</body>`. Those elements exist when the script reaches them. In Chapter 6, you will fill that script with variables; you do not need to write those instructions yet.
 
 ### Nest elements to describe the page structure {.unnumbered .unnumbered}
 
@@ -8603,18 +8622,18 @@ The following tables cover the HTML used in the chapter code and the playable co
 | Category | Elements | Meaning and example | Where you will meet them |
 | --- | --- | --- | --- |
 | Document | `<html>`, `<head>`, `<body>` | Whole document, page information, visible content | Complete game pages throughout the book |
-| Metadata and resources | `<meta>`, `<title>`, `<link>` | Encoding/viewport, tab title, stylesheet or tab icon | Chapters 3–6, 8, 10–14; Game Lab pages |
-| Code containers | `<style>`, `<script>` | Embedded CSS; embedded or external JavaScript/data | Chapters 5–14; module projects in Chapters 15–22 |
-| Main structure | `<main>`, `<section>` | Main content and a related section | Chapter 2, Monster Swarm, canvas games, Game Lab |
+| Metadata and resources | `<meta>`, `<title>`, `<link>` | Encoding/viewport, tab title, stylesheet or tab icon | Chapters 4–7, 9, 11–15; Game Lab pages |
+| Code containers | `<style>`, `<script>` | Embedded CSS; embedded or external JavaScript/data | Chapters 6–15; module projects in Chapters 16–23 |
+| Main structure | `<main>`, `<section>` | Main content and a related section | Chapter 3, Monster Swarm, canvas games, Game Lab |
 | Headings and text | `<h1>`, `<h2>`, `<p>` | Main heading, subsection heading, paragraph | Titles, instructions, scores, and messages |
-| General groups | `<div>`, `<span>` | Container for a group; small part of a line | Chapter 8 monster row and score; Chapter 9 star; 3D stage |
+| General groups | `<div>`, `<span>` | Container for a group; small part of a line | Chapter 9 monster row and score; Chapter 10 star; 3D stage |
 | Lists | `<ul>`, `<ol>`, `<li>` | Bulleted list, numbered list, one list item | Game Maker HQ missions; ordered missions in extra workspace examples |
 | Navigation | `<a>` | Link to another page, a resource, or an ID such as `href="#missions"` | Game Lab menu and Back links |
-| Pictures | `<img>` | Loads the picture named by `src`; `alt` supplies its text alternative | Chapter 3 gem; Chapter 6 image events |
-| Drawing | `<canvas>` | Drawing surface with a coordinate space | Chapters 10–18; created by Three.js in Chapters 19–22 |
+| Pictures | `<img>` | Loads the picture named by `src`; `alt` supplies its text alternative | Chapter 4 gem; Chapter 7 image events |
+| Drawing | `<canvas>` | Drawing surface with a coordinate space | Chapters 11–19; created by Three.js in Chapters 20–23 |
 | Form group | `<form>` | Groups controls for collecting input | Game Maker HQ player card |
 | Control label | `<label>` | Gives a control an understandable name | Player card and Game Lab choices |
-| Input and action | `<input>`, `<button>` | Text/checkbox/color and other controls; a pressable action | Chapters 2–4; later game toolbars |
+| Input and action | `<input>`, `<button>` | Text/checkbox/color and other controls; a pressable action | Chapters 3–5; later game toolbars |
 | Menu | `<select>`, `<option>` | Choice menu and one of its choices | Player card; Collision Playground shape choice |
 | Meaning within text | `<strong>`, `<code>` | Important text; a code name or command shown as text | Game Lab cards and source-file hints |
 | Extra page regions | `<header>`, `<nav>`, `<aside>`, `<footer>` | Introductory area, navigation area, related side note, closing information | Extra workspace examples |
@@ -8630,7 +8649,7 @@ An attribute's meaning depends on its element. `type="button"` on a button and `
 
 | Category | Attribute | What it means in our projects |
 | --- | --- | --- |
-| Identity | `id` | A unique label in this document: `id="score"`. CSS can select it with `#score`; JavaScript will find it in Chapter 6. |
+| Identity | `id` | A unique label in this document: `id="score"`. CSS can select it with `#score`; JavaScript will find it in Chapter 7. |
 | Shared group | `class` | Reusable group names: `class="monster"`. Several elements can share a class, and one element can have several classes, such as `class="card primary"`. |
 | Language | `lang` | The content language, such as `lang="en"` on `html`. |
 | Encoding | `charset` | The encoding on `meta`, here `utf-8`. |
@@ -8664,7 +8683,7 @@ A path is relative to the HTML page unless another base is specified. `gem.svg` 
 ::: {.callout-note title="Attributes, CSS properties, and DOM properties are different" icon="false"}
 In `<canvas width="500">`, `width` is an **HTML attribute**. In `canvas { width: 100%; }`, `width` is a **CSS property**. Later, `canvas.width` is a **JavaScript property** on the browser's canvas element. These affect related parts of the page, but they use different syntax and can describe different sizes.
 
-Likewise, `checked` in HTML is a checkbox's starting state; JavaScript's `.checked` reads its current state. `.value` reads current input, `.textContent` changes text, and `.style.left` changes a CSS position. Chapter 6 teaches the DOM; Chapter 9 uses style properties for movement. You only need to recognize the distinction now.
+Likewise, `checked` in HTML is a checkbox's starting state; JavaScript's `.checked` reads its current state. `.value` reads current input, `.textContent` changes text, and `.style.left` changes a CSS position. Chapter 7 teaches the DOM; Chapter 10 uses style properties for movement. You only need to recognize the distinction now.
 :::
 
 ## CSS basics: rules change how HTML looks {.unnumbered}
@@ -8854,7 +8873,7 @@ button:focus-visible {
 
 Save `styles.css` beside `index.html`, then refresh the page. Compare this browser result with the plain version above. The HTML content is the same; the linked CSS file changes its appearance.
 
-![The Game Maker HQ page in Chrome after the linked CSS file is loaded. A centered white card contains a large purple title, framed gem preview, spaced missions, and stacked form controls.](../figures/chapter_02/game-maker-hq-styled.png){#fig-ch03-styled-page fig-alt="A styled Game Maker HQ page has a pale blue background, white card, purple title, framed gem, mission list, and full-width player form controls." width="100%"}
+![The Game Maker HQ page in Chrome after the linked CSS file is loaded. A centered white card contains a large purple title, framed gem preview, spaced missions, and stacked form controls.](../figures/chapter_03/game-maker-hq-styled.png){#fig-ch04-styled-page fig-alt="A styled Game Maker HQ page has a pale blue background, white card, purple title, framed gem, mission list, and full-width player form controls." width="100%"}
 
 **Read the picture:** `.card` makes the white panel, `.game-preview` arranges the gem and its text, and `.game-art` adds the gem's rounded frame and shadow. The `form` rule stacks the labeled controls. Try changing one CSS value, saving, and refreshing to see which part of this picture changes.
 
@@ -9019,7 +9038,7 @@ When the viewport is at most 520 CSS pixels wide, the preview stacks vertically.
 
 ### Position a game object inside its play area {.unnumbered .unnumbered}
 
-Chapter 9 uses an ordinary HTML star inside a game container. You can prepare its starting position with CSS before adding a timer:
+Chapter 10 uses an ordinary HTML star inside a game container. You can prepare its starting position with CSS before adding a timer:
 
 ```html
 <div id="game"><span id="star">⭐</span></div>
@@ -9044,7 +9063,7 @@ Chapter 9 uses an ordinary HTML star inside a game container. You can prepare it
 
 `position: relative` keeps the game box in normal flow and makes it the reference box for the absolutely positioned star. `position: absolute` takes the star out of normal flow. `left` and `top` place it relative to that reference box: 120 pixels from the left, 80 from the top. Increasing `left` moves right; increasing `top` moves down.
 
-Keep the star's width and height in mind when choosing a position. An object whose left edge is inside the play area can still stick out at the right. Chapter 9 changes these same CSS properties through JavaScript; the positioning system itself is already in place.
+Keep the star's width and height in mind when choosing a position. An object whose left edge is inside the play area can still stick out at the right. Chapter 10 changes these same CSS properties through JavaScript; the positioning system itself is already in place.
 
 ### Prepare a canvas and a 3D stage {.unnumbered .unnumbered}
 
@@ -9066,11 +9085,11 @@ canvas {
 }
 ```
 
-HTML `width="500" height="300"` sets the drawing coordinate space. CSS sizes its display box. In this example, a narrower container can show a smaller version of the same drawing without changing those coordinates. `height: auto` keeps the canvas's proportions. Arbitrarily changing both displayed dimensions can stretch the picture. Chapter 15 explains how pointer coordinates must be scaled when drawing size and display size differ. See the [MDN canvas reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/canvas).
+HTML `width="500" height="300"` sets the drawing coordinate space. CSS sizes its display box. In this example, a narrower container can show a smaller version of the same drawing without changing those coordinates. `height: auto` keeps the canvas's proportions. Arbitrarily changing both displayed dimensions can stretch the picture. Chapter 16 explains how pointer coordinates must be scaled when drawing size and display size differ. See the [MDN canvas reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/canvas).
 
 The canvas stays blank until JavaScript draws. Fallback text does not describe every drawn object, and an accessible label does not make all canvas gameplay accessible. Keep useful instructions and status information in ordinary HTML alongside the game.
 
-For Chapters 19–22, the HTML starts with a host such as `<div id="stage"></div>`. Three.js creates a canvas and attaches it inside that div. The Game Lab gives `#stage` a height, rounded corners, and `overflow: hidden` so drawing outside its box is clipped. `#stage canvas` styles the child canvas. CSS controls the page frame; JavaScript and the renderer control the 3D world.
+For Chapters 20–23, the HTML starts with a host such as `<div id="stage"></div>`. Three.js creates a canvas and attaches it inside that div. The Game Lab gives `#stage` a height, rounded corners, and `overflow: hidden` so drawing outside its box is clipped. `#stage canvas` styles the child canvas. CSS controls the page frame; JavaScript and the renderer control the 3D world.
 
 ### CSS property summary: text and appearance {.unnumbered .unnumbered}
 
@@ -9171,7 +9190,7 @@ Controls have built-in browser behavior even before you write game logic. A text
 | --- | --- | --- |
 | Text | `<input type="text">` | Player nickname |
 | Checkbox | `<input type="checkbox">` | Sound or wall-blocking on/off |
-| Color | `<input type="color" value="#20b7a5">` | Robot body color in the Chapter 20 Asset Workshop |
+| Color | `<input type="color" value="#20b7a5">` | Robot body color in the Chapter 21 Asset Workshop |
 | Choice menu | `<select><option value="box">Rectangle</option></select>` | Game type or Collision Playground shape; the data value can differ from visible text |
 | Action | `<button type="button">Restart</button>` | A game action connected by JavaScript |
 | Extra numeric input | `<input type="number" min="1" max="10">` | A numeric choice in the extra workspace examples |
@@ -9188,13 +9207,13 @@ You do not need to write a module or an import map in this reference. Learn what
 
 | Script form | HTML | Meaning and later use |
 | --- | --- | --- |
-| Inline ordinary script | `<script>` followed by code and `</script>` | Code stored in the page; Chapters 5–14 usually put it after the visible elements. |
-| External module | `<script type="module" src="game.js"></script>` | Load a JavaScript file that can import/export other modules; introduced in Chapter 14 and used in the Game Lab. |
-| Import map | `<script type="importmap">` followed by JSON and `</script>` | Data mapping module names to resource addresses; Chapter 19 uses it for Three.js. Put it before the module that needs the map. |
+| Inline ordinary script | `<script>` followed by code and `</script>` | Code stored in the page; Chapters 6–15 usually put it after the visible elements. |
+| External module | `<script type="module" src="game.js"></script>` | Load a JavaScript file that can import/export other modules; introduced in Chapter 15 and used in the Game Lab. |
+| Import map | `<script type="importmap">` followed by JSON and `</script>` | Data mapping module names to resource addresses; Chapter 20 uses it for Three.js. Put it before the module that needs the map. |
 
-Module scripts are deferred until the HTML has been parsed, and their dependencies must load before they can run. Module-based game projects use the local server introduced in Chapter 1 and set up in the Game Lab guide. An import map contains data, not game instructions; Chapter 19 explains its actual entries. See [MDN: script](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script).
+Module scripts are deferred until the HTML has been parsed, and their dependencies must load before they can run. Module-based game projects use the local server introduced in Chapter 1 and set up in the Game Lab guide. An import map contains data, not game instructions; Chapter 20 explains its actual entries. See [MDN: script](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script).
 
-## Rehearse the page that Chapter 5 will use {.unnumbered #ref-monster-page}
+## Rehearse the page that Chapter 6 will use {.unnumbered #ref-monster-page}
 
 Use **Build the scene structure → Style the scene → Program game behavior** again. Before working with variables, make a small **static Monster Clicker page**. This connects the Game Maker HQ skills to the next chapter. Create a separate `monster-page/` folder with `index.html` and `styles.css`; keep your HQ project too.
 
@@ -9214,13 +9233,13 @@ Use **Build the scene structure → Style the scene → Program game behavior** 
   <!-- Step 1: Build the scene structure (page structure). -->
   <main class="card">
     <h1>Monster Clicker</h1>
-    <p>Meet the monster. Its click action comes in Chapter 6.</p>
+    <p>Meet the monster. Its click action comes in Chapter 7.</p>
     <button id="monster" class="monster" type="button">👾 Monster</button>
     <p id="message">The monster is waiting...</p>
     <p id="score">Score: 0</p>
   </main>
   <script>
-    // Step 3: Program game behavior: prepare data in Chapter 5 and click actions in Chapter 6.
+    // Step 3: Program game behavior: prepare data in Chapter 6 and click actions in Chapter 7.
   </script>
 </body>
 </html>
@@ -9266,7 +9285,7 @@ body {
 
 Open the page, then locate the heading, button, message, and score in the source. Explain how `#monster` in CSS refers to `id="monster"` in HTML. Press Tab to focus the button and observe the focus ring. Clicking the monster does not change the score yet: appearance and game rules are separate jobs.
 
-**Step 3 — Program game behavior:** write the rule “When the monster is hit, increase the score and show a message.” The page does not implement that rule yet. Chapter 5 keeps the scene and style and fills the script with the data needed by the rule. A runnable copy of this static rehearsal is in `workspace/chapter2/monster-page/`. Chapter 6 adds the DOM and event code. The familiar HTML is the stage for those new JavaScript ideas.
+**Step 3 — Program game behavior:** write the rule “When the monster is hit, increase the score and show a message.” The page does not implement that rule yet. Chapter 6 keeps the scene and style and fills the script with the data needed by the rule. A runnable copy of this static rehearsal is in `workspace/chapter2/monster-page/`. Chapter 7 adds the DOM and event code. The familiar HTML is the stage for those new JavaScript ideas.
 
 ### Apply the flow to every example {.unnumbered .unnumbered}
 
@@ -9275,12 +9294,12 @@ Use this table when practicing the smaller examples as well as the complete page
 | Example | 1. Build the scene structure | 2. Style the scene | 3. Program game behavior: planned or taught later |
 | --- | --- | --- | --- |
 | Game Maker HQ | Preview, missions, labeled player controls | Card, fonts, gem frame, form layout | Read choices and prepare a game; plan only here. |
-| Nested monster group | Container, buttons, score span | Shared button class and flexible row | Hit a monster and update the score; Chapters 6–8. |
-| Gem picture | An image with a source and text alternative | Size, padding, border, shadow | Collect the gem on an action; Chapter 6's image example. |
-| Static star arena | A game div containing a star span | Relative parent; absolute star with left/top | Move the star on clicks and timer ticks; Chapter 9. |
-| Canvas preview | A drawing surface with dimensions and instructions | Border, background, responsive display size | Draw and move game objects; Chapters 10 onward. |
-| 3D stage preview | A stage host, controls, and status area | Stage height and clipped drawing area | Load and render a 3D world; Chapters 19–22. |
-| Monster Clicker rehearsal | Title, monster, message, score | Card and monster button styling | Prepare memory in Chapter 5; connect the hit action in Chapter 6. |
+| Nested monster group | Container, buttons, score span | Shared button class and flexible row | Hit a monster and update the score; Chapters 7–9. |
+| Gem picture | An image with a source and text alternative | Size, padding, border, shadow | Collect the gem on an action; Chapter 7's image example. |
+| Static star arena | A game div containing a star span | Relative parent; absolute star with left/top | Move the star on clicks and timer ticks; Chapter 10. |
+| Canvas preview | A drawing surface with dimensions and instructions | Border, background, responsive display size | Draw and move game objects; Chapters 11 onward. |
+| 3D stage preview | A stage host, controls, and status area | Stage height and clipped drawing area | Load and render a 3D world; Chapters 20–23. |
+| Monster Clicker rehearsal | Title, monster, message, score | Card and monster button styling | Prepare memory in Chapter 6; connect the hit action in Chapter 7. |
 
 The font, image-frame, selector, and layout snippets each practice **Step 2: Style the scene** on one of these existing structures. The HTML control and container snippets practice **Step 1: Build the scene structure**. For an extra workspace page, trace the same three stages before changing it.
 
@@ -9288,12 +9307,12 @@ The font, image-frame, selector, and layout snippets each practice **Step 2: Sty
 
 | Project stage | Visible page structure | CSS to recognize | New work left for JavaScript |
 | --- | --- | --- | --- |
-| Chapters 5–7 | Heading → monster/actions → message and score → script | Font, color, frame, spacing, ID selectors | Variables, clicks, score updates, decisions |
-| Chapter 8 | Main card → score span → container of monster buttons → Power Hit/message | Shared `.monster` class, Flexbox, wrapping, gap, reserved message height | Loop over monsters |
-| Chapter 9 | Heading/score → game div containing the star | Sized container, relative/absolute positioning, left/top | Random positions and timers |
-| Chapters 10–14 | Heading/instructions → canvas → status and optional Restart | Canvas frame, block layout, centered card | Drawing and game rules |
-| Chapters 15–18 | Main → panel → toolbar/choices → status → canvas → movement controls → error area | Shared `lab.css`, flexible toolbar, responsive canvas, focus and touch rules | Modules, loading, real-time input and simulation |
-| Chapters 19–22 | Same game-page pattern, with a stage div containing a renderer-created canvas | Stage height, child selector, overflow, responsive size limits | Imports, renderer, models, and physics where needed |
+| Chapters 6–8 | Heading → monster/actions → message and score → script | Font, color, frame, spacing, ID selectors | Variables, clicks, score updates, decisions |
+| Chapter 9 | Main card → score span → container of monster buttons → Power Hit/message | Shared `.monster` class, Flexbox, wrapping, gap, reserved message height | Loop over monsters |
+| Chapter 10 | Heading/score → game div containing the star | Sized container, relative/absolute positioning, left/top | Random positions and timers |
+| Chapters 11–15 | Heading/instructions → canvas → status and optional Restart | Canvas frame, block layout, centered card | Drawing and game rules |
+| Chapters 16–19 | Main → panel → toolbar/choices → status → canvas → movement controls → error area | Shared `lab.css`, flexible toolbar, responsive canvas, focus and touch rules | Modules, loading, real-time input and simulation |
+| Chapters 20–23 | Same game-page pattern, with a stage div containing a renderer-created canvas | Stage height, child selector, overflow, responsive size limits | Imports, renderer, models, and physics where needed |
 
 # References and Further Learning {.unnumbered #references}
 
@@ -9313,7 +9332,7 @@ Use these resources when you want another explanation or a new project idea. Fol
 
 ## Dynamic 2D and 3D game development {.unnumbered}
 
-The companion projects are original examples. The following official documentation explains the browser and engine APIs used in Chapters 15-22. Read the short examples in the book first, then consult an API page when you need to check a specific behavior.
+The companion projects are original examples. The following official documentation explains the browser and engine APIs used in Chapters 16-23. Read the short examples in the book first, then consult an API page when you need to check a specific behavior.
 
 - [MDN: 2D collision detection](https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection) - geometric overlap tests and the difference between simple bounding shapes and visible artwork.
 - [MDN: requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame) - browser animation callbacks and timestamp-based motion.

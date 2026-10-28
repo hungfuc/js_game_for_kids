@@ -14,7 +14,7 @@ For example, a new collectible needs a place and a stored collected state; a rec
 
 ## Which games need a local web server?
 
-::: {.callout-important title="Chapters 15–22: local HTTP server required" icon="false"}
+::: {.callout-important title="Chapters 16–23: local HTTP server required" icon="false"}
 
 **All six Game Lab projects require a web server.** Start the included launcher, then open the game through `http://127.0.0.1:8000/games/`. Double-clicking the game's `index.html` is not enough. Install Node.js once using the steps below; after that, double-click the launcher each time you play.
 
@@ -22,13 +22,13 @@ For example, a new collectible needs a place and a stored collected state; a rec
 
 | Game or example | Chapters | Local HTTP server? | Internet while playing? | Why? |
 | --- | --- | --- | --- | --- |
-| Structure, Style, and Behavior scene examples; Monster Clicker; Catch the Star; Bouncing Ball; Pong; Breakout; Snake; your one-file Game Studio project | 2–14 | **No** for the supplied one-file examples | No | The game code is in the HTML file. Open that file in a browser. Keep any supplied images beside it. |
-| Collision Playground | 15–16 | **Required** | No | Imports shared JavaScript modules. |
-| Robot Orchard, including its sprite and level examples | 15–18 | **Required** | No | Imports modules and requests `level.json` and local artwork. |
-| Robot Island Explorer | 19–20 | **Required** | **Yes, by default** | Imports Three.js and loads local GLB models. |
-| 3D Asset Workshop | 20 | **Required** | **Yes, by default** | Imports Three.js and its addons, and loads a local GLB model. |
-| Rapier Drop Lab | 21 | **Required** | **Yes, by default** | Imports Three.js and Rapier, then initializes physics. |
-| Marble Quest | 22 | **Required** | **Yes, by default** | Imports Three.js and Rapier, and loads local models and textures. |
+| Structure, Style, and Behavior scene examples; Monster Clicker; Catch the Star; Bouncing Ball; Pong; Breakout; Snake; your one-file Game Studio project | 3–15 | **No** for the supplied one-file examples | No | The game code is in the HTML file. Open that file in a browser. Keep any supplied images beside it. |
+| Collision Playground | 16–17 | **Required** | No | Imports shared JavaScript modules. |
+| Robot Orchard, including its sprite and level examples | 16–19 | **Required** | No | Imports modules and requests `level.json` and local artwork. |
+| Robot Island Explorer | 20–21 | **Required** | **Yes, by default** | Imports Three.js and loads local GLB models. |
+| 3D Asset Workshop | 21 | **Required** | **Yes, by default** | Imports Three.js and its addons, and loads a local GLB model. |
+| Rapier Drop Lab | 22 | **Required** | **Yes, by default** | Imports Three.js and Rapier, then initializes physics. |
+| Marble Quest | 23 | **Required** | **Yes, by default** | Imports Three.js and Rapier, and loads local models and textures. |
 
 The six projects' extra demonstration and screenshot pages also use modules and require HTTP. The older one-file games in `workspace/` (including Secret Number, Treasure Clicker, and Rock–Paper–Scissors) can open directly. If you later add module imports or `fetch()` to a one-file game, use a server for that version too.
 
@@ -129,12 +129,12 @@ The browser's trip is simple: browser asks for `main.js` or an image, the local 
 
 | Project | Chapter | Controls and purpose |
 | --- | --- | --- |
-| Collision Playground | 15–16 | Move with arrows/WASD or drag the player. Switch shape and turn wall blocking on or off. |
-| Robot Orchard | 15–18 | Start; move with A/D or left/right; jump with Space/up/W; P pauses, R restarts, H shows hitboxes. Collect every gem and enter the portal. |
-| Robot Island Explorer | 19–20 | Move with arrows/WASD; drag to orbit the camera; scroll to zoom. Collect four gems. Crates are decorative in this non-physics project. |
-| Rapier Drop Lab | 21 | Drop again; orbit the camera; show colliders. Compare three bounce coefficients. |
-| Marble Quest | 22 | Start; arrows/WASD move the marble; P pauses, R restarts, H shows colliders. Collect five gems and enter the gate. Falling costs a life. |
-| 3D Asset Workshop | 20 | Change the robot body's color, orbit the view, and export your own GLB file. |
+| Collision Playground | 16–17 | Move with arrows/WASD or drag the player. Switch shape and turn wall blocking on or off. |
+| Robot Orchard | 16–19 | Start; move with A/D or left/right; jump with Space/up/W; P pauses, R restarts, H shows hitboxes. Collect every gem and enter the portal. |
+| Robot Island Explorer | 20–21 | Move with arrows/WASD; drag to orbit the camera; scroll to zoom. Collect four gems. Crates are decorative in this non-physics project. |
+| Rapier Drop Lab | 22 | Drop again; orbit the camera; show colliders. Compare three bounce coefficients. |
+| Marble Quest | 23 | Start; arrows/WASD move the marble; P pauses, R restarts, H shows colliders. Collect five gems and enter the gate. Falling costs a life. |
+| 3D Asset Workshop | 21 | Change the robot body's color, orbit the view, and export your own GLB file. |
 
 Click the game canvas before using keys. Movement controls are intentionally world-relative in the 3D games: W/up moves toward negative Z even if you rotate the exploration camera. The lab also supplies large onscreen controls where movement is needed. These are useful alternatives, not a claim that every canvas interaction is fully accessible to every player.
 
@@ -142,7 +142,7 @@ Click the game canvas before using keys. Movement controls are intentionally wor
 
 ```text
 chapters/               The textbook's Quarto chapters
-figures/                Original diagrams with editable SVGs used by Chapters 15-22
+figures/                Original diagrams with editable SVGs used by Chapters 16-23
 games/
   index.html            Game Lab menu
   collision-lab/        Shape detection and wall-response experiment

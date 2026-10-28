@@ -15,7 +15,9 @@ const chapters = fs.readdirSync(path.join(root, 'chapters')).filter(f => f.endsW
 const requested = process.argv.slice(2).map(Number);
 const companion = {4:'foundations/behavior',15:'collision-lab',16:'robot-orchard',17:'robot-orchard',18:'robot-orchard',19:'three-explorer',20:'asset-workshop',21:'physics-lab',22:'marble-quest'};
 const blocks = text => [...text.matchAll(/^```(html|css|javascript)\n([\s\S]*?)^```/gm)];
-const chapterText = n => fs.readFileSync(path.join(root,'chapters',chapters.find(f=>Number(f.slice(0,2))===n)), 'utf8');
+// Lesson cases below use the original indices; published chapter numbers are one higher.
+const chapterNumber = n => n + 1;
+const chapterText = n => fs.readFileSync(path.join(root,'chapters',chapters.find(f=>Number(f.slice(0,2))===chapterNumber(n))), 'utf8');
 function example(n) {
   let html, base = root;
   if (companion[n]) { base=path.join(root,'games',companion[n]); html=fs.readFileSync(path.join(base,'index.html'),'utf8'); }
@@ -48,8 +50,8 @@ const manifest=fs.existsSync(manifestPath)?JSON.parse(fs.readFileSync(manifestPa
   const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',args:['--use-angle=swiftshader']});
   try {
     for (let n=2;n<=22;n++) {
-      if(requested.length && !requested.includes(n)) continue;
-      const folder=path.join(root,'figures',`chapter_${String(n).padStart(2,'0')}`);
+      if(requested.length && !requested.includes(chapterNumber(n))) continue;
+      const folder=path.join(root,'figures',`chapter_${String(chapterNumber(n)).padStart(2,'0')}`);
       fs.mkdirSync(folder,{recursive:true});
       const entries=[];
       const errors=[];
@@ -61,8 +63,8 @@ const manifest=fs.existsSync(manifestPath)?JSON.parse(fs.readFileSync(manifestPa
         await page.mouse.move(0,0);
         await page.evaluate(()=>document.fonts.ready);
         await page.screenshot({path:path.join(folder,name+'.png'),fullPage:true});
-        entries.push({file:`../figures/chapter_${String(n).padStart(2,'0')}/${name}.png`,caption});
-        console.log(`Chapter ${n}: ${name}`);
+        entries.push({file:`../figures/chapter_${String(chapterNumber(n)).padStart(2,'0')}/${name}.png`,caption});
+        console.log(`Chapter ${chapterNumber(n)}: ${name}`);
       };
       const {html}=example(n);
       const staticHTML=html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,'');
@@ -82,12 +84,13 @@ const manifest=fs.existsSync(manifestPath)?JSON.parse(fs.readFileSync(manifestPa
         await page.goto(origin+'/games/index.html');
         await page.setContent(html);
         if(n===3) {
-          await page.locator('#monster').hover();
-          await page.screenshot({path:path.join(folder,'style-hover.png'),fullPage:true});
-          entries.push({file:'../figures/chapter_03/style-hover.png',caption:'CSS feedback: hovering over the monster darkens its button. The score stays at zero.'});
-          await page.mouse.move(0,0);
-          await page.keyboard.press('Tab');
-          await shot('style-focus','CSS feedback: keyboard focus outlines the monster button. No click rule has been added.');
+          await page.locator('#monster').click();
+          if(await page.locator('#score').innerText()!=='0') throw Error('Style stage changed the score');
+          const appearance=await page.locator('#monster').evaluate(button=>{
+            const css=getComputedStyle(button);
+            return {padding:css.padding,margin:css.margin,border:css.borderWidth};
+          });
+          if(appearance.padding!=='16px' || appearance.margin!=='8px' || appearance.border!=='3px') throw Error('Unexpected box model: '+JSON.stringify(appearance));
         }
         if(n===4) {
           await shot('behavior-controls-default','Native controls: the nickname, mode, and sound choices before editing. The game rules are still a plan.');
@@ -99,7 +102,7 @@ const manifest=fs.existsSync(manifestPath)?JSON.parse(fs.readFileSync(manifestPa
         if(n===5) {
           await shot('behavior-data-ready','Behavior preparation: JavaScript has initialized the game data; the page still shows Score: 0.');
           await page.locator('#monster').click({force:true});
-          await shot('behavior-click-check','After a test click, Score: 0 and the waiting message remain unchanged. Chapter 6 adds the click listener.');
+          await shot('behavior-click-check','After a test click, Score: 0 and the waiting message remain unchanged. Chapter 7 adds the click listener.');
         }
         if(n===6) {
           await shot('behavior-waiting','Behavior before input: the message asks Can you catch it?');
@@ -197,8 +200,8 @@ const manifest=fs.existsSync(manifestPath)?JSON.parse(fs.readFileSync(manifestPa
           await shot('behavior-paused','Pause suspends the physics game and shows the paused status.');
         }
       }
-      if(errors.length) throw Error(`Chapter ${n} runtime errors: ${errors.join('; ')}`);
-      manifest[n]={chapter:chapters.find(f=>Number(f.slice(0,2))===n),source:companion[n]?`games/${companion[n]}/index.html`:'complete chapter code',captures:entries};
+      if(errors.length) throw Error(`Chapter ${chapterNumber(n)} runtime errors: ${errors.join('; ')}`);
+      manifest[chapterNumber(n)]={chapter:chapters.find(f=>Number(f.slice(0,2))===chapterNumber(n)),source:companion[n]?`games/${companion[n]}/index.html`:'complete chapter code',captures:entries};
       fs.writeFileSync(manifestPath,JSON.stringify(manifest,null,2)+'\n');
       await page.close();
     }

@@ -1,11 +1,11 @@
 # JavaScript Game Programming for Kids
 ## Colorful Quarto edition: Dynamic 2D and 3D
 
-A 22-chapter, student-facing textbook with diagrams, playable companion projects, original assets, and optional Advanced Study callouts. Chapters 1–4 establish computer and file skills, then introduce Structure, Style, and Behavior in three short lessons before the game-programming sequence begins in Chapter 5. Chapters 15-22 extend the progression into complete 2D game development and Three.js/Rapier 3D games. There are no teacher-note sections.
+A 23-chapter, student-facing textbook with diagrams, playable companion projects, original assets, and optional Advanced Study callouts. Chapters 1–5 establish computer and file skills, introduce game design in a dedicated Chapter 2, and teach Structure, Style, and Behavior before the game-programming sequence begins in Chapter 6. Chapters 16-23 extend the progression into complete 2D game development and Three.js/Rapier 3D games. There are no teacher-note sections.
 
 ## Development theme throughout the book
 
-**Build the scene structure → Style the scene → Program game behavior** (short form: **Structure → Style → Behavior**) is introduced in Chapter 2 and guides the subsequent chapters, their exercises and challenges, and the reference appendices. Chapter 1 focuses on computer knowledge and file operations. “Scene” covers both HTML page structure and game-world objects. “Style” includes CSS, canvas drawing, sprites, 3D materials, lighting, and feedback. “Program game behavior” covers game data, input, operations, and rules.
+**Build the scene structure → Style the scene → Program game behavior** (short form: **Structure → Style → Behavior**) is introduced in Chapter 2 through a one-line lighthouse game idea, small feature iterations, and a conceptual introduction to HTML, CSS, and JavaScript. It guides the subsequent chapters, their exercises and challenges, and the reference appendices. Chapter 1 focuses on computer knowledge and file operations. “Scene” covers both HTML page structure and game-world objects. “Style” includes CSS, canvas drawing, sprites, 3D materials, lighting, and feedback. “Program game behavior” covers game data, input, operations, and rules.
 
 From Chapter 2 onward, exercises identify the stage they practice; challenges give a concrete route through the three steps. Every chapter opens with an unnumbered overview and learning objectives, followed by its topics. Reuse an unchanged stage rather than rebuilding it, predict a result, and check it. This is a development strategy, not the browser’s loading order or the game’s update loop.
 
@@ -15,7 +15,7 @@ The three foundation chapters reuse one Monster Clicker scene and collect short 
 
 The included `preview.html` is a self-contained HTML reading edition generated from the Quarto manuscript with Pandoc. It includes the diagrams and styling; it is **not a native Quarto build**. The project links inside it work when the complete folder is served locally.
 
-**Server requirements:** the one-file games in Chapters 2–14 and `workspace/` open directly. **All six Game Lab projects in Chapters 15–22 require local HTTP:** Collision Playground, Robot Orchard, Robot Island Explorer, 3D Asset Workshop, Rapier Drop Lab, and Marble Quest. Their module-based demonstration pages also require HTTP.
+**Server requirements:** the one-file games in Chapters 3–15 and `workspace/` open directly. **All six Game Lab projects in Chapters 16–23 require local HTTP:** Collision Playground, Robot Orchard, Robot Island Explorer, 3D Asset Workshop, Rapier Drop Lab, and Marble Quest. Their module-based demonstration pages also require HTTP.
 
 ### Simple setup: install once, double-click to play
 
@@ -50,18 +50,19 @@ The two 2D projects run offline through the local HTTP server; opening their HTM
 | Chapter | Project / focus |
 |---|---|
 | 1 | Personal computer, browser, local files, client/server web basics |
-| 2 | Structure: tiny game idea, sketch, HTML document, elements, attributes, nesting |
-| 3 | Style: CSS connection, selectors, text, boxes, image styling, readable controls |
-| 4 | Behavior: input controls, state, action rules, paper simulation, feedback, reset |
-| 5-14 | JavaScript state, events, decisions, timing, canvas, game patterns, and game design |
-| 15 | Real-time 2D loops, input state, velocity, fixed updates |
-| 16 | Rectangle and circle collision, wall response, gravity, jumping |
-| 17 | Original sprites, animation sheets, image loading, JSON levels |
-| 18 | Robot Orchard: scrolling camera, enemies, collectibles, lives, restart |
-| 19 | Three.js scenes, cameras, meshes, lighting, movement |
-| 20 | GLB loading, custom models, materials, origins, Asset Workshop |
-| 21 | Rapier worlds, bodies, colliders, synchronization, bounce experiment |
-| 22 | Marble Quest: dynamic obstacles, sensors, scoring, respawn, win rules |
+| 2 | Game story → small feature → Structure → Style → Behavior → test; introduction to HTML, CSS, and JavaScript |
+| 3 | Structure: sketch, HTML document, elements, attributes, nesting |
+| 4 | Style: three simple selectors; content, padding, border, and margin |
+| 5 | Behavior: input controls, state, action rules, paper simulation, feedback, reset |
+| 6-15 | JavaScript state, events, decisions, timing, canvas, game patterns, and game design |
+| 16 | Real-time 2D loops, input state, velocity, fixed updates |
+| 17 | Rectangle and circle collision, wall response, gravity, jumping |
+| 18 | Original sprites, animation sheets, image loading, JSON levels |
+| 19 | Robot Orchard: scrolling camera, enemies, collectibles, lives, restart |
+| 20 | Three.js scenes, cameras, meshes, lighting, movement |
+| 21 | GLB loading, custom models, materials, origins, Asset Workshop |
+| 22 | Rapier worlds, bodies, colliders, synchronization, bounce experiment |
+| 23 | Marble Quest: dynamic obstacles, sensors, scoring, respawn, win rules |
 
 Each new chapter includes an original explanatory SVG diagram, two optional Advanced Study blocks, a challenge and links to complete companion source. The original chapters retain their existing visual explanations and callouts.
 
@@ -111,7 +112,7 @@ The `_quarto.yml` file organizes five parts, appends student reference material,
 - `styles/textbook.scss` - Quarto/Bootstrap theme settings
 - `styles/textbook.css` - colorful textbook components
 - `styles/preview.css` - standalone reading-edition navigation/layout
-- `figures/chapter_11/` through `chapter_18/` - editable SVG explanations used by the later game chapters
+- `figures/chapter_12/` through `chapter_19/` - editable SVG explanations used by the later game chapters
 
 Rebuild the combined manuscript after editing:
 
@@ -130,7 +131,7 @@ To regenerate the supplied reading edition without Quarto, install Pandoc and ru
 
 ## Regenerate the chapter screenshots
 
-`figures/game-stage-captures.json` records the source and caption for each captured stage. `scripts/capture-game-stages.cjs` renders the chapter code and companion projects in Chrome, removes scripts for the HTML/CSS stages, and operates the actual controls for behavior captures. Animation callbacks advance in fixed frames so movement and physics states are repeatable. Chapters 9–14 retain their existing behavior galleries alongside the new HTML/CSS captures.
+`figures/game-stage-captures.json` records the source and caption for each captured stage. `scripts/capture-game-stages.cjs` renders the chapter code and companion projects in Chrome, removes scripts for the HTML/CSS stages, and operates the actual controls for behavior captures. Animation callbacks advance in fixed frames so movement and physics states are repeatable. Chapters 10–15 retain their existing behavior galleries alongside the new HTML/CSS captures.
 
 With Node.js, Playwright, and Chrome available, run from this directory:
 
@@ -140,7 +141,7 @@ python3 scripts/insert-game-stage-figures.py
 python3 scripts/build-single-file.py
 ```
 
-Pass chapter numbers to recapture a selection, such as `node scripts/capture-game-stages.cjs 8 18`. Set `PLAYWRIGHT_MODULE` to an existing Playwright package path if needed, and `CHROME_PATH` if Chrome is outside its default macOS location. The 3D captures use the companion pages' pinned CDN dependencies. The insertion script can be run repeatedly without duplicating figures.
+Pass chapter numbers to recapture a selection, such as `node scripts/capture-game-stages.cjs 9 19`. Set `PLAYWRIGHT_MODULE` to an existing Playwright package path if needed, and `CHROME_PATH` if Chrome is outside its default macOS location. The 3D captures use the companion pages' pinned CDN dependencies. The insertion script can be run repeatedly without duplicating figures.
 
 ## Test and review
 

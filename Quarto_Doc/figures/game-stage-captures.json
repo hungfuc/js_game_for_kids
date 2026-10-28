@@ -1,20 +1,6 @@
 {
-  "2": {
-    "chapter": "02-scene-structure.qmd",
-    "source": "complete chapter code",
-    "captures": [
-      {
-        "file": "../figures/chapter_02/stage-html.png",
-        "caption": "Structure: HTML only, before CSS or JavaScript."
-      },
-      {
-        "file": "../figures/chapter_02/stage-style.png",
-        "caption": "Style check: this example has no custom CSS, so its appearance still uses browser defaults."
-      }
-    ]
-  },
   "3": {
-    "chapter": "03-scene-style.qmd",
+    "chapter": "03-scene-structure.qmd",
     "source": "complete chapter code",
     "captures": [
       {
@@ -23,21 +9,13 @@
       },
       {
         "file": "../figures/chapter_03/stage-style.png",
-        "caption": "Style: the same HTML with CSS applied; JavaScript is still off."
-      },
-      {
-        "file": "../figures/chapter_03/style-hover.png",
-        "caption": "CSS feedback: hovering over the monster darkens its button. The score stays at zero."
-      },
-      {
-        "file": "../figures/chapter_03/style-focus.png",
-        "caption": "CSS feedback: keyboard focus outlines the monster button. No click rule has been added."
+        "caption": "Style check: this example has no custom CSS, so its appearance still uses browser defaults."
       }
     ]
   },
   "4": {
-    "chapter": "04-game-behavior.qmd",
-    "source": "games/foundations/behavior/index.html",
+    "chapter": "04-scene-style.qmd",
+    "source": "complete chapter code",
     "captures": [
       {
         "file": "../figures/chapter_04/stage-html.png",
@@ -46,20 +24,12 @@
       {
         "file": "../figures/chapter_04/stage-style.png",
         "caption": "Style: the same HTML with CSS applied; JavaScript is still off."
-      },
-      {
-        "file": "../figures/chapter_04/behavior-controls-default.png",
-        "caption": "Native controls: the nickname, mode, and sound choices before editing. The game rules are still a plan."
-      },
-      {
-        "file": "../figures/chapter_04/behavior-controls-changed.png",
-        "caption": "Native controls after typing Maya, choosing Hard, and turning Sound off. These controls do not yet change the score."
       }
     ]
   },
   "5": {
-    "chapter": "05-variables-monster-starter.qmd",
-    "source": "complete chapter code",
+    "chapter": "05-game-behavior.qmd",
+    "source": "games/foundations/behavior/index.html",
     "captures": [
       {
         "file": "../figures/chapter_05/stage-html.png",
@@ -70,17 +40,17 @@
         "caption": "Style: the same HTML with CSS applied; JavaScript is still off."
       },
       {
-        "file": "../figures/chapter_05/behavior-data-ready.png",
-        "caption": "Behavior preparation: JavaScript has initialized the game data; the page still shows Score: 0."
+        "file": "../figures/chapter_05/behavior-controls-default.png",
+        "caption": "Native controls: the nickname, mode, and sound choices before editing. The game rules are still a plan."
       },
       {
-        "file": "../figures/chapter_05/behavior-click-check.png",
-        "caption": "After a test click, Score: 0 and the waiting message remain unchanged. Chapter 6 adds the click listener."
+        "file": "../figures/chapter_05/behavior-controls-changed.png",
+        "caption": "Native controls after typing Maya, choosing Hard, and turning Sound off. These controls do not yet change the score."
       }
     ]
   },
   "6": {
-    "chapter": "06-dom-and-event-driven-programming.qmd",
+    "chapter": "06-variables-monster-starter.qmd",
     "source": "complete chapter code",
     "captures": [
       {
@@ -89,20 +59,20 @@
       },
       {
         "file": "../figures/chapter_06/stage-style.png",
-        "caption": "Style check: this example has no custom CSS, so its appearance still uses browser defaults."
+        "caption": "Style: the same HTML with CSS applied; JavaScript is still off."
       },
       {
-        "file": "../figures/chapter_06/behavior-waiting.png",
-        "caption": "Behavior before input: the message asks Can you catch it?"
+        "file": "../figures/chapter_06/behavior-data-ready.png",
+        "caption": "Behavior preparation: JavaScript has initialized the game data; the page still shows Score: 0."
       },
       {
-        "file": "../figures/chapter_06/behavior-hit.png",
-        "caption": "After clicking the monster, the event handler changes the message to Great hit!"
+        "file": "../figures/chapter_06/behavior-click-check.png",
+        "caption": "After a test click, Score: 0 and the waiting message remain unchanged. Chapter 7 adds the click listener."
       }
     ]
   },
   "7": {
-    "chapter": "07-monster-decisions.qmd",
+    "chapter": "07-dom-and-event-driven-programming.qmd",
     "source": "complete chapter code",
     "captures": [
       {
@@ -114,29 +84,17 @@
         "caption": "Style check: this example has no custom CSS, so its appearance still uses browser defaults."
       },
       {
-        "file": "../figures/chapter_07/behavior-start.png",
-        "caption": "Behavior at the start: the score is zero and the controls are ready."
+        "file": "../figures/chapter_07/behavior-waiting.png",
+        "caption": "Behavior before input: the message asks Can you catch it?"
       },
       {
-        "file": "../figures/chapter_07/behavior-power-blocked.png",
-        "caption": "A Power Hit at score zero is refused because five points are required."
-      },
-      {
-        "file": "../figures/chapter_07/behavior-level-five.png",
-        "caption": "After five monster clicks, the score reaches five and the level message changes."
-      },
-      {
-        "file": "../figures/chapter_07/behavior-power-hit.png",
-        "caption": "A Power Hit now succeeds and spends the five points."
-      },
-      {
-        "file": "../figures/chapter_07/behavior-master.png",
-        "caption": "After building the score to ten, the game displays its master-level message."
+        "file": "../figures/chapter_07/behavior-hit.png",
+        "caption": "After clicking the monster, the event handler changes the message to Great hit!"
       }
     ]
   },
   "8": {
-    "chapter": "08-monster-loops.qmd",
+    "chapter": "08-monster-decisions.qmd",
     "source": "complete chapter code",
     "captures": [
       {
@@ -145,7 +103,7 @@
       },
       {
         "file": "../figures/chapter_08/stage-style.png",
-        "caption": "Style: the same HTML with CSS applied; JavaScript is still off."
+        "caption": "Style check: this example has no custom CSS, so its appearance still uses browser defaults."
       },
       {
         "file": "../figures/chapter_08/behavior-start.png",
@@ -170,7 +128,7 @@
     ]
   },
   "9": {
-    "chapter": "09-catch-the-star.qmd",
+    "chapter": "09-monster-loops.qmd",
     "source": "complete chapter code",
     "captures": [
       {
@@ -180,11 +138,31 @@
       {
         "file": "../figures/chapter_09/stage-style.png",
         "caption": "Style: the same HTML with CSS applied; JavaScript is still off."
+      },
+      {
+        "file": "../figures/chapter_09/behavior-start.png",
+        "caption": "Behavior at the start: the score is zero and the controls are ready."
+      },
+      {
+        "file": "../figures/chapter_09/behavior-power-blocked.png",
+        "caption": "A Power Hit at score zero is refused because five points are required."
+      },
+      {
+        "file": "../figures/chapter_09/behavior-level-five.png",
+        "caption": "After five monster clicks, the score reaches five and the level message changes."
+      },
+      {
+        "file": "../figures/chapter_09/behavior-power-hit.png",
+        "caption": "A Power Hit now succeeds and spends the five points."
+      },
+      {
+        "file": "../figures/chapter_09/behavior-master.png",
+        "caption": "After building the score to ten, the game displays its master-level message."
       }
     ]
   },
   "10": {
-    "chapter": "10-bouncing-ball.qmd",
+    "chapter": "10-catch-the-star.qmd",
     "source": "complete chapter code",
     "captures": [
       {
@@ -198,7 +176,7 @@
     ]
   },
   "11": {
-    "chapter": "11-pong.qmd",
+    "chapter": "11-bouncing-ball.qmd",
     "source": "complete chapter code",
     "captures": [
       {
@@ -212,7 +190,7 @@
     ]
   },
   "12": {
-    "chapter": "12-breakout.qmd",
+    "chapter": "12-pong.qmd",
     "source": "complete chapter code",
     "captures": [
       {
@@ -226,7 +204,7 @@
     ]
   },
   "13": {
-    "chapter": "13-snake.qmd",
+    "chapter": "13-breakout.qmd",
     "source": "complete chapter code",
     "captures": [
       {
@@ -240,7 +218,7 @@
     ]
   },
   "14": {
-    "chapter": "14-game-studio.qmd",
+    "chapter": "14-snake.qmd",
     "source": "complete chapter code",
     "captures": [
       {
@@ -254,8 +232,8 @@
     ]
   },
   "15": {
-    "chapter": "15-real-time-2d.qmd",
-    "source": "games/collision-lab/index.html",
+    "chapter": "15-game-studio.qmd",
+    "source": "complete chapter code",
     "captures": [
       {
         "file": "../figures/chapter_15/stage-html.png",
@@ -264,24 +242,12 @@
       {
         "file": "../figures/chapter_15/stage-style.png",
         "caption": "Style: the same HTML with CSS applied; JavaScript is still off."
-      },
-      {
-        "file": "../figures/chapter_15/behavior-start.png",
-        "caption": "Behavior: JavaScript draws the player, wall, and circular target in Collision Playground."
-      },
-      {
-        "file": "../figures/chapter_15/behavior-moved.png",
-        "caption": "After holding Right for one second, the rectangle has moved toward the wall."
-      },
-      {
-        "file": "../figures/chapter_15/behavior-overlap.png",
-        "caption": "Switching to a circle and dragging it onto the wall reports Wall overlap: YES; detection alone does not block movement."
       }
     ]
   },
   "16": {
-    "chapter": "16-collision-and-platforms.qmd",
-    "source": "games/robot-orchard/index.html",
+    "chapter": "16-real-time-2d.qmd",
+    "source": "games/collision-lab/index.html",
     "captures": [
       {
         "file": "../figures/chapter_16/stage-html.png",
@@ -293,28 +259,20 @@
       },
       {
         "file": "../figures/chapter_16/behavior-start.png",
-        "caption": "Behavior: Robot Orchard has loaded its assets and displays its ready screen."
+        "caption": "Behavior: JavaScript draws the player, wall, and circular target in Collision Playground."
       },
       {
-        "file": "../figures/chapter_16/behavior-playing.png",
-        "caption": "After Start, the ready overlay is removed and the robot stands on the ground."
+        "file": "../figures/chapter_16/behavior-moved.png",
+        "caption": "After holding Right for one second, the rectangle has moved toward the wall."
       },
       {
-        "file": "../figures/chapter_16/behavior-hitboxes.png",
-        "caption": "Show hitboxes adds outlines for the robot, terrain, hazards, and gems over the artwork."
-      },
-      {
-        "file": "../figures/chapter_16/behavior-jump.png",
-        "caption": "Pressing Jump and Right launches the robot above the ground while moving it forward."
-      },
-      {
-        "file": "../figures/chapter_16/behavior-paused.png",
-        "caption": "Pause freezes play and displays the PAUSED state."
+        "file": "../figures/chapter_16/behavior-overlap.png",
+        "caption": "Switching to a circle and dragging it onto the wall reports Wall overlap: YES; detection alone does not block movement."
       }
     ]
   },
   "17": {
-    "chapter": "17-custom-2d-assets.qmd",
+    "chapter": "17-collision-and-platforms.qmd",
     "source": "games/robot-orchard/index.html",
     "captures": [
       {
@@ -344,15 +302,11 @@
       {
         "file": "../figures/chapter_17/behavior-paused.png",
         "caption": "Pause freezes play and displays the PAUSED state."
-      },
-      {
-        "file": "../figures/chapter_17/behavior-sprite-frames.png",
-        "caption": "The sprite-frame task draws four different crops from one sheet, with the collision body outlined separately from the artwork."
       }
     ]
   },
   "18": {
-    "chapter": "18-robot-orchard.qmd",
+    "chapter": "18-custom-2d-assets.qmd",
     "source": "games/robot-orchard/index.html",
     "captures": [
       {
@@ -384,14 +338,14 @@
         "caption": "Pause freezes play and displays the PAUSED state."
       },
       {
-        "file": "../figures/chapter_18/behavior-scrolling.png",
-        "caption": "After moving Right and collecting the first gem, the camera scrolls along the wider level; the counter shows Gems: 1/10."
+        "file": "../figures/chapter_18/behavior-sprite-frames.png",
+        "caption": "The sprite-frame task draws four different crops from one sheet, with the collision body outlined separately from the artwork."
       }
     ]
   },
   "19": {
-    "chapter": "19-first-threejs-world.qmd",
-    "source": "games/three-explorer/index.html",
+    "chapter": "19-robot-orchard.qmd",
+    "source": "games/robot-orchard/index.html",
     "captures": [
       {
         "file": "../figures/chapter_19/stage-html.png",
@@ -403,21 +357,33 @@
       },
       {
         "file": "../figures/chapter_19/behavior-start.png",
-        "caption": "Behavior: JavaScript loads the robot and crystals and renders the 3D island."
+        "caption": "Behavior: Robot Orchard has loaded its assets and displays its ready screen."
       },
       {
-        "file": "../figures/chapter_19/behavior-collected.png",
-        "caption": "Moving Up and Right to the first crystal removes it and updates the counter to Crystals: 1/4."
+        "file": "../figures/chapter_19/behavior-playing.png",
+        "caption": "After Start, the ready overlay is removed and the robot stands on the ground."
       },
       {
-        "file": "../figures/chapter_19/behavior-restarted.png",
-        "caption": "Restart collection restores all four crystals and resets the counter to zero."
+        "file": "../figures/chapter_19/behavior-hitboxes.png",
+        "caption": "Show hitboxes adds outlines for the robot, terrain, hazards, and gems over the artwork."
+      },
+      {
+        "file": "../figures/chapter_19/behavior-jump.png",
+        "caption": "Pressing Jump and Right launches the robot above the ground while moving it forward."
+      },
+      {
+        "file": "../figures/chapter_19/behavior-paused.png",
+        "caption": "Pause freezes play and displays the PAUSED state."
+      },
+      {
+        "file": "../figures/chapter_19/behavior-scrolling.png",
+        "caption": "After moving Right and collecting the first gem, the camera scrolls along the wider level; the counter shows Gems: 1/10."
       }
     ]
   },
   "20": {
-    "chapter": "20-custom-3d-assets.qmd",
-    "source": "games/asset-workshop/index.html",
+    "chapter": "20-first-threejs-world.qmd",
+    "source": "games/three-explorer/index.html",
     "captures": [
       {
         "file": "../figures/chapter_20/stage-html.png",
@@ -429,21 +395,21 @@
       },
       {
         "file": "../figures/chapter_20/behavior-start.png",
-        "caption": "Behavior: the original turquoise robot model is loaded into the 3D Asset Workshop."
+        "caption": "Behavior: JavaScript loads the robot and crystals and renders the 3D island."
       },
       {
-        "file": "../figures/chapter_20/behavior-recolored.png",
-        "caption": "Changing Robot color updates the body material to pink while keeping the model geometry."
+        "file": "../figures/chapter_20/behavior-collected.png",
+        "caption": "Moving Up and Right to the first crystal removes it and updates the counter to Crystals: 1/4."
       },
       {
-        "file": "../figures/chapter_20/behavior-exported.png",
-        "caption": "Export robot.glb saves the customized model and shows the export confirmation."
+        "file": "../figures/chapter_20/behavior-restarted.png",
+        "caption": "Restart collection restores all four crystals and resets the counter to zero."
       }
     ]
   },
   "21": {
-    "chapter": "21-rapier-physics.qmd",
-    "source": "games/physics-lab/index.html",
+    "chapter": "21-custom-3d-assets.qmd",
+    "source": "games/asset-workshop/index.html",
     "captures": [
       {
         "file": "../figures/chapter_21/stage-html.png",
@@ -455,25 +421,21 @@
       },
       {
         "file": "../figures/chapter_21/behavior-start.png",
-        "caption": "Behavior: three balls begin the drop at the same height."
+        "caption": "Behavior: the original turquoise robot model is loaded into the 3D Asset Workshop."
       },
       {
-        "file": "../figures/chapter_21/behavior-bounce.png",
-        "caption": "After the same elapsed simulation time, the balls reach different heights because their restitution values differ."
+        "file": "../figures/chapter_21/behavior-recolored.png",
+        "caption": "Changing Robot color updates the body material to pink while keeping the model geometry."
       },
       {
-        "file": "../figures/chapter_21/behavior-colliders.png",
-        "caption": "Show colliders overlays the physics shapes on the visible balls and floor."
-      },
-      {
-        "file": "../figures/chapter_21/behavior-reset.png",
-        "caption": "Drop again resets all three balls to their common starting height."
+        "file": "../figures/chapter_21/behavior-exported.png",
+        "caption": "Export robot.glb saves the customized model and shows the export confirmation."
       }
     ]
   },
   "22": {
-    "chapter": "22-marble-quest.qmd",
-    "source": "games/marble-quest/index.html",
+    "chapter": "22-rapier-physics.qmd",
+    "source": "games/physics-lab/index.html",
     "captures": [
       {
         "file": "../figures/chapter_22/stage-html.png",
@@ -485,22 +447,52 @@
       },
       {
         "file": "../figures/chapter_22/behavior-start.png",
-        "caption": "Behavior: the marble, crates, gems, and gate are loaded on the ready screen."
+        "caption": "Behavior: three balls begin the drop at the same height."
       },
       {
-        "file": "../figures/chapter_22/behavior-playing.png",
-        "caption": "Start creates a playing world with five gems and three lives."
+        "file": "../figures/chapter_22/behavior-bounce.png",
+        "caption": "After the same elapsed simulation time, the balls reach different heights because their restitution values differ."
       },
       {
         "file": "../figures/chapter_22/behavior-colliders.png",
+        "caption": "Show colliders overlays the physics shapes on the visible balls and floor."
+      },
+      {
+        "file": "../figures/chapter_22/behavior-reset.png",
+        "caption": "Drop again resets all three balls to their common starting height."
+      }
+    ]
+  },
+  "23": {
+    "chapter": "23-marble-quest.qmd",
+    "source": "games/marble-quest/index.html",
+    "captures": [
+      {
+        "file": "../figures/chapter_23/stage-html.png",
+        "caption": "Structure: HTML only, before CSS or JavaScript."
+      },
+      {
+        "file": "../figures/chapter_23/stage-style.png",
+        "caption": "Style: the same HTML with CSS applied; JavaScript is still off."
+      },
+      {
+        "file": "../figures/chapter_23/behavior-start.png",
+        "caption": "Behavior: the marble, crates, gems, and gate are loaded on the ready screen."
+      },
+      {
+        "file": "../figures/chapter_23/behavior-playing.png",
+        "caption": "Start creates a playing world with five gems and three lives."
+      },
+      {
+        "file": "../figures/chapter_23/behavior-colliders.png",
         "caption": "Show colliders reveals the marble, solid obstacles, and collectible sensor shapes."
       },
       {
-        "file": "../figures/chapter_22/behavior-moved.png",
+        "file": "../figures/chapter_23/behavior-moved.png",
         "caption": "Holding Left and Up rolls the marble into a gem sensor. The gem disappears and the counter becomes Gems: 1/5."
       },
       {
-        "file": "../figures/chapter_22/behavior-paused.png",
+        "file": "../figures/chapter_23/behavior-paused.png",
         "caption": "Pause suspends the physics game and shows the paused status."
       }
     ]

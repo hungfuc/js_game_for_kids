@@ -2,7 +2,7 @@
 
 Use this appendix when a later game introduces a tag, attribute, selector, or property you want to revisit. It preserves the detailed explanations, categorized tables, and complete Game Maker HQ examples. You do not need to read the whole appendix before programming.
 
-Start with the smaller lessons in Chapters 2–4. Return here to look up one feature at a time: HTML structure and attributes, CSS appearance and layout, controls, or the page patterns used by canvas and 3D games.
+Start with the smaller lessons in Chapters 3–5. Return here to look up one feature at a time: HTML structure and attributes, CSS appearance and layout, controls, or the page patterns used by canvas and 3D games.
 
 ## Complete Game Maker HQ example {.unnumbered}
 
@@ -90,7 +90,7 @@ Start with the **scene structure**: decide which parts belong on the page and pl
 
 Open `index.html` in a browser. If you edit it, save the file and refresh the browser tab. The page will have structure, but it will look plain until you add the CSS. A ready-to-run copy of these files is in `workspace/chapter2/`; open `plain.html` there to see the same page with its stylesheet link removed.
 
-![The Game Maker HQ page in Chrome before its CSS file is linked. The headings, mission list, gem image, and player form appear in the browser's default style.](../figures/chapter_02/game-maker-hq-plain.png){#fig-ch03-plain-page fig-alt="A plain white browser page shows Game Maker HQ, a small gem, three missions, and a player form with default browser controls." width="100%"}
+![The Game Maker HQ page in Chrome before its CSS file is linked. The headings, mission list, gem image, and player form appear in the browser's default style.](../figures/chapter_03/game-maker-hq-plain.png){#fig-ch04-plain-page fig-alt="A plain white browser page shows Game Maker HQ, a small gem, three missions, and a player form with default browser controls." width="100%"}
 
 **Read the picture:** The content is already in a useful order: heading, game preview, missions, then player card. The gem loads because its `<img>` path points to a real local file. Without the stylesheet link, the browser supplies its default fonts, spacing, and control layout.
 
@@ -132,9 +132,9 @@ Read the beginning of the complete example from top to bottom:
 | `<link rel="stylesheet" href="styles.css">` | Loads a separate CSS file. | Lets several pages share a visual design. |
 | `<body>` | Contains the page content and controls. | Holds the heading, game area, score, and buttons. |
 | `<style>` | Holds CSS rules inside an HTML file, usually in the head. | Keeps later short game examples in one file. |
-| `<script>` | Holds or loads JavaScript, depending on its attributes. | Provides the place for the game instructions starting in Chapter 5. |
+| `<script>` | Holds or loads JavaScript, depending on its attributes. | Provides the place for the game instructions starting in Chapter 6. |
 
-The browser's reading order also matters. The early games put their ordinary `<script>` after the page elements it will use, just before `</body>`. Those elements exist when the script reaches them. In Chapter 5, you will fill that script with variables; you do not need to write those instructions yet.
+The browser's reading order also matters. The early games put their ordinary `<script>` after the page elements it will use, just before `</body>`. Those elements exist when the script reaches them. In Chapter 6, you will fill that script with variables; you do not need to write those instructions yet.
 
 ### Nest elements to describe the page structure {.unnumbered .unnumbered}
 
@@ -166,18 +166,18 @@ The following tables cover the HTML used in the chapter code and the playable co
 | Category | Elements | Meaning and example | Where you will meet them |
 | --- | --- | --- | --- |
 | Document | `<html>`, `<head>`, `<body>` | Whole document, page information, visible content | Complete game pages throughout the book |
-| Metadata and resources | `<meta>`, `<title>`, `<link>` | Encoding/viewport, tab title, stylesheet or tab icon | Chapters 3–6, 8, 10–14; Game Lab pages |
-| Code containers | `<style>`, `<script>` | Embedded CSS; embedded or external JavaScript/data | Chapters 5–14; module projects in Chapters 15–22 |
-| Main structure | `<main>`, `<section>` | Main content and a related section | Chapter 2, Monster Swarm, canvas games, Game Lab |
+| Metadata and resources | `<meta>`, `<title>`, `<link>` | Encoding/viewport, tab title, stylesheet or tab icon | Chapters 4–7, 9, 11–15; Game Lab pages |
+| Code containers | `<style>`, `<script>` | Embedded CSS; embedded or external JavaScript/data | Chapters 6–15; module projects in Chapters 16–23 |
+| Main structure | `<main>`, `<section>` | Main content and a related section | Chapter 3, Monster Swarm, canvas games, Game Lab |
 | Headings and text | `<h1>`, `<h2>`, `<p>` | Main heading, subsection heading, paragraph | Titles, instructions, scores, and messages |
-| General groups | `<div>`, `<span>` | Container for a group; small part of a line | Chapter 8 monster row and score; Chapter 9 star; 3D stage |
+| General groups | `<div>`, `<span>` | Container for a group; small part of a line | Chapter 9 monster row and score; Chapter 10 star; 3D stage |
 | Lists | `<ul>`, `<ol>`, `<li>` | Bulleted list, numbered list, one list item | Game Maker HQ missions; ordered missions in extra workspace examples |
 | Navigation | `<a>` | Link to another page, a resource, or an ID such as `href="#missions"` | Game Lab menu and Back links |
-| Pictures | `<img>` | Loads the picture named by `src`; `alt` supplies its text alternative | Chapter 3 gem; Chapter 6 image events |
-| Drawing | `<canvas>` | Drawing surface with a coordinate space | Chapters 10–18; created by Three.js in Chapters 19–22 |
+| Pictures | `<img>` | Loads the picture named by `src`; `alt` supplies its text alternative | Chapter 4 gem; Chapter 7 image events |
+| Drawing | `<canvas>` | Drawing surface with a coordinate space | Chapters 11–19; created by Three.js in Chapters 20–23 |
 | Form group | `<form>` | Groups controls for collecting input | Game Maker HQ player card |
 | Control label | `<label>` | Gives a control an understandable name | Player card and Game Lab choices |
-| Input and action | `<input>`, `<button>` | Text/checkbox/color and other controls; a pressable action | Chapters 2–4; later game toolbars |
+| Input and action | `<input>`, `<button>` | Text/checkbox/color and other controls; a pressable action | Chapters 3–5; later game toolbars |
 | Menu | `<select>`, `<option>` | Choice menu and one of its choices | Player card; Collision Playground shape choice |
 | Meaning within text | `<strong>`, `<code>` | Important text; a code name or command shown as text | Game Lab cards and source-file hints |
 | Extra page regions | `<header>`, `<nav>`, `<aside>`, `<footer>` | Introductory area, navigation area, related side note, closing information | Extra workspace examples |
@@ -193,7 +193,7 @@ An attribute's meaning depends on its element. `type="button"` on a button and `
 
 | Category | Attribute | What it means in our projects |
 | --- | --- | --- |
-| Identity | `id` | A unique label in this document: `id="score"`. CSS can select it with `#score`; JavaScript will find it in Chapter 6. |
+| Identity | `id` | A unique label in this document: `id="score"`. CSS can select it with `#score`; JavaScript will find it in Chapter 7. |
 | Shared group | `class` | Reusable group names: `class="monster"`. Several elements can share a class, and one element can have several classes, such as `class="card primary"`. |
 | Language | `lang` | The content language, such as `lang="en"` on `html`. |
 | Encoding | `charset` | The encoding on `meta`, here `utf-8`. |
@@ -227,7 +227,7 @@ A path is relative to the HTML page unless another base is specified. `gem.svg` 
 ::: {.callout-note title="Attributes, CSS properties, and DOM properties are different" icon="false"}
 In `<canvas width="500">`, `width` is an **HTML attribute**. In `canvas { width: 100%; }`, `width` is a **CSS property**. Later, `canvas.width` is a **JavaScript property** on the browser's canvas element. These affect related parts of the page, but they use different syntax and can describe different sizes.
 
-Likewise, `checked` in HTML is a checkbox's starting state; JavaScript's `.checked` reads its current state. `.value` reads current input, `.textContent` changes text, and `.style.left` changes a CSS position. Chapter 6 teaches the DOM; Chapter 9 uses style properties for movement. You only need to recognize the distinction now.
+Likewise, `checked` in HTML is a checkbox's starting state; JavaScript's `.checked` reads its current state. `.value` reads current input, `.textContent` changes text, and `.style.left` changes a CSS position. Chapter 7 teaches the DOM; Chapter 10 uses style properties for movement. You only need to recognize the distinction now.
 :::
 
 ## CSS basics: rules change how HTML looks {.unnumbered}
@@ -417,7 +417,7 @@ button:focus-visible {
 
 Save `styles.css` beside `index.html`, then refresh the page. Compare this browser result with the plain version above. The HTML content is the same; the linked CSS file changes its appearance.
 
-![The Game Maker HQ page in Chrome after the linked CSS file is loaded. A centered white card contains a large purple title, framed gem preview, spaced missions, and stacked form controls.](../figures/chapter_02/game-maker-hq-styled.png){#fig-ch03-styled-page fig-alt="A styled Game Maker HQ page has a pale blue background, white card, purple title, framed gem, mission list, and full-width player form controls." width="100%"}
+![The Game Maker HQ page in Chrome after the linked CSS file is loaded. A centered white card contains a large purple title, framed gem preview, spaced missions, and stacked form controls.](../figures/chapter_03/game-maker-hq-styled.png){#fig-ch04-styled-page fig-alt="A styled Game Maker HQ page has a pale blue background, white card, purple title, framed gem, mission list, and full-width player form controls." width="100%"}
 
 **Read the picture:** `.card` makes the white panel, `.game-preview` arranges the gem and its text, and `.game-art` adds the gem's rounded frame and shadow. The `form` rule stacks the labeled controls. Try changing one CSS value, saving, and refreshing to see which part of this picture changes.
 
@@ -582,7 +582,7 @@ When the viewport is at most 520 CSS pixels wide, the preview stacks vertically.
 
 ### Position a game object inside its play area {.unnumbered .unnumbered}
 
-Chapter 9 uses an ordinary HTML star inside a game container. You can prepare its starting position with CSS before adding a timer:
+Chapter 10 uses an ordinary HTML star inside a game container. You can prepare its starting position with CSS before adding a timer:
 
 ```html
 <div id="game"><span id="star">⭐</span></div>
@@ -607,7 +607,7 @@ Chapter 9 uses an ordinary HTML star inside a game container. You can prepare it
 
 `position: relative` keeps the game box in normal flow and makes it the reference box for the absolutely positioned star. `position: absolute` takes the star out of normal flow. `left` and `top` place it relative to that reference box: 120 pixels from the left, 80 from the top. Increasing `left` moves right; increasing `top` moves down.
 
-Keep the star's width and height in mind when choosing a position. An object whose left edge is inside the play area can still stick out at the right. Chapter 9 changes these same CSS properties through JavaScript; the positioning system itself is already in place.
+Keep the star's width and height in mind when choosing a position. An object whose left edge is inside the play area can still stick out at the right. Chapter 10 changes these same CSS properties through JavaScript; the positioning system itself is already in place.
 
 ### Prepare a canvas and a 3D stage {.unnumbered .unnumbered}
 
@@ -629,11 +629,11 @@ canvas {
 }
 ```
 
-HTML `width="500" height="300"` sets the drawing coordinate space. CSS sizes its display box. In this example, a narrower container can show a smaller version of the same drawing without changing those coordinates. `height: auto` keeps the canvas's proportions. Arbitrarily changing both displayed dimensions can stretch the picture. Chapter 15 explains how pointer coordinates must be scaled when drawing size and display size differ. See the [MDN canvas reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/canvas).
+HTML `width="500" height="300"` sets the drawing coordinate space. CSS sizes its display box. In this example, a narrower container can show a smaller version of the same drawing without changing those coordinates. `height: auto` keeps the canvas's proportions. Arbitrarily changing both displayed dimensions can stretch the picture. Chapter 16 explains how pointer coordinates must be scaled when drawing size and display size differ. See the [MDN canvas reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/canvas).
 
 The canvas stays blank until JavaScript draws. Fallback text does not describe every drawn object, and an accessible label does not make all canvas gameplay accessible. Keep useful instructions and status information in ordinary HTML alongside the game.
 
-For Chapters 19–22, the HTML starts with a host such as `<div id="stage"></div>`. Three.js creates a canvas and attaches it inside that div. The Game Lab gives `#stage` a height, rounded corners, and `overflow: hidden` so drawing outside its box is clipped. `#stage canvas` styles the child canvas. CSS controls the page frame; JavaScript and the renderer control the 3D world.
+For Chapters 20–23, the HTML starts with a host such as `<div id="stage"></div>`. Three.js creates a canvas and attaches it inside that div. The Game Lab gives `#stage` a height, rounded corners, and `overflow: hidden` so drawing outside its box is clipped. `#stage canvas` styles the child canvas. CSS controls the page frame; JavaScript and the renderer control the 3D world.
 
 ### CSS property summary: text and appearance {.unnumbered .unnumbered}
 
@@ -734,7 +734,7 @@ Controls have built-in browser behavior even before you write game logic. A text
 | --- | --- | --- |
 | Text | `<input type="text">` | Player nickname |
 | Checkbox | `<input type="checkbox">` | Sound or wall-blocking on/off |
-| Color | `<input type="color" value="#20b7a5">` | Robot body color in the Chapter 20 Asset Workshop |
+| Color | `<input type="color" value="#20b7a5">` | Robot body color in the Chapter 21 Asset Workshop |
 | Choice menu | `<select><option value="box">Rectangle</option></select>` | Game type or Collision Playground shape; the data value can differ from visible text |
 | Action | `<button type="button">Restart</button>` | A game action connected by JavaScript |
 | Extra numeric input | `<input type="number" min="1" max="10">` | A numeric choice in the extra workspace examples |
@@ -751,13 +751,13 @@ You do not need to write a module or an import map in this reference. Learn what
 
 | Script form | HTML | Meaning and later use |
 | --- | --- | --- |
-| Inline ordinary script | `<script>` followed by code and `</script>` | Code stored in the page; Chapters 5–14 usually put it after the visible elements. |
-| External module | `<script type="module" src="game.js"></script>` | Load a JavaScript file that can import/export other modules; introduced in Chapter 14 and used in the Game Lab. |
-| Import map | `<script type="importmap">` followed by JSON and `</script>` | Data mapping module names to resource addresses; Chapter 19 uses it for Three.js. Put it before the module that needs the map. |
+| Inline ordinary script | `<script>` followed by code and `</script>` | Code stored in the page; Chapters 6–15 usually put it after the visible elements. |
+| External module | `<script type="module" src="game.js"></script>` | Load a JavaScript file that can import/export other modules; introduced in Chapter 15 and used in the Game Lab. |
+| Import map | `<script type="importmap">` followed by JSON and `</script>` | Data mapping module names to resource addresses; Chapter 20 uses it for Three.js. Put it before the module that needs the map. |
 
-Module scripts are deferred until the HTML has been parsed, and their dependencies must load before they can run. Module-based game projects use the local server introduced in Chapter 1 and set up in the Game Lab guide. An import map contains data, not game instructions; Chapter 19 explains its actual entries. See [MDN: script](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script).
+Module scripts are deferred until the HTML has been parsed, and their dependencies must load before they can run. Module-based game projects use the local server introduced in Chapter 1 and set up in the Game Lab guide. An import map contains data, not game instructions; Chapter 20 explains its actual entries. See [MDN: script](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script).
 
-## Rehearse the page that Chapter 5 will use {.unnumbered #ref-monster-page}
+## Rehearse the page that Chapter 6 will use {.unnumbered #ref-monster-page}
 
 Use **Build the scene structure → Style the scene → Program game behavior** again. Before working with variables, make a small **static Monster Clicker page**. This connects the Game Maker HQ skills to the next chapter. Create a separate `monster-page/` folder with `index.html` and `styles.css`; keep your HQ project too.
 
@@ -777,13 +777,13 @@ Use **Build the scene structure → Style the scene → Program game behavior** 
   <!-- Step 1: Build the scene structure (page structure). -->
   <main class="card">
     <h1>Monster Clicker</h1>
-    <p>Meet the monster. Its click action comes in Chapter 6.</p>
+    <p>Meet the monster. Its click action comes in Chapter 7.</p>
     <button id="monster" class="monster" type="button">👾 Monster</button>
     <p id="message">The monster is waiting...</p>
     <p id="score">Score: 0</p>
   </main>
   <script>
-    // Step 3: Program game behavior: prepare data in Chapter 5 and click actions in Chapter 6.
+    // Step 3: Program game behavior: prepare data in Chapter 6 and click actions in Chapter 7.
   </script>
 </body>
 </html>
@@ -829,7 +829,7 @@ body {
 
 Open the page, then locate the heading, button, message, and score in the source. Explain how `#monster` in CSS refers to `id="monster"` in HTML. Press Tab to focus the button and observe the focus ring. Clicking the monster does not change the score yet: appearance and game rules are separate jobs.
 
-**Step 3 — Program game behavior:** write the rule “When the monster is hit, increase the score and show a message.” The page does not implement that rule yet. Chapter 5 keeps the scene and style and fills the script with the data needed by the rule. A runnable copy of this static rehearsal is in `workspace/chapter2/monster-page/`. Chapter 6 adds the DOM and event code. The familiar HTML is the stage for those new JavaScript ideas.
+**Step 3 — Program game behavior:** write the rule “When the monster is hit, increase the score and show a message.” The page does not implement that rule yet. Chapter 6 keeps the scene and style and fills the script with the data needed by the rule. A runnable copy of this static rehearsal is in `workspace/chapter2/monster-page/`. Chapter 7 adds the DOM and event code. The familiar HTML is the stage for those new JavaScript ideas.
 
 ### Apply the flow to every example {.unnumbered .unnumbered}
 
@@ -838,12 +838,12 @@ Use this table when practicing the smaller examples as well as the complete page
 | Example | 1. Build the scene structure | 2. Style the scene | 3. Program game behavior: planned or taught later |
 | --- | --- | --- | --- |
 | Game Maker HQ | Preview, missions, labeled player controls | Card, fonts, gem frame, form layout | Read choices and prepare a game; plan only here. |
-| Nested monster group | Container, buttons, score span | Shared button class and flexible row | Hit a monster and update the score; Chapters 6–8. |
-| Gem picture | An image with a source and text alternative | Size, padding, border, shadow | Collect the gem on an action; Chapter 6's image example. |
-| Static star arena | A game div containing a star span | Relative parent; absolute star with left/top | Move the star on clicks and timer ticks; Chapter 9. |
-| Canvas preview | A drawing surface with dimensions and instructions | Border, background, responsive display size | Draw and move game objects; Chapters 10 onward. |
-| 3D stage preview | A stage host, controls, and status area | Stage height and clipped drawing area | Load and render a 3D world; Chapters 19–22. |
-| Monster Clicker rehearsal | Title, monster, message, score | Card and monster button styling | Prepare memory in Chapter 5; connect the hit action in Chapter 6. |
+| Nested monster group | Container, buttons, score span | Shared button class and flexible row | Hit a monster and update the score; Chapters 7–9. |
+| Gem picture | An image with a source and text alternative | Size, padding, border, shadow | Collect the gem on an action; Chapter 7's image example. |
+| Static star arena | A game div containing a star span | Relative parent; absolute star with left/top | Move the star on clicks and timer ticks; Chapter 10. |
+| Canvas preview | A drawing surface with dimensions and instructions | Border, background, responsive display size | Draw and move game objects; Chapters 11 onward. |
+| 3D stage preview | A stage host, controls, and status area | Stage height and clipped drawing area | Load and render a 3D world; Chapters 20–23. |
+| Monster Clicker rehearsal | Title, monster, message, score | Card and monster button styling | Prepare memory in Chapter 6; connect the hit action in Chapter 7. |
 
 The font, image-frame, selector, and layout snippets each practice **Step 2: Style the scene** on one of these existing structures. The HTML control and container snippets practice **Step 1: Build the scene structure**. For an extra workspace page, trace the same three stages before changing it.
 
@@ -851,10 +851,10 @@ The font, image-frame, selector, and layout snippets each practice **Step 2: Sty
 
 | Project stage | Visible page structure | CSS to recognize | New work left for JavaScript |
 | --- | --- | --- | --- |
-| Chapters 5–7 | Heading → monster/actions → message and score → script | Font, color, frame, spacing, ID selectors | Variables, clicks, score updates, decisions |
-| Chapter 8 | Main card → score span → container of monster buttons → Power Hit/message | Shared `.monster` class, Flexbox, wrapping, gap, reserved message height | Loop over monsters |
-| Chapter 9 | Heading/score → game div containing the star | Sized container, relative/absolute positioning, left/top | Random positions and timers |
-| Chapters 10–14 | Heading/instructions → canvas → status and optional Restart | Canvas frame, block layout, centered card | Drawing and game rules |
-| Chapters 15–18 | Main → panel → toolbar/choices → status → canvas → movement controls → error area | Shared `lab.css`, flexible toolbar, responsive canvas, focus and touch rules | Modules, loading, real-time input and simulation |
-| Chapters 19–22 | Same game-page pattern, with a stage div containing a renderer-created canvas | Stage height, child selector, overflow, responsive size limits | Imports, renderer, models, and physics where needed |
+| Chapters 6–8 | Heading → monster/actions → message and score → script | Font, color, frame, spacing, ID selectors | Variables, clicks, score updates, decisions |
+| Chapter 9 | Main card → score span → container of monster buttons → Power Hit/message | Shared `.monster` class, Flexbox, wrapping, gap, reserved message height | Loop over monsters |
+| Chapter 10 | Heading/score → game div containing the star | Sized container, relative/absolute positioning, left/top | Random positions and timers |
+| Chapters 11–15 | Heading/instructions → canvas → status and optional Restart | Canvas frame, block layout, centered card | Drawing and game rules |
+| Chapters 16–19 | Main → panel → toolbar/choices → status → canvas → movement controls → error area | Shared `lab.css`, flexible toolbar, responsive canvas, focus and touch rules | Modules, loading, real-time input and simulation |
+| Chapters 20–23 | Same game-page pattern, with a stage div containing a renderer-created canvas | Stage height, child selector, overflow, responsive size limits | Imports, renderer, models, and physics where needed |
 

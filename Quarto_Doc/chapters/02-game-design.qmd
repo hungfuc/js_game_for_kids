@@ -1,0 +1,127 @@
+# Design and Develop a Game: From Story to Code {#sec-ch02}
+
+::: {.chapter-banner}
+[GAME DESIGN 02 | From an idea to small features]{.game-title}
+[Game story]{.skill-chip} [Iterations]{.skill-chip} [Structure]{.skill-chip} [Style]{.skill-chip} [Behavior]{.skill-chip}
+:::
+
+## Overview {.unnumbered}
+
+Designing a game starts with an idea about the player's experience. Who is the player? What are they trying to achieve? What can they do to reach that goal? A **game story** gives these decisions a purpose.
+
+Development turns that story into something people can play. Choose one small feature, work through **Structure → Style → Behavior**, and check the result. Repeat this process as the game grows. This chapter explains that habit before introducing the tools we will use: **HTML → CSS → JavaScript**.
+
+## Learning Objectives {.unnumbered}
+
+By the end of this chapter, you will be able to:
+
+- express a game idea in one sentence;
+- turn the story into small features;
+- explain Structure, Style, and Behavior;
+- plan and test one feature before adding another;
+- connect the design process to HTML, CSS, and JavaScript.
+
+## Start with a one-line game story
+
+> Collect three stars to light a lighthouse, then start a new round.
+
+This one-line example gives us an action (**collect**), a goal (**light the lighthouse**), and a reason to play again (**a new round**). It is enough to start planning. We can decide the exact controls and rules as we develop the idea.
+
+For your own story, try: **“You ___ to ___.”** Choose one main action and one clear goal. Keep extra levels, powers, and characters for later versions.
+
+## Turn the story into features
+
+A **feature** is one useful thing the player can do or experience. Break the story into small pieces that you can build and check:
+
+| Part of the story | Feature to develop |
+| --- | --- |
+| Collect stars. | Select a star and see the collected count increase. |
+| Light the lighthouse. | Show success when all three stars have been collected. |
+| Start a new round. | Restore the stars, count, and lighthouse to their starting state. |
+
+Make each rule precise enough to test. For this plan, selecting an available star collects it once. Selecting an already collected star adds nothing. Collecting the third star lights the lighthouse and ends the round.
+
+## Develop one feature through three steps
+
+For each feature, ask three questions in order:
+
+| Step | Question | What you plan |
+| --- | --- | --- |
+| **Structure** | What parts are needed, and how do they fit together? | Objects, controls, instructions, displays, and groups. |
+| **Style** | How will players recognize and use those parts? | Appearance, spacing, readable text, and clear visual feedback. |
+| **Behavior** | What happens when the player acts? | Input, remembered information, rules, and resulting changes. |
+
+Begin with labeled boxes and ordinary words. Simple shapes are enough to try an idea. Detailed artwork can come later.
+
+![Build and test one feature through Structure, Style, and Behavior, then choose the next feature.](../figures/chapter_03/structure-style-behavior.svg){#fig-ch02-feature-process fig-alt="Start with a small feature from the story. Build its structure, style its parts, and program its behavior. Predict and playtest one action. Revise a stage if needed, or choose the next small feature when the check passes." width="100%"}
+
+**Read the arrows:** Choose one feature, build its parts, make them understandable, connect its rules, and test it. An **iteration** is one small pass of building, checking, and improving. After a successful check, choose the next feature and repeat the three steps.
+
+## Repeat the process as the game grows
+
+The same one-line story can guide several iterations. Each row below is a complete pass through **Structure → Style → Behavior**, followed by a check.
+
+| Iteration | Structure | Style | Behavior | Check |
+| --- | --- | --- | --- | --- |
+| **1. Collect a star** | Add three selectable stars and a collected-count display. | Make the stars easy to find and the count easy to read; distinguish collected stars. | Selecting an available star marks it collected and adds one to the count. | Select one star twice: the count becomes 1 and stays 1. |
+| **2. Reach the goal** | Reuse the stars and count; add a lighthouse and a result message. | Give the lighthouse a clear lit appearance and show the word `Success!`. | When the count reaches 3, light the lighthouse and end the round. | Two collected stars leave it unlit; the third lights it and shows success. |
+| **3. Play again** | Reuse the scene; add a Restart control. | Give Restart a readable label, comfortable spacing, and visible keyboard focus. | Restore all stars, set the count to 0, clear success, and turn off the light. | Restart after success; collect one star again and expect a count of 1. |
+
+Each iteration adds a small piece to a working game. Reuse the structure and style that already serve the next feature. A new rule may need a new display; an unclear display may need a different layout. Return to the step that needs attention and check the whole feature again.
+
+**State** is information the game remembers, such as which stars have been collected. **Feedback** tells the player what happened, such as an updated count or a lit lighthouse. Keep the remembered information and the visible feedback in agreement.
+
+This process organizes development. It is separate from the browser's file-loading order and from the repeated updates inside a running game.
+
+## Predict, try, observe, and improve
+
+Before testing a feature, write what you expect. Then try the action and compare the result with your prediction. You can first simulate it on paper: point to a star, mark it collected, and update the count. Later, repeat the same test in the browser.
+
+Use the result to choose your next change:
+
+| What you notice | Step to revisit |
+| --- | --- |
+| There is nowhere to show progress. | **Structure:** add a progress display. |
+| The display exists but is hard to read. | **Style:** improve its size, spacing, or contrast. |
+| The same star earns credit twice. | **Behavior:** check whether it was already collected. |
+| Restart shows 0, but the next star changes it to 4. | **Behavior:** reset the remembered count as well as the display. |
+
+After improving a feature, test it again. Once it works, return to the story and choose the next small feature.
+
+## Connect the design to HTML → CSS → JavaScript
+
+Now the three web tools have a purpose:
+
+| Design responsibility | Web tool | Connection to our example |
+| --- | --- | --- |
+| **Structure** | **HTML** describes page content, controls, and groups. | Create star controls, a count display, a lighthouse picture, a message, and Restart. |
+| **Style** | **CSS** describes appearance and layout. | Arrange the scene, make the controls readable, and define collected-star and lit-lighthouse appearances. |
+| **Behavior** | **JavaScript** remembers information and carries out rules. | Track collected stars, update the count, detect success, and restart the round. |
+
+For example, HTML provides the lighthouse picture, CSS defines its lit appearance, and JavaScript decides when that appearance should be used. A feature often needs all three tools working together.
+
+We will learn these tools gradually. **Chapter 3** teaches HTML structure using a small practice scene. **Chapter 4** adds CSS style. **Chapter 5** develops action rules. **Chapters 6–8** introduce JavaScript memory, functions, events, and decisions.
+
+As you learn each tool, keep this development habit: **game story → one feature → Structure → Style → Behavior → test → next feature**.
+
+## Exercises {.unnumbered}
+
+### Exercise 1: Write a one-line story {.unnumbered}
+
+Write one sentence with a player action and a goal. Keep it small enough to try on paper.
+
+### Exercise 2: Plan the first feature {.unnumbered}
+
+Choose one feature from your story. List its parts, describe how players will recognize them, and write one action/result rule. Predict one result you can check.
+
+### Exercise 3: Plan the next iteration {.unnumbered}
+
+Choose a second feature. Describe what you will reuse and what you will add or change in Structure, Style, and Behavior. Include a test.
+
+### Exercise 4: Choose a web tool {.unnumbered}
+
+Which tool creates a Restart button? Which makes it easy to see? Which restores the game's starting information when it is pressed? Explain how the three responsibilities work together.
+
+## Challenge: Design before you code {.unnumbered}
+
+Give a partner your one-line story and a sketch of your first feature. Let them try it on paper while you carry out its rule. Compare what happened with your prediction, improve the plan, and repeat for the next feature. Bring your story and feature plans into the HTML chapter.

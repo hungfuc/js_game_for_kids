@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="480" viewBox="0 0 820 480" role="img" aria-labelledby="title desc">
+<title id="title">The CSS box model</title>
+<desc id="desc">From outside to inside: transparent margin, represented by orange; an indigo border; green padding; and blue content. Padding gives room inside the border. Margin gives room outside it.</desc>
+<rect width="820" height="480" rx="16" fill="#ffffff"/>
+<g font-family="Arial, Helvetica, sans-serif" fill="#20304a" text-anchor="middle">
+<text x="410" y="35" font-size="26" font-weight="bold">Every element has a box</text>
+<rect x="25" y="60" width="770" height="365" rx="8" fill="#fff0d6" stroke="#b56b1b" stroke-width="2" stroke-dasharray="8 5"/>
+<text x="410" y="96" font-size="22" font-weight="bold">MARGIN — space outside the border</text>
+<rect x="110" y="139" width="600" height="236" fill="#dff3df" stroke="#4b0082" stroke-width="8"/>
+<text x="410" y="128" font-size="20" font-weight="bold" fill="#4b0082">BORDER — the line around the box</text>
+<text x="410" y="181" font-size="22" font-weight="bold">PADDING — space inside the border</text>
+<rect x="200" y="211" width="420" height="108" fill="#dcecff" stroke="#3875ad" stroke-width="2"/>
+<text x="410" y="253" font-size="24" font-weight="bold">CONTENT</text>
+<text x="410" y="285" font-size="21">Monster symbol + button text</text>
+<text x="410" y="457" font-size="20">Inside: padding. Outside: margin. Between: border.</text>
+</g></svg>
