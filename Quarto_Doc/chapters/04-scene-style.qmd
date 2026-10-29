@@ -32,6 +32,16 @@ Create `styles.css` beside your Chapter 3 `index.html`. Add this line inside `<h
 
 `href` tells the browser where to find the stylesheet. Save both files and refresh the page after a change.
 
+The general syntax of a CSS rule is:
+
+```text
+selector {
+  property: value;
+}
+```
+
+The **selector** chooses HTML elements. The **property** (style key) names the appearance to change, and the **value** says how to change it. A rule can contain several property–value pairs between its braces.
+
 Start with one rule in `styles.css`:
 
 ```css
@@ -91,6 +101,10 @@ h1 {
   color: darkgreen;
 }
 ```
+
+The arrows below connect each CSS selector to the line of HTML it styles in the [companion style page](../games/foundations/style/index.html). The stylesheet line numbers match the complete CSS example above.
+
+![CSS selectors pointing to their matching HTML lines.](../figures/chapter_04/css-html-line-map.svg){#fig-ch04-css-html-map fig-alt="Three arrows connect CSS line 1 h1 to HTML line 10 heading, CSS line 4 .monster to HTML line 12 button class, and CSS line 12 #message to HTML line 14 paragraph ID." width="100%"}
 
 <!-- game-stage-figures:style -->
 

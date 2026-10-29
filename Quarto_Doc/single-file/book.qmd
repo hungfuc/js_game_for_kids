@@ -19,15 +19,15 @@ Each part is a milestone of your understanding of using JavaScript to build a ga
 Chapter 1 prepares your computer and project files. [Chapter 2: Design and develop a game](#sec-ch02) starts with a game story and plans feature-by-feature iterations of Structure → Style → Behavior. Then build one small scene in three gradual lessons: [Chapter 3: Structure](#sec-ch03), [Chapter 4: Style](#sec-ch04), and [Chapter 5: Behavior](#sec-ch05). Try each chapter’s examples and exercises before continuing to JavaScript in Chapter 6. The [HTML/CSS reference](#sec-html-css-reference) keeps the detailed catalog available for later lookup.
 
 
-## Study guide: Concept (READ) → Code → Exercise {.unnumbered}
+## Study guide: Read → Code → Exercise {.unnumbered}
 
 Use this three-step process for each new topic. Work through one concept at a time before moving to the next.
 
-1. **Concept (READ):** Read the explanation and study the diagrams. Identify the problem the idea solves, then explain the idea in your own words. Before running the example, predict what it will do.
+1. **Read:** Read the explanation and study the diagrams. Identify the problem the idea solves, then explain the idea in your own words. Before running the example, predict what it will do.
 2. **Code:** Type the example into the appropriate project file and run it. Compare the result with your prediction. Trace how the code uses the concept, then change one small thing and observe what happens.
 3. **Exercise:** Try the related exercise or challenge on your own. Use the concept to plan your solution, write the code, and test the result. Explain why your solution works. If you get stuck, reread the concept and revisit the example, then try again.
 
-Repeat **Concept (READ) → Code → Exercise** throughout the chapter. For game-building tasks, use **Structure → Style → Behavior** to organize your work during the Code and Exercise steps.
+Repeat **Read → Code → Exercise** throughout the chapter. For game-building tasks, use **Structure → Style → Behavior** to help your thinking and then organize your work during the coding and exercising steps.
 
 ## Choose your reading path {.unnumbered}
 
@@ -343,13 +343,13 @@ A word processor is great for essays, but it may add special quotation marks, hi
 
 The end of a file name after the final dot is its **file extension**. It helps people and programs recognize the file's job.
 
-| File name | Extension | What it usually contains |
-| --- | --- | --- |
-| `index.html` | `.html` | The page structure a browser opens. |
-| `main.js` | `.js` | JavaScript instructions for the browser. |
-| `style.css` | `.css` | Colors, sizes, and other visual choices. |
-| `level.json` | `.json` | Organized game data, such as a level layout. |
-| `robot.svg` | `.svg` | A picture made from shapes and lines. |
+| File name | What it usually contains |
+| --- | --- |
+| `index.html` | The page structure a browser opens. |
+| `main.js` | JavaScript instructions for the browser. |
+| `style.css` | Colors, sizes, and other visual choices. |
+| `level.json` | Organized game data, such as a level layout. |
+| `robot.svg` | A picture made from shapes and lines. |
 
 The extension is important. `index.html` and `index.html.txt` are different files: the first is a web page, while the second is usually treated as ordinary text. Some computers hide extensions, so check the full name when you save a file. Do not rename a file just to give it a new extension; save it in the right kind of file from the start.
 
@@ -377,30 +377,20 @@ That normally tells the browser to contact a server through a network.
 | `http://` | request a web resource using HTTP |
 | `https://` | request a web resource using encrypted HTTP communication |
 
-```{mermaid}
-flowchart TB
-    B[Browser]
-    L[Local file<br/>on your computer]
-    I[Internet]
-    S[Web server]
-    L -->|open directly| B
-    B -->|request| I
-    I --> S
-    S -->|response| I
-    I --> B
-```
 
-**Read the picture:** A local file can go directly from storage on your computer to your browser. A web resource takes another route: the browser sends a request through the network and receives a response.
+## Tool {.unnumbered}
 
-## What you need {.unnumbered}
+- A modern web browser Chrome.
+- A text editor in your computer. You can use Notepad in Windows or TextEdit in MacOS. We suggest to use Sublime Text (text editor) or VSCode (development tool).
 
-- A modern web browser such as Chrome, Edge, Firefox, or Safari.
-- A plain-text code editor available on your computer.
-- A folder for each website or game containing its files. Chapter 4 begins with separate HTML and CSS files; early JavaScript examples keep their code close to the page so you can focus on the programming ideas.
+## Preparation {.unnumbered}
+
+- A folder for each website or game containing its files. Our game have .html, .css, and .js files. 
+- Create a folder named `my-game-site`. Save your first HTML page as `index.html`, not `index.html.txt`. Save your first CSS as style.css. Save your Javascript script as index.js. 
 
 ::: {.callout-tip .setup title="Start with one file" icon="false"}
 
-Create a folder named `my-game-site`. Save your first HTML page as `index.html`, not `index.html.txt`. Open it in your browser. After editing, save the file and refresh the browser. Later, module-based projects need a local development server.
+Open it in your browser. After editing, save the file and refresh the browser. Later, module-based projects need a local development server.
 
 :::
 
@@ -488,7 +478,8 @@ Build one small feature in three passes. For **Monster Clicker**, the feature is
 | **Behavior** | What should happen when the player acts? | Use JavaScript to add a point when the button is pressed. |
 
 
-Chapter 2 turns a game story into small feature plans. Chapter 3 builds the structure, Chapter 4 adds style, and Chapter 5 plans behavior. Keep the same small scene as you move from one pass to the next.
+In the later chapters, we will discuss how to build up a structure, how to style it, and how to control the behaviors during the game development.
+
 
 ## How HTML, CSS, and JavaScript fit together
 
@@ -514,78 +505,6 @@ Do not worry about the code yet. Chapter 3 begins with HTML and shows how a brow
 The page file is the starting point. It can point to a stylesheet, pictures, and JavaScript files. The browser loads those resources, builds the page's structure, applies its styles, and runs its scripts. Loading a picture or a program may take time, so later games wait until their resources are ready.
 
 The browser keeps a working representation of the page called the **Document Object Model**, or **DOM**. A heading, a button, and a score paragraph become elements in that representation. Chapter 3 gives some elements unique labels called **IDs**. Chapter 7 teaches JavaScript to find those elements and change them. Changing the page in the browser does not automatically change the saved HTML file.
-
-### A first look at HTML {.unnumbered}
-
-This tiny page contains a heading, a button, and a score. Save it as `index.html` if you want to see the unstyled parts in a browser. Chapter 3 explains how the elements fit together.
-
-```html
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Monster Clicker</title>
-</head>
-<body>
-  <h1 id="game-title">Monster Clicker</h1>
-  <button id="monster" type="button">Click the monster</button>
-  <p id="score">Score: 0</p>
-</body>
-</html>
-```
-
-An **ID** is a name for one element on the page. Each ID in this example is unique.
-
-| HTML tag | Simple job | Example above |
-| --- | --- | --- |
-| `<html>` | Hold the whole page. | Contains the head and body. |
-| `<head>` | Hold page information. | Contains the title. |
-| `<title>` | Name the browser tab. | `Monster Clicker` |
-| `<body>` | Hold the visible page content. | Contains the heading, button, and score. |
-| `<h1>` | Show the main heading. | `Monster Clicker` |
-| `<button>` | Give the player a control to press. | `Click the monster` |
-| `<p>` | Show a paragraph or short status. | `Score: 0` |
-
-### A first look at CSS {.unnumbered}
-
-CSS changes how the same elements look. The `#` symbol selects an element by its ID; these rules use only the IDs from the HTML example. Chapter 4 shows where to place CSS and how to connect a stylesheet.
-
-```css
-#game-title {
-  color: #245d88;
-}
-
-#monster {
-  background-color: #e6f6f2;
-  font-size: 1.25rem;
-  padding: 0.75rem;
-}
-
-#score {
-  font-weight: bold;
-}
-```
-
-| CSS piece | What it does | Example |
-| --- | --- | --- |
-| `#game-title` | Selects the element with `id="game-title"`. | The heading. |
-| `#monster` | Selects the element with `id="monster"`. | The button. |
-| `color` | Changes text color. | `#245d88` is a blue color. |
-| `background-color` | Changes the color behind an element. | A pale green button. |
-| `font-size` | Changes text size. | Larger button text. |
-| `padding` | Adds space inside an element. | More room around button text. |
-| `font-weight` | Changes how heavy text looks. | A bold score. |
-
-### A first look at JavaScript {.unnumbered}
-
-JavaScript lets the browser respond to the player. You will use these browser tools in later chapters; you do not need to memorize them now.
-
-| Browser Tool | Simple Job | Monster Clicker Example |
-| --- | --- | --- |
-| `document.getElementById("...")` | Find one element by its ID. | Find the monster button. |
-| `addEventListener("click", ...)` | Run instructions when an event happens. | Notice a button click. |
-| `textContent` | Read or change an element's text. | Show an updated score. |
-| `console.log(...)` | Print a message for the developer. | Check that a click was detected. |
 
 
 ## Exercises {.unnumbered}
@@ -902,16 +821,16 @@ Keep the first version small. One monster, one score, and one message are enough
 
 A **scene** includes the page and the game world the player sees and uses. List each required part and its job before thinking about colors.
 
-![A wireframe for Monster Clicker showing the title and instructions above a play section with a monster button, score, and message.](../figures/chapter_03/monster-clicker-wireframe.svg){fig-alt="A grayscale page sketch. A main content box contains a title and instructions. Inside its play section are a section heading, monster button, score display, and feedback message in reading order." width=85%}
+![A wireframe for Monster Clicker showing the title, instructions, monster button, score, and message in order.](../figures/chapter_03/monster-clicker-wireframe.svg){#fig-ch03-monster-wireframe fig-alt="Five labeled boxes in reading order: game title, instructions, monster button, score, and feedback message." width=85%}
 
-**Read the sketch:** The boxes show placement and reading order, not final colors or artwork. The monster button, score, and message stay together inside the play section.
+**Read the sketch:** The boxes show placement and reading order, not final colors or artwork. The player reads the instructions before reaching the button, then sees the score and message below it.
 
 | Part | Purpose | Relationship |
 | --- | --- | --- |
-| Title | Name the game | First item in the main content |
+| Title | Name the game | First visible item on the page |
 | Instructions | Explain what the player can do | Above the monster |
-| Monster button | Give the player a target | Inside the play section |
-| Score | Show progress | Near the monster |
+| Monster button | Give the player a target | Below the instructions |
+| Score | Show progress | Below the button |
 | Message | Explain the latest result | Below the score |
 
 Draw these parts as labeled boxes. The diagram does not need artwork. Put the instructions before the control and keep feedback nearby.
@@ -931,6 +850,14 @@ flowchart LR
 ## Read an HTML element
 
 **HTML** describes the page’s content and structure. A **tag** marks an element’s start or end. An **element** includes those tags and the content between them.
+
+Here is the general syntax for an element with an attribute:
+
+```text
+<tag attribute="value">content</tag>
+```
+
+The opening tag is `<tag attribute="value">`; the closing tag is `</tag>`. The **tag name** says what kind of element it is. The **attribute name** and quoted **value** give extra information. The **content** appears between the tags. Together, the opening tag, content, and closing tag form the element.
 
 ```html
 <h1>Monster Clicker</h1>
@@ -959,21 +886,16 @@ Create `monster-scene/` inside your project folder. Save this as `index.html` wi
   <title>Monster Clicker</title>
 </head>
 <body>
-  <main class="card">
-    <h1>Monster Clicker</h1>
-    <p class="instructions">Click the monster to collect points.</p>
-    <section class="arena" aria-labelledby="arena-title">
-      <h2 id="arena-title">Meet your monster</h2>
-      <button id="monster" class="monster" type="button">👾 Monster</button>
-      <p>Score: <span id="score">0</span></p>
-      <p id="message">Your adventure is ready.</p>
-    </section>
-  </main>
+  <h1>Monster Clicker</h1>
+  <p>Click the monster to collect points.</p>
+  <button id="monster" class="monster" type="button">👾 Monster</button>
+  <p>Score: <span id="score">0</span></p>
+  <p id="message">Your adventure is ready.</p>
 </body>
 </html>
 ```
 
-![The complete Monster Clicker HTML rendered in a browser with default styling.](../figures/chapter_03/stage-html.png){fig-alt="An unstyled page with the heading Monster Clicker, instructions, a Meet your monster heading, a Monster button, Score: 0, and Your adventure is ready." width=85%}
+![The complete Monster Clicker HTML rendered in a browser with default styling.](../figures/chapter_03/stage-html.png){fig-alt="An unstyled page with the heading Monster Clicker, instructions, a Monster button, Score: 0, and Your adventure is ready." width=85%}
 
 The page uses the browser’s default appearance. Clicking the button does not increase the score. For this stage, success means the planned parts exist and appear in a useful reading order.
 
@@ -991,19 +913,17 @@ The page uses the browser’s default appearance. Clicking the button does not i
 
 ## Group and nest the parts
 
-**Nesting** means putting one element inside another. `<main>` contains the main page content. `<section>` groups a related topic. The heading, button, score paragraph, and message are children of the section. `aria-labelledby="arena-title"` gives that section the name supplied by its heading.
+**Nesting** means putting one element inside another. In this page, the visible elements are children of `<body>`. The score paragraph contains a `<span>` for the number. The heading, instructions, button, score paragraph, and message paragraph are siblings because they share the same parent.
 
 Inside the score paragraph, `<span id="score">0</span>` marks just the number. A later program can change that number without replacing the words `Score:`. Close an inner element before closing its parent. Indentation helps you read these relationships; spaces alone do not create them.
 
 | HTML tool | Use it for | Small example |
 | --- | --- | --- |
-| `<h1>`, `<h2>` | Main heading and section heading | `<h2>Instructions</h2>` |
+| `<h1>` | Main heading | `<h1>Monster Clicker</h1>` |
 | `<p>` | A paragraph or short status | `<p>Ready!</p>` |
-| `<main>`, `<section>` | Main content and related groups | A game card containing an arena |
-| `<div>` | A general group without a specific topic meaning | A row of monster buttons later |
 | `<span>` | A small part within a line | The score number |
 | `<button>` | A control the player can press | The monster target |
-| `id`, `class` | Identify one part; group parts for styling | `id="score"`, `class="card"` |
+| `id`, `class` | Identify one part; group parts for styling | `id="score"`, `class="monster"` |
 
 ## Exercises {.unnumbered}
 
@@ -1011,7 +931,7 @@ Inside the score paragraph, `<span id="score">0</span>` marks just the number. A
 
 **Flow focus:** Structure: explain the parts and their nesting.
 
-Draw a tree showing `main`, `section`, the monster button, and the score paragraph. Which element contains the score span? Which elements are siblings?
+Draw a tree showing `<body>`, the monster button, the score paragraph, and the score span. Which element contains the score span? Which elements are siblings?
 
 ### Exercise 2: Fix the grouping {.unnumbered}
 
@@ -1020,7 +940,7 @@ Draw a tree showing `main`, `section`, the monster button, and the score paragra
 Correct this fragment, then explain the problem:
 
 ```html
-<section><p>Ready!</section></p>
+<p>Score: <span>0</p></span>
 ```
 
 ### Exercise 3: Add one visible part {.unnumbered}
@@ -1096,6 +1016,16 @@ Create `styles.css` beside your Chapter 3 `index.html`. Add this line inside `<h
 
 `href` tells the browser where to find the stylesheet. Save both files and refresh the page after a change.
 
+The general syntax of a CSS rule is:
+
+```text
+selector {
+  property: value;
+}
+```
+
+The **selector** chooses HTML elements. The **property** (style key) names the appearance to change, and the **value** says how to change it. A rule can contain several property–value pairs between its braces.
+
 Start with one rule in `styles.css`:
 
 ```css
@@ -1155,6 +1085,10 @@ h1 {
   color: darkgreen;
 }
 ```
+
+The arrows below connect each CSS selector to the line of HTML it styles in the [companion style page](../games/foundations/style/index.html). The stylesheet line numbers match the complete CSS example above.
+
+![CSS selectors pointing to their matching HTML lines.](../figures/chapter_04/css-html-line-map.svg){#fig-ch04-css-html-map fig-alt="Three arrows connect CSS line 1 h1 to HTML line 10 heading, CSS line 4 .monster to HTML line 12 button class, and CSS line 12 #message to HTML line 14 paragraph ID." width="100%"}
 
 <!-- game-stage-figures:style -->
 

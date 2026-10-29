@@ -229,13 +229,13 @@ A word processor is great for essays, but it may add special quotation marks, hi
 
 The end of a file name after the final dot is its **file extension**. It helps people and programs recognize the file's job.
 
-| File name | Extension | What it usually contains |
-| --- | --- | --- |
-| `index.html` | `.html` | The page structure a browser opens. |
-| `main.js` | `.js` | JavaScript instructions for the browser. |
-| `style.css` | `.css` | Colors, sizes, and other visual choices. |
-| `level.json` | `.json` | Organized game data, such as a level layout. |
-| `robot.svg` | `.svg` | A picture made from shapes and lines. |
+| File name | What it usually contains |
+| --- | --- |
+| `index.html` | The page structure a browser opens. |
+| `main.js` | JavaScript instructions for the browser. |
+| `style.css` | Colors, sizes, and other visual choices. |
+| `level.json` | Organized game data, such as a level layout. |
+| `robot.svg` | A picture made from shapes and lines. |
 
 The extension is important. `index.html` and `index.html.txt` are different files: the first is a web page, while the second is usually treated as ordinary text. Some computers hide extensions, so check the full name when you save a file. Do not rename a file just to give it a new extension; save it in the right kind of file from the start.
 
@@ -263,30 +263,20 @@ That normally tells the browser to contact a server through a network.
 | `http://` | request a web resource using HTTP |
 | `https://` | request a web resource using encrypted HTTP communication |
 
-```{mermaid}
-flowchart TB
-    B[Browser]
-    L[Local file<br/>on your computer]
-    I[Internet]
-    S[Web server]
-    L -->|open directly| B
-    B -->|request| I
-    I --> S
-    S -->|response| I
-    I --> B
-```
 
-**Read the picture:** A local file can go directly from storage on your computer to your browser. A web resource takes another route: the browser sends a request through the network and receives a response.
+## Tool {.unnumbered}
 
-## What you need {.unnumbered}
+- A modern web browser Chrome.
+- A text editor in your computer. You can use Notepad in Windows or TextEdit in MacOS. We suggest to use Sublime Text (text editor) or VSCode (development tool).
 
-- A modern web browser such as Chrome, Edge, Firefox, or Safari.
-- A plain-text code editor available on your computer.
-- A folder for each website or game containing its files. Chapter 4 begins with separate HTML and CSS files; early JavaScript examples keep their code close to the page so you can focus on the programming ideas.
+## Preparation {.unnumbered}
+
+- A folder for each website or game containing its files. Our game have .html, .css, and .js files. 
+- Create a folder named `my-game-site`. Save your first HTML page as `index.html`, not `index.html.txt`. Save your first CSS as style.css. Save your Javascript script as index.js. 
 
 ::: {.callout-tip .setup title="Start with one file" icon="false"}
 
-Create a folder named `my-game-site`. Save your first HTML page as `index.html`, not `index.html.txt`. Open it in your browser. After editing, save the file and refresh the browser. Later, module-based projects need a local development server.
+Open it in your browser. After editing, save the file and refresh the browser. Later, module-based projects need a local development server.
 
 :::
 
@@ -374,7 +364,8 @@ Build one small feature in three passes. For **Monster Clicker**, the feature is
 | **Behavior** | What should happen when the player acts? | Use JavaScript to add a point when the button is pressed. |
 
 
-Chapter 2 turns a game story into small feature plans. Chapter 3 builds the structure, Chapter 4 adds style, and Chapter 5 plans behavior. Keep the same small scene as you move from one pass to the next.
+In the later chapters, we will discuss how to build up a structure, how to style it, and how to control the behaviors during the game development.
+
 
 ## How HTML, CSS, and JavaScript fit together
 
@@ -400,78 +391,6 @@ Do not worry about the code yet. Chapter 3 begins with HTML and shows how a brow
 The page file is the starting point. It can point to a stylesheet, pictures, and JavaScript files. The browser loads those resources, builds the page's structure, applies its styles, and runs its scripts. Loading a picture or a program may take time, so later games wait until their resources are ready.
 
 The browser keeps a working representation of the page called the **Document Object Model**, or **DOM**. A heading, a button, and a score paragraph become elements in that representation. Chapter 3 gives some elements unique labels called **IDs**. Chapter 7 teaches JavaScript to find those elements and change them. Changing the page in the browser does not automatically change the saved HTML file.
-
-### A first look at HTML {.unnumbered}
-
-This tiny page contains a heading, a button, and a score. Save it as `index.html` if you want to see the unstyled parts in a browser. Chapter 3 explains how the elements fit together.
-
-```html
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Monster Clicker</title>
-</head>
-<body>
-  <h1 id="game-title">Monster Clicker</h1>
-  <button id="monster" type="button">Click the monster</button>
-  <p id="score">Score: 0</p>
-</body>
-</html>
-```
-
-An **ID** is a name for one element on the page. Each ID in this example is unique.
-
-| HTML tag | Simple job | Example above |
-| --- | --- | --- |
-| `<html>` | Hold the whole page. | Contains the head and body. |
-| `<head>` | Hold page information. | Contains the title. |
-| `<title>` | Name the browser tab. | `Monster Clicker` |
-| `<body>` | Hold the visible page content. | Contains the heading, button, and score. |
-| `<h1>` | Show the main heading. | `Monster Clicker` |
-| `<button>` | Give the player a control to press. | `Click the monster` |
-| `<p>` | Show a paragraph or short status. | `Score: 0` |
-
-### A first look at CSS {.unnumbered}
-
-CSS changes how the same elements look. The `#` symbol selects an element by its ID; these rules use only the IDs from the HTML example. Chapter 4 shows where to place CSS and how to connect a stylesheet.
-
-```css
-#game-title {
-  color: #245d88;
-}
-
-#monster {
-  background-color: #e6f6f2;
-  font-size: 1.25rem;
-  padding: 0.75rem;
-}
-
-#score {
-  font-weight: bold;
-}
-```
-
-| CSS piece | What it does | Example |
-| --- | --- | --- |
-| `#game-title` | Selects the element with `id="game-title"`. | The heading. |
-| `#monster` | Selects the element with `id="monster"`. | The button. |
-| `color` | Changes text color. | `#245d88` is a blue color. |
-| `background-color` | Changes the color behind an element. | A pale green button. |
-| `font-size` | Changes text size. | Larger button text. |
-| `padding` | Adds space inside an element. | More room around button text. |
-| `font-weight` | Changes how heavy text looks. | A bold score. |
-
-### A first look at JavaScript {.unnumbered}
-
-JavaScript lets the browser respond to the player. You will use these browser tools in later chapters; you do not need to memorize them now.
-
-| Browser Tool | Simple Job | Monster Clicker Example |
-| --- | --- | --- |
-| `document.getElementById("...")` | Find one element by its ID. | Find the monster button. |
-| `addEventListener("click", ...)` | Run instructions when an event happens. | Notice a button click. |
-| `textContent` | Read or change an element's text. | Show an updated score. |
-| `console.log(...)` | Print a message for the developer. | Check that a click was detected. |
 
 
 ## Exercises {.unnumbered}

@@ -37,16 +37,16 @@ Keep the first version small. One monster, one score, and one message are enough
 
 A **scene** includes the page and the game world the player sees and uses. List each required part and its job before thinking about colors.
 
-![A wireframe for Monster Clicker showing the title and instructions above a play section with a monster button, score, and message.](../figures/chapter_03/monster-clicker-wireframe.svg){fig-alt="A grayscale page sketch. A main content box contains a title and instructions. Inside its play section are a section heading, monster button, score display, and feedback message in reading order." width=85%}
+![A wireframe for Monster Clicker showing the title, instructions, monster button, score, and message in order.](../figures/chapter_03/monster-clicker-wireframe.svg){#fig-ch03-monster-wireframe fig-alt="Five labeled boxes in reading order: game title, instructions, monster button, score, and feedback message." width=85%}
 
-**Read the sketch:** The boxes show placement and reading order, not final colors or artwork. The monster button, score, and message stay together inside the play section.
+**Read the sketch:** The boxes show placement and reading order, not final colors or artwork. The player reads the instructions before reaching the button, then sees the score and message below it.
 
 | Part | Purpose | Relationship |
 | --- | --- | --- |
-| Title | Name the game | First item in the main content |
+| Title | Name the game | First visible item on the page |
 | Instructions | Explain what the player can do | Above the monster |
-| Monster button | Give the player a target | Inside the play section |
-| Score | Show progress | Near the monster |
+| Monster button | Give the player a target | Below the instructions |
+| Score | Show progress | Below the button |
 | Message | Explain the latest result | Below the score |
 
 Draw these parts as labeled boxes. The diagram does not need artwork. Put the instructions before the control and keep feedback nearby.
@@ -66,6 +66,14 @@ flowchart LR
 ## Read an HTML element
 
 **HTML** describes the page’s content and structure. A **tag** marks an element’s start or end. An **element** includes those tags and the content between them.
+
+Here is the general syntax for an element with an attribute:
+
+```text
+<tag attribute="value">content</tag>
+```
+
+The opening tag is `<tag attribute="value">`; the closing tag is `</tag>`. The **tag name** says what kind of element it is. The **attribute name** and quoted **value** give extra information. The **content** appears between the tags. Together, the opening tag, content, and closing tag form the element.
 
 ```html
 <h1>Monster Clicker</h1>
@@ -94,21 +102,16 @@ Create `monster-scene/` inside your project folder. Save this as `index.html` wi
   <title>Monster Clicker</title>
 </head>
 <body>
-  <main class="card">
-    <h1>Monster Clicker</h1>
-    <p class="instructions">Click the monster to collect points.</p>
-    <section class="arena" aria-labelledby="arena-title">
-      <h2 id="arena-title">Meet your monster</h2>
-      <button id="monster" class="monster" type="button">👾 Monster</button>
-      <p>Score: <span id="score">0</span></p>
-      <p id="message">Your adventure is ready.</p>
-    </section>
-  </main>
+  <h1>Monster Clicker</h1>
+  <p>Click the monster to collect points.</p>
+  <button id="monster" class="monster" type="button">👾 Monster</button>
+  <p>Score: <span id="score">0</span></p>
+  <p id="message">Your adventure is ready.</p>
 </body>
 </html>
 ```
 
-![The complete Monster Clicker HTML rendered in a browser with default styling.](../figures/chapter_03/stage-html.png){fig-alt="An unstyled page with the heading Monster Clicker, instructions, a Meet your monster heading, a Monster button, Score: 0, and Your adventure is ready." width=85%}
+![The complete Monster Clicker HTML rendered in a browser with default styling.](../figures/chapter_03/stage-html.png){fig-alt="An unstyled page with the heading Monster Clicker, instructions, a Monster button, Score: 0, and Your adventure is ready." width=85%}
 
 The page uses the browser’s default appearance. Clicking the button does not increase the score. For this stage, success means the planned parts exist and appear in a useful reading order.
 
@@ -126,19 +129,17 @@ The page uses the browser’s default appearance. Clicking the button does not i
 
 ## Group and nest the parts
 
-**Nesting** means putting one element inside another. `<main>` contains the main page content. `<section>` groups a related topic. The heading, button, score paragraph, and message are children of the section. `aria-labelledby="arena-title"` gives that section the name supplied by its heading.
+**Nesting** means putting one element inside another. In this page, the visible elements are children of `<body>`. The score paragraph contains a `<span>` for the number. The heading, instructions, button, score paragraph, and message paragraph are siblings because they share the same parent.
 
 Inside the score paragraph, `<span id="score">0</span>` marks just the number. A later program can change that number without replacing the words `Score:`. Close an inner element before closing its parent. Indentation helps you read these relationships; spaces alone do not create them.
 
 | HTML tool | Use it for | Small example |
 | --- | --- | --- |
-| `<h1>`, `<h2>` | Main heading and section heading | `<h2>Instructions</h2>` |
+| `<h1>` | Main heading | `<h1>Monster Clicker</h1>` |
 | `<p>` | A paragraph or short status | `<p>Ready!</p>` |
-| `<main>`, `<section>` | Main content and related groups | A game card containing an arena |
-| `<div>` | A general group without a specific topic meaning | A row of monster buttons later |
 | `<span>` | A small part within a line | The score number |
 | `<button>` | A control the player can press | The monster target |
-| `id`, `class` | Identify one part; group parts for styling | `id="score"`, `class="card"` |
+| `id`, `class` | Identify one part; group parts for styling | `id="score"`, `class="monster"` |
 
 ## Exercises {.unnumbered}
 
@@ -146,7 +147,7 @@ Inside the score paragraph, `<span id="score">0</span>` marks just the number. A
 
 **Flow focus:** Structure: explain the parts and their nesting.
 
-Draw a tree showing `main`, `section`, the monster button, and the score paragraph. Which element contains the score span? Which elements are siblings?
+Draw a tree showing `<body>`, the monster button, the score paragraph, and the score span. Which element contains the score span? Which elements are siblings?
 
 ### Exercise 2: Fix the grouping {.unnumbered}
 
@@ -155,7 +156,7 @@ Draw a tree showing `main`, `section`, the monster button, and the score paragra
 Correct this fragment, then explain the problem:
 
 ```html
-<section><p>Ready!</section></p>
+<p>Score: <span>0</p></span>
 ```
 
 ### Exercise 3: Add one visible part {.unnumbered}
