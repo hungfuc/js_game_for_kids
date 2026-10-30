@@ -69,7 +69,7 @@ Start with a small page:
 
 ```html
 <h1>Click the Monster!</h1>
-<button id="monster">👾 Monster</button>
+<button id="monster">Monster</button>
 <p id="message">Can you catch it?</p>
 ```
 
@@ -84,7 +84,7 @@ Each piece created by an HTML tag is an **HTML element**.
 For example:
 
 ```html
-<button id="monster">👾 Monster</button>
+<button id="monster">Monster</button>
 ```
 
 This creates a button element. The attribute `id="monster"` gives that element a unique name on the page.
@@ -129,7 +129,7 @@ HTML gives us an important attribute for this job: `id`.
 Look closely at this button:
 
 ```html
-<button id="monster">👾 Monster</button>
+<button id="monster">Monster</button>
 ```
 
 The whole thing is a `button` element. Inside its opening tag, this part:
@@ -166,7 +166,7 @@ The value is written inside quotation marks in the HTML.
 A page may contain many buttons, paragraphs, and images.
 
 ```html
-<button id="monster">👾 Monster</button>
+<button id="monster">Monster</button>
 <button id="startButton">Start</button>
 <p id="message">Can you catch it?</p>
 ```
@@ -178,7 +178,7 @@ The ID gives JavaScript a precise way to identify one element.
 For this HTML:
 
 ```html
-<button id="monster">👾 Monster</button>
+<button id="monster">Monster</button>
 ```
 
 JavaScript can ask:
@@ -211,7 +211,7 @@ The word `monster` is **not special JavaScript vocabulary**. You chose that ID i
 This is valid:
 
 ```html
-<button id="monster">👾 Monster</button>
+<button id="monster">Monster</button>
 ```
 
 ```javascript
@@ -629,7 +629,7 @@ Now put everything into one page.
 <body>
   <h1>Click the Monster!</h1>
 
-  <button id="monster">👾 Monster</button>
+  <button id="monster">Monster</button>
   <p id="message">Can you catch it?</p>
 
   <script>
@@ -779,7 +779,7 @@ For each item, write **element** or **event**.
 Given this HTML:
 
 ```html
-<button id="dragon">🐉 Dragon</button>
+<button id="dragon">Dragon</button>
 <p id="status">Ready!</p>
 ```
 

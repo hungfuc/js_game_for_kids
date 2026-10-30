@@ -104,7 +104,7 @@ Create `monster-scene/` inside your project folder. Save this as `index.html` wi
 <body>
   <h1>Monster Clicker</h1>
   <p>Click the monster to collect points.</p>
-  <button id="monster" class="monster" type="button">👾 Monster</button>
+  <button id="monster" class="monster" type="button">Monster</button>
   <p>Score: <span id="score">0</span></p>
   <p id="message">Your adventure is ready.</p>
 </body>
@@ -120,7 +120,7 @@ The page uses the browser’s default appearance. Clicking the button does not i
 | `<!doctype html>` | Declare modern HTML; this is a declaration, not an element. |
 | `<html lang="en">` | Hold the document and identify its language. |
 | `<head>` | Hold information about the page. |
-| `<meta charset="utf-8">` | Let the browser read the text encoding, including emoji. |
+| `<meta charset="utf-8">` | Let the browser read the page’s text encoding. |
 | Viewport `<meta>` | Set up the page for different screen widths. |
 | `<title>` | Name the browser tab; it does not create the visible heading. |
 | `<body>` | Hold the content people see and use. |

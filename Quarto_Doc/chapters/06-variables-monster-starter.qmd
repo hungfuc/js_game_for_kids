@@ -633,7 +633,7 @@ Sketch the title, monster, message, and score first. Create a file such as `mons
   <!-- Step 1: Build the scene structure (page structure). -->
   <main class="card">
     <h1>Monster Clicker</h1>
-    <button id="monster" class="monster" type="button">👾 Monster</button>
+    <button id="monster" class="monster" type="button">Monster</button>
     <p id="message">The monster is waiting...</p>
     <p id="score">Score: 0</p>
   </main>
@@ -894,7 +894,7 @@ Read this complete example in our development order: locate the **scene structur
   <!-- Step 1: Build the scene structure (page structure). -->
   <main class="card">
     <h1>Monster Clicker</h1>
-    <button id="monster" class="monster" type="button">👾 Monster</button>
+    <button id="monster" class="monster" type="button">Monster</button>
     <p id="message">The monster is waiting...</p>
     <p id="score">Score: 0</p>
   </main>

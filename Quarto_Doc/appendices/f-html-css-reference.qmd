@@ -108,10 +108,10 @@ Open `index.html` in a browser. If you edit it, save the file and refresh the br
 A **tag** marks the beginning or end of an HTML element. An **element** includes its opening tag, content, and closing tag. An **attribute** supplies extra information inside the opening tag.
 
 ```html
-<button id="monster" class="monster" type="button">👾 Monster</button>
+<button id="monster" class="monster" type="button">Monster</button>
 ```
 
-Here, `<button ...>` is the opening tag, `</button>` is the closing tag, and the words and emoji are the content. Together they form one button element. `id`, `class`, and `type` are attribute names; `"monster"`, `"monster"`, and `"button"` are their values. Write attributes in the opening tag, separated by spaces, and put their values in quotes.
+Here, `<button ...>` is the opening tag, `</button>` is the closing tag, and `Monster` is the text content. Together they form one button element. `id`, `class`, and `type` are attribute names; `"monster"`, `"monster"`, and `"button"` are their values. Write attributes in the opening tag, separated by spaces, and put their values in quotes.
 
 Some elements are **void elements**: they have no content or closing tag. In our projects these include `<meta>`, `<link>`, `<img>`, `<input>`, and `<br>`. A `<canvas>` or `<script>` always needs its closing tag, even when it looks empty.
 
@@ -778,7 +778,7 @@ Use **Build the scene structure → Style the scene → Program game behavior** 
   <main class="card">
     <h1>Monster Clicker</h1>
     <p>Meet the monster. Its click action comes in Chapter 7.</p>
-    <button id="monster" class="monster" type="button">👾 Monster</button>
+    <button id="monster" class="monster" type="button">Monster</button>
     <p id="message">The monster is waiting...</p>
     <p id="score">Score: 0</p>
   </main>

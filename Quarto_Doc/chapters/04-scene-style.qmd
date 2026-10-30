@@ -11,7 +11,6 @@ Your Chapter 3 page already has the parts of Monster Clicker. Now use **CSS** to
 
 In **Structure → Style → Behavior**, style helps players recognize the parts and read the page. Making the button purple does not make it count points; the behavior lessons will connect that action.
 
-Open the [companion style example](../games/foundations/style/index.html) to see the result.
 
 ## Learning Objectives {.unnumbered}
 
@@ -72,7 +71,7 @@ Think of an element as a box with four layers:
 
 | Layer | Meaning | On our monster button |
 | --- | --- | --- |
-| **Content** | The text or picture inside the element. | The monster symbol and word Monster. |
+| **Content** | The text or picture inside the element. | The word Monster. |
 | **Padding** | Space between the content and its border. | Room inside the button around its label. |
 | **Border** | The line around the padded content. | An indigo outline around the button. |
 | **Margin** | Space outside the border. | A gap between the button and nearby parts. |

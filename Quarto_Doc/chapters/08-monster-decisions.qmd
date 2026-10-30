@@ -362,7 +362,7 @@ Now combine what you built across three chapters.
 <body>
   <h1>Monster Clicker</h1>
 
-  <button id="monster">👾 Hit the monster</button>
+  <button id="monster">Hit the monster</button>
   <button id="power">⚡ Power Hit (-5 points)</button>
 
   <p id="score">Score: 0</p>

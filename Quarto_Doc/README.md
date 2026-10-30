@@ -143,6 +143,8 @@ python3 scripts/build-single-file.py
 
 Pass chapter numbers to recapture a selection, such as `node scripts/capture-game-stages.cjs 9 19`. Set `PLAYWRIGHT_MODULE` to an existing Playwright package path if needed, and `CHROME_PATH` if Chrome is outside its default macOS location. The 3D captures use the companion pages' pinned CDN dependencies. The insertion script can be run repeatedly without duplicating figures.
 
+For the Monster Clicker text-label examples in Chapters 3–9, `python3 scripts/capture-monster-text-stages.py` recaptures their HTML, CSS, and behavior screenshots using Chrome or Chromium without Playwright.
+
 ## Test and review
 
 ```bash

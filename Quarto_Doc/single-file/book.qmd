@@ -888,7 +888,7 @@ Create `monster-scene/` inside your project folder. Save this as `index.html` wi
 <body>
   <h1>Monster Clicker</h1>
   <p>Click the monster to collect points.</p>
-  <button id="monster" class="monster" type="button">👾 Monster</button>
+  <button id="monster" class="monster" type="button">Monster</button>
   <p>Score: <span id="score">0</span></p>
   <p id="message">Your adventure is ready.</p>
 </body>
@@ -904,7 +904,7 @@ The page uses the browser’s default appearance. Clicking the button does not i
 | `<!doctype html>` | Declare modern HTML; this is a declaration, not an element. |
 | `<html lang="en">` | Hold the document and identify its language. |
 | `<head>` | Hold information about the page. |
-| `<meta charset="utf-8">` | Let the browser read the text encoding, including emoji. |
+| `<meta charset="utf-8">` | Let the browser read the page’s text encoding. |
 | Viewport `<meta>` | Set up the page for different screen widths. |
 | `<title>` | Name the browser tab; it does not create the visible heading. |
 | `<body>` | Hold the content people see and use. |
@@ -995,7 +995,6 @@ Your Chapter 3 page already has the parts of Monster Clicker. Now use **CSS** to
 
 In **Structure → Style → Behavior**, style helps players recognize the parts and read the page. Making the button purple does not make it count points; the behavior lessons will connect that action.
 
-Open the [companion style example](../games/foundations/style/index.html) to see the result.
 
 ## Learning Objectives {.unnumbered}
 
@@ -1056,7 +1055,7 @@ Think of an element as a box with four layers:
 
 | Layer | Meaning | On our monster button |
 | --- | --- | --- |
-| **Content** | The text or picture inside the element. | The monster symbol and word Monster. |
+| **Content** | The text or picture inside the element. | The word Monster. |
 | **Padding** | Space between the content and its border. | Room inside the button around its label. |
 | **Border** | The line around the padded content. | An indigo outline around the button. |
 | **Margin** | Space outside the border. | A gap between the button and nearby parts. |
@@ -1955,7 +1954,7 @@ Sketch the title, monster, message, and score first. Create a file such as `mons
   <!-- Step 1: Build the scene structure (page structure). -->
   <main class="card">
     <h1>Monster Clicker</h1>
-    <button id="monster" class="monster" type="button">👾 Monster</button>
+    <button id="monster" class="monster" type="button">Monster</button>
     <p id="message">The monster is waiting...</p>
     <p id="score">Score: 0</p>
   </main>
@@ -2216,7 +2215,7 @@ Read this complete example in our development order: locate the **scene structur
   <!-- Step 1: Build the scene structure (page structure). -->
   <main class="card">
     <h1>Monster Clicker</h1>
-    <button id="monster" class="monster" type="button">👾 Monster</button>
+    <button id="monster" class="monster" type="button">Monster</button>
     <p id="message">The monster is waiting...</p>
     <p id="score">Score: 0</p>
   </main>
@@ -2563,7 +2562,7 @@ Start with a small page:
 
 ```html
 <h1>Click the Monster!</h1>
-<button id="monster">👾 Monster</button>
+<button id="monster">Monster</button>
 <p id="message">Can you catch it?</p>
 ```
 
@@ -2578,7 +2577,7 @@ Each piece created by an HTML tag is an **HTML element**.
 For example:
 
 ```html
-<button id="monster">👾 Monster</button>
+<button id="monster">Monster</button>
 ```
 
 This creates a button element. The attribute `id="monster"` gives that element a unique name on the page.
@@ -2623,7 +2622,7 @@ HTML gives us an important attribute for this job: `id`.
 Look closely at this button:
 
 ```html
-<button id="monster">👾 Monster</button>
+<button id="monster">Monster</button>
 ```
 
 The whole thing is a `button` element. Inside its opening tag, this part:
@@ -2660,7 +2659,7 @@ The value is written inside quotation marks in the HTML.
 A page may contain many buttons, paragraphs, and images.
 
 ```html
-<button id="monster">👾 Monster</button>
+<button id="monster">Monster</button>
 <button id="startButton">Start</button>
 <p id="message">Can you catch it?</p>
 ```
@@ -2672,7 +2671,7 @@ The ID gives JavaScript a precise way to identify one element.
 For this HTML:
 
 ```html
-<button id="monster">👾 Monster</button>
+<button id="monster">Monster</button>
 ```
 
 JavaScript can ask:
@@ -2705,7 +2704,7 @@ The word `monster` is **not special JavaScript vocabulary**. You chose that ID i
 This is valid:
 
 ```html
-<button id="monster">👾 Monster</button>
+<button id="monster">Monster</button>
 ```
 
 ```javascript
@@ -3123,7 +3122,7 @@ Now put everything into one page.
 <body>
   <h1>Click the Monster!</h1>
 
-  <button id="monster">👾 Monster</button>
+  <button id="monster">Monster</button>
   <p id="message">Can you catch it?</p>
 
   <script>
@@ -3273,7 +3272,7 @@ For each item, write **element** or **event**.
 Given this HTML:
 
 ```html
-<button id="dragon">🐉 Dragon</button>
+<button id="dragon">Dragon</button>
 <p id="status">Ready!</p>
 ```
 
@@ -3834,7 +3833,7 @@ Now combine what you built across three chapters.
 <body>
   <h1>Monster Clicker</h1>
 
-  <button id="monster">👾 Hit the monster</button>
+  <button id="monster">Hit the monster</button>
   <button id="power">⚡ Power Hit (-5 points)</button>
 
   <p id="score">Score: 0</p>
@@ -4593,9 +4592,9 @@ Here is the complete version. It continues the ideas from Chapters 6–8, but re
     <p>Score: <span id="score">0</span></p>
 
     <div id="monsters">
-      <button id="slime" class="monster">🟢 Slime</button>
-      <button id="bat" class="monster">🦇 Bat</button>
-      <button id="ghost" class="monster">👻 Ghost</button>
+      <button id="slime" class="monster">Slime</button>
+      <button id="bat" class="monster">Bat</button>
+      <button id="ghost" class="monster">Ghost</button>
     </div>
 
     <button id="powerHit">⚡ Power Hit (-5 points)</button>
@@ -4699,7 +4698,7 @@ This is how larger programs grow: keep useful code, then add one new idea that s
 Add this button to the HTML:
 
 ```html
-<button id="dragon" class="monster">🐉 Dragon</button>
+<button id="dragon" class="monster">Dragon</button>
 ```
 
 Then add only one value to the array:
@@ -8506,10 +8505,10 @@ Open `index.html` in a browser. If you edit it, save the file and refresh the br
 A **tag** marks the beginning or end of an HTML element. An **element** includes its opening tag, content, and closing tag. An **attribute** supplies extra information inside the opening tag.
 
 ```html
-<button id="monster" class="monster" type="button">👾 Monster</button>
+<button id="monster" class="monster" type="button">Monster</button>
 ```
 
-Here, `<button ...>` is the opening tag, `</button>` is the closing tag, and the words and emoji are the content. Together they form one button element. `id`, `class`, and `type` are attribute names; `"monster"`, `"monster"`, and `"button"` are their values. Write attributes in the opening tag, separated by spaces, and put their values in quotes.
+Here, `<button ...>` is the opening tag, `</button>` is the closing tag, and `Monster` is the text content. Together they form one button element. `id`, `class`, and `type` are attribute names; `"monster"`, `"monster"`, and `"button"` are their values. Write attributes in the opening tag, separated by spaces, and put their values in quotes.
 
 Some elements are **void elements**: they have no content or closing tag. In our projects these include `<meta>`, `<link>`, `<img>`, `<input>`, and `<br>`. A `<canvas>` or `<script>` always needs its closing tag, even when it looks empty.
 
@@ -9176,7 +9175,7 @@ Use **Build the scene structure → Style the scene → Program game behavior** 
   <main class="card">
     <h1>Monster Clicker</h1>
     <p>Meet the monster. Its click action comes in Chapter 7.</p>
-    <button id="monster" class="monster" type="button">👾 Monster</button>
+    <button id="monster" class="monster" type="button">Monster</button>
     <p id="message">The monster is waiting...</p>
     <p id="score">Score: 0</p>
   </main>
