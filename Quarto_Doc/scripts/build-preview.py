@@ -37,7 +37,9 @@ def main():
     source = ROOT / 'single-file/book.qmd'
     document = json.loads(command(['pandoc', str(source), '-f', 'markdown', '-t', 'json']))
     anchors = {}
-    for path in [ROOT/'index.qmd', *sorted((ROOT/'chapters').glob('*.qmd')),
+    chapter_names = re.findall(r'^\s+- (chapters/[^\s]+\.qmd)\s*$',
+                               (ROOT/'_quarto.yml').read_text(encoding='utf-8'), re.M)
+    for path in [ROOT/'index.qmd', *(ROOT/name for name in chapter_names),
                  *sorted((ROOT/'appendices').glob('*.qmd')), ROOT/'references.qmd']:
         match = re.search(r'^# .*?\{[^}]*#([^ }]+)',path.read_text(encoding='utf-8'), re.M)
         if match: anchors[path.name] = match.group(1)

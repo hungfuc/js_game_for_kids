@@ -2,7 +2,7 @@
 
 ::: {.chapter-banner}
 
-[GAME 13 | Breakout]{.game-title}
+[GAME 14 | Breakout]{.game-title}
 
 [Objects]{.skill-chip} [Arrays]{.skill-chip} [Loops]{.skill-chip}
 

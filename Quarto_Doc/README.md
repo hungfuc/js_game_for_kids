@@ -1,7 +1,7 @@
 # JavaScript Game Programming for Kids
 ## Colorful Quarto edition: Dynamic 2D and 3D
 
-A 23-chapter, student-facing textbook with diagrams, playable companion projects, original assets, and optional Advanced Study callouts. Chapters 1–5 establish computer and file skills, introduce game design in a dedicated Chapter 2, and teach Structure, Style, and Behavior before the game-programming sequence begins in Chapter 6. Chapters 16-23 extend the progression into complete 2D game development and Three.js/Rapier 3D games. There are no teacher-note sections.
+A 25-chapter, student-facing textbook with diagrams, playable companion projects, original assets, and optional Advanced Study callouts. Chapters 1–5 establish computer and file skills, introduce game design in a dedicated Chapter 2, and teach Structure, Style, and Behavior before the game-programming sequence begins in Chapter 6. Chapters 18-25 extend the progression into complete 2D game development and Three.js/Rapier 3D games. There are no teacher-note sections.
 
 ## Development theme throughout the book
 
@@ -15,7 +15,7 @@ The three foundation chapters reuse one Monster Clicker scene and collect short 
 
 The included `preview.html` is a self-contained HTML reading edition generated from the Quarto manuscript with Pandoc. It includes the diagrams and styling; it is **not a native Quarto build**. The project links inside it work when the complete folder is served locally.
 
-**Server requirements:** the one-file games in Chapters 3–15 and `workspace/` open directly. **All six Game Lab projects in Chapters 16–23 require local HTTP:** Collision Playground, Robot Orchard, Robot Island Explorer, 3D Asset Workshop, Rapier Drop Lab, and Marble Quest. Their module-based demonstration pages also require HTTP.
+**Server requirements:** the one-file games in Chapters 3–17 and `workspace/` open directly. **All six Game Lab projects in Chapters 18–25 require local HTTP:** Collision Playground, Robot Orchard, Robot Island Explorer, 3D Asset Workshop, Rapier Drop Lab, and Marble Quest. Their module-based demonstration pages also require HTTP.
 
 ### Simple setup: install once, double-click to play
 
@@ -54,22 +54,24 @@ The two 2D projects run offline through the local HTTP server; opening their HTM
 | 3 | Structure: sketch, HTML document, elements, attributes, nesting |
 | 4 | Style: three simple selectors; content, padding, border, and margin |
 | 5 | Behavior: input controls, state, action rules, paper simulation, feedback, reset |
-| 6-15 | JavaScript state, events, decisions, timing, canvas, game patterns, and game design |
-| 16 | Real-time 2D loops, input state, velocity, fixed updates |
-| 17 | Rectangle and circle collision, wall response, gravity, jumping |
-| 18 | Original sprites, animation sheets, image loading, JSON levels |
-| 19 | Robot Orchard: scrolling camera, enemies, collectibles, lives, restart |
-| 20 | Three.js scenes, cameras, meshes, lighting, movement |
-| 21 | GLB loading, custom models, materials, origins, Asset Workshop |
-| 22 | Rapier worlds, bodies, colliders, synchronization, bounce experiment |
-| 23 | Marble Quest: dynamic obstacles, sensors, scoring, respawn, win rules |
+| 6–10 | JavaScript state, events, decisions, loops, and timing |
+| 11 | Treasure Car: canvas coordinates, drawing, movement, random treasures, and scoring |
+| 12–16 | Bouncing Ball, Pong, Breakout, Snake, and Game Studio |
+| 17 | Real-time 2D loops, input state, velocity, fixed updates |
+| 18 | Rectangle and circle collision, wall response, gravity, jumping |
+| 19 | Original sprites, animation sheets, image loading, JavaScript level data |
+| 20 | Robot Orchard: scrolling camera, enemies, collectibles, lives, restart |
+| 21 | Three.js scenes, cameras, meshes, lighting, movement |
+| 22 | GLB loading, custom models, materials, origins, Asset Workshop |
+| 23 | Rapier worlds, bodies, colliders, synchronization, bounce experiment |
+| 24 | Marble Quest: dynamic obstacles, sensors, scoring, respawn, win rules |
 
-Each new chapter includes an original explanatory SVG diagram, two optional Advanced Study blocks, a challenge and links to complete companion source. The original chapters retain their existing visual explanations and callouts.
+The Treasure Car chapter includes step-by-step explanations, challenges, and two runnable one-file stages in `games/collecting-car/`. Existing chapters retain their visual explanations and callouts.
 
 ## Complete companion projects
 
 - `games/collision-lab/` - interactive detection-versus-response experiment
-- `games/robot-orchard/` - complete 2D platform adventure with editable `level.json`
+- `games/robot-orchard/` - complete 2D platform adventure with editable `level.js`
 - `games/three-explorer/` - collectible 3D exploration without physics
 - `games/asset-workshop/` - customize and export the supplied robot as GLB
 - `games/physics-lab/` - compare three bouncing balls in Rapier
@@ -131,7 +133,7 @@ To regenerate the supplied reading edition without Quarto, install Pandoc and ru
 
 ## Regenerate the chapter screenshots
 
-`figures/game-stage-captures.json` records the source and caption for each captured stage. `scripts/capture-game-stages.cjs` renders the chapter code and companion projects in Chrome, removes scripts for the HTML/CSS stages, and operates the actual controls for behavior captures. Animation callbacks advance in fixed frames so movement and physics states are repeatable. Chapters 10–15 retain their existing behavior galleries alongside the new HTML/CSS captures.
+`figures/game-stage-captures.json` records the source and caption for each captured stage. `scripts/capture-game-stages.cjs` renders the chapter code and companion projects in Chrome, removes scripts for the HTML/CSS stages, and operates the actual controls for behavior captures. Animation callbacks advance in fixed frames so movement and physics states are repeatable. Chapters 10–17 retain their existing behavior galleries alongside the new HTML/CSS captures.
 
 With Node.js, Playwright, and Chrome available, run from this directory:
 

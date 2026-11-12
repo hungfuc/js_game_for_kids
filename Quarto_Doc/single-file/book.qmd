@@ -31,7 +31,7 @@ Repeat **Read → Code → Exercise** throughout the chapter. For game-building 
 
 ## Choose your reading path {.unnumbered}
 
-Chapters 1-15 establish the web and JavaScript foundations. Chapters 16-19 build a complete 2D adventure. Chapters 20-23 introduce Three.js, custom 3D models, and Rapier physics. The later projects take more time and combine earlier ideas; work through them in small experiments.
+Chapters 1-17 establish the web and JavaScript foundations. Chapters 18-21 build a complete 2D adventure. Chapters 22-25 introduce Three.js, custom 3D models, and Rapier physics. The later projects take more time and combine earlier ideas; work through them in small experiments.
 
 Purple **Advanced Study** blocks are optional deeper dives into HTML, CSS, JavaScript, and game systems. They start open; you can collapse them while following the main path and return later.
 
@@ -68,7 +68,7 @@ Rose blocks help you check your understanding.
 
 A **complete example** includes the setup for that small project. A **code fragment** illustrates one part of a game and relies on the variables or functions discussed nearby. Do not paste every fragment into one file without checking where it belongs: some examples replace earlier versions.
 
-Chapters 12–14 use Pong, Breakout, and Snake to explain larger game-building patterns. Each chapter includes a complete small browser example alongside fragments explaining individual rules. Locate its scene, its style, and its actions before changing a fragment. Chapters 16-23 add complete companion projects in the Game Lab. Their chapter snippets explain selected parts; the linked project folders contain the complete runnable source.
+Chapters 11–12 build the first canvas game, Treasure Car, in small steps. Chapters 14–16 use Pong, Breakout, and Snake to explain larger game-building patterns. Each chapter includes a complete small browser example alongside fragments explaining individual rules. Locate its scene, its style, and its actions before changing a fragment. Chapters 18–25 add complete companion projects in the Game Lab. Their chapter snippets explain selected parts; the linked project folders contain the complete runnable source.
 
 ## A safe learning habit {.unnumbered}
 
@@ -88,19 +88,20 @@ When a program does not work, do not immediately replace it with someone else's 
 | 8 | [Monster Decisions](#sec-ch08) | Conditions, branches | Enforce game rules |
 | 9 | [Monster Swarm](#sec-ch09) | Arrays, loops | Process a collection of monsters |
 | 10 | [Catch the Star](#sec-ch10) | Timers, coordinates, DOM | Change the page over time |
-| 11 | [Bouncing Ball](#sec-ch11) | Canvas, animation | Draw every frame yourself |
-| 12 | [Pong](#sec-ch12) | Keyboard, game loop | Read keys while the game keeps running |
-| 13 | [Breakout](#sec-ch13) | Arrays, collision | Manage many objects |
-| 14 | [Snake](#sec-ch14) | Grid logic, state | Update a world one step at a time |
-| 15 | [Game Studio](#sec-ch15) | Planning, polish, final project | Design your own rules |
-| 16 | [Collision Playground](#sec-ch16) | Input, velocity, fixed steps | Build a predictable real-time loop |
-| 17 | [Platforms and jumping](#sec-ch17) | Hitboxes, collision response, gravity | Stop at walls and land on platforms |
-| 18 | [Your own 2D artwork](#sec-ch18) | Sprite sheets, loading, JSON levels | Make the game look like your design |
-| 19 | [Robot Orchard](#sec-ch19) | Scrolling, enemies, goals, restart | Finish a complete 2D adventure |
-| 20 | [Robot Island Explorer](#sec-ch20) | Scene, camera, renderer, 3D movement | Build and explore a 3D world |
-| 21 | [3D Asset Workshop](#sec-ch21) | GLB models, origins, materials | Customize and import 3D artwork |
-| 22 | [Rapier Drop Lab](#sec-ch22) | Bodies, colliders, bounce, fixed steps | Connect physics to the picture |
-| 23 | [Marble Quest](#sec-ch23) | Forces, sensors, scoring, respawn | Finish a 3D physics game |
+| 11 | [Treasure Car](#sec-ch11-collecting-car) | Canvas, drawing, movement, collection | Build one game from first shapes to surprise treasures |
+| 12 | [Bouncing Ball](#sec-ch11) | Velocity, wall response | Experiment with movement and edges |
+| 13 | [Pong](#sec-ch12) | Keyboard, game loop | Read keys while the game keeps running |
+| 14 | [Breakout](#sec-ch13) | Arrays, collision | Manage many objects |
+| 15 | [Snake](#sec-ch14) | Grid logic, state | Update a world one step at a time |
+| 16 | [Game Studio](#sec-ch15) | Planning, polish, final project | Design your own rules |
+| 17 | [Collision Playground](#sec-ch16) | Input, velocity, fixed steps | Build a predictable real-time loop |
+| 18 | [Platforms and jumping](#sec-ch17) | Hitboxes, collision response, gravity | Stop at walls and land on platforms |
+| 19 | [Your own 2D artwork](#sec-ch18) | Sprite sheets, loading, level data | Make the game look like your design |
+| 20 | [Robot Orchard](#sec-ch19) | Scrolling, enemies, goals, restart | Finish a complete 2D adventure |
+| 21 | [Robot Island Explorer](#sec-ch20) | Scene, camera, renderer, 3D movement | Build and explore a 3D world |
+| 22 | [3D Asset Workshop](#sec-ch21) | GLB models, origins, materials | Customize and import 3D artwork |
+| 23 | [Rapier Drop Lab](#sec-ch22) | Bodies, colliders, bounce, fixed steps | Connect physics to the picture |
+| 24 | [Marble Quest](#sec-ch23) | Forces, sensors, scoring, respawn | Finish a 3D physics game |
 
 ## Open the Game Lab {.unnumbered}
 
@@ -204,7 +205,6 @@ These are real web-project file names. `index.html` describes the page, `styles.
 | Program | `.js` | Run the game instructions. |
 | Picture | `.svg`, `.png` | Display an image or use it in a game drawing. |
 | Sound | `.wav`, `.mp3` | Load audio that the game can play. |
-| Data | `.json` | Read organized information, such as a level layout. |
 | 3D model | `.glb` | Supply model data to the later 3D game code. |
 
 ::: {.callout-tip title="Try It: Find a file and its folder" icon="false"}
@@ -323,7 +323,7 @@ Before you make a game, meet the tools you will use. A **computer** runs program
 
 ::: {.callout-important title="When do I need to install a local web server?" icon="false"}
 
-**Chapters 3–15:** the supplied one-file games open directly in a browser. **Chapters 16–23:** all six Game Lab projects require a local HTTP server. Install **Node.js LTS** once from [nodejs.org/en/download](https://nodejs.org/en/download), then use the included Windows or Mac launcher each time you play. The [Game Lab guide](../appendices/e-game-lab.qmd) has the game-by-game requirements and step-by-step installation. The four 3D projects also need internet for library downloads by default.
+**Chapters 3–17:** the supplied one-file games open directly in a browser. **Chapters 18–25:** all six Game Lab projects require a local HTTP server. Install **Node.js LTS** once from [nodejs.org/en/download](https://nodejs.org/en/download), then use the included Windows or Mac launcher each time you play. The [Game Lab guide](../appendices/e-game-lab.qmd) has the game-by-game requirements and step-by-step installation. The four 3D projects also need internet for library downloads by default.
 
 :::
 
@@ -348,7 +348,6 @@ The end of a file name after the final dot is its **file extension**. It helps p
 | `index.html` | The page structure a browser opens. |
 | `main.js` | JavaScript instructions for the browser. |
 | `style.css` | Colors, sizes, and other visual choices. |
-| `level.json` | Organized game data, such as a level layout. |
 | `robot.svg` | A picture made from shapes and lines. |
 
 The extension is important. `index.html` and `index.html.txt` are different files: the first is a web page, while the second is usually treated as ordinary text. Some computers hide extensions, so check the full name when you save a file. Do not rename a file just to give it a new extension; save it in the right kind of file from the start.
@@ -427,7 +426,7 @@ If double-clicking opens an editor instead of a browser, right-click the file an
 
 Some later games use several JavaScript files, images, level-data files, or 3D models. A **web server** is a small program that hands files to a browser when the browser asks for them. It is like a careful librarian: the browser asks for a particular file, and the server gives back that file.
 
-For a one-file beginner game, `file:///` is enough. For a project that uses JavaScript `import`, JSON data, or files loaded by the game, start a **local web server** instead. A local server runs only on your own computer and gives the page an address such as `http://127.0.0.1:8000/`. Modern browsers use extra safety rules for those multi-file requests, so opening the HTML by double-clicking may not work.
+For a one-file beginner game, `file:///` is enough. For a project that uses JavaScript `import` or loads other files while it runs, start a **local web server** instead. A local server runs only on your own computer and gives the page an address such as `http://127.0.0.1:8000/`. Modern browsers use extra safety rules for those multi-file requests, so opening the HTML by double-clicking may not work.
 
 `127.0.0.1` means “this same computer.” Starting this book's local server does not put your game on the internet or let classmates visit it. The Game Lab instructions in [Appendix E](../appendices/e-game-lab.qmd) show exactly how to start it.
 
@@ -5145,11 +5144,368 @@ Add a 20-second countdown and stop the game when time reaches zero.
 
 After your exercise or challenge, explain what you built, what you styled, and which game behavior you programmed. If you reused a stage unchanged, say why it already met the task. Record one predicted result and the result you observed, then choose the next small improvement.
 
-# Draw Your Own Game World {#sec-ch11}
+# Draw and Build a Treasure Car Game {#sec-ch11-collecting-car}
 
 ::: {.chapter-banner}
 
-[GAME 11 | Bouncing Ball]{.game-title}
+[GAME 11 | Treasure Car]{.game-title}
+
+[Canvas]{.skill-chip} [Drawing]{.skill-chip} [Movement]{.skill-chip} [Collection]{.skill-chip}
+
+:::
+
+## Overview {.unnumbered}
+
+A canvas is a place in a web page where JavaScript draws pictures. First, you will draw one box and one circle. Then you will turn those shapes into a car and coins, make the car move, and give it a score. Finally, you will add surprise treasures to the **same game**. Build and test each small step before going on.
+
+## Learning Objectives {.unnumbered}
+
+By the end of this chapter, you can:
+
+- place a canvas in an HTML page and select it from JavaScript;
+- use canvas coordinates to put a box and a circle where you want them;
+- explain the drawing commands used by this game;
+- animate a car, collect coins, and update a score;
+- add random treasures with different point values and a winning goal.
+
+::: {.callout-note .big-idea title="Structure → Appearance → Behaviors" icon="false"}
+
+**Structure:** Make a page with a canvas and score; keep car and treasure data in JavaScript. **Appearance:** Draw the garden, car, and treasures. **Behaviors:** Read keys, move the car, detect pickups, and award points. When you add a feature, decide what data it needs, what it looks like, and what it does.
+
+:::
+
+## Meet the canvas
+
+A `<canvas>` is an HTML element: a rectangular drawing surface. Put it **inside the page body**, wherever the game should appear. In this page it sits inside `<main>`, below the instructions and above the score. Its `id` gives JavaScript a way to find it. The HTML `width` and `height` set the drawing space to **600 by 360 coordinates**.
+
+```html
+<main>
+  <h1>Treasure Car</h1>
+  <p>Drive with the arrow keys. Pick up the coins!</p>
+  <canvas id="game" width="600" height="360"></canvas>
+  <p id="status" role="status">Coins: 0</p>
+</main>
+```
+
+The canvas begins blank. The browser draws the heading, instructions, and score as ordinary page elements; JavaScript draws **inside** the canvas. Place the `<script>` just before `</body>` so the canvas and status element already exist when the script selects them.
+
+```html
+<script>
+  const canvas = document.getElementById("game");
+  const ctx = canvas.getContext("2d");
+  const status = document.getElementById("status");
+</script>
+```
+
+`getElementById("game")` selects the element with `id="game"`. `getContext("2d")` gives us a drawing tool, named `ctx` here. Later, `status.textContent` will change the score outside the canvas. CSS can give the canvas a border and set its displayed size; drawing commands make the picture inside it.
+
+```css
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 2px solid #19324b;
+}
+```
+
+The `600` by `360` drawing coordinates still apply if CSS displays the canvas smaller. `height: auto` keeps its proportions.
+
+### Where do the coordinates go?
+
+Canvas coordinates start at **(0, 0) in the top-left corner**. `x` grows to the right; `y` grows **downward**. On our canvas, the bottom-right edge is at `(600, 360)`. For example, `(90, 80)` is 90 units right and 80 units down from the top-left. The middle is `(300, 180)`.
+
+| Shape | Position means | Example |
+|---|---|---|
+| Box | `(x, y)` is its **top-left corner** | A box at `(40, 50)` with width `80` and height `30` reaches to `(120, 80)`. |
+| Circle | `(x, y)` is its **center** | A circle at `(200, 100)` with radius `15` reaches from `185` to `215` horizontally. |
+
+**Try it:** Predict where a box at `(0, 0)` will appear. What would happen to the circle if you increased its `y` from `100` to `150`?
+
+### Drawing command overview
+
+These are **all the canvas drawing commands** used in this chapter's playable stages. You can return to this table while building the game. Properties such as `fillStyle` set up a command; methods such as `fillRect()` do the drawing.
+
+| Command or property | What it does in our game |
+|---|---|
+| `ctx.fillStyle = color` | Chooses the color for the next filled shape or text. |
+| `ctx.fillRect(x, y, width, height)` | Draws a filled box: garden, car body, window, or wheel. |
+| `ctx.beginPath()` | Starts a fresh outline before a coin circle or road line. |
+| `ctx.arc(x, y, radius, 0, Math.PI * 2)` | Adds a full circle centered at `(x, y)` to the current path. |
+| `ctx.fill()` | Fills the current path with `fillStyle`. |
+| `ctx.strokeStyle = color`, `ctx.lineWidth = number` | Choose the color and thickness of an outline. |
+| `ctx.stroke()` | Draws the outline of the current path. |
+| `ctx.moveTo(x, y)`, `ctx.lineTo(x, y)` | Start and extend the road line. |
+| `ctx.setLineDash([16, 12])` | Makes that line dashed; `ctx.setLineDash([])` returns to solid lines. |
+| `ctx.clearRect(0, 0, canvas.width, canvas.height)` | Erases the previous frame before redrawing moving objects. |
+| `ctx.font`, `ctx.textAlign`, `ctx.textBaseline` | Set the letter's size and alignment on a treasure. |
+| `ctx.fillText(text, x, y)` | Draws the treasure's identifying letter. |
+
+### Draw one box and one circle
+
+Try this **tiny example** before writing any game rules. Paste the HTML below into a new `index.html` file and open it in a browser. The script goes after the canvas, so it can find it.
+
+```html
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Canvas shapes</title></head>
+<body>
+  <canvas id="game" width="300" height="180"
+          style="border: 1px solid black"></canvas>
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+
+    ctx.fillStyle = "royalblue";
+    ctx.fillRect(40, 50, 80, 30);
+
+    ctx.beginPath();
+    ctx.arc(200, 100, 15, 0, Math.PI * 2);
+    ctx.fillStyle = "gold";
+    ctx.fill();
+  </script>
+</body>
+</html>
+```
+
+`fillRect(40, 50, 80, 30)` draws a blue box whose top-left corner is `(40, 50)`. The last two numbers are **width** and **height**, not another position. `arc(200, 100, 15, 0, Math.PI * 2)` makes a circle centered at `(200, 100)` with a 15-unit radius. Angles are measured in radians: `0` starts the arc, and `Math.PI * 2` finishes one full turn. `beginPath()` prevents the new circle from joining an earlier path; `fill()` paints it gold.
+
+**Change and check:** Change the box's `x` from `40` to `100`. Change the circle's `y` from `100` to `140`. Reload after each edit and explain which way the shape moved.
+
+## Build the game, one step at a time
+
+Our idea is simple: **drive a little car through a garden and collect three lost coins**. Each coin gives one point and disappears. Sketch the 600-by-360 garden, a car near the middle, and three coins away from the car.
+
+### Step 1: Make the page and game data
+
+Replace the tiny example's page with the larger 600-by-360 canvas, heading, instructions, and status shown above. Give the page readable colors. In the script, select `canvas`, `ctx`, and `status` as shown earlier. Then add these JavaScript objects and an array, which you learned about in Chapter 6:
+
+```javascript
+const car = { x: 280, y: 160, w: 40, h: 28, speed: 3 };
+const coins = [
+  { x: 90, y: 80, r: 12 },
+  { x: 480, y: 110, r: 12 },
+  { x: 350, y: 285, r: 12 }
+];
+let score = 0;
+```
+
+`car.x` and `car.y` are its top-left corner, `w` and `h` are its size, and `speed` is the distance it moves each frame. Each coin object uses a **center** and radius, just like the tiny circle example. An array holds the three coins. `let score` can change after a pickup. Check that all starting shapes fit inside the canvas.
+
+### Step 2: Draw the garden and car
+
+A function lets us redraw the same picture after the car moves. Start with a garden box and a car body. Both use the `fillRect()` command you just practiced.
+
+```javascript
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "#bde7c6";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = "#1675b8";
+  ctx.fillRect(car.x, car.y, car.w, car.h);
+}
+draw();
+```
+
+The first line erases the previous picture. The garden box fills the whole drawing area. The blue box starts at the car's position. **Check:** You should see a blue rectangle on green. If you only see a blank canvas, check the `id`, the script's location, and the browser console.
+
+Now add the car window and wheels **inside `draw()`**, after the blue body:
+
+```javascript
+ctx.fillStyle = "#94d8fa";
+ctx.fillRect(car.x + 8, car.y + 4, 24, 11); // window
+ctx.fillStyle = "#18324b";
+ctx.fillRect(car.x + 5, car.y + 20, 9, 8); // left wheel
+ctx.fillRect(car.x + 27, car.y + 20, 9, 8); // right wheel
+```
+
+Each part is placed relative to `car.x` and `car.y`. When those numbers change, all the parts move together. The wheels extend a little below the body; the complete game keeps the full drawing visible at the edges.
+
+### Step 3: Draw the coins
+
+Put this loop **before the car body** inside `draw()`. It repeats the small circle example for every coin. The car is drawn last so it appears in front if shapes overlap.
+
+```javascript
+for (const coin of coins) {
+  ctx.beginPath();
+  ctx.arc(coin.x, coin.y, coin.r, 0, Math.PI * 2);
+  ctx.fillStyle = "#ffd34e";
+  ctx.fill();
+}
+```
+
+**Check:** Three gold circles should appear at the planned centers. Change one coin's `x` and reload to confirm which one moved. The complete playable page also draws coin outlines and a dashed road; those use the outline and line commands in the overview table.
+
+### Step 4: Read the arrow keys
+
+The car needs to know which arrows are held down. Create a `keys` object near the car and coin data. These events update it. `preventDefault()` stops arrow keys from scrolling the page while driving.
+
+```javascript
+const keys = {};
+window.addEventListener("keydown", event => {
+  if (event.key.startsWith("Arrow")) event.preventDefault();
+  keys[event.key] = true;
+});
+window.addEventListener("keyup", event => {
+  keys[event.key] = false;
+});
+window.addEventListener("blur", () => {
+  for (const key in keys) keys[key] = false;
+});
+```
+
+`keydown` marks a key as held; `keyup` marks it as released. The `blur` event releases all keys when the browser window loses focus, so the car cannot keep driving by accident.
+
+### Step 5: Move and keep the car inside
+
+Make an `update()` function. Each frame, move in the direction of any held arrow. Then limit `car.x` and `car.y` so the whole car stays in bounds.
+
+```javascript
+function update() {
+  if (keys.ArrowLeft) car.x -= car.speed;
+  if (keys.ArrowRight) car.x += car.speed;
+  if (keys.ArrowUp) car.y -= car.speed;
+  if (keys.ArrowDown) car.y += car.speed;
+
+  car.x = Math.max(0, Math.min(canvas.width - car.w, car.x));
+  car.y = Math.max(0, Math.min(canvas.height - car.h, car.y));
+}
+```
+
+For example, `canvas.width - car.w` is `600 - 40 = 560`. If the car's left edge went past `560`, its right edge would leave the canvas. `Math.min()` caps the position at that limit; `Math.max(0, ...)` keeps it from going below zero. The same rule works vertically. **Check:** Predict the largest allowed `car.y`, then drive against every edge.
+
+### Step 6: Make one coin count once
+
+Add the loop below **at the end of `update()`**, before its closing `}`. For each coin, it finds the point on the car nearest the coin's center. If that point is no farther than one radius away, the circle touches the car.
+
+```javascript
+for (let i = coins.length - 1; i >= 0; i--) {
+  const coin = coins[i];
+  const nearX = Math.max(car.x, Math.min(coin.x, car.x + car.w));
+  const nearY = Math.max(car.y, Math.min(coin.y, car.y + car.h));
+  const gapX = coin.x - nearX;
+  const gapY = coin.y - nearY;
+
+  if (gapX ** 2 + gapY ** 2 <= coin.r ** 2) {
+    coins.splice(i, 1);
+    score++;
+    status.textContent = coins.length
+      ? `Coins: ${score}` : `Coins: ${score}. All collected!`;
+  }
+}
+```
+
+The nested `Math.min()` and `Math.max()` keep `nearX` between the car's left and right edges and `nearY` between its top and bottom edges. If the coin's center lies beside the car, these values are on the car's nearest edge. `gapX ** 2 + gapY ** 2` is the **squared distance** to that point; comparing it with `coin.r ** 2` avoids calculating a square root. Removing a touched coin means it cannot score again. The loop goes backward because removing an array item shifts later items left.
+
+### Step 7: Repeat update and draw
+
+After the `update()` and `draw()` functions, start the animation loop:
+
+```javascript
+function loop() {
+  update();
+  draw();
+  requestAnimationFrame(loop);
+}
+draw();
+requestAnimationFrame(loop);
+```
+
+One frame changes the game data, clears and redraws the picture, then asks the browser for another frame. The first `draw()` shows the starting scene immediately. **Test:** Touch one coin and read the new score. Drive through its old location; the score should stay the same. Collect all three for the final message.
+
+[PLAY THE FIRST VERSION](../games/collecting-car/01-first-drive.html). Open its one-file source beside your work to compare the placement of the functions and the extra road and outline drawing. Type one stage at a time instead of copying the whole script at once.
+
+## Extend the same game: surprise treasures
+
+The first version has fixed coins and ends after three pickups. Keep its car, key handling, drawing loop, and collision idea. The following rounds change one part of the game at a time.
+
+### Step 8: Place treasures at random positions
+
+Make each new treasure with a center and radius. Leaving a radius of space at each edge keeps the entire circle visible:
+
+```javascript
+const r = 12;
+const x = r + Math.random() * (canvas.width - 2 * r);
+const y = r + Math.random() * (canvas.height - 2 * r);
+```
+
+`Math.random()` returns a number from `0` up to, but not including, `1`. So `x` stays between the left and right safe limits. Put this calculation in a function that returns one coin object:
+
+```javascript
+function makeCoin() {
+  const r = 12;
+  let x, y;
+  do {
+    x = r + Math.random() * (canvas.width - 2 * r);
+    y = r + Math.random() * (canvas.height - 2 * r);
+  } while (x > car.x - 2 * r && x < car.x + car.w + 2 * r &&
+           y > car.y - 2 * r && y < car.y + car.h + 2 * r);
+  return { x: x, y: y, r: r };
+}
+```
+
+The `do ... while` tries again if a candidate is in a padded area around the car. For this first change, replace the fixed `coins` array with `const coins = [];`, then make four coins with `for (let i = 0; i < 4; i++) coins.push(makeCoin());`. In the pickup block, add `coins.push(makeCoin())` after removing and scoring. This makes collection continue instead of ending after three coins, so change the status text to show only the current coin count. Keep the same coin drawing and collision code. **Check:** Refresh several times; coins should move but remain fully visible. A pickup should bring in a replacement.
+
+### Step 9: Give treasures kinds and values
+
+Store each kind's name, color, and points together:
+
+```javascript
+const kinds = [
+  { name: "coin", color: "#ffd34e", points: 1 },
+  { name: "gem", color: "#bd74ed", points: 3 },
+  { name: "star", color: "#ff765e", points: 5 }
+];
+const kind = kinds[Math.floor(Math.random() * kinds.length)];
+return { x: x, y: y, r: r, kind: kind };
+```
+
+Multiplying a random number by `kinds.length` and rounding down picks one valid array position. The three kinds have equal chances. Put the `kinds` array **before** the function. Then rename `makeCoin()` to `makeTreasure()` and put the last two lines **inside that function**, replacing the old `return` line. Rename `coins` to `treasures` and `coin` to `treasure` in the array, drawing loop, and pickup loop. Start four treasures with `treasures.push(makeTreasure())` and make a replacement after each pickup. In the drawing loop, use `treasure.kind.color` for the circle. Draw its first letter too, so color is not the only clue:
+
+```javascript
+ctx.beginPath();
+ctx.arc(treasure.x, treasure.y, treasure.r, 0, Math.PI * 2);
+ctx.fillStyle = treasure.kind.color;
+ctx.fill();
+ctx.fillStyle = "#19324b";
+ctx.font = "bold 13px system-ui";
+ctx.textAlign = "center";
+ctx.textBaseline = "middle";
+ctx.fillText(treasure.kind.name[0].toUpperCase(), treasure.x, treasure.y);
+```
+
+In the pickup rule, use `score += treasure.kind.points` instead of `score++`. A coin adds one, a gem three, and a star five. Show the kind and total in `status.textContent`. **Check:** Read the score before and after each pickup and compare the difference with the kind's value.
+
+### Step 10: Win at 20 points
+
+Start with `let playing = true`. After a pickup awards points, check the total. A treasure may carry the score **past** 20; reaching or passing 20 wins.
+
+```javascript
+if (score >= 20) {
+  playing = false;
+  status.textContent = `You win with ${score} points!`;
+}
+```
+
+At the start of `update()`, use `if (!playing) return;` so movement and pickups stop after the win. The final picture can stay on screen. In the complete version, the win check happens **before** a replacement treasure is made.
+
+[PLAY THE SURPRISE-TREASURE VERSION](../games/collecting-car/02-treasure-types.html). Compare it with the first stage: find the new `kinds` array, `makeTreasure()`, treasure drawing, point award, and win check. They are additions to the same game, not a new chapter or a new starting project.
+
+## Level-up challenges {.unnumbered}
+
+1. Add a fourth coin to the first version. Predict the final score before you test it.
+2. Add a **map** treasure worth two points. Give it a different letter and color, then check the score increase.
+3. Add a restart button that resets the car, score, treasures, and `playing` value.
+
+## Check your development flow {.unnumbered}
+
+Point to the canvas in HTML and explain how JavaScript finds it. Draw a box and circle on paper with their coordinates. Trace one pickup from key press to movement, collision, removal, and score update. Bouncing Ball comes next to study velocity and wall response with one moving shape.
+
+# Explore Motion with Bouncing Ball {#sec-ch11}
+
+::: {.chapter-banner}
+
+[GAME 12 | Bouncing Ball]{.game-title}
 
 [Canvas]{.skill-chip} [Animation]{.skill-chip} [Velocity]{.skill-chip}
 
@@ -5157,15 +5513,15 @@ After your exercise or challenge, explain what you built, what you styled, and w
 
 ## Overview {.unnumbered}
 
-Canvas is different from ordinary HTML. Instead of moving page elements, your code redraws the game world frame after frame.
+The collecting car introduced canvas drawing and a game loop. This focused experiment uses one moving ball to study velocity and wall response before Pong.
 
 ## Learning Objectives {.unnumbered}
 
 By the end of this chapter, you can:
 
-- create a canvas
-- draw shapes with a 2D context
-- animate with `requestAnimationFrame`
+- draw a ball with a 2D context
+- change its position using velocity
+- reverse velocity when it reaches a wall
 
 ::: {.callout-note .big-idea title="Structure → Style → Behavior" icon="false"}
 
@@ -5179,13 +5535,13 @@ Use this plan for the examples and exercises below. Reuse parts that already wor
 
 :::
 
-## Meet canvas
+## Use canvas for motion
 
 The canvas element is a rectangular drawing surface. JavaScript asks it for a 2D drawing context.
 
 ![The animation/game loop repeats update and draw work.](../figures/chapter_07/animation-loop.png){#fig-ch11 fig-alt="A cycle connects read input, update state, draw, and next frame." width="100%"}
 
-**Read the picture:** Each frame is one trip around the cycle. Bouncing Ball has no keyboard input yet, so it begins by updating position. The next chapter adds player input before movement.
+**Read the picture:** Each frame is one trip around the cycle. Bouncing Ball runs without keyboard input, so it begins by updating position. Pong, the next chapter, combines the loop with paddle input.
 
 ```javascript
 const canvas = document.getElementById("game");
@@ -5367,7 +5723,7 @@ After your exercise or challenge, explain what you built, what you styled, and w
 
 ::: {.chapter-banner}
 
-[GAME 12 | Pong]{.game-title}
+[GAME 13 | Pong]{.game-title}
 
 [Keyboard input]{.skill-chip} [State]{.skill-chip} [Collision]{.skill-chip}
 
@@ -5468,7 +5824,7 @@ The response has two jobs. First, `ballX = paddleX - radius` places the ball jus
 
 ![Pong bounces at three walls and resets after a miss on the right.](../figures/chapter_12/wall-bounces.svg){#fig-ch12-wall-bounces fig-alt="Four panels show the left wall setting dx positive, the top and bottom walls negating dy, and a ball fully past the right edge resetting to its starting position." width="100%"}
 
-**Read the wall rules:** At the left wall, `Math.abs(dx)` makes horizontal velocity positive, so the ball travels right. At the top or bottom, `dy = -dy` reverses vertical direction. As in Chapter 11, these strict wall comparisons trigger just past the contact limit. A right-side miss uses a different limit: `ballX > canvas.width + radius`. Only then has the whole ball left the canvas. The game resets its center to `(100, canvas.height / 2)` and makes `dx` positive; it keeps the current `dy` and hit count. The paddle's overlap check runs before this miss check.
+**Read the wall rules:** At the left wall, `Math.abs(dx)` makes horizontal velocity positive, so the ball travels right. At the top or bottom, `dy = -dy` reverses vertical direction. As in Chapter 12, these strict wall comparisons trigger just past the contact limit. A right-side miss uses a different limit: `ballX > canvas.width + radius`. Only then has the whole ball left the canvas. The game resets its center to `(100, canvas.height / 2)` and makes `dx` positive; it keeps the current `dy` and hit count. The paddle's overlap check runs before this miss check.
 
 ## Play Pong in your browser {.unnumbered}
 
@@ -5655,7 +6011,7 @@ After your exercise or challenge, explain what you built, what you styled, and w
 
 ::: {.chapter-banner}
 
-[GAME 13 | Breakout]{.game-title}
+[GAME 14 | Breakout]{.game-title}
 
 [Objects]{.skill-chip} [Arrays]{.skill-chip} [Loops]{.skill-chip}
 
@@ -5953,7 +6309,7 @@ After your exercise or challenge, explain what you built, what you styled, and w
 
 ::: {.chapter-banner}
 
-[GAME 14 | Snake]{.game-title}
+[GAME 15 | Snake]{.game-title}
 
 [Grid cells]{.skill-chip} [Arrays]{.skill-chip} [Game state]{.skill-chip}
 
@@ -6231,7 +6587,7 @@ After your exercise or challenge, explain what you built, what you styled, and w
 
 ::: {.chapter-banner}
 
-[GAME 15 | Design Your Own Game]{.game-title}
+[GAME 16 | Design Your Own Game]{.game-title}
 
 [Design]{.skill-chip} [Playtesting]{.skill-chip} [Modules]{.skill-chip}
 
@@ -6858,7 +7214,7 @@ Create a platform that the robot can just reach. Predict how a stronger jump or 
 :::
 
 
-**Complete companion source:** [Robot Orchard](../games/robot-orchard/index.html), [simulation rules](../games/robot-orchard/world.js), [collision helpers](../games/shared/math.js), and [level data](../games/robot-orchard/level.json).
+**Complete companion source:** [Robot Orchard](../games/robot-orchard/index.html), [simulation rules](../games/robot-orchard/world.js), [collision helpers](../games/shared/math.js), and [level data](../games/robot-orchard/level.js).
 
 ## Check your development flow {.unnumbered}
 
@@ -7003,19 +7359,19 @@ Loading artwork from another site's server can introduce permission and cross-or
 
 ## Describe a level with data
 
-Open `games/robot-orchard/level.json`. It stores the spawn position, rectangles, gems, enemies, and goal. A new platform can be described by one object:
+Open `games/robot-orchard/level.js`. It exports a JavaScript object with the spawn position, platforms, gems, enemies, and goal. This uses the same objects and arrays you have already practiced. A platform is one object in the `solids` array:
 
-```json
-{ "x": 240, "y": 386, "w": 144, "h": 24 }
+```javascript
+{ x: 240, y: 386, w: 144, h: 24 }
 ```
 
 That object belongs inside the `solids` array. A gem uses its center position instead:
 
-```json
-{ "x": 312, "y": 356 }
+```javascript
+{ x: 312, y: 356 }
 ```
 
-JSON is data, not JavaScript code. Use double quotes around property names, do not include comments, and do not leave a comma after the last item. Keep a backup before making several changes. A valid JSON file can still describe an impossible level, so syntax checking is only the first test.
+Add or change one object at a time, save the file, and restart the game. Keep a backup before making several changes. A correctly written JavaScript object can still describe an impossible level, so play through any new route you design.
 
 ## Add sound as an optional reward
 
@@ -7039,7 +7395,7 @@ Repeatedly creating `new Image()` inside `draw()` is not an asset-loading strate
 ## Make it your own
 
 ::: {.callout-tip .challenge title="Level up" icon="false"}
-Make a space-station version of Robot Orchard. Change the robot color, turn gems into energy crystals, and redraw the ground as metal panels. Keep the movement and colliders unchanged first. Then design one new platform route in `level.json` and test it separately.
+Make a space-station version of Robot Orchard. Change the robot color, turn gems into energy crystals, and redraw the ground as metal panels. Keep the movement and colliders unchanged first. Then design one new platform route in `level.js` and test it separately.
 
 1. **Build the scene structure:** Keep the player dimensions and define the new route in level data.
 2. **Style the scene:** Redraw the space-station artwork within the existing asset sizes.
@@ -7098,7 +7454,7 @@ Use this plan for the examples and exercises below. Reuse parts that already wor
 
 Robot Orchard has one sentence of rules: **collect ten gems, avoid the bugs and gaps, and reach the portal with at least one life left**. Everything else supports that sentence.
 
-The companion project is a complete reference implementation, not a collection of disconnected fragments. Play it first. Then read `world.js` for rules, `main.js` for drawing and controls, and `level.json` for level design. The shared helpers supply input, the loop, asset loading, and shape tests.
+The companion project is a complete reference implementation, not a collection of disconnected fragments. Play it first. Then read `world.js` for rules, `main.js` for drawing and controls, and `level.js` for level design. The shared helpers supply input, the loop, asset loading, and shape tests.
 
 ## Keep world coordinates separate from the camera
 
@@ -7197,7 +7553,7 @@ if (
 The portal becomes brighter when all gems are collected. The visual feedback comes from the same score condition used by the rule. A glowing door that still refuses entry would confuse the player.
 
 ::: {.callout-note .advanced-study title="Advanced Study | Data, rules, and rendering are separate layers" icon="false" collapse="false"}
-`level.json` describes a world. `createWorld(level)` creates fresh mutable state from that description. `stepWorld(world, command, dt)` applies rules. `draw()` paints the state.
+`level.js` describes a world. `createWorld(level)` creates fresh mutable state from that description. `stepWorld(world, command, dt)` applies rules. `draw()` paints the state.
 
 This separation lets the tests exercise rules without starting a browser. It also allows different artwork to show the same game state. Two visual themes do not need two different collision algorithms.
 
@@ -7259,7 +7615,7 @@ Add a checkpoint after the first gap, create an optional high route with extra r
 :::
 
 
-**Complete project:** [Play Robot Orchard](../games/robot-orchard/index.html). Source: [main.js](../games/robot-orchard/main.js), [world.js](../games/robot-orchard/world.js), and [level.json](../games/robot-orchard/level.json).
+**Complete project:** [Play Robot Orchard](../games/robot-orchard/index.html). Source: [main.js](../games/robot-orchard/main.js), [world.js](../games/robot-orchard/world.js), and [level.js](../games/robot-orchard/level.js).
 
 ## Check your development flow {.unnumbered}
 
@@ -7312,7 +7668,7 @@ You already know that a game needs state, input, rules, and drawing. Those ideas
 Open **Robot Island Explorer** in the Game Lab. Move with WASD or the arrow keys and collect four crystals. Drag to orbit the camera and scroll to zoom. The decorative crates are intentionally not solid in this pre-physics project. We will give objects real physical behavior with Rapier later.
 
 ::: {.callout-tip .setup title="Set up the 3D projects" icon="false"}
-Use the same local server from Chapter 16. The supplied 3D pages load **Three.js 0.180.0** and, where needed, **Rapier 0.17.3** from a CDN. These are pinned lesson dependencies, not a claim that they are the newest releases.
+Use the same local server from Chapter 17. The supplied 3D pages load **Three.js 0.180.0** and, where needed, **Rapier 0.17.3** from a CDN. These are pinned lesson dependencies, not a claim that they are the newest releases.
 
 Internet access is required for those library downloads unless you run the optional vendoring script described in the Game Lab appendix. Your local images and GLB files are included. A WebGL 2-capable browser and graphics setup are required by this Three.js renderer; see the [renderer documentation](https://threejs.org/docs/pages/WebGLRenderer.html).
 :::
@@ -7352,23 +7708,15 @@ These stage views use the complete [companion page](../games/three-explorer/inde
 
 This fragment creates the scene objects. `games/shared/three-scene.js` completes the browser setup by creating `WebGLRenderer`, attaching its canvas, sizing it, and adding lights. The complete Explorer project connects that helper to controls, models, and the loop.
 
-## Tell the browser where imports live
+## Load the game module
 
-A browser needs to know what the bare name `"three"` means. The supplied HTML uses an **import map**, followed by a module script. JSON requires double quotes and does not allow comments.
+The supplied page loads its game code as a JavaScript module. This is the HTML line that starts it:
 
 ```html
-<script type="importmap">
-{
-  "imports": {
-    "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
-    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
-  }
-}
-</script>
 <script type="module" src="main.js"></script>
 ```
 
-Put the map before the module that uses it. Keep Three.js core and its addons on the same version. The companion pages also catch startup errors so a failed dependency load produces a message instead of an unexplained blank canvas. For the browser's mapping rules, see [MDN's import-map reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script/type/importmap).
+The complete companion page also contains browser setup for its pinned Three.js libraries. You can use that page as supplied and focus on the scene, camera, controls, and game rules in `main.js`. Its startup handler displays an error if a required library cannot load.
 
 ## Choose your coordinate convention
 
@@ -7650,7 +7998,7 @@ Export a different-colored robot and load it into the Explorer. Next, change the
 :::
 
 
-**Companion workshop:** [3D Asset Workshop](../games/asset-workshop/index.html), [workshop source](../games/asset-workshop/main.js), and [model specifications](../games/assets/3d/model-specifications.json). **Included models:** [robot.glb](../games/assets/3d/robot.glb), [crate.glb](../games/assets/3d/crate.glb), and [gem.glb](../games/assets/3d/gem.glb).
+**Companion workshop:** [3D Asset Workshop](../games/asset-workshop/index.html), [workshop source](../games/asset-workshop/main.js), and [model specifications](../games/assets/3d/model-specifications.md). **Included models:** [robot.glb](../games/assets/3d/robot.glb), [crate.glb](../games/assets/3d/crate.glb), and [gem.glb](../games/assets/3d/gem.glb).
 
 ## Check your development flow {.unnumbered}
 
@@ -8064,7 +8412,7 @@ The same design applies to a future walking character, vehicle, or multiplayer g
 
 Start with a small change that has a clear test: move one wall, reposition a crystal, change a crate's density, or change the marble's damping. Then try a visual remix by replacing a model while keeping its physical dimensions.
 
-A more ambitious extension is a capsule-controlled character with a matching visual model. That requires grounded movement, jump handling, and a character-controller policy; changing the sphere mesh into a robot is not enough. Return to the character-controller discussion in Chapter 22 before attempting it.
+A more ambitious extension is a capsule-controlled character with a matching visual model. That requires grounded movement, jump handling, and a character-controller policy; changing the sphere mesh into a robot is not enough. Return to the character-controller discussion in Chapter 23 before attempting it.
 
 ::: {.callout-tip .challenge title="Level up" icon="false"}
 Make a delivery game: push a crate into a target sensor to unlock the exit. Decide which collider may trigger the target, whether the crate must remain inside, and what happens after a restart. Draw the event-to-rule flow before changing the code.
@@ -8193,7 +8541,7 @@ Use **Build the scene structure → Style the scene → Program game behavior** 
 
 | Step | Where to look | What to check |
 | --- | --- | --- |
-| Build the scene structure | Project `index.html`, scene setup in `main.js`, and any level data such as Robot Orchard’s `level.json`. | Required controls, objects, starting positions, and state exist. |
+| Build the scene structure | Project `index.html`, scene setup in `main.js`, and any level data such as Robot Orchard’s `level.js`. | Required controls, objects, starting positions, and state exist. |
 | Style the scene | Linked styles in `games/shared/`, canvas drawing, sprite assets, or 3D materials and lights. | The player can distinguish the changed object and understand its feedback. |
 | Program game behavior | Input handlers, update functions, collision helpers, and game rules. | The change behaves as predicted during play, at boundaries, and after restart. |
 
@@ -8201,7 +8549,7 @@ For example, a new collectible needs a place and a stored collected state; a rec
 
 ## Which games need a local web server?
 
-::: {.callout-important title="Chapters 16–23: local HTTP server required" icon="false"}
+::: {.callout-important title="Chapters 18–25: local HTTP server required" icon="false"}
 
 **All six Game Lab projects require a web server.** Start the included launcher, then open the game through `http://127.0.0.1:8000/games/`. Double-clicking the game's `index.html` is not enough. Install Node.js once using the steps below; after that, double-click the launcher each time you play.
 
@@ -8209,13 +8557,13 @@ For example, a new collectible needs a place and a stored collected state; a rec
 
 | Game or example | Chapters | Local HTTP server? | Internet while playing? | Why? |
 | --- | --- | --- | --- | --- |
-| Structure, Style, and Behavior scene examples; Monster Clicker; Catch the Star; Bouncing Ball; Pong; Breakout; Snake; your one-file Game Studio project | 3–15 | **No** for the supplied one-file examples | No | The game code is in the HTML file. Open that file in a browser. Keep any supplied images beside it. |
-| Collision Playground | 16–17 | **Required** | No | Imports shared JavaScript modules. |
-| Robot Orchard, including its sprite and level examples | 16–19 | **Required** | No | Imports modules and requests `level.json` and local artwork. |
-| Robot Island Explorer | 20–21 | **Required** | **Yes, by default** | Imports Three.js and loads local GLB models. |
-| 3D Asset Workshop | 21 | **Required** | **Yes, by default** | Imports Three.js and its addons, and loads a local GLB model. |
-| Rapier Drop Lab | 22 | **Required** | **Yes, by default** | Imports Three.js and Rapier, then initializes physics. |
-| Marble Quest | 23 | **Required** | **Yes, by default** | Imports Three.js and Rapier, and loads local models and textures. |
+| Structure, Style, and Behavior scene examples; Monster Clicker; Catch the Star; Bouncing Ball; Pong; Breakout; Snake; your one-file Game Studio project | 3–16 | **No** for the supplied one-file examples | No | The game code is in the HTML file. Open that file in a browser. Keep any supplied images beside it. |
+| Collision Playground | 17–18 | **Required** | No | Imports shared JavaScript modules. |
+| Robot Orchard, including its sprite and level examples | 17–20 | **Required** | No | Imports modules and loads local artwork and `level.js`. |
+| Robot Island Explorer | 21–22 | **Required** | **Yes, by default** | Imports Three.js and loads local GLB models. |
+| 3D Asset Workshop | 22 | **Required** | **Yes, by default** | Imports Three.js and its addons, and loads a local GLB model. |
+| Rapier Drop Lab | 23 | **Required** | **Yes, by default** | Imports Three.js and Rapier, then initializes physics. |
+| Marble Quest | 24 | **Required** | **Yes, by default** | Imports Three.js and Rapier, and loads local models and textures. |
 
 The six projects' extra demonstration and screenshot pages also use modules and require HTTP. The older one-file games in `workspace/` (including Secret Number, Treasure Clicker, and Rock–Paper–Scissors) can open directly. If you later add module imports or `fetch()` to a one-file game, use a server for that version too.
 
@@ -8310,18 +8658,18 @@ Leave that terminal window open while you play. Open `http://127.0.0.1:8000/game
 
 No `npm install` is needed. If the terminal says that `node` is not recognized or not found, repeat the Node.js setup with an adult or teacher.
 
-The browser's trip is simple: browser asks for `main.js` or an image, the local server finds that file in the textbook folder, and the browser receives it. Double-clicking an HTML file is not enough for these module-based projects because module, model, and JSON loading use browser requests. Another local static server also works, but keep the whole folder tree together.
+The browser's trip is simple: browser asks for `main.js` or an image, the local server finds that file in the textbook folder, and the browser receives it. Double-clicking an HTML file is not enough for these module-based projects because module, model, and level-file loading use browser requests. Another local static server also works, but keep the whole folder tree together.
 
 ## Choose a project
 
 | Project | Chapter | Controls and purpose |
 | --- | --- | --- |
-| Collision Playground | 16–17 | Move with arrows/WASD or drag the player. Switch shape and turn wall blocking on or off. |
-| Robot Orchard | 16–19 | Start; move with A/D or left/right; jump with Space/up/W; P pauses, R restarts, H shows hitboxes. Collect every gem and enter the portal. |
-| Robot Island Explorer | 20–21 | Move with arrows/WASD; drag to orbit the camera; scroll to zoom. Collect four gems. Crates are decorative in this non-physics project. |
-| Rapier Drop Lab | 22 | Drop again; orbit the camera; show colliders. Compare three bounce coefficients. |
-| Marble Quest | 23 | Start; arrows/WASD move the marble; P pauses, R restarts, H shows colliders. Collect five gems and enter the gate. Falling costs a life. |
-| 3D Asset Workshop | 21 | Change the robot body's color, orbit the view, and export your own GLB file. |
+| Collision Playground | 17–18 | Move with arrows/WASD or drag the player. Switch shape and turn wall blocking on or off. |
+| Robot Orchard | 17–20 | Start; move with A/D or left/right; jump with Space/up/W; P pauses, R restarts, H shows hitboxes. Collect every gem and enter the portal. |
+| Robot Island Explorer | 21–22 | Move with arrows/WASD; drag to orbit the camera; scroll to zoom. Collect four gems. Crates are decorative in this non-physics project. |
+| Rapier Drop Lab | 23 | Drop again; orbit the camera; show colliders. Compare three bounce coefficients. |
+| Marble Quest | 24 | Start; arrows/WASD move the marble; P pauses, R restarts, H shows colliders. Collect five gems and enter the gate. Falling costs a life. |
+| 3D Asset Workshop | 22 | Change the robot body's color, orbit the view, and export your own GLB file. |
 
 Click the game canvas before using keys. Movement controls are intentionally world-relative in the 3D games: W/up moves toward negative Z even if you rotate the exploration camera. The lab also supplies large onscreen controls where movement is needed. These are useful alternatives, not a claim that every canvas interaction is fully accessible to every player.
 
@@ -8329,17 +8677,17 @@ Click the game canvas before using keys. Movement controls are intentionally wor
 
 ```text
 chapters/               The textbook's Quarto chapters
-figures/                Original diagrams with editable SVGs used by Chapters 16-23
+figures/                Original diagrams with editable SVGs used by Chapters 18-25
 games/
   index.html            Game Lab menu
   collision-lab/        Shape detection and wall-response experiment
-  robot-orchard/        Complete 2D game and editable level.json
+  robot-orchard/        Complete 2D game and editable level.js
   three-explorer/       Three.js exploration without physics
   physics-lab/          Rapier bounce experiment
   marble-quest/         Complete 3D physics game
   asset-workshop/       GLB model customization and export
   shared/               Input, loops, collision helpers, styles, 3D setup
-  assets/               Original SVG, PNG, GLB, JSON, and WAV files
+  assets/               Original SVG, PNG, GLB, JavaScript, and WAV files
 scripts/                Local server, dependency download, book builders
 start-game-lab.command  macOS double-click launcher
 start-game-lab.bat      Windows double-click launcher
@@ -8352,7 +8700,7 @@ The complete project folders are the source of truth for runnable code. Snippets
 
 The supplied robot sprite has four 64 by 64 frames. Edit the SVG source while keeping the 256 by 64 sheet size, or replace it with a PNG sprite sheet and update the image path. An image's transparent space is not a collider. Keep the player's physics dimensions separate from the drawing dimensions.
 
-The 3D pack contains `robot.glb`, `crate.glb`, and `gem.glb`. `model-specifications.json` records their origins and dimensions. They are rigid models without a skeleton or animation clips. Move and rotate their roots in the game; use a different animated GLB only after adding animation handling.
+The 3D pack contains `robot.glb`, `crate.glb`, and `gem.glb`. `model-specifications.md` records their origins and dimensions. They are rigid models without a skeleton or animation clips. Move and rotate their roots in the game; use a different animated GLB only after adding animation handling.
 
 The artwork and short collection sound were created for this project. The asset permission statement in `games/assets/ASSET_LICENSE.md` allows reuse and modification. It does not grant rights to unrelated images, commercial characters, or library code. When adding downloaded assets, record their source and license.
 
@@ -8376,7 +8724,7 @@ Check the page's visible error message and then the browser console. First check
 
 | Symptom | Check first |
 | --- | --- |
-| A model or JSON file is not found | Keep the folder tree together; check spelling, capitalization, and the Network panel. |
+| A model or level file is not found | Keep the folder tree together; check spelling, capitalization, and the Network panel. |
 | A 3D page reports a module error | Check internet/CDN access or run the optional dependency-download script. |
 | The ball passes through the ground | Check that both relevant shapes have colliders, dimensions match, and the physics world is stepped. |
 | The player stops far from a wall | Show hitboxes/colliders; compare the collision shape with the visible asset. |
@@ -8564,14 +8912,14 @@ The following tables cover the HTML used in the chapter code and the playable co
 | --- | --- | --- | --- |
 | Document | `<html>`, `<head>`, `<body>` | Whole document, page information, visible content | Complete game pages throughout the book |
 | Metadata and resources | `<meta>`, `<title>`, `<link>` | Encoding/viewport, tab title, stylesheet or tab icon | Chapters 4–7, 9, 11–15; Game Lab pages |
-| Code containers | `<style>`, `<script>` | Embedded CSS; embedded or external JavaScript/data | Chapters 6–15; module projects in Chapters 16–23 |
+| Code containers | `<style>`, `<script>` | Embedded CSS; embedded or external JavaScript/data | Chapters 6–16; module projects in Chapters 17–24 |
 | Main structure | `<main>`, `<section>` | Main content and a related section | Chapter 3, Monster Swarm, canvas games, Game Lab |
 | Headings and text | `<h1>`, `<h2>`, `<p>` | Main heading, subsection heading, paragraph | Titles, instructions, scores, and messages |
 | General groups | `<div>`, `<span>` | Container for a group; small part of a line | Chapter 9 monster row and score; Chapter 10 star; 3D stage |
 | Lists | `<ul>`, `<ol>`, `<li>` | Bulleted list, numbered list, one list item | Game Maker HQ missions; ordered missions in extra workspace examples |
 | Navigation | `<a>` | Link to another page, a resource, or an ID such as `href="#missions"` | Game Lab menu and Back links |
 | Pictures | `<img>` | Loads the picture named by `src`; `alt` supplies its text alternative | Chapter 4 gem; Chapter 7 image events |
-| Drawing | `<canvas>` | Drawing surface with a coordinate space | Chapters 11–19; created by Three.js in Chapters 20–23 |
+| Drawing | `<canvas>` | Drawing surface with a coordinate space | Chapters 11–20; created by Three.js in Chapters 21–24 |
 | Form group | `<form>` | Groups controls for collecting input | Game Maker HQ player card |
 | Control label | `<label>` | Gives a control an understandable name | Player card and Game Lab choices |
 | Input and action | `<input>`, `<button>` | Text/checkbox/color and other controls; a pressable action | Chapters 3–5; later game toolbars |
@@ -8606,7 +8954,7 @@ An attribute's meaning depends on its element. `type="button"` on a button and `
 | Starting input | `value`, `placeholder` | `value` sets initial input content or an option's data value. `placeholder` is a temporary hint in an empty text input, not a label. |
 | Starting state | `checked` | Starts a checkbox or radio button checked. It is a Boolean attribute: its presence means true; `checked="false"` still checks it. |
 | Visibility | `hidden` | Initially hides the Game Lab error box. For the plain `hidden` used here, omit it to show the box; `hidden="false"` still hides it. |
-| Script/data kind | `type` | On `script`: `module` enables JavaScript modules; `importmap` identifies mapping data. On an icon `link`, `image/svg+xml` identifies the image format. |
+| Script/data kind | `type` | On `script`, `module` enables JavaScript modules. On an icon `link`, `image/svg+xml` identifies the image format. |
 | Accessible name | `aria-label`, `aria-labelledby` | Supply a name directly, or refer to the ID of visible text that names the region/control. Used for game surfaces, controls, and extra workspace sections. |
 | Live message | `role`, `aria-live` | `role="status"` identifies a status message. `aria-live="polite"` asks assistive technology to announce changes at a suitable pause. |
 | Decorative content | `aria-hidden` | `aria-hidden="true"` keeps decorative content out of the accessibility tree. It does not visually hide it. |
@@ -9026,11 +9374,11 @@ canvas {
 }
 ```
 
-HTML `width="500" height="300"` sets the drawing coordinate space. CSS sizes its display box. In this example, a narrower container can show a smaller version of the same drawing without changing those coordinates. `height: auto` keeps the canvas's proportions. Arbitrarily changing both displayed dimensions can stretch the picture. Chapter 16 explains how pointer coordinates must be scaled when drawing size and display size differ. See the [MDN canvas reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/canvas).
+HTML `width="500" height="300"` sets the drawing coordinate space. CSS sizes its display box. In this example, a narrower container can show a smaller version of the same drawing without changing those coordinates. `height: auto` keeps the canvas's proportions. Arbitrarily changing both displayed dimensions can stretch the picture. Chapter 17 explains how pointer coordinates must be scaled when drawing size and display size differ. See the [MDN canvas reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/canvas).
 
 The canvas stays blank until JavaScript draws. Fallback text does not describe every drawn object, and an accessible label does not make all canvas gameplay accessible. Keep useful instructions and status information in ordinary HTML alongside the game.
 
-For Chapters 20–23, the HTML starts with a host such as `<div id="stage"></div>`. Three.js creates a canvas and attaches it inside that div. The Game Lab gives `#stage` a height, rounded corners, and `overflow: hidden` so drawing outside its box is clipped. `#stage canvas` styles the child canvas. CSS controls the page frame; JavaScript and the renderer control the 3D world.
+For Chapters 21–24, the HTML starts with a host such as `<div id="stage"></div>`. Three.js creates a canvas and attaches it inside that div. The Game Lab gives `#stage` a height, rounded corners, and `overflow: hidden` so drawing outside its box is clipped. `#stage canvas` styles the child canvas. CSS controls the page frame; JavaScript and the renderer control the 3D world.
 
 ### CSS property summary: text and appearance {.unnumbered .unnumbered}
 
@@ -9131,7 +9479,7 @@ Controls have built-in browser behavior even before you write game logic. A text
 | --- | --- | --- |
 | Text | `<input type="text">` | Player nickname |
 | Checkbox | `<input type="checkbox">` | Sound or wall-blocking on/off |
-| Color | `<input type="color" value="#20b7a5">` | Robot body color in the Chapter 21 Asset Workshop |
+| Color | `<input type="color" value="#20b7a5">` | Robot body color in the Chapter 22 Asset Workshop |
 | Choice menu | `<select><option value="box">Rectangle</option></select>` | Game type or Collision Playground shape; the data value can differ from visible text |
 | Action | `<button type="button">Restart</button>` | A game action connected by JavaScript |
 | Extra numeric input | `<input type="number" min="1" max="10">` | A numeric choice in the extra workspace examples |
@@ -9144,15 +9492,14 @@ You can connect a label with `for` and a matching ID, as in the player card. You
 
 ### Recognize the three ways scripts appear {.unnumbered .unnumbered}
 
-You do not need to write a module or an import map in this reference. Learn what their HTML wrappers mean so the later projects have a familiar page structure.
+You do not need to write a module in this reference. Learn what its HTML wrapper means so the later projects have a familiar page structure.
 
 | Script form | HTML | Meaning and later use |
 | --- | --- | --- |
-| Inline ordinary script | `<script>` followed by code and `</script>` | Code stored in the page; Chapters 6–15 usually put it after the visible elements. |
-| External module | `<script type="module" src="game.js"></script>` | Load a JavaScript file that can import/export other modules; introduced in Chapter 15 and used in the Game Lab. |
-| Import map | `<script type="importmap">` followed by JSON and `</script>` | Data mapping module names to resource addresses; Chapter 20 uses it for Three.js. Put it before the module that needs the map. |
+| Inline ordinary script | `<script>` followed by code and `</script>` | Code stored in the page; Chapters 6–16 usually put it after the visible elements. |
+| External module | `<script type="module" src="game.js"></script>` | Load a JavaScript file that can import/export other modules; introduced in Chapter 17 and used in the Game Lab. |
 
-Module scripts are deferred until the HTML has been parsed, and their dependencies must load before they can run. Module-based game projects use the local server introduced in Chapter 1 and set up in the Game Lab guide. An import map contains data, not game instructions; Chapter 20 explains its actual entries. See [MDN: script](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script).
+Module scripts are deferred until the HTML has been parsed, and their dependencies must load before they can run. Module-based game projects use the local server introduced in Chapter 1 and set up in the Game Lab guide. See [MDN: script](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script).
 
 ## Rehearse the page that Chapter 6 will use {.unnumbered #ref-monster-page}
 
@@ -9239,7 +9586,7 @@ Use this table when practicing the smaller examples as well as the complete page
 | Gem picture | An image with a source and text alternative | Size, padding, border, shadow | Collect the gem on an action; Chapter 7's image example. |
 | Static star arena | A game div containing a star span | Relative parent; absolute star with left/top | Move the star on clicks and timer ticks; Chapter 10. |
 | Canvas preview | A drawing surface with dimensions and instructions | Border, background, responsive display size | Draw and move game objects; Chapters 11 onward. |
-| 3D stage preview | A stage host, controls, and status area | Stage height and clipped drawing area | Load and render a 3D world; Chapters 20–23. |
+| 3D stage preview | A stage host, controls, and status area | Stage height and clipped drawing area | Load and render a 3D world; Chapters 21–24. |
 | Monster Clicker rehearsal | Title, monster, message, score | Card and monster button styling | Prepare memory in Chapter 6; connect the hit action in Chapter 7. |
 
 The font, image-frame, selector, and layout snippets each practice **Step 2: Style the scene** on one of these existing structures. The HTML control and container snippets practice **Step 1: Build the scene structure**. For an extra workspace page, trace the same three stages before changing it.
@@ -9251,9 +9598,9 @@ The font, image-frame, selector, and layout snippets each practice **Step 2: Sty
 | Chapters 6–8 | Heading → monster/actions → message and score → script | Font, color, frame, spacing, ID selectors | Variables, clicks, score updates, decisions |
 | Chapter 9 | Main card → score span → container of monster buttons → Power Hit/message | Shared `.monster` class, Flexbox, wrapping, gap, reserved message height | Loop over monsters |
 | Chapter 10 | Heading/score → game div containing the star | Sized container, relative/absolute positioning, left/top | Random positions and timers |
-| Chapters 11–15 | Heading/instructions → canvas → status and optional Restart | Canvas frame, block layout, centered card | Drawing and game rules |
-| Chapters 16–19 | Main → panel → toolbar/choices → status → canvas → movement controls → error area | Shared `lab.css`, flexible toolbar, responsive canvas, focus and touch rules | Modules, loading, real-time input and simulation |
-| Chapters 20–23 | Same game-page pattern, with a stage div containing a renderer-created canvas | Stage height, child selector, overflow, responsive size limits | Imports, renderer, models, and physics where needed |
+| Chapters 11–16 | Heading/instructions → canvas → status and optional Restart | Canvas frame, block layout, centered card | Drawing and game rules |
+| Chapters 17–20 | Main → panel → toolbar/choices → status → canvas → movement controls → error area | Shared `lab.css`, flexible toolbar, responsive canvas, focus and touch rules | Modules, loading, real-time input and simulation |
+| Chapters 21–24 | Same game-page pattern, with a stage div containing a renderer-created canvas | Stage height, child selector, overflow, responsive size limits | Imports, renderer, models, and physics where needed |
 
 # References and Further Learning {.unnumbered #references}
 

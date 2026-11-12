@@ -137,19 +137,19 @@ Loading artwork from another site's server can introduce permission and cross-or
 
 ## Describe a level with data
 
-Open `games/robot-orchard/level.json`. It stores the spawn position, rectangles, gems, enemies, and goal. A new platform can be described by one object:
+Open `games/robot-orchard/level.js`. It exports a JavaScript object with the spawn position, platforms, gems, enemies, and goal. This uses the same objects and arrays you have already practiced. A platform is one object in the `solids` array:
 
-```json
-{ "x": 240, "y": 386, "w": 144, "h": 24 }
+```javascript
+{ x: 240, y: 386, w: 144, h: 24 }
 ```
 
 That object belongs inside the `solids` array. A gem uses its center position instead:
 
-```json
-{ "x": 312, "y": 356 }
+```javascript
+{ x: 312, y: 356 }
 ```
 
-JSON is data, not JavaScript code. Use double quotes around property names, do not include comments, and do not leave a comma after the last item. Keep a backup before making several changes. A valid JSON file can still describe an impossible level, so syntax checking is only the first test.
+Add or change one object at a time, save the file, and restart the game. Keep a backup before making several changes. A correctly written JavaScript object can still describe an impossible level, so play through any new route you design.
 
 ## Add sound as an optional reward
 
@@ -173,7 +173,7 @@ Repeatedly creating `new Image()` inside `draw()` is not an asset-loading strate
 ## Make it your own
 
 ::: {.callout-tip .challenge title="Level up" icon="false"}
-Make a space-station version of Robot Orchard. Change the robot color, turn gems into energy crystals, and redraw the ground as metal panels. Keep the movement and colliders unchanged first. Then design one new platform route in `level.json` and test it separately.
+Make a space-station version of Robot Orchard. Change the robot color, turn gems into energy crystals, and redraw the ground as metal panels. Keep the movement and colliders unchanged first. Then design one new platform route in `level.js` and test it separately.
 
 1. **Build the scene structure:** Keep the player dimensions and define the new route in level data.
 2. **Style the scene:** Redraw the space-station artwork within the existing asset sizes.

@@ -176,7 +176,7 @@
     ]
   },
   "11": {
-    "chapter": "11-bouncing-ball.qmd",
+    "chapter": "12-bouncing-ball.qmd",
     "source": "complete chapter code",
     "captures": [
       {
@@ -190,7 +190,7 @@
     ]
   },
   "12": {
-    "chapter": "12-pong.qmd",
+    "chapter": "13-pong.qmd",
     "source": "complete chapter code",
     "captures": [
       {
@@ -204,7 +204,7 @@
     ]
   },
   "13": {
-    "chapter": "13-breakout.qmd",
+    "chapter": "14-breakout.qmd",
     "source": "complete chapter code",
     "captures": [
       {
@@ -218,7 +218,7 @@
     ]
   },
   "14": {
-    "chapter": "14-snake.qmd",
+    "chapter": "15-snake.qmd",
     "source": "complete chapter code",
     "captures": [
       {
@@ -232,7 +232,7 @@
     ]
   },
   "15": {
-    "chapter": "15-game-studio.qmd",
+    "chapter": "16-game-studio.qmd",
     "source": "complete chapter code",
     "captures": [
       {
@@ -246,7 +246,7 @@
     ]
   },
   "16": {
-    "chapter": "16-real-time-2d.qmd",
+    "chapter": "17-real-time-2d.qmd",
     "source": "games/collision-lab/index.html",
     "captures": [
       {
@@ -272,7 +272,7 @@
     ]
   },
   "17": {
-    "chapter": "17-collision-and-platforms.qmd",
+    "chapter": "18-collision-and-platforms.qmd",
     "source": "games/robot-orchard/index.html",
     "captures": [
       {
@@ -306,7 +306,7 @@
     ]
   },
   "18": {
-    "chapter": "18-custom-2d-assets.qmd",
+    "chapter": "19-custom-2d-assets.qmd",
     "source": "games/robot-orchard/index.html",
     "captures": [
       {
@@ -344,7 +344,7 @@
     ]
   },
   "19": {
-    "chapter": "19-robot-orchard.qmd",
+    "chapter": "20-robot-orchard.qmd",
     "source": "games/robot-orchard/index.html",
     "captures": [
       {
@@ -382,7 +382,7 @@
     ]
   },
   "20": {
-    "chapter": "20-first-threejs-world.qmd",
+    "chapter": "21-first-threejs-world.qmd",
     "source": "games/three-explorer/index.html",
     "captures": [
       {
@@ -408,7 +408,7 @@
     ]
   },
   "21": {
-    "chapter": "21-custom-3d-assets.qmd",
+    "chapter": "22-custom-3d-assets.qmd",
     "source": "games/asset-workshop/index.html",
     "captures": [
       {
@@ -434,7 +434,7 @@
     ]
   },
   "22": {
-    "chapter": "22-rapier-physics.qmd",
+    "chapter": "23-rapier-physics.qmd",
     "source": "games/physics-lab/index.html",
     "captures": [
       {
@@ -464,7 +464,7 @@
     ]
   },
   "23": {
-    "chapter": "23-marble-quest.qmd",
+    "chapter": "24-marble-quest.qmd",
     "source": "games/marble-quest/index.html",
     "captures": [
       {

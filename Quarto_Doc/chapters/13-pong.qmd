@@ -2,7 +2,7 @@
 
 ::: {.chapter-banner}
 
-[GAME 12 | Pong]{.game-title}
+[GAME 13 | Pong]{.game-title}
 
 [Keyboard input]{.skill-chip} [State]{.skill-chip} [Collision]{.skill-chip}
 
@@ -103,7 +103,7 @@ The response has two jobs. First, `ballX = paddleX - radius` places the ball jus
 
 ![Pong bounces at three walls and resets after a miss on the right.](../figures/chapter_12/wall-bounces.svg){#fig-ch12-wall-bounces fig-alt="Four panels show the left wall setting dx positive, the top and bottom walls negating dy, and a ball fully past the right edge resetting to its starting position." width="100%"}
 
-**Read the wall rules:** At the left wall, `Math.abs(dx)` makes horizontal velocity positive, so the ball travels right. At the top or bottom, `dy = -dy` reverses vertical direction. As in Chapter 11, these strict wall comparisons trigger just past the contact limit. A right-side miss uses a different limit: `ballX > canvas.width + radius`. Only then has the whole ball left the canvas. The game resets its center to `(100, canvas.height / 2)` and makes `dx` positive; it keeps the current `dy` and hit count. The paddle's overlap check runs before this miss check.
+**Read the wall rules:** At the left wall, `Math.abs(dx)` makes horizontal velocity positive, so the ball travels right. At the top or bottom, `dy = -dy` reverses vertical direction. As in Chapter 12, these strict wall comparisons trigger just past the contact limit. A right-side miss uses a different limit: `ballX > canvas.width + radius`. Only then has the whole ball left the canvas. The game resets its center to `(100, canvas.height / 2)` and makes `dx` positive; it keeps the current `dy` and hit count. The paddle's overlap check runs before this miss check.
 
 ## Play Pong in your browser {.unnumbered}
 

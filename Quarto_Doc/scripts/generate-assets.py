@@ -3,7 +3,7 @@
 Requires the packages in requirements-assets.txt. Back up your own art first.
 """
 from pathlib import Path
-import math, wave, struct, json
+import math, wave, struct
 import cairosvg
 import trimesh
 import numpy as np
@@ -83,11 +83,15 @@ mesh=trimesh.Trimesh(vertices=verts,faces=faces,process=False)
 mesh.fix_normals()
 mesh.visual=trimesh.visual.TextureVisuals(material=material('amethyst','9971e8'))
 scene=trimesh.Scene(mesh);output(scene,'gem')
-(B/'model-specifications.json').write_text(json.dumps({
-    'units':'game units; y up; robot faces +z',
-    'robot':{'origin':'feet, y=0','height':1.75,'format':'GLB; separate rigid mesh parts; no skeletal clips'},
-    'crate':{'origin':'center','size':[1,1,1],'collider':'cuboid half extents 0.5, 0.5, 0.5'},
-    'gem':{'origin':'center','size':[.9,1.4,.9],'collider':'sensor; chosen independently of visible facets'}
-},indent=2))
-(R/'games/assets/ASSET_LICENSE.md').write_text('''# Original game-lab assets\n\nThe SVG drawings, PNG exports, GLB models, and synthesized WAV sound in this folder were created for this textbook. They are not downloaded stock assets. You may use, edit, and redistribute these original assets in your learning projects and games, including commercial projects, without attribution. This permission does not apply to Three.js, Rapier, or other third-party software. Their own licenses apply.\n\nSVG is the editable source for the 2D artwork. PNG files are equivalent exports; the games load the SVG artwork directly except for the marble texture. The GLB files contain rigid component meshes, not rigged or skeletal animations. See 3d/model-specifications.json for their coordinate conventions.\n''')
+(B/'model-specifications.md').write_text('''# 3D model specifications
+
+Game units use y up. The robot faces positive z.
+
+| Model | Origin | Size and notes |
+| --- | --- | --- |
+| Robot | Feet at y=0 | Height 1.75; separate rigid mesh parts; no skeletal clips. |
+| Crate | Center | 1 × 1 × 1; cuboid collider half extents 0.5, 0.5, 0.5. |
+| Gem | Center | 0.9 × 1.4 × 0.9; sensor collider chosen independently of visible facets. |
+''')
+(R/'games/assets/ASSET_LICENSE.md').write_text('''# Original game-lab assets\n\nThe SVG drawings, PNG exports, GLB models, and synthesized WAV sound in this folder were created for this textbook. They are not downloaded stock assets. You may use, edit, and redistribute these original assets in your learning projects and games, including commercial projects, without attribution. This permission does not apply to Three.js, Rapier, or other third-party software. Their own licenses apply.\n\nSVG is the editable source for the 2D artwork. PNG files are equivalent exports; the games load the SVG artwork directly except for the marble texture. The GLB files contain rigid component meshes, not rigged or skeletal animations. See 3d/model-specifications.md for their coordinate conventions.\n''')
 print('Generated',len(list(A.glob('*'))),'2D asset files and',len(list(B.glob('*.glb'))),'GLB models.')

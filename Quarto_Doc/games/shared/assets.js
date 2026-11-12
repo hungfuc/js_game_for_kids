@@ -6,12 +6,6 @@ export function loadImage(url) {
         image.src = url;
     });
 }
-export async function loadJSON(url) {
-    const response = await fetch(url);
-    if (!response.ok)
-        throw new Error(`Could not load ${url}: HTTP ${response.status}`);
-    return response.json();
-}
 export function announce(text) {
     const output = document.getElementById('status');
     if (output && output.textContent !== text)

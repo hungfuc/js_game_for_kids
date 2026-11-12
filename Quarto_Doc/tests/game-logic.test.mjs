@@ -1,10 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
 import { overlaps, circleCircle, circleRect, normalize2, moveAndCollide } from '../games/shared/math.js';
 import { createWorld, stepWorld } from '../games/robot-orchard/world.js';
+import { level } from '../games/robot-orchard/level.js';
 import { collectOnce, mayFinish } from '../games/marble-quest/rules.js';
-const level = JSON.parse(await readFile(new URL('../games/robot-orchard/level.json', import.meta.url)));
 test('AABB needs overlap on both axes', () => {
     assert.equal(overlaps({ x: 0, y: 0, w: 20, h: 20 }, { x: 19, y: 19, w: 20, h: 20 }), true);
     assert.equal(overlaps({ x: 0, y: 0, w: 20, h: 20 }, { x: 21, y: 0, w: 20, h: 20 }), false);

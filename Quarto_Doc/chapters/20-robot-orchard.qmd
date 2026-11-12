@@ -42,7 +42,7 @@ Use this plan for the examples and exercises below. Reuse parts that already wor
 
 Robot Orchard has one sentence of rules: **collect ten gems, avoid the bugs and gaps, and reach the portal with at least one life left**. Everything else supports that sentence.
 
-The companion project is a complete reference implementation, not a collection of disconnected fragments. Play it first. Then read `world.js` for rules, `main.js` for drawing and controls, and `level.json` for level design. The shared helpers supply input, the loop, asset loading, and shape tests.
+The companion project is a complete reference implementation, not a collection of disconnected fragments. Play it first. Then read `world.js` for rules, `main.js` for drawing and controls, and `level.js` for level design. The shared helpers supply input, the loop, asset loading, and shape tests.
 
 ## Keep world coordinates separate from the camera
 
@@ -141,7 +141,7 @@ if (
 The portal becomes brighter when all gems are collected. The visual feedback comes from the same score condition used by the rule. A glowing door that still refuses entry would confuse the player.
 
 ::: {.callout-note .advanced-study title="Advanced Study | Data, rules, and rendering are separate layers" icon="false" collapse="false"}
-`level.json` describes a world. `createWorld(level)` creates fresh mutable state from that description. `stepWorld(world, command, dt)` applies rules. `draw()` paints the state.
+`level.js` describes a world. `createWorld(level)` creates fresh mutable state from that description. `stepWorld(world, command, dt)` applies rules. `draw()` paints the state.
 
 This separation lets the tests exercise rules without starting a browser. It also allows different artwork to show the same game state. Two visual themes do not need two different collision algorithms.
 
@@ -203,7 +203,7 @@ Add a checkpoint after the first gap, create an optional high route with extra r
 :::
 
 
-**Complete project:** [Play Robot Orchard](../games/robot-orchard/index.html). Source: [main.js](../games/robot-orchard/main.js), [world.js](../games/robot-orchard/world.js), and [level.json](../games/robot-orchard/level.json).
+**Complete project:** [Play Robot Orchard](../games/robot-orchard/index.html). Source: [main.js](../games/robot-orchard/main.js), [world.js](../games/robot-orchard/world.js), and [level.js](../games/robot-orchard/level.js).
 
 ## Check your development flow {.unnumbered}
 

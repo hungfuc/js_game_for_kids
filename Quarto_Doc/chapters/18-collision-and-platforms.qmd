@@ -176,7 +176,7 @@ Create a platform that the robot can just reach. Predict how a stronger jump or 
 :::
 
 
-**Complete companion source:** [Robot Orchard](../games/robot-orchard/index.html), [simulation rules](../games/robot-orchard/world.js), [collision helpers](../games/shared/math.js), and [level data](../games/robot-orchard/level.json).
+**Complete companion source:** [Robot Orchard](../games/robot-orchard/index.html), [simulation rules](../games/robot-orchard/world.js), [collision helpers](../games/shared/math.js), and [level data](../games/robot-orchard/level.js).
 
 ## Check your development flow {.unnumbered}
 

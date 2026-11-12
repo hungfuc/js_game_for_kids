@@ -1,0 +1,356 @@
+# Draw and Build a Treasure Car Game {#sec-ch11-collecting-car}
+
+::: {.chapter-banner}
+
+[GAME 11 | Treasure Car]{.game-title}
+
+[Canvas]{.skill-chip} [Drawing]{.skill-chip} [Movement]{.skill-chip} [Collection]{.skill-chip}
+
+:::
+
+## Overview {.unnumbered}
+
+A canvas is a place in a web page where JavaScript draws pictures. First, you will draw one box and one circle. Then you will turn those shapes into a car and coins, make the car move, and give it a score. Finally, you will add surprise treasures to the **same game**. Build and test each small step before going on.
+
+## Learning Objectives {.unnumbered}
+
+By the end of this chapter, you can:
+
+- place a canvas in an HTML page and select it from JavaScript;
+- use canvas coordinates to put a box and a circle where you want them;
+- explain the drawing commands used by this game;
+- animate a car, collect coins, and update a score;
+- add random treasures with different point values and a winning goal.
+
+::: {.callout-note .big-idea title="Structure → Appearance → Behaviors" icon="false"}
+
+**Structure:** Make a page with a canvas and score; keep car and treasure data in JavaScript. **Appearance:** Draw the garden, car, and treasures. **Behaviors:** Read keys, move the car, detect pickups, and award points. When you add a feature, decide what data it needs, what it looks like, and what it does.
+
+:::
+
+## Meet the canvas
+
+A `<canvas>` is an HTML element: a rectangular drawing surface. Put it **inside the page body**, wherever the game should appear. In this page it sits inside `<main>`, below the instructions and above the score. Its `id` gives JavaScript a way to find it. The HTML `width` and `height` set the drawing space to **600 by 360 coordinates**.
+
+```html
+<main>
+  <h1>Treasure Car</h1>
+  <p>Drive with the arrow keys. Pick up the coins!</p>
+  <canvas id="game" width="600" height="360"></canvas>
+  <p id="status" role="status">Coins: 0</p>
+</main>
+```
+
+The canvas begins blank. The browser draws the heading, instructions, and score as ordinary page elements; JavaScript draws **inside** the canvas. Place the `<script>` just before `</body>` so the canvas and status element already exist when the script selects them.
+
+```html
+<script>
+  const canvas = document.getElementById("game");
+  const ctx = canvas.getContext("2d");
+  const status = document.getElementById("status");
+</script>
+```
+
+`getElementById("game")` selects the element with `id="game"`. `getContext("2d")` gives us a drawing tool, named `ctx` here. Later, `status.textContent` will change the score outside the canvas. CSS can give the canvas a border and set its displayed size; drawing commands make the picture inside it.
+
+```css
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 2px solid #19324b;
+}
+```
+
+The `600` by `360` drawing coordinates still apply if CSS displays the canvas smaller. `height: auto` keeps its proportions.
+
+### Where do the coordinates go?
+
+Canvas coordinates start at **(0, 0) in the top-left corner**. `x` grows to the right; `y` grows **downward**. On our canvas, the bottom-right edge is at `(600, 360)`. For example, `(90, 80)` is 90 units right and 80 units down from the top-left. The middle is `(300, 180)`.
+
+| Shape | Position means | Example |
+|---|---|---|
+| Box | `(x, y)` is its **top-left corner** | A box at `(40, 50)` with width `80` and height `30` reaches to `(120, 80)`. |
+| Circle | `(x, y)` is its **center** | A circle at `(200, 100)` with radius `15` reaches from `185` to `215` horizontally. |
+
+**Try it:** Predict where a box at `(0, 0)` will appear. What would happen to the circle if you increased its `y` from `100` to `150`?
+
+### Drawing command overview
+
+These are **all the canvas drawing commands** used in this chapter's playable stages. You can return to this table while building the game. Properties such as `fillStyle` set up a command; methods such as `fillRect()` do the drawing.
+
+| Command or property | What it does in our game |
+|---|---|
+| `ctx.fillStyle = color` | Chooses the color for the next filled shape or text. |
+| `ctx.fillRect(x, y, width, height)` | Draws a filled box: garden, car body, window, or wheel. |
+| `ctx.beginPath()` | Starts a fresh outline before a coin circle or road line. |
+| `ctx.arc(x, y, radius, 0, Math.PI * 2)` | Adds a full circle centered at `(x, y)` to the current path. |
+| `ctx.fill()` | Fills the current path with `fillStyle`. |
+| `ctx.strokeStyle = color`, `ctx.lineWidth = number` | Choose the color and thickness of an outline. |
+| `ctx.stroke()` | Draws the outline of the current path. |
+| `ctx.moveTo(x, y)`, `ctx.lineTo(x, y)` | Start and extend the road line. |
+| `ctx.setLineDash([16, 12])` | Makes that line dashed; `ctx.setLineDash([])` returns to solid lines. |
+| `ctx.clearRect(0, 0, canvas.width, canvas.height)` | Erases the previous frame before redrawing moving objects. |
+| `ctx.font`, `ctx.textAlign`, `ctx.textBaseline` | Set the letter's size and alignment on a treasure. |
+| `ctx.fillText(text, x, y)` | Draws the treasure's identifying letter. |
+
+### Draw one box and one circle
+
+Try this **tiny example** before writing any game rules. Paste the HTML below into a new `index.html` file and open it in a browser. The script goes after the canvas, so it can find it.
+
+```html
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Canvas shapes</title></head>
+<body>
+  <canvas id="game" width="300" height="180"
+          style="border: 1px solid black"></canvas>
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+
+    ctx.fillStyle = "royalblue";
+    ctx.fillRect(40, 50, 80, 30);
+
+    ctx.beginPath();
+    ctx.arc(200, 100, 15, 0, Math.PI * 2);
+    ctx.fillStyle = "gold";
+    ctx.fill();
+  </script>
+</body>
+</html>
+```
+
+`fillRect(40, 50, 80, 30)` draws a blue box whose top-left corner is `(40, 50)`. The last two numbers are **width** and **height**, not another position. `arc(200, 100, 15, 0, Math.PI * 2)` makes a circle centered at `(200, 100)` with a 15-unit radius. Angles are measured in radians: `0` starts the arc, and `Math.PI * 2` finishes one full turn. `beginPath()` prevents the new circle from joining an earlier path; `fill()` paints it gold.
+
+**Change and check:** Change the box's `x` from `40` to `100`. Change the circle's `y` from `100` to `140`. Reload after each edit and explain which way the shape moved.
+
+## Build the game, one step at a time
+
+Our idea is simple: **drive a little car through a garden and collect three lost coins**. Each coin gives one point and disappears. Sketch the 600-by-360 garden, a car near the middle, and three coins away from the car.
+
+### Step 1: Make the page and game data
+
+Replace the tiny example's page with the larger 600-by-360 canvas, heading, instructions, and status shown above. Give the page readable colors. In the script, select `canvas`, `ctx`, and `status` as shown earlier. Then add these JavaScript objects and an array, which you learned about in Chapter 6:
+
+```javascript
+const car = { x: 280, y: 160, w: 40, h: 28, speed: 3 };
+const coins = [
+  { x: 90, y: 80, r: 12 },
+  { x: 480, y: 110, r: 12 },
+  { x: 350, y: 285, r: 12 }
+];
+let score = 0;
+```
+
+`car.x` and `car.y` are its top-left corner, `w` and `h` are its size, and `speed` is the distance it moves each frame. Each coin object uses a **center** and radius, just like the tiny circle example. An array holds the three coins. `let score` can change after a pickup. Check that all starting shapes fit inside the canvas.
+
+### Step 2: Draw the garden and car
+
+A function lets us redraw the same picture after the car moves. Start with a garden box and a car body. Both use the `fillRect()` command you just practiced.
+
+```javascript
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "#bde7c6";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = "#1675b8";
+  ctx.fillRect(car.x, car.y, car.w, car.h);
+}
+draw();
+```
+
+The first line erases the previous picture. The garden box fills the whole drawing area. The blue box starts at the car's position. **Check:** You should see a blue rectangle on green. If you only see a blank canvas, check the `id`, the script's location, and the browser console.
+
+Now add the car window and wheels **inside `draw()`**, after the blue body:
+
+```javascript
+ctx.fillStyle = "#94d8fa";
+ctx.fillRect(car.x + 8, car.y + 4, 24, 11); // window
+ctx.fillStyle = "#18324b";
+ctx.fillRect(car.x + 5, car.y + 20, 9, 8); // left wheel
+ctx.fillRect(car.x + 27, car.y + 20, 9, 8); // right wheel
+```
+
+Each part is placed relative to `car.x` and `car.y`. When those numbers change, all the parts move together. The wheels extend a little below the body; the complete game keeps the full drawing visible at the edges.
+
+### Step 3: Draw the coins
+
+Put this loop **before the car body** inside `draw()`. It repeats the small circle example for every coin. The car is drawn last so it appears in front if shapes overlap.
+
+```javascript
+for (const coin of coins) {
+  ctx.beginPath();
+  ctx.arc(coin.x, coin.y, coin.r, 0, Math.PI * 2);
+  ctx.fillStyle = "#ffd34e";
+  ctx.fill();
+}
+```
+
+**Check:** Three gold circles should appear at the planned centers. Change one coin's `x` and reload to confirm which one moved. The complete playable page also draws coin outlines and a dashed road; those use the outline and line commands in the overview table.
+
+### Step 4: Read the arrow keys
+
+The car needs to know which arrows are held down. Create a `keys` object near the car and coin data. These events update it. `preventDefault()` stops arrow keys from scrolling the page while driving.
+
+```javascript
+const keys = {};
+window.addEventListener("keydown", event => {
+  if (event.key.startsWith("Arrow")) event.preventDefault();
+  keys[event.key] = true;
+});
+window.addEventListener("keyup", event => {
+  keys[event.key] = false;
+});
+window.addEventListener("blur", () => {
+  for (const key in keys) keys[key] = false;
+});
+```
+
+`keydown` marks a key as held; `keyup` marks it as released. The `blur` event releases all keys when the browser window loses focus, so the car cannot keep driving by accident.
+
+### Step 5: Move and keep the car inside
+
+Make an `update()` function. Each frame, move in the direction of any held arrow. Then limit `car.x` and `car.y` so the whole car stays in bounds.
+
+```javascript
+function update() {
+  if (keys.ArrowLeft) car.x -= car.speed;
+  if (keys.ArrowRight) car.x += car.speed;
+  if (keys.ArrowUp) car.y -= car.speed;
+  if (keys.ArrowDown) car.y += car.speed;
+
+  car.x = Math.max(0, Math.min(canvas.width - car.w, car.x));
+  car.y = Math.max(0, Math.min(canvas.height - car.h, car.y));
+}
+```
+
+For example, `canvas.width - car.w` is `600 - 40 = 560`. If the car's left edge went past `560`, its right edge would leave the canvas. `Math.min()` caps the position at that limit; `Math.max(0, ...)` keeps it from going below zero. The same rule works vertically. **Check:** Predict the largest allowed `car.y`, then drive against every edge.
+
+### Step 6: Make one coin count once
+
+Add the loop below **at the end of `update()`**, before its closing `}`. For each coin, it finds the point on the car nearest the coin's center. If that point is no farther than one radius away, the circle touches the car.
+
+```javascript
+for (let i = coins.length - 1; i >= 0; i--) {
+  const coin = coins[i];
+  const nearX = Math.max(car.x, Math.min(coin.x, car.x + car.w));
+  const nearY = Math.max(car.y, Math.min(coin.y, car.y + car.h));
+  const gapX = coin.x - nearX;
+  const gapY = coin.y - nearY;
+
+  if (gapX ** 2 + gapY ** 2 <= coin.r ** 2) {
+    coins.splice(i, 1);
+    score++;
+    status.textContent = coins.length
+      ? `Coins: ${score}` : `Coins: ${score}. All collected!`;
+  }
+}
+```
+
+The nested `Math.min()` and `Math.max()` keep `nearX` between the car's left and right edges and `nearY` between its top and bottom edges. If the coin's center lies beside the car, these values are on the car's nearest edge. `gapX ** 2 + gapY ** 2` is the **squared distance** to that point; comparing it with `coin.r ** 2` avoids calculating a square root. Removing a touched coin means it cannot score again. The loop goes backward because removing an array item shifts later items left.
+
+### Step 7: Repeat update and draw
+
+After the `update()` and `draw()` functions, start the animation loop:
+
+```javascript
+function loop() {
+  update();
+  draw();
+  requestAnimationFrame(loop);
+}
+draw();
+requestAnimationFrame(loop);
+```
+
+One frame changes the game data, clears and redraws the picture, then asks the browser for another frame. The first `draw()` shows the starting scene immediately. **Test:** Touch one coin and read the new score. Drive through its old location; the score should stay the same. Collect all three for the final message.
+
+[PLAY THE FIRST VERSION](../games/collecting-car/01-first-drive.html). Open its one-file source beside your work to compare the placement of the functions and the extra road and outline drawing. Type one stage at a time instead of copying the whole script at once.
+
+## Extend the same game: surprise treasures
+
+The first version has fixed coins and ends after three pickups. Keep its car, key handling, drawing loop, and collision idea. The following rounds change one part of the game at a time.
+
+### Step 8: Place treasures at random positions
+
+Make each new treasure with a center and radius. Leaving a radius of space at each edge keeps the entire circle visible:
+
+```javascript
+const r = 12;
+const x = r + Math.random() * (canvas.width - 2 * r);
+const y = r + Math.random() * (canvas.height - 2 * r);
+```
+
+`Math.random()` returns a number from `0` up to, but not including, `1`. So `x` stays between the left and right safe limits. Put this calculation in a function that returns one coin object:
+
+```javascript
+function makeCoin() {
+  const r = 12;
+  let x, y;
+  do {
+    x = r + Math.random() * (canvas.width - 2 * r);
+    y = r + Math.random() * (canvas.height - 2 * r);
+  } while (x > car.x - 2 * r && x < car.x + car.w + 2 * r &&
+           y > car.y - 2 * r && y < car.y + car.h + 2 * r);
+  return { x: x, y: y, r: r };
+}
+```
+
+The `do ... while` tries again if a candidate is in a padded area around the car. For this first change, replace the fixed `coins` array with `const coins = [];`, then make four coins with `for (let i = 0; i < 4; i++) coins.push(makeCoin());`. In the pickup block, add `coins.push(makeCoin())` after removing and scoring. This makes collection continue instead of ending after three coins, so change the status text to show only the current coin count. Keep the same coin drawing and collision code. **Check:** Refresh several times; coins should move but remain fully visible. A pickup should bring in a replacement.
+
+### Step 9: Give treasures kinds and values
+
+Store each kind's name, color, and points together:
+
+```javascript
+const kinds = [
+  { name: "coin", color: "#ffd34e", points: 1 },
+  { name: "gem", color: "#bd74ed", points: 3 },
+  { name: "star", color: "#ff765e", points: 5 }
+];
+const kind = kinds[Math.floor(Math.random() * kinds.length)];
+return { x: x, y: y, r: r, kind: kind };
+```
+
+Multiplying a random number by `kinds.length` and rounding down picks one valid array position. The three kinds have equal chances. Put the `kinds` array **before** the function. Then rename `makeCoin()` to `makeTreasure()` and put the last two lines **inside that function**, replacing the old `return` line. Rename `coins` to `treasures` and `coin` to `treasure` in the array, drawing loop, and pickup loop. Start four treasures with `treasures.push(makeTreasure())` and make a replacement after each pickup. In the drawing loop, use `treasure.kind.color` for the circle. Draw its first letter too, so color is not the only clue:
+
+```javascript
+ctx.beginPath();
+ctx.arc(treasure.x, treasure.y, treasure.r, 0, Math.PI * 2);
+ctx.fillStyle = treasure.kind.color;
+ctx.fill();
+ctx.fillStyle = "#19324b";
+ctx.font = "bold 13px system-ui";
+ctx.textAlign = "center";
+ctx.textBaseline = "middle";
+ctx.fillText(treasure.kind.name[0].toUpperCase(), treasure.x, treasure.y);
+```
+
+In the pickup rule, use `score += treasure.kind.points` instead of `score++`. A coin adds one, a gem three, and a star five. Show the kind and total in `status.textContent`. **Check:** Read the score before and after each pickup and compare the difference with the kind's value.
+
+### Step 10: Win at 20 points
+
+Start with `let playing = true`. After a pickup awards points, check the total. A treasure may carry the score **past** 20; reaching or passing 20 wins.
+
+```javascript
+if (score >= 20) {
+  playing = false;
+  status.textContent = `You win with ${score} points!`;
+}
+```
+
+At the start of `update()`, use `if (!playing) return;` so movement and pickups stop after the win. The final picture can stay on screen. In the complete version, the win check happens **before** a replacement treasure is made.
+
+[PLAY THE SURPRISE-TREASURE VERSION](../games/collecting-car/02-treasure-types.html). Compare it with the first stage: find the new `kinds` array, `makeTreasure()`, treasure drawing, point award, and win check. They are additions to the same game, not a new chapter or a new starting project.
+
+## Level-up challenges {.unnumbered}
+
+1. Add a fourth coin to the first version. Predict the final score before you test it.
+2. Add a **map** treasure worth two points. Give it a different letter and color, then check the score increase.
+3. Add a restart button that resets the car, score, treasures, and `playing` value.
+
+## Check your development flow {.unnumbered}
+
+Point to the canvas in HTML and explain how JavaScript finds it. Draw a box and circle on paper with their coordinates. Trace one pickup from key press to movement, collision, removal, and score update. Bouncing Ball comes next to study velocity and wall response with one moving shape.

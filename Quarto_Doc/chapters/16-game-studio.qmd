@@ -2,7 +2,7 @@
 
 ::: {.chapter-banner}
 
-[GAME 15 | Design Your Own Game]{.game-title}
+[GAME 16 | Design Your Own Game]{.game-title}
 
 [Design]{.skill-chip} [Playtesting]{.skill-chip} [Modules]{.skill-chip}
 

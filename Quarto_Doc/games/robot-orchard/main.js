@@ -1,15 +1,15 @@
 import { createInput } from '../shared/input.js';
 import { fixedLoop } from '../shared/loop.js';
-import { loadImage, loadJSON, announce } from '../shared/assets.js';
+import { loadImage, announce } from '../shared/assets.js';
 import { clamp } from '../shared/math.js';
 import { createWorld, stepWorld } from './world.js';
+import { level } from './level.js';
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
 const input = createInput(canvas);
 const names = ['robot-strip', 'gem', 'ground', 'bug', 'portal', 'background'];
 const images = await Promise.all(names.map(name => loadImage(`../assets/2d/${name}.svg`)));
 const art = Object.fromEntries(names.map((name, i) => [name, images[i]]));
-const level = await loadJSON('./level.json');
 const sound = new Audio('../assets/audio/collect.wav');
 sound.volume = 0.2;
 let world = createWorld(level), debug = false;

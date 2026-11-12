@@ -30,23 +30,24 @@ book:
     - chapters/10-catch-the-star.qmd
   - part: Build a Local 2D Game
     chapters:
-    - chapters/11-bouncing-ball.qmd
-    - chapters/12-pong.qmd
-    - chapters/13-breakout.qmd
-    - chapters/14-snake.qmd
+    - chapters/11-collecting-car.qmd
+    - chapters/12-bouncing-ball.qmd
+    - chapters/13-pong.qmd
+    - chapters/14-breakout.qmd
+    - chapters/15-snake.qmd
   - part: 2D Games in Server 
     chapters:
-    - chapters/15-game-studio.qmd
-    - chapters/16-real-time-2d.qmd
-    - chapters/17-collision-and-platforms.qmd
-    - chapters/18-custom-2d-assets.qmd
-    - chapters/19-robot-orchard.qmd
+    - chapters/16-game-studio.qmd
+    - chapters/17-real-time-2d.qmd
+    - chapters/18-collision-and-platforms.qmd
+    - chapters/19-custom-2d-assets.qmd
+    - chapters/20-robot-orchard.qmd
   - part: Explore 3D with Three.js and Rapier
     chapters:
-    - chapters/20-first-threejs-world.qmd
-    - chapters/21-custom-3d-assets.qmd
-    - chapters/22-rapier-physics.qmd
-    - chapters/23-marble-quest.qmd
+    - chapters/21-first-threejs-world.qmd
+    - chapters/22-custom-3d-assets.qmd
+    - chapters/23-rapier-physics.qmd
+    - chapters/24-marble-quest.qmd
   - references.qmd
   appendices:
   - appendices/a-cheat-sheet.qmd

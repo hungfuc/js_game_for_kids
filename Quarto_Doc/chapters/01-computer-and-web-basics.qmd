@@ -90,7 +90,6 @@ These are real web-project file names. `index.html` describes the page, `styles.
 | Program | `.js` | Run the game instructions. |
 | Picture | `.svg`, `.png` | Display an image or use it in a game drawing. |
 | Sound | `.wav`, `.mp3` | Load audio that the game can play. |
-| Data | `.json` | Read organized information, such as a level layout. |
 | 3D model | `.glb` | Supply model data to the later 3D game code. |
 
 ::: {.callout-tip title="Try It: Find a file and its folder" icon="false"}
@@ -209,7 +208,7 @@ Before you make a game, meet the tools you will use. A **computer** runs program
 
 ::: {.callout-important title="When do I need to install a local web server?" icon="false"}
 
-**Chapters 3–15:** the supplied one-file games open directly in a browser. **Chapters 16–23:** all six Game Lab projects require a local HTTP server. Install **Node.js LTS** once from [nodejs.org/en/download](https://nodejs.org/en/download), then use the included Windows or Mac launcher each time you play. The [Game Lab guide](../appendices/e-game-lab.qmd) has the game-by-game requirements and step-by-step installation. The four 3D projects also need internet for library downloads by default.
+**Chapters 3–17:** the supplied one-file games open directly in a browser. **Chapters 18–25:** all six Game Lab projects require a local HTTP server. Install **Node.js LTS** once from [nodejs.org/en/download](https://nodejs.org/en/download), then use the included Windows or Mac launcher each time you play. The [Game Lab guide](../appendices/e-game-lab.qmd) has the game-by-game requirements and step-by-step installation. The four 3D projects also need internet for library downloads by default.
 
 :::
 
@@ -234,7 +233,6 @@ The end of a file name after the final dot is its **file extension**. It helps p
 | `index.html` | The page structure a browser opens. |
 | `main.js` | JavaScript instructions for the browser. |
 | `style.css` | Colors, sizes, and other visual choices. |
-| `level.json` | Organized game data, such as a level layout. |
 | `robot.svg` | A picture made from shapes and lines. |
 
 The extension is important. `index.html` and `index.html.txt` are different files: the first is a web page, while the second is usually treated as ordinary text. Some computers hide extensions, so check the full name when you save a file. Do not rename a file just to give it a new extension; save it in the right kind of file from the start.
@@ -313,7 +311,7 @@ If double-clicking opens an editor instead of a browser, right-click the file an
 
 Some later games use several JavaScript files, images, level-data files, or 3D models. A **web server** is a small program that hands files to a browser when the browser asks for them. It is like a careful librarian: the browser asks for a particular file, and the server gives back that file.
 
-For a one-file beginner game, `file:///` is enough. For a project that uses JavaScript `import`, JSON data, or files loaded by the game, start a **local web server** instead. A local server runs only on your own computer and gives the page an address such as `http://127.0.0.1:8000/`. Modern browsers use extra safety rules for those multi-file requests, so opening the HTML by double-clicking may not work.
+For a one-file beginner game, `file:///` is enough. For a project that uses JavaScript `import` or loads other files while it runs, start a **local web server** instead. A local server runs only on your own computer and gives the page an address such as `http://127.0.0.1:8000/`. Modern browsers use extra safety rules for those multi-file requests, so opening the HTML by double-clicking may not work.
 
 `127.0.0.1` means “this same computer.” Starting this book's local server does not put your game on the internet or let classmates visit it. The Game Lab instructions in [Appendix E](../appendices/e-game-lab.qmd) show exactly how to start it.
 

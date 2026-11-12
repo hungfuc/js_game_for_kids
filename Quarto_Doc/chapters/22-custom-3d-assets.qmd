@@ -187,7 +187,7 @@ Export a different-colored robot and load it into the Explorer. Next, change the
 :::
 
 
-**Companion workshop:** [3D Asset Workshop](../games/asset-workshop/index.html), [workshop source](../games/asset-workshop/main.js), and [model specifications](../games/assets/3d/model-specifications.json). **Included models:** [robot.glb](../games/assets/3d/robot.glb), [crate.glb](../games/assets/3d/crate.glb), and [gem.glb](../games/assets/3d/gem.glb).
+**Companion workshop:** [3D Asset Workshop](../games/asset-workshop/index.html), [workshop source](../games/asset-workshop/main.js), and [model specifications](../games/assets/3d/model-specifications.md). **Included models:** [robot.glb](../games/assets/3d/robot.glb), [crate.glb](../games/assets/3d/crate.glb), and [gem.glb](../games/assets/3d/gem.glb).
 
 ## Check your development flow {.unnumbered}
 

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Treasure Car: Surprise Treasures</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; font: 18px system-ui, sans-serif; color: #19324b; background: #e9f7f5; }
+    main { width: min(94vw, 660px); padding: 20px; background: white; border: 3px solid #19324b; border-radius: 18px; }
+    h1 { margin: 0; color: #125a70; }
+    canvas { display: block; width: 100%; height: auto; border: 2px solid #19324b; background: #d8f2df; }
+    #status { min-height: 1.5em; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Treasure Car: Surprise Treasures</h1>
+    <p>Drive with the arrow keys. Collect coins, gems, and stars. Reach 20 points!</p>
+    <canvas id="game" width="600" height="360" aria-label="A car collecting randomly placed treasures in a garden"></canvas>
+    <p id="status" role="status">Score: 0 / 20</p>
+  </main>
+  <script>
+    const canvas = document.getElementById("game");
+    const ctx = canvas.getContext("2d");
+    const status = document.getElementById("status");
+    const keys = {};
+    const car = { x: 280, y: 160, w: 40, h: 28, speed: 3 };
+    const kinds = [
+      { name: "coin", color: "#ffd34e", points: 1 },
+      { name: "gem", color: "#bd74ed", points: 3 },
+      { name: "star", color: "#ff765e", points: 5 }
+    ];
+    const treasures = [];
+    let score = 0;
+    let playing = true;
+
+    function makeTreasure() {
+      // Leave a margin so the whole treasure stays on the canvas.
+      const r = 12;
+      let x, y;
+      do {
+        x = r + Math.random() * (canvas.width - 2 * r);
+        y = r + Math.random() * (canvas.height - 2 * r);
+      } while (x > car.x - 2 * r && x < car.x + car.w + 2 * r &&
+               y > car.y - 2 * r && y < car.y + car.h + 2 * r);
+      const kind = kinds[Math.floor(Math.random() * kinds.length)];
+      return { x, y, r, kind };
+    }
+    for (let i = 0; i < 4; i++) treasures.push(makeTreasure());
+
+    window.addEventListener("keydown", event => {
+      if (event.key.startsWith("Arrow")) event.preventDefault();
+      keys[event.key] = true;
+    });
+    window.addEventListener("keyup", event => { keys[event.key] = false; });
+    window.addEventListener("blur", () => { for (const key in keys) keys[key] = false; });
+
+    function update() {
+      if (!playing) return;
+      if (keys.ArrowLeft) car.x -= car.speed;
+      if (keys.ArrowRight) car.x += car.speed;
+      if (keys.ArrowUp) car.y -= car.speed;
+      if (keys.ArrowDown) car.y += car.speed;
+      car.x = Math.max(0, Math.min(canvas.width - car.w, car.x));
+      car.y = Math.max(0, Math.min(canvas.height - car.h, car.y));
+      for (let i = treasures.length - 1; i >= 0; i--) {
+        const treasure = treasures[i];
+        const nearX = Math.max(car.x, Math.min(treasure.x, car.x + car.w));
+        const nearY = Math.max(car.y, Math.min(treasure.y, car.y + car.h));
+        if ((treasure.x - nearX) ** 2 + (treasure.y - nearY) ** 2 <= treasure.r ** 2) {
+          score += treasure.kind.points;
+          treasures.splice(i, 1);
+          status.textContent = `Score: ${score} / 20. ${treasure.kind.name} collected!`;
+          if (score >= 20) {
+            playing = false;
+            status.textContent = `You win with ${score} points!`;
+            break;
+          }
+          treasures.push(makeTreasure());
+        }
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#bde7c6";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.strokeStyle = "#ffffff";
+      ctx.lineWidth = 3;
+      ctx.setLineDash([16, 12]);
+      ctx.beginPath(); ctx.moveTo(0, 180); ctx.lineTo(600, 180); ctx.stroke();
+      ctx.setLineDash([]);
+      for (const treasure of treasures) {
+        ctx.beginPath(); ctx.arc(treasure.x, treasure.y, treasure.r, 0, Math.PI * 2);
+        ctx.fillStyle = treasure.kind.color; ctx.fill();
+        ctx.strokeStyle = "#19324b"; ctx.lineWidth = 2; ctx.stroke();
+        ctx.fillStyle = "#19324b";
+        ctx.font = "bold 13px system-ui";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(treasure.kind.name[0].toUpperCase(), treasure.x, treasure.y);
+      }
+      ctx.fillStyle = "#1675b8";
+      ctx.fillRect(car.x, car.y, car.w, car.h);
+      ctx.fillStyle = "#94d8fa";
+      ctx.fillRect(car.x + 8, car.y + 4, 24, 11);
+      ctx.fillStyle = "#18324b";
+      ctx.fillRect(car.x + 5, car.y + 20, 9, 8);
+      ctx.fillRect(car.x + 27, car.y + 20, 9, 8);
+    }
+
+    function loop() { update(); draw(); requestAnimationFrame(loop); }
+    draw();
+    requestAnimationFrame(loop);
+  </script>
+</body>
+</html>

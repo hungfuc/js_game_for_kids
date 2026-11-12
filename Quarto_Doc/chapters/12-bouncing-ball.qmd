@@ -1,8 +1,8 @@
-# Draw Your Own Game World {#sec-ch11}
+# Explore Motion with Bouncing Ball {#sec-ch11}
 
 ::: {.chapter-banner}
 
-[GAME 11 | Bouncing Ball]{.game-title}
+[GAME 12 | Bouncing Ball]{.game-title}
 
 [Canvas]{.skill-chip} [Animation]{.skill-chip} [Velocity]{.skill-chip}
 
@@ -10,15 +10,15 @@
 
 ## Overview {.unnumbered}
 
-Canvas is different from ordinary HTML. Instead of moving page elements, your code redraws the game world frame after frame.
+The collecting car introduced canvas drawing and a game loop. This focused experiment uses one moving ball to study velocity and wall response before Pong.
 
 ## Learning Objectives {.unnumbered}
 
 By the end of this chapter, you can:
 
-- create a canvas
-- draw shapes with a 2D context
-- animate with `requestAnimationFrame`
+- draw a ball with a 2D context
+- change its position using velocity
+- reverse velocity when it reaches a wall
 
 ::: {.callout-note .big-idea title="Structure → Style → Behavior" icon="false"}
 
@@ -32,13 +32,13 @@ Use this plan for the examples and exercises below. Reuse parts that already wor
 
 :::
 
-## Meet canvas
+## Use canvas for motion
 
 The canvas element is a rectangular drawing surface. JavaScript asks it for a 2D drawing context.
 
 ![The animation/game loop repeats update and draw work.](../figures/chapter_07/animation-loop.png){#fig-ch11 fig-alt="A cycle connects read input, update state, draw, and next frame." width="100%"}
 
-**Read the picture:** Each frame is one trip around the cycle. Bouncing Ball has no keyboard input yet, so it begins by updating position. The next chapter adds player input before movement.
+**Read the picture:** Each frame is one trip around the cycle. Bouncing Ball runs without keyboard input, so it begins by updating position. Pong, the next chapter, combines the loop with paddle input.
 
 ```javascript
 const canvas = document.getElementById("game");

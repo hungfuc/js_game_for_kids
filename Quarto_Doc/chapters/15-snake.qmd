@@ -2,7 +2,7 @@
 
 ::: {.chapter-banner}
 
-[GAME 14 | Snake]{.game-title}
+[GAME 15 | Snake]{.game-title}
 
 [Grid cells]{.skill-chip} [Arrays]{.skill-chip} [Game state]{.skill-chip}
 

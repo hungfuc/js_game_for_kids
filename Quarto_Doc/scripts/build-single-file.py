@@ -10,10 +10,14 @@ import re
 
 def main() -> None:
     root = Path(__file__).resolve().parents[1]
-    chapters = sorted((root / "chapters").glob("*.qmd"))
+    chapter_names = re.findall(r"^\s+- (chapters/[^\s]+\.qmd)\s*$",
+                               (root / "_quarto.yml").read_text(encoding="utf-8"), re.M)
+    chapters = [root / name for name in chapter_names]
     appendices = sorted((root / "appendices").glob("*.qmd"))
     if not chapters:
-        raise SystemExit("No chapter files were found in chapters/.")
+        raise SystemExit("No chapters were listed in _quarto.yml.")
+    if any(not path.is_file() for path in chapters):
+        raise SystemExit("A chapter listed in _quarto.yml is missing.")
     files = [root / "index.qmd", *chapters, *appendices, root / "references.qmd"]
     parts = ['---\ntitle: "JavaScript Game Programming for Kids"\n'
              'subtitle: "From browser games to dynamic 2D and 3D worlds"\nauthor: "Hung-Fu Chang, Ph.D. and Wenhui Zhu, Ph.D."\n---']

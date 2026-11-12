@@ -167,14 +167,14 @@ The following tables cover the HTML used in the chapter code and the playable co
 | --- | --- | --- | --- |
 | Document | `<html>`, `<head>`, `<body>` | Whole document, page information, visible content | Complete game pages throughout the book |
 | Metadata and resources | `<meta>`, `<title>`, `<link>` | Encoding/viewport, tab title, stylesheet or tab icon | Chapters 4–7, 9, 11–15; Game Lab pages |
-| Code containers | `<style>`, `<script>` | Embedded CSS; embedded or external JavaScript/data | Chapters 6–15; module projects in Chapters 16–23 |
+| Code containers | `<style>`, `<script>` | Embedded CSS; embedded or external JavaScript/data | Chapters 6–16; module projects in Chapters 17–24 |
 | Main structure | `<main>`, `<section>` | Main content and a related section | Chapter 3, Monster Swarm, canvas games, Game Lab |
 | Headings and text | `<h1>`, `<h2>`, `<p>` | Main heading, subsection heading, paragraph | Titles, instructions, scores, and messages |
 | General groups | `<div>`, `<span>` | Container for a group; small part of a line | Chapter 9 monster row and score; Chapter 10 star; 3D stage |
 | Lists | `<ul>`, `<ol>`, `<li>` | Bulleted list, numbered list, one list item | Game Maker HQ missions; ordered missions in extra workspace examples |
 | Navigation | `<a>` | Link to another page, a resource, or an ID such as `href="#missions"` | Game Lab menu and Back links |
 | Pictures | `<img>` | Loads the picture named by `src`; `alt` supplies its text alternative | Chapter 4 gem; Chapter 7 image events |
-| Drawing | `<canvas>` | Drawing surface with a coordinate space | Chapters 11–19; created by Three.js in Chapters 20–23 |
+| Drawing | `<canvas>` | Drawing surface with a coordinate space | Chapters 11–20; created by Three.js in Chapters 21–24 |
 | Form group | `<form>` | Groups controls for collecting input | Game Maker HQ player card |
 | Control label | `<label>` | Gives a control an understandable name | Player card and Game Lab choices |
 | Input and action | `<input>`, `<button>` | Text/checkbox/color and other controls; a pressable action | Chapters 3–5; later game toolbars |
@@ -209,7 +209,7 @@ An attribute's meaning depends on its element. `type="button"` on a button and `
 | Starting input | `value`, `placeholder` | `value` sets initial input content or an option's data value. `placeholder` is a temporary hint in an empty text input, not a label. |
 | Starting state | `checked` | Starts a checkbox or radio button checked. It is a Boolean attribute: its presence means true; `checked="false"` still checks it. |
 | Visibility | `hidden` | Initially hides the Game Lab error box. For the plain `hidden` used here, omit it to show the box; `hidden="false"` still hides it. |
-| Script/data kind | `type` | On `script`: `module` enables JavaScript modules; `importmap` identifies mapping data. On an icon `link`, `image/svg+xml` identifies the image format. |
+| Script/data kind | `type` | On `script`, `module` enables JavaScript modules. On an icon `link`, `image/svg+xml` identifies the image format. |
 | Accessible name | `aria-label`, `aria-labelledby` | Supply a name directly, or refer to the ID of visible text that names the region/control. Used for game surfaces, controls, and extra workspace sections. |
 | Live message | `role`, `aria-live` | `role="status"` identifies a status message. `aria-live="polite"` asks assistive technology to announce changes at a suitable pause. |
 | Decorative content | `aria-hidden` | `aria-hidden="true"` keeps decorative content out of the accessibility tree. It does not visually hide it. |
@@ -629,11 +629,11 @@ canvas {
 }
 ```
 
-HTML `width="500" height="300"` sets the drawing coordinate space. CSS sizes its display box. In this example, a narrower container can show a smaller version of the same drawing without changing those coordinates. `height: auto` keeps the canvas's proportions. Arbitrarily changing both displayed dimensions can stretch the picture. Chapter 16 explains how pointer coordinates must be scaled when drawing size and display size differ. See the [MDN canvas reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/canvas).
+HTML `width="500" height="300"` sets the drawing coordinate space. CSS sizes its display box. In this example, a narrower container can show a smaller version of the same drawing without changing those coordinates. `height: auto` keeps the canvas's proportions. Arbitrarily changing both displayed dimensions can stretch the picture. Chapter 17 explains how pointer coordinates must be scaled when drawing size and display size differ. See the [MDN canvas reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/canvas).
 
 The canvas stays blank until JavaScript draws. Fallback text does not describe every drawn object, and an accessible label does not make all canvas gameplay accessible. Keep useful instructions and status information in ordinary HTML alongside the game.
 
-For Chapters 20–23, the HTML starts with a host such as `<div id="stage"></div>`. Three.js creates a canvas and attaches it inside that div. The Game Lab gives `#stage` a height, rounded corners, and `overflow: hidden` so drawing outside its box is clipped. `#stage canvas` styles the child canvas. CSS controls the page frame; JavaScript and the renderer control the 3D world.
+For Chapters 21–24, the HTML starts with a host such as `<div id="stage"></div>`. Three.js creates a canvas and attaches it inside that div. The Game Lab gives `#stage` a height, rounded corners, and `overflow: hidden` so drawing outside its box is clipped. `#stage canvas` styles the child canvas. CSS controls the page frame; JavaScript and the renderer control the 3D world.
 
 ### CSS property summary: text and appearance {.unnumbered .unnumbered}
 
@@ -734,7 +734,7 @@ Controls have built-in browser behavior even before you write game logic. A text
 | --- | --- | --- |
 | Text | `<input type="text">` | Player nickname |
 | Checkbox | `<input type="checkbox">` | Sound or wall-blocking on/off |
-| Color | `<input type="color" value="#20b7a5">` | Robot body color in the Chapter 21 Asset Workshop |
+| Color | `<input type="color" value="#20b7a5">` | Robot body color in the Chapter 22 Asset Workshop |
 | Choice menu | `<select><option value="box">Rectangle</option></select>` | Game type or Collision Playground shape; the data value can differ from visible text |
 | Action | `<button type="button">Restart</button>` | A game action connected by JavaScript |
 | Extra numeric input | `<input type="number" min="1" max="10">` | A numeric choice in the extra workspace examples |
@@ -747,15 +747,14 @@ You can connect a label with `for` and a matching ID, as in the player card. You
 
 ### Recognize the three ways scripts appear {.unnumbered .unnumbered}
 
-You do not need to write a module or an import map in this reference. Learn what their HTML wrappers mean so the later projects have a familiar page structure.
+You do not need to write a module in this reference. Learn what its HTML wrapper means so the later projects have a familiar page structure.
 
 | Script form | HTML | Meaning and later use |
 | --- | --- | --- |
-| Inline ordinary script | `<script>` followed by code and `</script>` | Code stored in the page; Chapters 6–15 usually put it after the visible elements. |
-| External module | `<script type="module" src="game.js"></script>` | Load a JavaScript file that can import/export other modules; introduced in Chapter 15 and used in the Game Lab. |
-| Import map | `<script type="importmap">` followed by JSON and `</script>` | Data mapping module names to resource addresses; Chapter 20 uses it for Three.js. Put it before the module that needs the map. |
+| Inline ordinary script | `<script>` followed by code and `</script>` | Code stored in the page; Chapters 6–16 usually put it after the visible elements. |
+| External module | `<script type="module" src="game.js"></script>` | Load a JavaScript file that can import/export other modules; introduced in Chapter 17 and used in the Game Lab. |
 
-Module scripts are deferred until the HTML has been parsed, and their dependencies must load before they can run. Module-based game projects use the local server introduced in Chapter 1 and set up in the Game Lab guide. An import map contains data, not game instructions; Chapter 20 explains its actual entries. See [MDN: script](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script).
+Module scripts are deferred until the HTML has been parsed, and their dependencies must load before they can run. Module-based game projects use the local server introduced in Chapter 1 and set up in the Game Lab guide. See [MDN: script](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script).
 
 ## Rehearse the page that Chapter 6 will use {.unnumbered #ref-monster-page}
 
@@ -842,7 +841,7 @@ Use this table when practicing the smaller examples as well as the complete page
 | Gem picture | An image with a source and text alternative | Size, padding, border, shadow | Collect the gem on an action; Chapter 7's image example. |
 | Static star arena | A game div containing a star span | Relative parent; absolute star with left/top | Move the star on clicks and timer ticks; Chapter 10. |
 | Canvas preview | A drawing surface with dimensions and instructions | Border, background, responsive display size | Draw and move game objects; Chapters 11 onward. |
-| 3D stage preview | A stage host, controls, and status area | Stage height and clipped drawing area | Load and render a 3D world; Chapters 20–23. |
+| 3D stage preview | A stage host, controls, and status area | Stage height and clipped drawing area | Load and render a 3D world; Chapters 21–24. |
 | Monster Clicker rehearsal | Title, monster, message, score | Card and monster button styling | Prepare memory in Chapter 6; connect the hit action in Chapter 7. |
 
 The font, image-frame, selector, and layout snippets each practice **Step 2: Style the scene** on one of these existing structures. The HTML control and container snippets practice **Step 1: Build the scene structure**. For an extra workspace page, trace the same three stages before changing it.
@@ -854,7 +853,7 @@ The font, image-frame, selector, and layout snippets each practice **Step 2: Sty
 | Chapters 6–8 | Heading → monster/actions → message and score → script | Font, color, frame, spacing, ID selectors | Variables, clicks, score updates, decisions |
 | Chapter 9 | Main card → score span → container of monster buttons → Power Hit/message | Shared `.monster` class, Flexbox, wrapping, gap, reserved message height | Loop over monsters |
 | Chapter 10 | Heading/score → game div containing the star | Sized container, relative/absolute positioning, left/top | Random positions and timers |
-| Chapters 11–15 | Heading/instructions → canvas → status and optional Restart | Canvas frame, block layout, centered card | Drawing and game rules |
-| Chapters 16–19 | Main → panel → toolbar/choices → status → canvas → movement controls → error area | Shared `lab.css`, flexible toolbar, responsive canvas, focus and touch rules | Modules, loading, real-time input and simulation |
-| Chapters 20–23 | Same game-page pattern, with a stage div containing a renderer-created canvas | Stage height, child selector, overflow, responsive size limits | Imports, renderer, models, and physics where needed |
+| Chapters 11–16 | Heading/instructions → canvas → status and optional Restart | Canvas frame, block layout, centered card | Drawing and game rules |
+| Chapters 17–20 | Main → panel → toolbar/choices → status → canvas → movement controls → error area | Shared `lab.css`, flexible toolbar, responsive canvas, focus and touch rules | Modules, loading, real-time input and simulation |
+| Chapters 21–24 | Same game-page pattern, with a stage div containing a renderer-created canvas | Stage height, child selector, overflow, responsive size limits | Imports, renderer, models, and physics where needed |
 

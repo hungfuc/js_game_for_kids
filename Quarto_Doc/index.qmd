@@ -25,7 +25,7 @@ Repeat **Read → Code → Exercise** throughout the chapter. For game-building 
 
 ## Choose your reading path {.unnumbered}
 
-Chapters 1-15 establish the web and JavaScript foundations. Chapters 16-19 build a complete 2D adventure. Chapters 20-23 introduce Three.js, custom 3D models, and Rapier physics. The later projects take more time and combine earlier ideas; work through them in small experiments.
+Chapters 1-17 establish the web and JavaScript foundations. Chapters 18-21 build a complete 2D adventure. Chapters 22-25 introduce Three.js, custom 3D models, and Rapier physics. The later projects take more time and combine earlier ideas; work through them in small experiments.
 
 Purple **Advanced Study** blocks are optional deeper dives into HTML, CSS, JavaScript, and game systems. They start open; you can collapse them while following the main path and return later.
 
@@ -62,7 +62,7 @@ Rose blocks help you check your understanding.
 
 A **complete example** includes the setup for that small project. A **code fragment** illustrates one part of a game and relies on the variables or functions discussed nearby. Do not paste every fragment into one file without checking where it belongs: some examples replace earlier versions.
 
-Chapters 12–14 use Pong, Breakout, and Snake to explain larger game-building patterns. Each chapter includes a complete small browser example alongside fragments explaining individual rules. Locate its scene, its style, and its actions before changing a fragment. Chapters 16-23 add complete companion projects in the Game Lab. Their chapter snippets explain selected parts; the linked project folders contain the complete runnable source.
+Chapters 11–12 build the first canvas game, Treasure Car, in small steps. Chapters 14–16 use Pong, Breakout, and Snake to explain larger game-building patterns. Each chapter includes a complete small browser example alongside fragments explaining individual rules. Locate its scene, its style, and its actions before changing a fragment. Chapters 18–25 add complete companion projects in the Game Lab. Their chapter snippets explain selected parts; the linked project folders contain the complete runnable source.
 
 ## A safe learning habit {.unnumbered}
 
@@ -82,19 +82,20 @@ When a program does not work, do not immediately replace it with someone else's 
 | 8 | [Monster Decisions](chapters/08-monster-decisions.qmd) | Conditions, branches | Enforce game rules |
 | 9 | [Monster Swarm](chapters/09-monster-loops.qmd) | Arrays, loops | Process a collection of monsters |
 | 10 | [Catch the Star](chapters/10-catch-the-star.qmd) | Timers, coordinates, DOM | Change the page over time |
-| 11 | [Bouncing Ball](chapters/11-bouncing-ball.qmd) | Canvas, animation | Draw every frame yourself |
-| 12 | [Pong](chapters/12-pong.qmd) | Keyboard, game loop | Read keys while the game keeps running |
-| 13 | [Breakout](chapters/13-breakout.qmd) | Arrays, collision | Manage many objects |
-| 14 | [Snake](chapters/14-snake.qmd) | Grid logic, state | Update a world one step at a time |
-| 15 | [Game Studio](chapters/15-game-studio.qmd) | Planning, polish, final project | Design your own rules |
-| 16 | [Collision Playground](chapters/16-real-time-2d.qmd) | Input, velocity, fixed steps | Build a predictable real-time loop |
-| 17 | [Platforms and jumping](chapters/17-collision-and-platforms.qmd) | Hitboxes, collision response, gravity | Stop at walls and land on platforms |
-| 18 | [Your own 2D artwork](chapters/18-custom-2d-assets.qmd) | Sprite sheets, loading, JSON levels | Make the game look like your design |
-| 19 | [Robot Orchard](chapters/19-robot-orchard.qmd) | Scrolling, enemies, goals, restart | Finish a complete 2D adventure |
-| 20 | [Robot Island Explorer](chapters/20-first-threejs-world.qmd) | Scene, camera, renderer, 3D movement | Build and explore a 3D world |
-| 21 | [3D Asset Workshop](chapters/21-custom-3d-assets.qmd) | GLB models, origins, materials | Customize and import 3D artwork |
-| 22 | [Rapier Drop Lab](chapters/22-rapier-physics.qmd) | Bodies, colliders, bounce, fixed steps | Connect physics to the picture |
-| 23 | [Marble Quest](chapters/23-marble-quest.qmd) | Forces, sensors, scoring, respawn | Finish a 3D physics game |
+| 11 | [Treasure Car](chapters/11-collecting-car.qmd) | Canvas, drawing, movement, collection | Build one game from first shapes to surprise treasures |
+| 12 | [Bouncing Ball](chapters/12-bouncing-ball.qmd) | Velocity, wall response | Experiment with movement and edges |
+| 13 | [Pong](chapters/13-pong.qmd) | Keyboard, game loop | Read keys while the game keeps running |
+| 14 | [Breakout](chapters/14-breakout.qmd) | Arrays, collision | Manage many objects |
+| 15 | [Snake](chapters/15-snake.qmd) | Grid logic, state | Update a world one step at a time |
+| 16 | [Game Studio](chapters/16-game-studio.qmd) | Planning, polish, final project | Design your own rules |
+| 17 | [Collision Playground](chapters/17-real-time-2d.qmd) | Input, velocity, fixed steps | Build a predictable real-time loop |
+| 18 | [Platforms and jumping](chapters/18-collision-and-platforms.qmd) | Hitboxes, collision response, gravity | Stop at walls and land on platforms |
+| 19 | [Your own 2D artwork](chapters/19-custom-2d-assets.qmd) | Sprite sheets, loading, level data | Make the game look like your design |
+| 20 | [Robot Orchard](chapters/20-robot-orchard.qmd) | Scrolling, enemies, goals, restart | Finish a complete 2D adventure |
+| 21 | [Robot Island Explorer](chapters/21-first-threejs-world.qmd) | Scene, camera, renderer, 3D movement | Build and explore a 3D world |
+| 22 | [3D Asset Workshop](chapters/22-custom-3d-assets.qmd) | GLB models, origins, materials | Customize and import 3D artwork |
+| 23 | [Rapier Drop Lab](chapters/23-rapier-physics.qmd) | Bodies, colliders, bounce, fixed steps | Connect physics to the picture |
+| 24 | [Marble Quest](chapters/24-marble-quest.qmd) | Forces, sensors, scoring, respawn | Finish a 3D physics game |
 
 ## Open the Game Lab {.unnumbered}
 

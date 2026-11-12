@@ -6,7 +6,7 @@ Use **Build the scene structure → Style the scene → Program game behavior** 
 
 | Step | Where to look | What to check |
 | --- | --- | --- |
-| Build the scene structure | Project `index.html`, scene setup in `main.js`, and any level data such as Robot Orchard’s `level.json`. | Required controls, objects, starting positions, and state exist. |
+| Build the scene structure | Project `index.html`, scene setup in `main.js`, and any level data such as Robot Orchard’s `level.js`. | Required controls, objects, starting positions, and state exist. |
 | Style the scene | Linked styles in `games/shared/`, canvas drawing, sprite assets, or 3D materials and lights. | The player can distinguish the changed object and understand its feedback. |
 | Program game behavior | Input handlers, update functions, collision helpers, and game rules. | The change behaves as predicted during play, at boundaries, and after restart. |
 
@@ -14,7 +14,7 @@ For example, a new collectible needs a place and a stored collected state; a rec
 
 ## Which games need a local web server?
 
-::: {.callout-important title="Chapters 16–23: local HTTP server required" icon="false"}
+::: {.callout-important title="Chapters 18–25: local HTTP server required" icon="false"}
 
 **All six Game Lab projects require a web server.** Start the included launcher, then open the game through `http://127.0.0.1:8000/games/`. Double-clicking the game's `index.html` is not enough. Install Node.js once using the steps below; after that, double-click the launcher each time you play.
 
@@ -22,13 +22,13 @@ For example, a new collectible needs a place and a stored collected state; a rec
 
 | Game or example | Chapters | Local HTTP server? | Internet while playing? | Why? |
 | --- | --- | --- | --- | --- |
-| Structure, Style, and Behavior scene examples; Monster Clicker; Catch the Star; Bouncing Ball; Pong; Breakout; Snake; your one-file Game Studio project | 3–15 | **No** for the supplied one-file examples | No | The game code is in the HTML file. Open that file in a browser. Keep any supplied images beside it. |
-| Collision Playground | 16–17 | **Required** | No | Imports shared JavaScript modules. |
-| Robot Orchard, including its sprite and level examples | 16–19 | **Required** | No | Imports modules and requests `level.json` and local artwork. |
-| Robot Island Explorer | 20–21 | **Required** | **Yes, by default** | Imports Three.js and loads local GLB models. |
-| 3D Asset Workshop | 21 | **Required** | **Yes, by default** | Imports Three.js and its addons, and loads a local GLB model. |
-| Rapier Drop Lab | 22 | **Required** | **Yes, by default** | Imports Three.js and Rapier, then initializes physics. |
-| Marble Quest | 23 | **Required** | **Yes, by default** | Imports Three.js and Rapier, and loads local models and textures. |
+| Structure, Style, and Behavior scene examples; Monster Clicker; Catch the Star; Bouncing Ball; Pong; Breakout; Snake; your one-file Game Studio project | 3–16 | **No** for the supplied one-file examples | No | The game code is in the HTML file. Open that file in a browser. Keep any supplied images beside it. |
+| Collision Playground | 17–18 | **Required** | No | Imports shared JavaScript modules. |
+| Robot Orchard, including its sprite and level examples | 17–20 | **Required** | No | Imports modules and loads local artwork and `level.js`. |
+| Robot Island Explorer | 21–22 | **Required** | **Yes, by default** | Imports Three.js and loads local GLB models. |
+| 3D Asset Workshop | 22 | **Required** | **Yes, by default** | Imports Three.js and its addons, and loads a local GLB model. |
+| Rapier Drop Lab | 23 | **Required** | **Yes, by default** | Imports Three.js and Rapier, then initializes physics. |
+| Marble Quest | 24 | **Required** | **Yes, by default** | Imports Three.js and Rapier, and loads local models and textures. |
 
 The six projects' extra demonstration and screenshot pages also use modules and require HTTP. The older one-file games in `workspace/` (including Secret Number, Treasure Clicker, and Rock–Paper–Scissors) can open directly. If you later add module imports or `fetch()` to a one-file game, use a server for that version too.
 
@@ -123,18 +123,18 @@ Leave that terminal window open while you play. Open `http://127.0.0.1:8000/game
 
 No `npm install` is needed. If the terminal says that `node` is not recognized or not found, repeat the Node.js setup with an adult or teacher.
 
-The browser's trip is simple: browser asks for `main.js` or an image, the local server finds that file in the textbook folder, and the browser receives it. Double-clicking an HTML file is not enough for these module-based projects because module, model, and JSON loading use browser requests. Another local static server also works, but keep the whole folder tree together.
+The browser's trip is simple: browser asks for `main.js` or an image, the local server finds that file in the textbook folder, and the browser receives it. Double-clicking an HTML file is not enough for these module-based projects because module, model, and level-file loading use browser requests. Another local static server also works, but keep the whole folder tree together.
 
 ## Choose a project
 
 | Project | Chapter | Controls and purpose |
 | --- | --- | --- |
-| Collision Playground | 16–17 | Move with arrows/WASD or drag the player. Switch shape and turn wall blocking on or off. |
-| Robot Orchard | 16–19 | Start; move with A/D or left/right; jump with Space/up/W; P pauses, R restarts, H shows hitboxes. Collect every gem and enter the portal. |
-| Robot Island Explorer | 20–21 | Move with arrows/WASD; drag to orbit the camera; scroll to zoom. Collect four gems. Crates are decorative in this non-physics project. |
-| Rapier Drop Lab | 22 | Drop again; orbit the camera; show colliders. Compare three bounce coefficients. |
-| Marble Quest | 23 | Start; arrows/WASD move the marble; P pauses, R restarts, H shows colliders. Collect five gems and enter the gate. Falling costs a life. |
-| 3D Asset Workshop | 21 | Change the robot body's color, orbit the view, and export your own GLB file. |
+| Collision Playground | 17–18 | Move with arrows/WASD or drag the player. Switch shape and turn wall blocking on or off. |
+| Robot Orchard | 17–20 | Start; move with A/D or left/right; jump with Space/up/W; P pauses, R restarts, H shows hitboxes. Collect every gem and enter the portal. |
+| Robot Island Explorer | 21–22 | Move with arrows/WASD; drag to orbit the camera; scroll to zoom. Collect four gems. Crates are decorative in this non-physics project. |
+| Rapier Drop Lab | 23 | Drop again; orbit the camera; show colliders. Compare three bounce coefficients. |
+| Marble Quest | 24 | Start; arrows/WASD move the marble; P pauses, R restarts, H shows colliders. Collect five gems and enter the gate. Falling costs a life. |
+| 3D Asset Workshop | 22 | Change the robot body's color, orbit the view, and export your own GLB file. |
 
 Click the game canvas before using keys. Movement controls are intentionally world-relative in the 3D games: W/up moves toward negative Z even if you rotate the exploration camera. The lab also supplies large onscreen controls where movement is needed. These are useful alternatives, not a claim that every canvas interaction is fully accessible to every player.
 
@@ -142,17 +142,17 @@ Click the game canvas before using keys. Movement controls are intentionally wor
 
 ```text
 chapters/               The textbook's Quarto chapters
-figures/                Original diagrams with editable SVGs used by Chapters 16-23
+figures/                Original diagrams with editable SVGs used by Chapters 18-25
 games/
   index.html            Game Lab menu
   collision-lab/        Shape detection and wall-response experiment
-  robot-orchard/        Complete 2D game and editable level.json
+  robot-orchard/        Complete 2D game and editable level.js
   three-explorer/       Three.js exploration without physics
   physics-lab/          Rapier bounce experiment
   marble-quest/         Complete 3D physics game
   asset-workshop/       GLB model customization and export
   shared/               Input, loops, collision helpers, styles, 3D setup
-  assets/               Original SVG, PNG, GLB, JSON, and WAV files
+  assets/               Original SVG, PNG, GLB, JavaScript, and WAV files
 scripts/                Local server, dependency download, book builders
 start-game-lab.command  macOS double-click launcher
 start-game-lab.bat      Windows double-click launcher
@@ -165,7 +165,7 @@ The complete project folders are the source of truth for runnable code. Snippets
 
 The supplied robot sprite has four 64 by 64 frames. Edit the SVG source while keeping the 256 by 64 sheet size, or replace it with a PNG sprite sheet and update the image path. An image's transparent space is not a collider. Keep the player's physics dimensions separate from the drawing dimensions.
 
-The 3D pack contains `robot.glb`, `crate.glb`, and `gem.glb`. `model-specifications.json` records their origins and dimensions. They are rigid models without a skeleton or animation clips. Move and rotate their roots in the game; use a different animated GLB only after adding animation handling.
+The 3D pack contains `robot.glb`, `crate.glb`, and `gem.glb`. `model-specifications.md` records their origins and dimensions. They are rigid models without a skeleton or animation clips. Move and rotate their roots in the game; use a different animated GLB only after adding animation handling.
 
 The artwork and short collection sound were created for this project. The asset permission statement in `games/assets/ASSET_LICENSE.md` allows reuse and modification. It does not grant rights to unrelated images, commercial characters, or library code. When adding downloaded assets, record their source and license.
 
@@ -189,7 +189,7 @@ Check the page's visible error message and then the browser console. First check
 
 | Symptom | Check first |
 | --- | --- |
-| A model or JSON file is not found | Keep the folder tree together; check spelling, capitalization, and the Network panel. |
+| A model or level file is not found | Keep the folder tree together; check spelling, capitalization, and the Network panel. |
 | A 3D page reports a module error | Check internet/CDN access or run the optional dependency-download script. |
 | The ball passes through the ground | Check that both relevant shapes have colliders, dimensions match, and the physics world is stepped. |
 | The player stops far from a wall | Show hitboxes/colliders; compare the collision shape with the visible asset. |
